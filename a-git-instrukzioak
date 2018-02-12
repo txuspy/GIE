@@ -1,0 +1,18 @@
+Cloud 9 -an MARTXAN JARTZEKO
+git init
+git add .
+git commit -m "first commit"
+git remote add gie https://github.com/txuspy/GIE.git
+git push -u gie master
+
+unai@irunweb.com edo txuspy
+Movil656744408
+
+CLOUD 9 cuando hago algun cambio
+
+git commit -am 'el comentario'
+git push gie master
+
+ORDENADOR LOCAL
+git clone https://github.com/txuspy/GIE.git
+git pull gie master
