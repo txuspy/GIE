@@ -8,11 +8,26 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use Response;
 use Carbon\Carbon;
-
+use App\TesisDoctoralesDirectores;
+use App\TesisDoctoralesDoctorando;
+use App\Departamentos;
 
 class TesisDoctoralesController extends Controller
 {
     public function index($tipo)
+    {
+       $data = TesisDoctorales::where('tipo',$tipo)
+            ->where(function($query) {
+                $query->where('user_id', \Auth::user()->id);
+                $query->orWhereIN('id', TesisDoctoralesDirectores::where('id_autor', \Auth::user()->id_autor)->pluck('id_tesisDoctoral'));
+                $query->orWhereIN('id', TesisDoctoralesDoctorando::where('id_autor', \Auth::user()->id_autor)->pluck('id_tesisDoctoral'));
+            })
+            ->orderBy('id','DESC')
+            ->paginate(25);
+        return view('tesisDoctorales.index',compact('data', 'tipo')) ;
+    }
+
+    public function indexAll($tipo)
     {
        $data = TesisDoctorales::where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
        return view('tesisDoctorales.index',compact('data', 'tipo')) ;
@@ -26,10 +41,17 @@ class TesisDoctoralesController extends Controller
     public function store(Request $request)
     {
           $this->validate($request, [
-            'titulo_es' => 'required',
-            'tipo' => 'required'
+            'titulo_eu'    => 'required',
+            'departamento' => 'required',
+            'fechaLectura' => 'required',
+            'tipo'         => 'required'
         ]);
+        $departamento = Departamentos::find($request->departamento);
         $request['fechaLectura'] = Carbon::now('Europe/Madrid');
+
+        if($request->titulo_es==''){
+             $request['titulo_es'] = $request->titulo_eu;
+        }
         $input = $request->all();
 
         $tesisDoctoral = TesisDoctorales::create($input);
@@ -51,7 +73,7 @@ class TesisDoctoralesController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-             'titulo_es' => 'required',
+            'titulo_es' => 'required',
             'tipo' => 'required'
         ]);
         $input         = $request->all();
@@ -69,6 +91,30 @@ class TesisDoctoralesController extends Controller
             ->with('success', __('Zuzen ezabatu da'));
 
     }
+
+    public function tesisDoctoralesAjax($nombre){
+        $term = trim(Input::get('term'));
+        $terminos = explode(' ', trim($term) );
+        $results = array();
+        $array=[];
+        foreach ( $terminos as $term){
+	       	$queries = DB::table('tesisDoctorales')
+    			->select('id', $nombre)
+    			->where($nombre, 'LIKE', '%' . $term . '%')
+
+    			->take(10)
+    			->get();
+    		foreach ($queries as $query) {
+    		    if(!in_array($query->id, $array)){
+    			    $results[] = ['id' => $query->id, 'value' => $query->$nombre];
+    			    $array[] = $query->id;
+    		   }
+    		}
+	    }
+		return Response::json($results);
+    }
+
+
     public function enlazarDoctorando($id, $id_autor)
     {
          $grupoInvestigacion = TesisDoctorales::findOrFail($id);

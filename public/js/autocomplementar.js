@@ -37,6 +37,9 @@ $(document).ready(function () {
                 };
                 enlazar( config );
                 $("#"+$(this).attr('data-idUl')).append('<li class="list-group-item"><a data-id="'+config.id+'" data-idautor="'+config.id_autor+'" data-carpeta="'+config.carpeta+'" data-tipo="'+config.tipo+'" class="desenlazar"><i class="fa fa-trash deleteRelation"></i> </a>'+ui.item.value+'</li>');
+                $(this).val('');
+                $(this).focus();
+                return false;
             }
         }
     });
@@ -77,6 +80,8 @@ $(document).ready(function () {
             });
             $(".nombreDialog").val(nombreDialog.trim() );
             $(".apellidoDialog").val(apellidoDialog.trim());
+            $(this).val('');
+            $(this).focus();
         }
     });
     function enlazar(config){
@@ -111,4 +116,150 @@ $(document).ready(function () {
             error: function (data) { console.log("ERROR insertando datos "+data); }
         });
     }
+    // TITULOS de las cosas
+    // Grupo de Investigacion
+    $(".buscadorGrupoInvestigacion" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        $(this).autocomplete({
+            source: "/grupoInvestigacion/autocompletar/"+name,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                    $(this).attr('data-id')
+                    console.log("redirigir");
+                    var url = "/grupoInvestigacion/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+    // Grupo de Investigacion
+    $(".buscadorTesisDoctorales" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        $(this).autocomplete({
+            source: "/tesisDoctorales/autocompletar/"+name,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                    console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/tesisDoctorales/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+    // Proyectos
+    $(".buscadorProyectos" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        $(this).autocomplete({
+            source: "/proyectos/autocompletar/"+name,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                    console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/proyectos/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+     // Congresos
+    $(".buscadorCongresos" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        $(this).autocomplete({
+            source: "/congresos/autocompletar/"+name,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                    console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/congresos/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+      // Publicaciones
+    $(".buscadorPublicaciones" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        $(this).autocomplete({
+            source: "/programasDeIntercambio/autocompletar/"+name,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                    console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/programasDeIntercambio/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+     // Postgrados
+    $(".buscadorPostgrados" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        $(this).autocomplete({
+            source: "/postgrados/autocompletar/"+name,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                    console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/postgrados/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+    // Formaciones
+    $(".buscadorFormaciones" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        $(this).autocomplete({
+            source: "/formaciones/autocompletar/"+name,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                    console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/formaciones/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+    // Visitas
+    $(".buscadorVisitas" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        $(this).autocomplete({
+            source: "/visitas/autocompletar/"+name,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                    console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/visitas/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+
 });

@@ -39,35 +39,31 @@
     {!! Html::script('js/jqueryComunes.js') !!}
 
 </head>
-<body class="public-page">
 
-<div id="wrapper">
-    <header id="head">
+
+  <body>
+
+    <nav class="navbar navbar-inverse ">
+      <div class="container-fluid">
         @section('header')
             @include('layouts.header')
         @show
-    </header>
-    <section id="content">
-        <div class="container-fluid">
-            <div class=" row">
-                <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar">
-                    @section('sidebar')
-                        @include('layouts.menu')
-                    @show
-                </nav>
-                <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
-                    <header id="info-title">
-                        <h1>{{ config('app.name', 'GIE') }}</h1>
-                    </header>
-                     @yield('content')
-                </main>
-            </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2 ">
+           @section('sidebar')
+                @include('layouts.menu')
+            @show
         </div>
-    </section>
-    @section('footer')
-        @include('layouts.footer')
-    @show
-</div>
+          <div class="col-sm-10">
+          <h1>{{ config('app.name', 'GIE') }}</h1>
+          @yield('content')
+          </div>
+      </div>
+    </div>
     @yield('scripts')
-</body>
-</html>
+  </body>
+
+

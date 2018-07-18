@@ -5,7 +5,7 @@
 	<title>FOREST PIONEER SL</title>
 </head>
 <body>
-	Hola {{ $user->name }}
+	Nombre {{ $user->name }}
 	<br /> LARAVEL EMAIL
 	<br /> Clase email
 

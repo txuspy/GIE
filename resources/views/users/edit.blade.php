@@ -5,7 +5,7 @@
    @include('dialog.upload')
     @if(session()->has('firstTime'))
         <div id="msj-ok" class="alert alert-success alert-dismissible" role="alert">
-    		<strong> {{ __('Lehenbiziko aldia da sartzen zarela, zure datuak ondo bete.') }}</strong>
+    		<strong> {{ __('Lehenbiziko aldia da sartzen zarela, zure datuak ondo bete, eta pasahitza aldatu.') }}</strong>
     	</div>
     @endif
     <div id="msj-ok" class="alert alert-success alert-dismissible" role="alert" style="display:none">
@@ -41,8 +41,8 @@
 
     	<div class="col-xs-10 col-sm-10 col-md-10">
             <div class="form-group">
-                <strong>{{ __('LDAP') }}:</strong>
-                {!! Form::text('ldap', null, array('placeholder' => __('LDAP'),'class' => 'form-control')) !!}
+                <strong>{{ __('Webunits') }}:</strong>
+                {!! Form::text('ldap', null, array('placeholder' => __('Webunits'),'class' => 'form-control')) !!}
             </div>
         </div>
         <div class="col-xs-10 col-sm-10 col-md-10">
@@ -54,14 +54,29 @@
         <div class="col-xs-10 col-sm-10 col-md-10">
             <div class="form-group">
                 <strong>{{ __('Pasahitza') }} :</strong>
-                {!! Form::password('password', array('placeholder' =>  __('Pasahitza'),'class' => 'form-control')) !!}
+                @if(session()->has('firstTime'))
+                     <div class="alert alert-danger">
+                        <strong>{{ __('Pasahitza') }}</strong>
+                    </div>
+                @endif
+                @if(session()->has('firstTime'))
+                    {!! Form::input('password', 'password', __('Pasahitza'), ['class' => 'form-control'])!!}
+                @else
+                    {!! Form::password('password', array('placeholder' =>  __('Pasahitza'),'class' => 'form-control')) !!}
+                @endif
             </div>
         </div>
         <div class="col-xs-10 col-sm-10 col-md-10">
             <div class="form-group">
                 <strong>{{ __('Pasahitza Konfirmatu') }}:</strong>
+                @if(session()->has('firstTime'))
+                    <div class="alert alert-danger">
+                        <strong>{{ __('Pasahitza Konfirmatu') }}</strong>
+                    </div>
+                @endif
                 {!! Form::password('confirm-password', array('placeholder' => __('Pasahitza Konfirmatu'),'class' => 'form-control')) !!}
             </div>
+
         </div>
          <div class="col-xs-12">
             <div class="form-group" >

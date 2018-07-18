@@ -8,10 +8,22 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use Response;
 use App\Autor;
+use App\CongresosProfesores;
 
 class CongresosController extends Controller
 {
     public function index()
+    {
+       $data = Congresos:: where(function($query) {
+                $query->where('user_id', \Auth::user()->id);
+                $query->orWhereIN('id', CongresosProfesores::where('id_autor', \Auth::user()->id_autor)->pluck('id_congreso'));
+            })
+            ->orderBy('id','DESC')
+            ->paginate(25);
+       return view('congresos.index',compact('data')) ;
+    }
+
+    public function indexAll()
     {
        $data = Congresos::orderBy('id','DESC')->paginate(25);
        return view('congresos.index',compact('data')) ;
@@ -25,9 +37,19 @@ class CongresosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'congreso_es' => 'required',
-            'conferenciaPoster' => 'required'
+            'congreso_eu'       => 'required',
+            'conferenciaPoster' => 'required',
+            'ekarpena'          => 'required',
+            'lugar'          => 'required',
+            'desde'          => 'required',
+            'hasta'          => 'required',
+
         ]);
+
+
+        $request['congreso_es'] = $request->congreso_eu;
+
+
         $input = $request->all();
         $congreso = Congresos::create($input);
         return view('congresos.edit',compact('congreso'))
@@ -48,10 +70,17 @@ class CongresosController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'congreso_es' => 'required',
-            'conferenciaPoster' => 'required'
+            'congreso_eu'       => 'required',
+            'conferenciaPoster' => 'required',
+            'ekarpena'          => 'required',
+            'lugar'             => 'required',
+            'desde'             => 'required',
+            'hasta'             => 'required',
         ]);
+
+        $request['congreso_es'] = $request->congreso_eu;
         $input = $request->all();
+
         $congreso = Congresos::find($id);
         $congreso->update($input);
         return redirect()->route('congresos.index')
@@ -63,6 +92,29 @@ class CongresosController extends Controller
         Congresos::find($id)->delete();
         return redirect()->route('congresos.index')
             ->with('success', __('Zuzen ezabatu da'));
+    }
+
+
+    public function congresosAjax($nombre){
+        $term = trim(Input::get('term'));
+        $terminos = explode(' ', trim($term) );
+        $results = array();
+        $array=[];
+        foreach ( $terminos as $term){
+	       	$queries = DB::table('congresos')
+    			->select('id', $nombre)
+    			->where($nombre, 'LIKE', '%' . $term . '%')
+
+    			->take(10)
+    			->get();
+    		foreach ($queries as $query) {
+    		    if(!in_array($query->id, $array)){
+    			    $results[] = ['id' => $query->id, 'value' => $query->$nombre];
+    			    $array[] = $query->id;
+    		   }
+    		}
+	    }
+		return Response::json($results);
     }
 
     public function enlazarProfesor($id, $id_autor)

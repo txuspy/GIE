@@ -63,6 +63,7 @@ class AutorController extends Controller
 	    }
 		return Response::json($results);
     }
+
     public function show($id)
     {
         //

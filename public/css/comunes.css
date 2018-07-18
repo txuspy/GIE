@@ -4,6 +4,9 @@
 .mostrar{
 	display:block;
 }
+a{
+    color:black;
+}
 /* DATATABLES */
 td.details-control {
     background: url('/images/details_open.png') no-repeat center center;
@@ -23,4 +26,8 @@ tr.details td.details-control {
 }
 .margenBotonInsert{
     margin:20px 0 20px 0;
+}
+
+.margen-left {
+  margin-left: 15px;
 }

@@ -10,6 +10,11 @@ class EquipamientoNuevo extends Model
     use SoftDeletes;
     protected $table      = "equipamientoNuevo";
     protected $fillable = [
-        'id', 'user_id',  'departamento_eu', 'departamento_es', 'equipo_eu', 'equipo_es', 'institucion',  'importe'
+        'id', 'user_id',  'departamento',  'equipo_eu', 'equipo_es', 'institucion',  'importe','data'
     ];
+
+    public function usuario()
+    {
+        return $this->hasOne(User::class, 'id','user_id' );
+    }
 }

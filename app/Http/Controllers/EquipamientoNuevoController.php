@@ -26,10 +26,16 @@ class EquipamientoNuevoController extends Controller
     {
 
         $this->validate($request, [
-            'equipo_es' => 'required',
-            'departamento_es' => 'required'
+            'equipo_eu' => 'required',
+            'departamento' => 'required',
+            'institucion' => 'required',
+            'data' => 'required',
         ]);
+        if($request->equipo_es==''){
+             $request['equipo_es'] = $request->equipo_eu;
+        }
         $input = $request->all();
+        if(!$input['data']){ $input['data'] = null; }
         $equipamientoNuevo = EquipamientoNuevo::create($input);
         return view('equipamientoNuevo.edit',compact('equipamientoNuevo'))
             ->with('success', __('Zuzen sortu da'));
@@ -50,9 +56,10 @@ class EquipamientoNuevoController extends Controller
     {
         $this->validate($request, [
             'equipo_es' => 'required',
-            'departamento_es' => 'required'
+            'departamento' => 'required'
         ]);
         $input = $request->all();
+        if(!$input['data']){ $input['data'] = null; }
         $equipamientoNuevo = EquipamientoNuevo::find($id);
         $equipamientoNuevo->update($input);
         return redirect()->route('equipamientoNuevo.index')

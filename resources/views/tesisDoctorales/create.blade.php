@@ -1,67 +1,92 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid">
 	{!! Breadcrumbs::render('tesisDoctorales', $tipo) !!}
-	<div class="row">
-	    <div class="col-lg-12 margin-tb">
-	        <div class="pull-left">
-	            @if($tipo == 'proximaLectura')
-					<h2>{{ __('Uneko Tesiak') }}</h2>
-				@else
-					<h2>{{ __('Burutu diren Tesiak') }}</h2>
-				@endif
-	        </div>
-	        <div class="pull-right">
-	            <a class="btn btn-primary" href="{{ route('tesisDoctorales.index', ['tipo'  => $tipo ]) }}"> {{ __('Atzera') }}</a>
-	        </div>
-	    </div>
-	</div>
-	@if (count($errors) > 0)
-		<div class="alert alert-danger">
-			<strong>Whoops!</strong> {{ __('Akats batzuk daude ')}}<br><br>
-			<ul>
-				@foreach ($errors->all() as $error)
-					<li>{{ $error }}</li>
-				@endforeach
-			</ul>
-		</div>
-	@endif
+	<div class="panel panel-default">
+        @if (count($errors) > 0)
+    		<div class="alert alert-danger">
+    			<strong>Whoops!</strong> {{ __('Akats batzuk daude ')}}<br><br>
+    			<ul>
+    				@foreach ($errors->all() as $error)
+    					<li>{{ $error }}</li>
+    				@endforeach
+    			</ul>
+    		</div>
+    	@endif
+        <div class="panel-body">
+            <div class="col-sm-12 margin-tb">
+    	        <div class="pull-left">
+    	            @if($tipo == 'proximaLectura')
+    					<h2>{{ __('Uneko Tesiak') }}</h2>
+    				@else
+    					<h2>{{ __('Tesiak') }}</h2>
+    				@endif
+    	        </div>
+    	        <div class="pull-right">
+    	            <a class="btn btn-primary" href="{{ route('tesisDoctorales.index', ['tipo'  => $tipo ]) }}"><i class="fa fa-reply" title="{{ __('Atzera') }}"></i></a>
+    	        </div>
+    	    </div>
+
+
 	{!! Form::open(array('route' => 'tesisDoctorales.store','method'=>'POST', 'class'=>'form' )) !!}
-	<div class="row">
-		<div class="col-xs-6 ">
-            <div class="form-group">
-                <label><strong>Izenburua:</strong></label>
-                {!! Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control')) !!}
+	<div>
+		<div class="col-sm-6 ">
+            <div class="form-group has-success">
+                <label><strong>Izenburua (*):</strong></label>
+                {!! Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control buscadorTesisDoctorales')) !!}
             </div>
         </div>
-        <div class="col-xs-6 ">
+        <div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>Titulo:</strong></label>
-                {!! Form::text('titulo_es', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
+                {!! Form::text('titulo_es', null, array('placeholder' => 'Titulo','class' => 'form-control buscadorTesisDoctorales')) !!}
             </div>
         </div>
     </div>
-	<div class="row">
-        <div class="col-xs-6 ">
-            <div class="form-group">
-                <label><strong>Saila :</strong></label>
-                {!! Form::text('departamento_eu', null, array('placeholder' => 'Saila','class' => 'form-control')) !!}
+	<div>
+        <div class="col-sm-6 ">
+            <div class="form-group has-success">
+                <label><strong>Saila/ Departamento (*):</strong></label>
+                {!! Form::select('departamento',  \App\Traits\Listados::listadoDepartamentos( \Session::get('locale') ), '54', ['id' =>'departamento',   'class' => 'form-control chosen-select'])  !!}
             </div>
         </div>
-         <div class="col-xs-6 ">
-            <div class="form-group">
-                <label><strong>Departamento :</strong></label>
-                {!! Form::text('departamento_es', null, array('placeholder' => 'Departamento','class' => 'form-control')) !!}
+
+        <div class="col-sm-3">
+           {{ Form::label('euskera', __('Euskaraz'), ['class'=>' control-label'] ) }}<br>
+            {{ Form::checkbox('euskera', 1, '', ['class' => '']) }}
+        </div>
+        <div class="col-sm-3">
+           {{ Form::label('internacional', __('Nazioartekoa'), ['class'=>' control-label'] ) }}<br>
+            {{ Form::checkbox('internacional', 1, '', ['class' => '']) }}
+        </div>
+     </div>
+     <div>
+        <div class="col-sm-6 ">
+            <div class="form-group has-success">
+                <label><strong>{{ __('Data') }} (*):</strong></label>
+                {!! Form::text('fechaLectura', date('Y') , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')) !!}
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+    <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+    <div>
+        <div class="col-md-12 col-sm-12 col-md-12 text-center">
             {{ Form::hidden('tipo', $tipo) }}
             {{ Form::hidden('user_id', \Auth::user()->id) }}
-			<button type="submit" class="btn btn-primary">{{ __('Bidali') }}</button>
+
+			<button type="submit" class="btn btn-success">
+			   <i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i> {{ __('Jarraitu') }}
+		    </button>
         </div>
 	</div>
+
 	{!! Form::close() !!}
     </div>
+    </div>
+
+    <script type="text/javascript">
+		$('.date-year').datepicker({
+		    minViewMode: 2,
+		    format     : 'yyyy'
+		});
+	</script>
 @endsection

@@ -10,7 +10,7 @@ class TesisDoctorales extends Model
     protected $table = "tesisDoctorales";
     use SoftDeletes;
     protected $fillable = [
-        'id', 'user_id', 'tipo', 'doctorando', 'titulo_es',  'titulo_eu', 'departamento_es', 'departamento_eu', 'director', 'fechaLectura'
+        'id', 'user_id', 'tipo', 'doctorando', 'titulo_es',  'titulo_eu', 'departamento', 'euskera', 'internacional', 'director', 'fechaLectura','curso'
     ];
     public function doctorandos()
     {
@@ -19,5 +19,9 @@ class TesisDoctorales extends Model
     public function directores()
     {
         return $this->belongsToMany(Autor::class, 'tesisDoctoralesDirector',  'id_tesisDoctoral', 'id_autor');
+    }
+    public function usuario()
+    {
+        return $this->hasOne(User::class, 'id','user_id' );
     }
 }

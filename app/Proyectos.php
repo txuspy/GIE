@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Autor;
 
 class Proyectos extends Model
 {
@@ -13,13 +14,16 @@ class Proyectos extends Model
         'id', 'user_id', 'tipo', 'proyecto_eu', 'proyecto_es', 'financinacion', 'desde',  'hasta'
     ];
 
-
-     public function investigadores()
+    public function investigadores()
     {
         return $this->belongsToMany(Autor::class, 'proyectosInvestigacionInvestigadores', 'id_proyecto', 'id_autor');
     }
     public function directores()
     {
         return $this->belongsToMany(Autor::class, 'proyectosInvestigacionDirectores',  'id_proyecto', 'id_autor');
+    }
+    public function usuario()
+    {
+        return $this->hasOne(User::class, 'id','user_id' );
     }
 }

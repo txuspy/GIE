@@ -1,10 +1,9 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
-    | Password Reminder Language Lines
+    | Password Reset Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are the default lines which match reasons
@@ -13,10 +12,9 @@ return [
     |
     */
 
-    'password' => 'Las contraseñas deben coincidir y contener al menos 6 caracteres',
-    'reset'    => '¡Tu contraseña ha sido restablecida!',
-    'sent'     => '¡Te hemos enviado por correo el enlace para restablecer tu contraseña!',
-    'token'    => 'El token de recuperación de contraseña es inválido.',
-    'user'     => 'No podemos encontrar ningún usuario con ese correo electrónico.',
-
+    'password' => 'Pasahitzak gutxienez sei karaktere euki behar dituzte eta bat etorri behar dira.',
+    'reset' => 'Zure pasahitza berrezarritua izan da!',
+    'sent' => 'Zure pasahitza berrezartzeko esteka postaz bidali dizugu!',
+    'token' => 'Pasahitza berreskuratzeko tokena baliogabea da.',
+    'user' => 'Ezin izan dugu posta helbide horrekin bat datorren erabiltzailerik aurkitu.',
 ];

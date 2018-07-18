@@ -14,8 +14,13 @@ class Publicaciones extends Model
     ];
 
 
-     public function autores()
+    public function autores()
     {
         return $this->belongsToMany(Autor::class, 'publicacionesAutores', 'id_publicacion', 'id_autor');
+    }
+
+    public function usuario()
+    {
+        return $this->hasOne(User::class, 'id','user_id' );
     }
 }

@@ -8,15 +8,32 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use Response;
 use Carbon\Carbon;
+use App\Autor;
+use App\ProyectosInvestigadores;
+use App\ProyectosDirectores;
 
 
 class ProyectosController extends Controller
 {
     public function index($tipo)
     {
-       $data = Proyectos::where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
-       return view('proyectos.index',compact('data', 'tipo')) ;
+        $data = Proyectos::where('tipo',$tipo)
+            ->where(function($query) {
+                $query->where('user_id', \Auth::user()->id);
+                $query->orWhereIN('id', ProyectosInvestigadores::where('id_autor', \Auth::user()->id_autor)->pluck('id_proyecto'));
+                $query->orWhereIN('id', ProyectosDirectores::where('id_autor', \Auth::user()->id_autor)->pluck('id_proyecto'));
+            })
+            ->orderBy('id','DESC')
+            ->paginate(25);
+        return view('proyectos.index',compact('data', 'tipo')) ;
     }
+
+    public function indexAll($tipo)
+    {
+        $data = Proyectos::where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
+        return view('proyectos.index',compact('data', 'tipo')) ;
+    }
+
 
     public function create($tipo)
     {
@@ -26,15 +43,23 @@ class ProyectosController extends Controller
     public function store(Request $request)
     {
           $this->validate($request, [
-            'proyecto_es' => 'required',
-            'tipo' => 'required'
+            'proyecto_eu' => 'required',
+            'tipo' => 'required',
+            'desde' => 'required',
         ]);
-        $request['desde'] = Carbon::now('Europe/Madrid');
-        $request['hasta'] = Carbon::now('Europe/Madrid');
-        $input = $request->all();
-
+        if($request->proyecto_es==''){
+             $request['proyecto_es'] = $request->proyecto_eu;
+        }
+        if($request->hasta==''){
+             $request['hasta'] = \Carbon\Carbon::now('Europe/Madrid');
+        }
+        $input    = $request->all();
         $proyecto = Proyectos::create($input);
-        return view('proyectos.edit',compact('proyecto'))
+        $fecha1   = \Carbon\Carbon::parse($proyecto->desde);
+        $fecha2   = \Carbon\Carbon::parse($proyecto->hasta);
+        $format   = $fecha2->diffInYears($fecha1) > 0 ? '%y '.__('urte').' , %m '.__('hilabete').',  %d '.__('egun'): '%m '.__('hilabete').',  %d '.__('egun');
+        $periodo  = $fecha2->diff($fecha1)->format($format );
+        return view('proyectos.edit',compact('proyecto', 'periodo'))
             ->with('success', __('Zuzen sortu da'));
     }
 
@@ -46,7 +71,11 @@ class ProyectosController extends Controller
     public function edit($id)
     {
         $proyecto = Proyectos::find($id);
-        return view('proyectos.edit',compact('proyecto'));
+        $fecha1 = \Carbon\Carbon::parse($proyecto->desde);
+        $fecha2 = \Carbon\Carbon::parse($proyecto->hasta);
+        $format = $fecha2->diffInYears($fecha1) > 0 ? '%y '.__('urte').' , %m '.__('hilabete').',  %d '.__('egun'): '%m '.__('hilabete').',  %d '.__('egun');
+        $periodo = $fecha2->diff($fecha1)->format($format );
+        return view('proyectos.edit',compact('proyecto', 'periodo'));
     }
 
     public function update(Request $request, $id)
@@ -70,6 +99,27 @@ class ProyectosController extends Controller
         //Proyectos::find($id)->forceDelete();
         return redirect()->route('proyectos.index', compact( 'tipo'))
             ->with('success', __('Zuzen ezabatu da'));
+    }
+
+    public function proyectosAjax($nombre){
+        $term = trim(Input::get('term'));
+        $terminos = explode(' ', trim($term) );
+        $results = array();
+        $array=[];
+        foreach ( $terminos as $term){
+	       	$queries = DB::table('proyectoInvestigacion')
+    			->select('id', $nombre)
+    			->where($nombre, 'LIKE', '%' . $term . '%')
+    			->take(10)
+    			->get();
+    		foreach ($queries as $query) {
+    		    if(!in_array($query->id, $array)){
+    			    $results[] = ['id' => $query->id, 'value' => $query->$nombre];
+    			    $array[] = $query->id;
+    		   }
+    		}
+	    }
+		return Response::json($results);
     }
     public function enlazarInvestigador($id, $id_autor)
     {

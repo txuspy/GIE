@@ -42,9 +42,10 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
 
     }
-    public function username()
+    /**/public function username()
     {
-        return 'ldap';
+        //return 'ldap';
+        return 'email';
     }
     public function logout(\Request $request)
     {
@@ -62,8 +63,8 @@ class LoginController extends Controller
         }else{
             \Session::put('locale', config('app.locale' ));
         }
-        //La primera vez no tiene autor
-        if ( empty($user->autor) ){
+        // La primera vez estado == 0
+        if ( $user->estado == '0' ){
             return redirect()->intended($user->lng.'/users/'.$user->id.'/edit')->with('firstTime', [true]);
             //return redirect()->intended($user->lng.'/users/'.$user->id.'/edit')->withInput()->withSuccess(compact("applicantData"));
 

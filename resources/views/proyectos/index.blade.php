@@ -4,7 +4,7 @@
 	{!! Breadcrumbs::render('proyectos', $tipo) !!}
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<div class="col-lg-12 margin-tb">
+					<div class="col-sm-12 margin-tb">
 						<div class="pull-left">
 							@if( $tipo == 'europa' )
 								<h2>{{ __('Europar Batasuneko Programa Markoa') }}</h2>
@@ -14,8 +14,11 @@
     							<h2>{{ __('Enpresek diru-laguntza emandako Ikerkuntza Proiektuak') }}</h2>
 							@endif
 						</div>
+						<div class="pull-left margen-left">
+							<a class="btn btn-info" href="{{ route('proyectos.indexAll', [ 'tipo'=> $tipo ]) }}"><i class="fa fa-eye" title="{{ __('Proiektu guztiak ikusi') }}"></i></a>
+						</div>
 						<div class="pull-right">
-							<a class="btn btn-success" href="{{ route('proyectos.create', [ 'tipo'=> $tipo ] ) }}"> {{ __('Berria sortu') }}</a>
+							<a class="btn btn-success" href="{{ route('proyectos.create', [ 'tipo'=> $tipo ] ) }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i> </a>
 						</div>
 					</div>
 				</div>
@@ -27,15 +30,19 @@
 				@endif
 				<table class="table">
 					<tr>
-						<th>Proiektua</th>
-						<th>Proyecto</th>
-						<th>{{ __('Zuzendaria') }}</th>
+						<th>{{ __('Proiektua') }}</th>
+						<th>{{ __('Ikertzaile nagusia(k)') }}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>
 					@foreach ($data as $key => $proyecto)
 					<tr>
-						<td>{{ $proyecto->proyecto_eu }}</td>
-						<td>{{ $proyecto->proyecto_es }}</td>
+						<td>
+							<?php $proiekto = "proyecto_".\Session::get('locale') ;?>
+							<a href="{{ route('proyectos.edit',$proyecto->id) }}">{{ $proyecto->$proiekto }}</a>
+							<br> ( {{ $proyecto->desde }} - {{ $proyecto->hasta }} )
+							<br> <i>({{ $proyecto->usuario?$proyecto->usuario->name:'' }} {{ $proyecto->usuario?$proyecto->usuario->lname:'' }})</i>
+
+						</td>
 						<td>
 							@foreach( $proyecto->directores as $director)
 			 					{{$director->nombre}} {{$director->apellido}}
@@ -45,14 +52,16 @@
 			 				@endforeach
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{ route('proyectos.edit',$proyecto->id) }}">{{ __('Aldatu')}}</a>
-							{!! Form::open(['method' => 'DELETE','route' => ['proyectos.destroy', $proyecto->id, $proyecto->tipo],'style'=>'display:inline']) !!}
-							{!! Form::submit(__('Ezabatu'), ['class' => 'btn btn-danger']) !!}
-							{!! Form::close() !!}
+							<a class="btn btn-primary" href="{{ route('proyectos.edit',$proyecto->id) }}"><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
+							@if( $proyecto->user_id == \Auth::user()->id )
+								{!! Form::open(['method' => 'DELETE','route' => ['proyectos.destroy', $proyecto->id, $proyecto->tipo],'style'=>'display:inline']) !!}
+								{{ Form::button('<i class="fa fa-trash"  title="'.__('Ezabatu').'"></i> ', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
+								{!! Form::close() !!}
+							@endif
 						</td>
 					</tr>
 					@endforeach
-					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td colspan='2' class='text-center'>{{ $data->links() }}</td><td>{{ __('Pagina actual:' )}} {{ $data->currentPage() }}</td></tr>
+					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td  class='text-center'>{{ $data->links() }}</td><td>{{ __('Oraingo orria::' )}} {{ $data->currentPage() }}</td></tr>
 				</table>
 			</div>
 @endsection

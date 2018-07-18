@@ -17,5 +17,9 @@ class ProgramasDeIntercambio extends Model
     {
         return $this->belongsToMany(Autor::class, 'programasDeIntercambiosProfesores', 'id_programaIntercambio', 'id_autor');
     }
+    public function usuario()
+    {
+        return $this->hasOne(User::class, 'id','user_id' );
+    }
 
 }

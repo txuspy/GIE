@@ -1,7 +1,34 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+
    {!! Breadcrumbs::render('tesisDoctoralesEdit', $tesisDoctoral) !!}
+   <div class="panel panel-default">
+       @if ($message = Session::get('success'))
+		<div class="alert alert-success">
+			<p>{{ $message }}</p>
+		</div>
+    	@endif
+    	@if (count($errors) > 0)
+    		<div class="alert alert-danger">
+    			<strong>{{ __('Whoops!') }}</strong> {{ __('There were some problems with your input.') }}<br><br>
+    			<ul>
+    				@foreach ($errors->all() as $error)
+    					<li>{{ $error }}</li>
+    				@endforeach
+    			</ul>
+    		</div>
+    	@endif
+
+  		<div class="panel-body">
+			<div class="col-sm-12 margin-tb">
+		        <div class="pull-left">
+		            <h2>{{ __('Tesiak')}}</h2>
+		        </div>
+			<div class="pull-right">
+		            <a class="btn btn-primary" href="{{ route('tesisDoctorales.index', ['tipo'  => $tesisDoctoral->tipo ]) }}"><i class="fa fa-reply" title="{{ __('Atzera') }}"></i></a>
+		        </div>
+		    </div>
+
 	@if ($message = Session::get('success'))
 		<div class="alert alert-success">
 			<p>{{ $message }}</p>
@@ -28,45 +55,69 @@
 		'tituloContenido' => __('Doctorando berria sortu') ,
 	])
 	{!! Form::model($tesisDoctoral, ['method' => 'PUT','route' => ['tesisDoctorales.update', $tesisDoctoral->id]]) !!}
-		<div class="row">
-		<div class="col-xs-6 ">
+		<div>
+		<div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>Izenburua:</strong></label>
                 {!! Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control')) !!}
             </div>
         </div>
-        <div class="col-xs-6 ">
+        <div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>Titulo:</strong></label>
                 {!! Form::text('titulo_es', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
             </div>
         </div>
     </div>
-	<div class="row">
-        <div class="col-xs-6 ">
-            <div class="form-group">
-                <label><strong>Saila :</strong></label>
-                {!! Form::text('departamento_eu', null, array('placeholder' => 'Saila','class' => 'form-control')) !!}
+	<div>
+		<div class="col-sm-6 ">
+           <div class="form-group">
+                <label><strong>Saila/ Departamento (*):</strong></label>
+                {!! Form::select('departamento',  \App\Traits\Listados::listadoDepartamentos( \Session::get('locale') ), $tesisDoctoral->departamento , ['id' =>'departamento',   'class' => 'form-control chosen-select'])  !!}
             </div>
         </div>
-         <div class="col-xs-6 ">
-            <div class="form-group">
-                <label><strong>Departamento :</strong></label>
-                {!! Form::text('departamento_es', null, array('placeholder' => 'Departamento','class' => 'form-control')) !!}
-            </div>
+		<div class="col-sm-3">
+            {{ Form::label('euskera', __('Euskaraz'), ['class'=>' control-label'] ) }}<br>
+            {{ Form::checkbox('euskera', 1, $tesisDoctoral->euskera, ['class' => '']) }}
         </div>
-    </div><div class="row">
-        <div class="col-xs-6 ">
-            <div class="form-group">
-                <label><strong>{{ __('Data') }} :</strong></label>
-                {!! Form::text('fechaLectura', $tesisDoctoral->fechaLectura , array('placeholder' => __('Data') ,'class' => 'datepicker form-control')) !!}
-            </div>
+        <div class="col-sm-3">
+           {{ Form::label('internacional', __('Nazioartekoa'), ['class'=>' control-label'] ) }}<br>
+            {{ Form::checkbox('internacional', 1, $tesisDoctoral->internacional, ['class' => '']) }}
         </div>
+	</div>
 
-    </div>
-    <div class="row">
-    	<div class="col-xs-6">
-    		<label><strong>{{ __('Zuzendaria')}}:</strong></label>
+
+	<div class='row'>
+		<div style="margin:30px;">
+			@if($tesisDoctoral->tipo=='tesisLeidas')
+			    <div>
+			        <div class="col-sm-6 ">
+			            <div class="form-group">
+			                <label><strong>{{ __('Data') }} :</strong></label>
+			                {!! Form::text('fechaLectura', $tesisDoctoral->fechaLectura , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')) !!}
+			            </div>
+			        </div>
+			    </div>
+			    <div class="col-sm-6 "> </div>
+		    @endif
+		    @if($tesisDoctoral->tipo=='proximaLectura')
+			    <div>
+			        <div class="col-sm-6 ">
+			            <div class="form-group">
+			                <label><strong>{{ __('Kurtsoa') }} :</strong></label>
+			                <span><i>( {{ $tesisDoctoral->curso }} - {{ $tesisDoctoral->curso +1 }} )</i></span>
+			                {!! Form::text('curso', $tesisDoctoral->curso , array('placeholder' => __('Kurtsoa') ,'class' => 'date-year form-control')) !!}
+			            </div>
+			        </div>
+			    </div><div class="col-sm-6 "> </div>
+		    @endif
+		</div>
+	</div>
+
+
+    <div>
+    	<div class="col-sm-6">
+    		<label><strong>{{ __('Zuzendaria(k)')}}:</strong></label>
     	 	{{Form::text('tesisDoctoralesDirector', '', [
 		        'id'           =>'tesisDoctoralesDirector',
 		        'placeholder'  =>__('Zuzendaria bilatu'),
@@ -89,8 +140,8 @@
 	 			@endforeach
 	 		</ul>
 	 	</div>
-	 	<div class="col-xs-6 ">
-    		<label><strong>{{ __('Doktorando')}}:</strong></label>
+	 	<div class="col-sm-6 ">
+    		<label><strong>{{ __('Ikerlaria(k)')}}:</strong></label>
     	 	{{Form::text('tesisDoctoralesDoctorando', '', [
 	         'id'           =>'tesisDoctoralesDoctorando ',
 	         'placeholder'  =>__('Doktorandoa bilatu'),
@@ -103,7 +154,7 @@
 	        ])}}
 	 		<br><ul id="ulTesisDoctoralesDoctorando" class="list-group">
 	 			@foreach( $tesisDoctoral->doctorandos as $doctorando)
-	 				<li class="list-group-item"  id="detachDoctorando{{ $director->id }}">
+	 				<li class="list-group-item"  id="detachDoctorando{{ $doctorando->id }}">
 	 					<a data-id='{{$tesisDoctoral->id}}' data-idAutor='{{ $doctorando->id }}' data-carpeta ='doctorando' data-tipo='tesisDoctorales'  class='desenlazar'>
 		 					<i class="fa fa-trash"></i>
 		 				</a>
@@ -113,11 +164,16 @@
 	 		</ul>
 	 	</div>
 	</div>
-    <div class="row">
-        <div class="col-xs-10 col-sm-10 col-md-10 text-center">
-        	{{ Form::hidden('tipo', $tesisDoctoral->tipo) }}
-				<button type="submit" class="btn btn-primary">{{ __('Bidali') }}</button>
-        </div>
+	<div class="col-md-12 col-sm-12 col-md-12 text-center">
+		{{ Form::hidden('tipo', $tesisDoctoral->tipo) }}
+		<button type="submit" class="btn btn-primary"><i class="fa fa-refresh" title="{{ __('Gorde') }}"></i> {{ __('Gorde') }}</button>
+    </div>
 	{!! Form::close() !!}
-	</div>
+</div>
+	<script type="text/javascript">
+		$('.date-year').datepicker({
+		    minViewMode: 2,
+		    format     : 'yyyy'
+		});
+	</script>
 @endsection

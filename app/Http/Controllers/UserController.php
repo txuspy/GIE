@@ -16,11 +16,11 @@ use Yajra\Datatables\Datatables;
 class UserController extends Controller
 {
     public  $user;
-     public function index(Request $request){
+    public function index(Request $request){
         $data = User::orderBy('lname','ASC')->paginate(25);
         return view('users.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
-     }
+    }
 
     public function create()
     {
@@ -34,11 +34,10 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name'     => 'required',
-            'ldap'     => 'required|unique:users,ldap',
             'email'    => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
             'roles'    => 'required'
-        ]);
+        ]);//'ldap'     => 'required|unique:users,ldap',
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
         $input['name']  = ucfirst(strtolower(trim($input['name'])));
@@ -54,9 +53,10 @@ class UserController extends Controller
            'apellido' => $user->lname
         ];
         $autor = Autor::create($valores);
-
+        $valorUpdate['id_autor'] = $autor->id;
+        $user->update($valorUpdate);
         return redirect()->route('users.index')
-                        ->with('success', __('Erabiltzailea zuzen sortu da'));
+            ->with('success', __('Erabiltzailea zuzen sortu da'));
     }
 
     public function show($id)
@@ -78,15 +78,14 @@ class UserController extends Controller
         $this->validate($request, [
             'name'     => 'required',
             'lname'    => 'required',
-            'ldap'     => 'required',
             'email'    => 'required|email|unique:users,email,'.$id,
             'password' => 'same:confirm-password'
-        ]);
+        ]);// 'ldap'     => 'required',
 
         $input          = $request->all();
         $input['name']  = ucfirst(strtolower(trim($input['name'])));
         $input['lname'] = ucfirst(strtolower(trim($input['lname'])));
-
+        $input['estado'] = '1';
         if(!empty($input['password'])){
             $input['password'] = Hash::make($input['password']);
         }else{
@@ -100,7 +99,7 @@ class UserController extends Controller
                 $user->attachRole($value);
             }
         }
-        if ( empty($user->autor) ){
+        if ( empty($user->autor) OR ($user->autor == '0') ){
            $valores = [
                 'user_id'   => $id,
                 'nombre'    => ucfirst(strtolower(trim($user->name))),
@@ -108,6 +107,8 @@ class UserController extends Controller
                 'tipo'      => 'EHU'
             ];
             $autor = Autor::create($valores);
+            $input['id_autor'] = $autor->id;
+            $user->update($input);
         }else{
             $autor = Autor::find($user->autor->id);
             $valores = [
@@ -116,6 +117,8 @@ class UserController extends Controller
 
             ];
             $autor->update($valores);
+            $input['id_autor'] = $autor->id;
+            $user->update($input);
         }
         return redirect()->route('users.index')->with('success', __('Erabiltzailea zuzen aldatatu da'));
     }

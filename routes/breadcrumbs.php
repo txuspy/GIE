@@ -82,7 +82,7 @@ Breadcrumbs::register('tesisDoctorales', function($breadcrumbs, $tipo)
     if( $tipo == 'proximaLectura' ){
         $breadcrumbs->push( __('Uneko Tesiak'), url(App\Lib\Functions::parseLang().'/tesisDoctorales/show/'.$tipo));
     }else{
-        $breadcrumbs->push( __('Burutu diren Tesiak'), url(App\Lib\Functions::parseLang().'/tesisDoctorales/show/'.$tipo));
+        $breadcrumbs->push( __('Tesiak'), url(App\Lib\Functions::parseLang().'/tesisDoctorales/show/'.$tipo));
     }
 });
 Breadcrumbs::register('tesisDoctoralesEdit', function($breadcrumbs, $tesis)
@@ -108,7 +108,7 @@ Breadcrumbs::register('proyectos', function($breadcrumbs, $tipo)
 });
 Breadcrumbs::register('proyectosEdit', function($breadcrumbs, $proyecto)
 {
-    $breadcrumbs->parent('tesisDoctorales', $proyecto->tipo);
+    $breadcrumbs->parent('proyectos', $proyecto->tipo);
     if( \Session::get('locale') == 'eu' ){
         $breadcrumbs->push($proyecto->proyecto_eu , url(App\Lib\Functions::parseLang().'proyectos/'.$proyecto->id.'/edit'));
     }else{
@@ -164,6 +164,52 @@ Breadcrumbs::register('publicacionesEdit', function($breadcrumbs, $publicacion)
         $breadcrumbs->push($publicacion->titulo_es , url(App\Lib\Functions::parseLang().'publicaciones/'.$publicacion->id.'/edit'));
     }
 });
+//Postgrados
+Breadcrumbs::register('postgrados', function($breadcrumbs, $tipo)
+{
+
+    $breadcrumbs->parent('home');
+    if( $tipo == 'master' ){
+        $breadcrumbs->push( __('Masterretan parte-hartzea'), url(App\Lib\Functions::parseLang().'/postgrados/show/'.$tipo));
+    }else{
+        $breadcrumbs->push( __('Doktoretza-programetan parte-hartzea'), url(App\Lib\Functions::parseLang().'/postgrados/show/'.$tipo));
+    }
+});
+Breadcrumbs::register('postgradosEdit', function($breadcrumbs, $postgrado)
+{
+    $breadcrumbs->parent('postgrados', $postgrado->tipo);
+    if( \Session::get('locale') == 'eu' ){
+        $breadcrumbs->push($postgrado->titulo_eu , url(App\Lib\Functions::parseLang().'postgrados/'.$postgrado->id.'/edit'));
+    }else{
+        $breadcrumbs->push($postgrado->titulo_es , url(App\Lib\Functions::parseLang().'postgrados/'.$postgrado->id.'/edit'));
+    }
+});
+//Formaciones
+Breadcrumbs::register('formaciones', function($breadcrumbs, $tipo, $modo)
+{
+
+    $breadcrumbs->parent('home');
+    if( $tipo == 'PDI' ){
+         $tipoTxt =  __('IIPko formazioa') ;
+    }else{
+        $tipoTxt =  __('AZKko formazioa') ;
+    }
+    if( $modo == 'recibir' ){
+         $modoTxt =  __('Hartutakoa') ;
+    }else{
+        $modoTxt =  __('Emandakoa');
+    }
+    $breadcrumbs->push( $tipoTxt."-".$modoTxt , url(App\Lib\Functions::parseLang().'/formaciones/show/'.$tipo.'/'.$modo));
+});
+Breadcrumbs::register('formacionesEdit', function($breadcrumbs, $formacion )
+{
+    $breadcrumbs->parent('formaciones', $formacion->tipo, $formacion->modo);
+    if( \Session::get('locale') == 'eu' ){
+        $breadcrumbs->push($formacion->titulo_eu , url(App\Lib\Functions::parseLang().'formaciones/'.$formacion->id.'/edit'));
+    }else{
+        $breadcrumbs->push($formacion->titulo_es , url(App\Lib\Functions::parseLang().'formaciones/'.$formacion->id.'/edit'));
+    }
+});
 //Programa de intercambio
 Breadcrumbs::register('programasDeIntercambio', function($breadcrumbs, $tipo)
 {
@@ -181,5 +227,20 @@ Breadcrumbs::register('programasDeIntercambioEdit', function($breadcrumbs, $prog
         $breadcrumbs->push($programaDeIntercambio->actividad_eu , url(App\Lib\Functions::parseLang().'programasDeIntercambio/'.$programaDeIntercambio->id.'/edit'));
     }else{
         $breadcrumbs->push($programaDeIntercambio->actividad_es , url(App\Lib\Functions::parseLang().'programasDeIntercambio/'.$programaDeIntercambio->id.'/edit'));
+    }
+});
+// Home > Visitas
+Breadcrumbs::register('visitas', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push( __('Bisitak'), url('/visitas'));
+});
+Breadcrumbs::register('visitasEdit', function($breadcrumbs, $visita)
+{
+    $breadcrumbs->parent('visitas');
+    if( \Session::get('locale') == 'eu' ){
+        $breadcrumbs->push($visita->titulo_eu, url('visitas/'.$visita->id.'/edit'));
+    }else{
+        $breadcrumbs->push($visita->titulo_es, url('visitas/'.$visita->id.'/edit'));
     }
 });

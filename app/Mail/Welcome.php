@@ -14,27 +14,16 @@ class Welcome extends Mailable
     use Queueable, SerializesModels;
 
     public $user;
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct( User $user)
+
+    public function __construct( User $user )
     {
         $this->user =  $user;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
         return $this->view('emails.welcome')
-        ->with('name', 'unai')
-        ->from('sistemas@forestpioneer.com', 'FOREST PIONEER SL')
-        ->BCC('contabilidad@forestpioneer.com', 'Urki')
-        ->subject('Bienvenido a Forest Pioneer SL');
+        ->subject('Welcome a Forest Pioneer SL');
+        // ->BCC('contabilidad@forestpioneer.com', 'Urki')
     }
 }
