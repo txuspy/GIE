@@ -5,10 +5,10 @@
 				<div class="panel-body">
 					<div class="col-lg-12 margin-tb">
 						<div class="pull-left">
-							<h2><?php echo e(__('Usuarios')); ?></h2>
+							<h2><?php echo e(__('Erabiltzaileak')); ?></h2>
 						</div>
 						<div class="pull-right">
-							<a class="btn btn-success" href="<?php echo e(route('users.create')); ?>"> <?php echo e(__('Crear nuevo usuario')); ?></a>
+							<a class="btn btn-success" href="<?php echo e(route('users.create')); ?>"> <?php echo e(__('Erabiltzaile berria sortu')); ?></a>
 						</div>
 					</div>
 				</div>

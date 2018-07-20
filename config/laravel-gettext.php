@@ -1,7 +1,5 @@
 <?php
-
 return [
-
     /**
      * Translation handlers, options are:
      *
@@ -11,72 +9,59 @@ return [
      * - gettext: requires the php-gettext module installed. This handler has well-known cache issues
      */
     'handler' => 'symfony',
-
     /**
      * Session identifier: Key under which the current locale will be stored.
      */
     'session-identifier' => 'laravel-gettext-locale',
-
     /**
      * Default locale: this will be the default for your application.
      * Is to be supposed that all strings are written in this language.
      */
     'locale' => config('app.locale'),
-
     /**
      * Supported locales: An array containing all allowed languages
      */
     'supported-locales' => config('app.supported-locales'),
-
     /**
      * Default charset encoding.
      */
     'encoding' => 'UTF-8',
-
     /**
      * -----------------------------------------------------------------------
      * All standard configuration ends here. The following values
      * are only for special cases.
      * -----------------------------------------------------------------------
      **/
-
     /**
      * Locale categories to set
      */
     'categories' => [
         'LC_ALL',
     ],
-
     /**
      * Base translation directory path (don't use trailing slash)
      */
     'translations-path' => '../resources/lang',
-
     /**
      * Relative path to the app folder: is used on .po header files
      */
     'relative-path' => '../../../../../app',
-
     /**
      * Fallback locale: When default locale is not available
      */
     'fallback-locale' => config('app.fallback_locale'),
-
     /**
      * Default domain used for translations: It is the file name for .po and .mo files
      */
     'domain' => 'textos',
-
     /**
      * Project name: is used on .po header files
      */
     'project' => 'ERP Forest Pioneer SL',
-
     /**
      * Translator contact data (used on .po headers too)
      */
     'translator' => 'Unai Susperregi <sistemas@forestpioneer.com>',
-
     /**
      * Paths where Poedit will search recursively for strings to translate.
      * All paths are relative to app/ (don't use trailing slash).
@@ -88,7 +73,6 @@ return [
         '../resources/views',
         'Console',
     ],
-
     /**
      * Multi-domain directory paths. If you want the translations in
      * different files, just wrap your paths into a domain name.
@@ -96,39 +80,32 @@ return [
      */
     /*
     'source-paths' => [
-
         // 'frontend' domain
         'frontend' => [
 			'controllers',
 			'views/frontend',
 		],
-
         // 'backend' domain
 		'backend' => [
 			'views/backend',
 		],
-
         // 'messages' domain (matches default domain)
 		'storage/views',
 	],
     */
-
     /**
      * Sync laravel: A flag that determines if the laravel built-in locale must
      * be changed when you call LaravelGettext::setLocale.
      */
     'sync-laravel' => true,
-
     /**
      * The adapter used to sync the laravel built-in locale
      */
     'adapter' => \Xinax\LaravelGettext\Adapters\LaravelAdapter::class,
-
     /**
      * Use custom locale that is not supported by the system
      */
     'custom-locale' => false,
-
     /**
      * The keywords list used by poedit to search the strings to be translated
      *

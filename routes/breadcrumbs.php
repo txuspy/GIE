@@ -216,9 +216,13 @@ Breadcrumbs::register('programasDeIntercambio', function($breadcrumbs, $tipo)
     $breadcrumbs->parent('home');
     if( $tipo == 'enCasa' ){
         $breadcrumbs->push( __('Egonaldi zientifikoak beste Unibertsitateetan'), url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/'.$tipo));
+    }elseif($tipo == 'azp'){
+        $breadcrumbs->push( __('IIP / AZPren mugikortasuna'), url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/'.$tipo));
     }else{
         $breadcrumbs->push( __('Etorritako ikerlariak'), url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/'.$tipo));
     }
+
+
 });
 Breadcrumbs::register('programasDeIntercambioEdit', function($breadcrumbs, $programaDeIntercambio)
 {

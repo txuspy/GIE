@@ -43,7 +43,7 @@
 				<div class="col-sm-6 ">
 		            <div class="form-group has-success">
 		                <label><strong>{{ __('Tokia') }} (*):</strong></label>
-		                {!! Form::text('lugar', null , array('placeholder' => __('Tokia') ,'class' => 'datepicker date-year form-control')) !!}
+		                {!! Form::text('lugar', null , array('placeholder' => __('Tokia') ,'class' => 'form-control')) !!}
 		            </div>
 		        </div>
 				<div class="col-sm-6 ">

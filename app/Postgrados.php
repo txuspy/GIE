@@ -10,7 +10,7 @@ class Postgrados extends Model
     protected $table      = "postgrados";
     use SoftDeletes;
     protected $fillable = [
-        'id', 'user_id', 'tipo', 'departamento', 'titulo_eu', 'titulo_es', 'curso_eu', 'curso_es', 'duracion',  'lugar'
+        'id', 'user_id', 'tipo', 'departamento', 'titulo_eu', 'titulo_es', 'curso_eu', 'curso_es', 'duracion',  'lugar', 'fecha'
     ];
 
 

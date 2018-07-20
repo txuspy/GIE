@@ -52,7 +52,9 @@
 			<div class="col-xs-6 ">
 		      	 <div class="form-group has-success">
 		                <label><strong>{{ __('Ekarpen mota') }} (*):</strong></label>
-		                {!! Form::select('ekarpena', ['1' => __('Hitzaldi gonbidatua / Ponencia invitada'), '2' => __('Ahozkoaurkezpena / Comunicación oral'), '3' => __('Posterra / Poster') ], $congreso->ekarpena??'1' , ['class' => 'form-control chosen-type'])  !!}
+
+		                {!! Form::select('ekarpena',  \App\Traits\Listados::listadoEkarpena(), $congreso->ekarpena , ['id' =>'ekarpena',   'class' => 'form-control chosen-select'])  !!}
+
 		         </div>
 	         </div>
 	         <div class="col-xs-6 ">

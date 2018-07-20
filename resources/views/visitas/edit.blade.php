@@ -38,13 +38,13 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Izenburua:</strong></label>
+		                <label><strong>Aktibitatea:</strong></label>
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Titulo:</strong></label>
+		                <label><strong>Actividad:</strong></label>
 		                {!! Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')) !!}
 		            </div>
 		        </div>

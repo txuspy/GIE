@@ -5,7 +5,7 @@
 	<title>FOREST PIONEER SL</title>
 </head>
 <body>
-	Hola <?php echo e($user->name); ?>
+	Nombre <?php echo e($user->name); ?>
 
 	<br /> LARAVEL EMAIL
 	<br /> Clase email

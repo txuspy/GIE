@@ -30,14 +30,14 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group has-success">
-		                <label><strong>Izenburua (*):</strong></label>
-		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control buscadorFormaciones')) !!}
+		                <label><strong>Ikastaro (*):</strong></label>
+		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorFormaciones')) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Titulo :</strong></label>
-		                {!! Form::text('titulo_es', null, array('placeholder' => 'Titulo','class' => 'form-control buscadorFormaciones')) !!}
+		                <label><strong>Curso :</strong></label>
+		                {!! Form::text('titulo_es', null, array('placeholder' => 'Curso','class' => 'form-control buscadorFormaciones')) !!}
 		            </div>
 		        </div>
 		    </div>
@@ -75,8 +75,8 @@
 		    <div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Iraupena') }} :</strong></label>
-		                {!! Form::text('duracion', null, array('placeholder' => __('Iraupena') ,'class' => 'form-control ')) !!}
+		                <label><strong>{{ __('Iraupena') }} : </strong></label><small>({{ __('orduak') }})</small>
+		                {!! Form::text('duracion', null, array('placeholder' => '10' ,'class' => 'form-control ')) !!}
 		            </div>
 		        </div>
 		    </div>

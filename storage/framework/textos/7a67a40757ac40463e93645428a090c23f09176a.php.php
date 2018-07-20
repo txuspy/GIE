@@ -81,7 +81,7 @@
     @endpermission
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('scripts'); ?>
-    <?php echo Html::script('js/permisos.js'); ?>
+    <?php echo Html::script('js/permisos.js'; ?>
 
 <?php $__env->stopSection(); ?>
 

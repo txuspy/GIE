@@ -72,6 +72,12 @@
                             <li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/dar') }}"><i class="fa fa-address-book-o" aria-hidden="true"></i> {{__('Emandako formazioa')}}</a></li>
                         </ul>
                   </li>
+                  <li><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera') }}"><i class="fa fa-refresh" aria-hidden="true"></i> {{ __('Elkartrukeko programak') }}</a>
+                      <ul>
+
+                            <li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/azp') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('IIP / AZPren mugikortasuna')}}</a></li>
+                        </ul>
+                  </li>
                 <li><a href="{{ url(App\Lib\Functions::parseLang().'/visitas/show')  }}">
                     <i class="fa fa-car" aria-hidden="true"></i> {{ __('Bisitak') }}</a></li>
                 <li><a href="{{ url(App\Lib\Functions::parseLang().'/grupoInvestigacion')  }}">
@@ -101,7 +107,7 @@
                       <ul>
                             <li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Egonaldi zientifikoak beste Unibertsitateetan')}}</a></li>
                             <li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/enCasa') }}"><i class="fa fa-reply" aria-hidden="true"></i> {{__('Etorritako ikerlariak')}}</a></li>
-                            <li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/azp') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('IIP / AZPren mugikortasuna')}}</a></li>
+
                         </ul>
                   </li>
                   <li><a href="{{ url(App\Lib\Functions::parseLang().'/equipamientoNuevo')   }}"><i class="fa fa-user" aria-hidden="true"></i> {{ __('Hornikuntza Zientifikoa eskuratzea') }}</a></li>

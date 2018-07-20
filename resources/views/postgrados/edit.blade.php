@@ -88,6 +88,12 @@
 		                {!! Form::text('lugar', 'Gipuzkoako Ingeniaritza Eskola', array('placeholder' => '15 ECTS','class' => 'form-control ')) !!}
 		            </div>
 		        </div>
+		        <div class="col-sm-6 ">
+		            <div class="form-group has-success">
+		                <label><strong>{{ __('Data') }} (*):</strong></label>
+		                {!! Form::text('fecha', null, array('placeholder' => __('Data'),'class' => 'datepicker form-control ')) !!}
+		            </div>
+		        </div>
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">

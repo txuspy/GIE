@@ -8,10 +8,21 @@
                     <form class="form" role="form" method="POST" action="<?php echo e(url('/login')); ?>">
                         <?php echo e(csrf_field()); ?>
 
-                        <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address </label>
+                        <!--<div class="form-group<?php echo e($errors->has('ldap') ? ' has-error' : ''); ?>">
+                            <label for="ldap" class="col-md-4 control-label"><?php echo e(__('WebUntis')); ?></label>
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>" required autofocus>
+                                <input id="ldap" type="text" class="form-control" name="ldap" value="<?php echo e(old('ldap')); ?>" required autofocus>
+                                <?php if($errors->has('ldap')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('ldap')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>-->
+                        <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
+                            <label for="email" class="col-md-4 control-label"><?php echo e(__('Posta elektronikoa')); ?></label>
+                            <div class="col-md-6">
+                                <input id="email" type="text" class="form-control" name="email" value="<?php echo e(old('email')); ?>" required autofocus>
                                 <?php if($errors->has('email')): ?>
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('email')); ?></strong>
@@ -19,7 +30,6 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-
                         <div class="form-group<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

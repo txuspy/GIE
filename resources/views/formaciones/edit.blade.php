@@ -49,13 +49,13 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Izenburua:</strong></label>
+		                <label><strong>Ikastaro:</strong></label>
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Titulo:</strong></label>
+		                <label><strong>Curso:</strong></label>
 		                {!! Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')) !!}
 		            </div>
 		        </div>
@@ -64,7 +64,7 @@
 			     <div>
 					<div class="col-sm-6 ">
 			            <div class="form-group">
-			                <label><strong>Antolatzailea(k) (*):</strong></label>
+			                <label><strong>Antolatzailea(k):</strong></label>
 			                {!! Form::text('organizador_eu', null, array('placeholder' => 'Antolatzailea(k)','class' => 'form-control buscadorformaciones')) !!}
 			            </div>
 			        </div>

@@ -35,7 +35,7 @@
 				@endif
 				<table class="table">
 					<tr>
-						<th>{{ __('Izenburua') }}</th>
+						<th>{{ __('Ikastaro') }}</th>
 						<th>
 							@if( $modo == 'recibir' )
 								{{ __('Parte-hartzailea(k)') }}

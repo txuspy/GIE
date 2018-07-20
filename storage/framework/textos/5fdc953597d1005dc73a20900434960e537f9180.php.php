@@ -3,17 +3,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading"><strong><?php echo e(__('Alertas personalizadas')); ?></strong></div>
+                <div class="panel-heading"><strong><?php echo e(__('Ongi etorria')); ?></strong></div>
 
                 <div class="panel-body">
-                    <?php echo e(__('Listado de los expedientes por tipo y todo eso')); ?>
+                    <?php echo e(__('Ongi etorria Gipuzkoako Ingenieritza Eskolako memoria sortzeko aplikaziora. Milesker zure lanarengatii')); ?>
 
                     <?php //phpinfo(); ?>
-                    Ikusi berhar dugu ze empresetan gauden
-
-                    <!--<p>-->
-                    <!--    <img src="/images/brand/HorizontalLOGO.gif" height="40px"/>-->
-                    <!--</p>-->
 
                 </div>
             </div>

@@ -58,7 +58,6 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
             .m-b-md {
                 margin-bottom: 30px;
             }
@@ -69,30 +68,20 @@
             <?php if(Route::has('login')): ?>
                 <div class="top-right links">
                     <?php if(Auth::check()): ?>
-                        <a href="<?php echo e(url(App\Lib\Functions::parseLang().'/home')); ?>">Home</a>
+                        <a href="<?php echo e(url(App\Lib\Functions::parseLang().'/home')); ?>"><?php echo e(__('Hasiera')); ?></a>
                     <?php else: ?>
-
                         <a href="<?php echo e(url('/login')); ?>">Login</a>
-                        <a href="<?php echo e(url('/register')); ?>">Register</a>
-
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
-
             <div class="content">
                 <div class="title m-b-md">
                     <?php echo e(config('app.name', 'GIE')); ?>
 
-                </div>
 
-               <!-- <div class="links">
-                    <a href="https://laravel.com/docs"><?php echo e(__('Documentation')); ?></a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>-->
+                </div>
             </div>
         </div>
     </body>
 </html>
+<?php phpinfo(); ?>
