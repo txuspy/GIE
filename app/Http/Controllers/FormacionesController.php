@@ -114,7 +114,7 @@ class FormacionesController extends Controller
             ->with('success', __('Zuzen ezabatu da'));
     }
 
-    public function publicacionesAjax($nombre){
+    public function formacionesAjax($nombre, $tipo, $modo){
         $term = trim(Input::get('term'));
         $terminos = explode(' ', trim($term) );
         $results = array();
@@ -123,6 +123,8 @@ class FormacionesController extends Controller
 	       	$queries = DB::table('formaciones')
     			->select('id', $nombre)
     			->where($nombre, 'LIKE', '%' . $term . '%')
+    			->where('tipo', $tipo)
+                ->where('modo', $modo)
     			->take(10)
     			->get();
     		foreach ($queries as $query) {

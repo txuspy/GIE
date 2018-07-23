@@ -98,7 +98,7 @@ class ProgramasDeIntercambioController extends Controller
             ->with('success', __('Zuzen ezabatu da'));
     }
 
-    public function programasDeIntercambioAjax($nombre){
+    public function programasDeIntercambioAjax($nombre, $tipo){
         $term = trim(Input::get('term'));
         $terminos = explode(' ', trim($term) );
         $results = array();
@@ -107,6 +107,7 @@ class ProgramasDeIntercambioController extends Controller
 	       	$queries = DB::table('programasDeIntercambio')
     			->select('id', $nombre)
     			->where($nombre, 'LIKE', '%' . $term . '%')
+    			->where('tipo', $tipo)
     			->take(10)
     			->get();
     		foreach ($queries as $query) {

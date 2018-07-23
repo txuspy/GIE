@@ -31,13 +31,13 @@
 				<div class="col-sm-6 ">
 		            <div class="form-group has-success">
 		                <label><strong>Programa (*):</strong></label>
-		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control buscadorPostgrados')) !!}
+		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>Programa :</strong></label>
-		                {!! Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control buscadorPostgrados')) !!}
+		                {!! Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
 		    </div>
@@ -45,13 +45,13 @@
 				<div class="col-sm-6 ">
 		            <div class="form-group has-success">
 		                <label><strong>Kurtsoa (*):</strong></label>
-		                {!! Form::text('curso_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorPostgrados')) !!}
+		                {!! Form::text('curso_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>Curso :</strong></label>
-		                {!! Form::text('curso_es', null, array('placeholder' => 'Curso','class' => 'form-control buscadorPostgrados')) !!}
+		                {!! Form::text('curso_es', null, array('placeholder' => 'Curso','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
 		    </div>

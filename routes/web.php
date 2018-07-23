@@ -55,7 +55,9 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('congresos/{id}/profesor/{id_autor}','CongresosController@enlazarProfesor');
 	Route::get('congresos/detach/{id}/profesor/{id_autor}','CongresosController@detachProfesor');
 
+	Route::get('equipamientoNuevo/autocompletar/{nombre}', 'EquipamientoNuevoController@equipamientoNuevoAjax');
 	Route::resource('equipamientoNuevo','EquipamientoNuevoController');
+
 
 	Route::get('tesisDoctorales/autocompletar/{nombre}', 'TesisDoctoralesController@tesisDoctoralesAjax');
 	Route::get('tesisDoctorales/show/{tipo}', ['as' => 'tesisDoctorales.index', 'uses' => 'TesisDoctoralesController@index'] );
@@ -71,7 +73,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('tesisDoctorales/detach/{id}/doctorando/{id_autor}', 'TesisDoctoralesController@detachDoctorando');
 
 
-	Route::get('proyectos/autocompletar/{nombre}', 'ProyectosController@proyectosAjax');
+	Route::get('proyectos/autocompletar/{nombre}/{tipo}', 'ProyectosController@proyectosAjax');
 	Route::get('proyectos/show/{tipo}', ['as' => 'proyectos.index', 'uses' => 'ProyectosController@index'] );
 	Route::get('proyectos/showAll/{tipo}', ['as' => 'proyectos.indexAll', 'uses' => 'ProyectosController@indexAll'] );
 	Route::get('proyectos/create/{tipo}', ['as' => 'proyectos.create', 'uses' => 'ProyectosController@create']  );
@@ -85,7 +87,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('proyectos/detach/{id}/doctorando/{id_autor}', 'ProyectosController@detachInvestigador');
 
 
-	Route::get('publicaciones/autocompletar/{nombre}', 'PublicacionesController@publicacionesAjax');
+	Route::get('publicaciones/autocompletar/{nombre}/{tipo}', 'PublicacionesController@publicacionesAjax');
 	Route::get('publicaciones/showAll/{tipo}', ['as' => 'publicaciones.indexAll', 'uses' => 'PublicacionesController@indexAll'] );
 	Route::get('publicaciones/show/{tipo}', ['as' => 'publicaciones.index', 'uses' => 'PublicacionesController@index'] );
 	Route::get('publicaciones/create/{tipo}', ['as' => 'publicaciones.create', 'uses' => 'PublicacionesController@create']  );
@@ -96,7 +98,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('publicaciones/{id}/autores/{id_autor}','PublicacionesController@enlazarAutores');
 	Route::get('publicaciones/detach/{id}/autores/{id_autor}','PublicacionesController@detachAutores');
 
-	Route::get('visitas/autocompletar/{nombre}', 'VisitasController@publicacionesAjax');
+	Route::get('visitas/autocompletar/{nombre}', 'VisitasController@visitasAjax');
 	Route::get('visitas/showAll', ['as' => 'visitas.indexAll', 'uses' => 'VisitasController@indexAll'] );
 	Route::get('visitas/show', ['as' => 'visitas.index', 'uses' => 'VisitasController@index'] );
 	Route::get('visitas/create', ['as' => 'visitas.create', 'uses' => 'VisitasController@create']  );
@@ -107,7 +109,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('visitas/{id}/autores/{id_autor}','VisitasController@enlazarAutores');
 	Route::get('visitas/detach/{id}/autores/{id_autor}','VisitasController@detachAutores');
 
-	Route::get('postgrados/autocompletar/{nombre}', 'PostgradosController@publicacionesAjax');
+	Route::get('postgrados/autocompletar/{nombre}/{tipo}', 'PostgradosController@postgradosAjax');
 	Route::get('postgrados/showAll/{tipo}', ['as' => 'postgrados.indexAll', 'uses' => 'PostgradosController@indexAll'] );
 	Route::get('postgrados/show/{tipo}', ['as' => 'postgrados.index', 'uses' => 'PostgradosController@index'] );
 	Route::get('postgrados/create/{tipo}', ['as' => 'postgrados.create', 'uses' => 'PostgradosController@create']  );
@@ -118,7 +120,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('postgrados/{id}/autores/{id_autor}','PostgradosController@enlazarAutores');
 	Route::get('postgrados/detach/{id}/autores/{id_autor}','PostgradosController@detachAutores');
 
-	Route::get('formaciones/autocompletar/{nombre}', 'FormacionesController@publicacionesAjax');
+	Route::get('formaciones/autocompletar/{nombre}/{tipo}/{modo}', 'FormacionesController@formacionesAjax');
 	Route::get('formaciones/showAll/{tipo}/{modo}', ['as' => 'formaciones.indexAll', 'uses' => 'FormacionesController@indexAll'] );
 	Route::get('formaciones/show/{tipo}/{modo}', ['as' => 'formaciones.index', 'uses' => 'FormacionesController@index'] );
 	Route::get('formaciones/create/{tipo}/{modo}', ['as' => 'formaciones.create', 'uses' => 'FormacionesController@create']  );
@@ -130,7 +132,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('formaciones/detach/{id}/autores/{id_autor}','FormacionesController@detachAutores');
 
 
-	Route::get('programasDeIntercambio/autocompletar/{nombre}', 'ProgramasDeIntercambioController@programasDeIntercambioAjax');
+	Route::get('programasDeIntercambio/autocompletar/{nombre}/{tipo}', 'ProgramasDeIntercambioController@programasDeIntercambioAjax');
 	Route::get('programasDeIntercambio/showAll/{tipo}', ['as' => 'programasDeIntercambio.indexAll', 'uses' => 'ProgramasDeIntercambioController@indexAll'] );
 	Route::get('programasDeIntercambio/show/{tipo}', ['as' => 'programasDeIntercambio.index', 'uses' => 'ProgramasDeIntercambioController@index'] );
 	Route::get('programasDeIntercambio/create/{tipo}', ['as' => 'programasDeIntercambio.create', 'uses' => 'ProgramasDeIntercambioController@create']  );

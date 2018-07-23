@@ -66,6 +66,27 @@ class EquipamientoNuevoController extends Controller
             ->with('success', __('Zuzen aldatatu da'));
     }
 
+    public function equipamientoNuevoAjax($nombre){
+        $term = trim(Input::get('term'));
+        $terminos = explode(' ', trim($term) );
+        $results = array();
+        $array=[];
+        foreach ( $terminos as $term){
+	       	$queries = DB::table('equipamientoNuevo')
+    			->select('id', $nombre)
+    			->where($nombre, 'LIKE', '%' . $term . '%')
+    			->take(10)
+    			->get();
+    		foreach ($queries as $query) {
+    		    if(!in_array($query->id, $array)){
+    			    $results[] = ['id' => $query->id, 'value' => $query->$nombre];
+    			    $array[] = $query->id;
+    		   }
+    		}
+	    }
+		return Response::json($results);
+    }
+
     public function destroy($id)
     {
         EquipamientoNuevo::find($id)->delete();

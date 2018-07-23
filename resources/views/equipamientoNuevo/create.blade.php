@@ -26,13 +26,13 @@
             		<div class="col-sm-6 ">
                         <div class="form-group has-success">
                             <label><strong>Hornikuntza (*):</strong></label>
-                            {!! Form::text('equipo_eu', null, array('placeholder' => 'Hornikuntza','class' => 'form-control')) !!}
+                            {!! Form::text('equipo_eu', null, array('placeholder' => 'Hornikuntza','class' => 'form-control buscadorEquipamientoNuevo')) !!}
                         </div>
                     </div>
                     <div class="col-sm-6 ">
                         <div class="form-group">
                             <label><strong>Equipamiento:</strong></label>
-                            {!! Form::text('equipo_es', null, array('placeholder' => 'Equipamiento','class' => 'form-control')) !!}
+                            {!! Form::text('equipo_es', null, array('placeholder' => 'Equipamiento','class' => 'form-control buscadorEquipamientoNuevo')) !!}
                         </div>
                     </div>
                 </div>

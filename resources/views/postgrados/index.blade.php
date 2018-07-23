@@ -28,6 +28,7 @@
 				<table class="table">
 					<tr>
 						<th>{{ __('Programa') }}</th>
+						<th>{{ __('Ikastaroa') }}</th>
 						<th>{{ __('Saila') }}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>
@@ -37,6 +38,10 @@
 							<?php $titulo = "titulo_".\Session::get('locale') ;?>
 							<a  href="{{ route('postgrados.edit',$postgrado->id) }}">{{ $postgrado->$titulo }}</a>
 							<br> <i>({{ $postgrado->usuario?$postgrado->usuario->name:'' }} {{ $postgrado->usuario?$postgrado->usuario->lname:'' }})</i>
+						</td>
+						<td>
+							<?php $curso = "curso_".\Session::get('locale') ;?>
+							<a  href="{{ route('postgrados.edit',$postgrado->id) }}">{{ $postgrado->$curso }}</a>
 						</td>
 						<td>
 							{{ \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$postgrado->departamento]??'---' }}
@@ -51,7 +56,7 @@
 						</td>
 					</tr>
 					@endforeach
-					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td class='text-center'>{{ $data->links() }}</td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
+					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td class='text-center'>{{ $data->links() }}</td><td></td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
 				</table>
 			</div>
 @endsection

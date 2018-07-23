@@ -31,6 +31,7 @@
 				<table class="table">
 					<tr>
 						<th>{{ __('Proiektua') }}</th>
+						<th>{{ __('Finantziazioa') }}</th>
 						<th>{{ __('Ikertzaile nagusia(k)') }}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>
@@ -41,6 +42,10 @@
 							<a href="{{ route('proyectos.edit',$proyecto->id) }}">{{ $proyecto->$proiekto }}</a>
 							<br> ( {{ $proyecto->desde }} - {{ $proyecto->hasta }} )
 							<br> <i>({{ $proyecto->usuario?$proyecto->usuario->name:'' }} {{ $proyecto->usuario?$proyecto->usuario->lname:'' }})</i>
+
+						</td>
+						<td>
+							<a href="{{ route('proyectos.edit',$proyecto->id) }}">{{ $proyecto->financinacion }}</a>
 
 						</td>
 						<td>
@@ -61,7 +66,7 @@
 						</td>
 					</tr>
 					@endforeach
-					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td  class='text-center'>{{ $data->links() }}</td><td>{{ __('Oraingo orria::' )}} {{ $data->currentPage() }}</td></tr>
+					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td  class='text-center'>{{ $data->links() }}</td><td></td><td>{{ __('Oraingo orria::' )}} {{ $data->currentPage() }}</td></tr>
 				</table>
 			</div>
 @endsection

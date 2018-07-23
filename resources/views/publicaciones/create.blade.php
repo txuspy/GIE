@@ -31,13 +31,13 @@
 				<div class="col-sm-6 ">
 		            <div class="form-group has-success">
 		                <label><strong>Izenburua (*):</strong></label>
-		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control buscadorPublicaciones')) !!}
+		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control buscadorPublicaciones', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>Titulo :</strong></label>
-		                {!! Form::text('titulo_es', null, array('placeholder' => 'Titulo','class' => 'form-control buscadorPublicaciones')) !!}
+		                {!! Form::text('titulo_es', null, array('placeholder' => 'Titulo','class' => 'form-control buscadorPublicaciones', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
 		    </div>

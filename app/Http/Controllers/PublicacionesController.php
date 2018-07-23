@@ -89,7 +89,7 @@ class PublicacionesController extends Controller
             ->with('success', __('Zuzen ezabatu da'));
     }
 
-    public function publicacionesAjax($nombre){
+    public function publicacionesAjax($nombre, $tipo){
         $term = trim(Input::get('term'));
         $terminos = explode(' ', trim($term) );
         $results = array();
@@ -98,7 +98,7 @@ class PublicacionesController extends Controller
 	       	$queries = DB::table('publicaciones')
     			->select('id', $nombre)
     			->where($nombre, 'LIKE', '%' . $term . '%')
-
+                ->where('tipo',$tipo)
     			->take(10)
     			->get();
     		foreach ($queries as $query) {

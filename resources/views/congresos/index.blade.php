@@ -23,6 +23,7 @@
 				<table class="table">
 					<tr>
 						<th>{{ __('Kongresu') }}</th>
+						<th>{{ __('Ekarpen mota') }}  </th>ç
 						<th>{{ __('Arduraduna(k)') }}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>
@@ -35,6 +36,9 @@
 									</a>
 							<br> <i>({{ $congreso->usuario?$congreso->usuario->name:'' }} {{ $congreso->usuario?$congreso->usuario->lname:'' }})</i>
 						</td>
+						<td>
+								{{ \App\Traits\Listados::listadoEkarpena(\Session::get('locale'))[$congreso->ekarpena]??'---' }}
+							</td>
 						<td>
 								@foreach( $congreso->profesores as $profesor)
 			 					{{$profesor->nombre}} {{$profesor->apellido}}
@@ -53,7 +57,7 @@
 						</td>
 					</tr>
 					@endforeach
-					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td  class='text-center'>{{ $data->links() }}</td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
+					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td  class='text-center'>{{ $data->links() }}</td><td></td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
 				</table>
 			</div>
 @endsection

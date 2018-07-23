@@ -31,13 +31,13 @@
 				<div class="col-sm-6 ">
 		            <div class="form-group has-success">
 		                <label><strong>Ikastaro (*):</strong></label>
-		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorFormaciones')) !!}
+		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>Curso :</strong></label>
-		                {!! Form::text('titulo_es', null, array('placeholder' => 'Curso','class' => 'form-control buscadorFormaciones')) !!}
+		                {!! Form::text('titulo_es', null, array('placeholder' => 'Curso','class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
 		            </div>
 		        </div>
 		    </div>
@@ -46,13 +46,13 @@
 					<div class="col-sm-6 ">
 			            <div class="form-group has-success">
 			                <label><strong>Antolatzailea(k) (*):</strong></label>
-			                {!! Form::text('organizador_eu', null, array('placeholder' => 'Antolatzailea(k)','class' => 'form-control buscadorFormaciones')) !!}
+			                {!! Form::text('organizador_eu', null, array('placeholder' => 'Antolatzailea(k)','class' => 'form-control ', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
 			            </div>
 			        </div>
 			        <div class="col-sm-6 ">
 			            <div class="form-group">
 			                <label><strong>Organizador(es) :</strong></label>
-			                {!! Form::text('organizador_es', null, array('placeholder' => 'Organizador(es)','class' => 'form-control buscadorFormaciones')) !!}
+			                {!! Form::text('organizador_es', null, array('placeholder' => 'Organizador(es)','class' => 'form-control ', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
 			            </div>
 			        </div>
 			    </div>

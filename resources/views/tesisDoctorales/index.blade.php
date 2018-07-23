@@ -29,6 +29,7 @@
 				<table class="table table-striped">
 					<tr>
 						<th>{{ __('Izenburua') }}</th>
+						<th>{{ __('Saila') }}</th>
 						<th>{{ __('Ikerlaria(k)')}}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>
@@ -38,6 +39,9 @@
 							<?php $titulo = "titulo_".\Session::get('locale') ;?>
 							<a href="{{ route('tesisDoctorales.edit',$tesis->id) }}">{{ $tesis->$titulo }}</a>
 							<br> <i>({{ $tesis->usuario?$tesis->usuario->name:'' }} {{ $tesis->usuario?$tesis->usuario->lname:'' }})</i>
+						</td>
+						<td>
+							{{ \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$tesis->departamento]??'---' }}
 						</td>
 						<td>
 							@foreach( $tesis->doctorandos as $doctorando)
@@ -57,7 +61,7 @@
 						</td>
 					</tr>
 					@endforeach
-					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td  class='text-center'>{{ $data->links() }}</td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
+					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td  class='text-center'>{{ $data->links() }}</td><td></td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
 				</table>
 			</div>
 @endsection

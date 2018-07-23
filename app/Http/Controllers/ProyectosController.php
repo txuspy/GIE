@@ -101,7 +101,7 @@ class ProyectosController extends Controller
             ->with('success', __('Zuzen ezabatu da'));
     }
 
-    public function proyectosAjax($nombre){
+    public function proyectosAjax($nombre, $tipo){
         $term = trim(Input::get('term'));
         $terminos = explode(' ', trim($term) );
         $results = array();
@@ -110,6 +110,7 @@ class ProyectosController extends Controller
 	       	$queries = DB::table('proyectoInvestigacion')
     			->select('id', $nombre)
     			->where($nombre, 'LIKE', '%' . $term . '%')
+    			->where('tipo',$tipo)
     			->take(10)
     			->get();
     		foreach ($queries as $query) {

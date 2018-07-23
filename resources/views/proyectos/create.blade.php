@@ -33,13 +33,13 @@
 		<div class="col-sm-6 ">
             <div class="form-group has-success">
                 <label><strong>Proiektua (*):</strong></label>
-                {!! Form::text('proyecto_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control buscadorProyectos')) !!}
+                {!! Form::text('proyecto_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control buscadorProyectos', 'data-tipo'  => $tipo)) !!}
             </div>
         </div>
         <div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>Proyecto:</strong></label>
-                {!! Form::text('proyecto_es', null, array('placeholder' => 'Proyecto','class' => 'form-control buscadorProyectos')) !!}
+                {!! Form::text('proyecto_es', null, array('placeholder' => 'Proyecto','class' => 'form-control buscadorProyectos', 'data-tipo'  => $tipo)) !!}
             </div>
         </div>
     </div>
