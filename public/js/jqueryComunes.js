@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    $(window).keydown(function(event){
+    console.log("public/js/jqueryComunes.js ready!");
+     $(window).keydown(function(event){
         if(event.keyCode == 13) {
           event.preventDefault();
           return false;
         }
     });
-    console.log("public/js/jqueryComunes.js ready!");
      $('.input-daterange').datepicker({
             weekStart: 1,
             language: "es",

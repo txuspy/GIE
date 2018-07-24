@@ -342,7 +342,7 @@
 
             font-family: "fontawesome-alloy"; }
   .aui body:not(.portal-popup) .side-nav-item {
-   } /* position: relative; */
+    position: relative; }
   .aui body:not(.portal-popup) .has-sub-nav .sub-nav {
     display: none; }
   .aui body:not(.portal-popup) .has-sub-nav.class-toggle-active > .sub-nav,
@@ -358,6 +358,7 @@
     cursor: pointer; }
   .aui body:not(.portal-popup) #column-2 > h1 {
     margin-right: 20px; }
+
   .aui body:not(.portal-popup) .footer-menu {
     background: #252525;
     background: linear-gradient(to top, #050d16 0%, #454b53);

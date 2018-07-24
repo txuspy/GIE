@@ -4,9 +4,6 @@
 .mostrar{
 	display:block;
 }
-a{
-    color:black;
-}
 /* DATATABLES */
 td.details-control {
     background: url('/images/details_open.png') no-repeat center center;

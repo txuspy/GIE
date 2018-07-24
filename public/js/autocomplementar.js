@@ -156,9 +156,8 @@ $(document).ready(function () {
     // Proyectos
     $(".buscadorProyectos" ).focus(function() {
         var name = $(this).closest('input').attr("name");
-        var tipo = $(this).closest('input').attr("data-tipo");
         $(this).autocomplete({
-            source: "/proyectos/autocompletar/"+name+"/"+tipo,
+            source: "/proyectos/autocompletar/"+name,
             minLength: 3,
             select: function (event, ui) {
                 if(ui.item.id){
@@ -193,27 +192,8 @@ $(document).ready(function () {
       // Publicaciones
     $(".buscadorPublicaciones" ).focus(function() {
         var name = $(this).closest('input').attr("name");
-        var tipo = $(this).closest('input').attr("data-tipo");
         $(this).autocomplete({
-            source: "/publicaciones/autocompletar/"+name+"/"+tipo,
-            minLength: 3,
-            select: function (event, ui) {
-                if(ui.item.id){
-                    console.log($(this).attr('name'));
-                    console.log("redirigir");
-                    var url = "/programasDeIntercambio/" + ui.item.id + "/edit"; // get selected value
-                    if (url) { // require a URL
-                        window.location = url; // redirect
-                    }
-                }
-            }
-        });
-    });  // programasDeIntercambio
-    $(".buscadorProgramasDeIntercambio" ).focus(function() {
-        var name = $(this).closest('input').attr("name");
-        var tipo = $(this).closest('input').attr("data-tipo");
-        $(this).autocomplete({
-            source: "/programasDeIntercambio/autocompletar/"+name+"/"+tipo,
+            source: "/programasDeIntercambio/autocompletar/"+name,
             minLength: 3,
             select: function (event, ui) {
                 if(ui.item.id){
@@ -227,80 +207,4 @@ $(document).ready(function () {
             }
         });
     });
-     // Postgrados
-    $(".buscadorPostgrados" ).focus(function() {
-        var name = $(this).closest('input').attr("name");
-        var tipo = $(this).closest('input').attr("data-tipo");
-        $(this).autocomplete({
-            source: "/postgrados/autocompletar/"+name+"/"+tipo,
-            minLength: 3,
-            select: function (event, ui) {
-                if(ui.item.id){
-                    console.log($(this).attr('name'));
-                    console.log("redirigir");
-                    var url = "/postgrados/" + ui.item.id + "/edit"; // get selected value
-                    if (url) { // require a URL
-                        window.location = url; // redirect
-                    }
-                }
-            }
-        });
-    });
-    // Formaciones
-    $(".buscadorFormaciones" ).focus(function() {
-        var name = $(this).closest('input').attr("name");
-        var tipo = $(this).closest('input').attr("data-tipo");
-        var modo = $(this).closest('input').attr("data-modo");
-        $(this).autocomplete({
-            source: "/formaciones/autocompletar/"+name+"/"+tipo+"/"+modo,
-            minLength: 3,
-            select: function (event, ui) {
-                if(ui.item.id){
-                    console.log($(this).attr('name'));
-                    console.log("redirigir");
-                    var url = "/formaciones/" + ui.item.id + "/edit"; // get selected value
-                    if (url) { // require a URL
-                        window.location = url; // redirect
-                    }
-                }
-            }
-        });
-    });
-    // Visitas
-    $(".buscadorVisitas" ).focus(function() {
-        var name = $(this).closest('input').attr("name");
-        $(this).autocomplete({
-            source: "/visitas/autocompletar/"+name,
-            minLength: 3,
-            select: function (event, ui) {
-                if(ui.item.id){
-                    console.log($(this).attr('name'));
-                    console.log("redirigir");
-                    var url = "/visitas/" + ui.item.id + "/edit"; // get selected value
-                    if (url) { // require a URL
-                        window.location = url; // redirect
-                    }
-                }
-            }
-        });
-    });
-    // equipamientoNuevoAjax
-    $(".buscadorEquipamientoNuevo" ).focus(function() {
-        var name = $(this).closest('input').attr("name");
-        $(this).autocomplete({
-            source: "/equipamientoNuevo/autocompletar/"+name,
-            minLength: 3,
-            select: function (event, ui) {
-                if(ui.item.id){
-                    console.log($(this).attr('name'));
-                    console.log("redirigir");
-                    var url = "/equipamientoNuevo/" + ui.item.id + "/edit"; // get selected value
-                    if (url) { // require a URL
-                        window.location = url; // redirect
-                    }
-                }
-            }
-        });
-    });
-
 });
