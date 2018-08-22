@@ -43,7 +43,14 @@ class CongresosController extends Controller
             'lugar'          => 'required',
             'desde'          => 'required',
             'hasta'          => 'required',
-
+        ],
+        [
+            'congreso_eu.required'          => __('Kongresua  beharrezkoa da.'),
+            'conferenciaPoster.required'    => __('Izenburua  beharrezkoa da.'),
+            'lugar.required'                => __('Tokia  beharrezkoa da.'),
+            'congreso_eu.required'          => __('Kongresua  beharrezkoa da.'),
+            'desde.required'                => __('Noiztik beharrezkoa da.'),
+            'hasta.required'                => __('Arte beharrezkoa da.')
         ]);
 
 
@@ -76,6 +83,14 @@ class CongresosController extends Controller
             'lugar'             => 'required',
             'desde'             => 'required',
             'hasta'             => 'required',
+        ],
+        [
+            'congreso_eu.required'          => __('Kongresua  beharrezkoa da.'),
+            'conferenciaPoster.required'    => __('Izenburua  beharrezkoa da.'),
+            'lugar.required'                => __('Tokia  beharrezkoa da.'),
+            'congreso_eu.required'          => __('Kongresua  beharrezkoa da.'),
+            'desde.required'                => __('Noiztik beharrezkoa da.'),
+            'hasta.required'                => __('Arte beharrezkoa da.')
         ]);
 
         $request['congreso_es'] = $request->congreso_eu;

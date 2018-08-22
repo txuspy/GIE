@@ -30,8 +30,11 @@
 	{!! Form::open(array('route' => 'tesisDoctorales.store','method'=>'POST', 'class'=>'form' )) !!}
 	<div>
 		<div class="col-sm-6 ">
-            <div class="form-group has-success">
+            <div class="form-group has-error">
                 <label><strong>Izenburua (*):</strong></label>
+                @if ($errors->has('titulo_eu'))
+                    <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                @endif
                 {!! Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control buscadorTesisDoctorales')) !!}
             </div>
         </div>
@@ -44,29 +47,35 @@
     </div>
 	<div>
         <div class="col-sm-6 ">
-            <div class="form-group has-success">
-                <label><strong>Saila/ Departamento (*):</strong></label>
+            <div class="form-group has-error">
+                <label><strong> {{ __('Saila') }} (*):</strong></label>
+                @if ($errors->has('departamento'))
+                    <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                @endif
                 {!! Form::select('departamento',  \App\Traits\Listados::listadoDepartamentos( \Session::get('locale') ), '54', ['id' =>'departamento',   'class' => 'form-control chosen-select'])  !!}
             </div>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-2">
            {{ Form::label('euskera', __('Euskaraz'), ['class'=>' control-label'] ) }}<br>
             {{ Form::checkbox('euskera', 1, '', ['class' => '']) }}
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
            {{ Form::label('internacional', __('Nazioartekoa'), ['class'=>' control-label'] ) }}<br>
             {{ Form::checkbox('internacional', 1, '', ['class' => '']) }}
         </div>
      </div>
      <div>
-        <div class="col-sm-6 ">
-            <div class="form-group has-success">
+        <div class="col-sm-2">
+            <div class="form-group has-error">
                 <label><strong>{{ __('Data') }} (*):</strong></label>
+                @if ($errors->has('fechaLectura'))
+                    <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                @endif
                 {!! Form::text('fechaLectura', date('Y') , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')) !!}
             </div>
         </div>
-    </div>
+
     <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
     <div>
         <div class="col-md-12 col-sm-12 col-md-12 text-center">

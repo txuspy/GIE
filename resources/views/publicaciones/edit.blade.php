@@ -47,21 +47,31 @@
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
+
+		           @if( $publicacion->tipo =='libros')
+			            <div class="form-group">
+			                <label><strong>{{ __('Argitaletxea') }} :</strong></label>
+			                {!! Form::text('editorialRevisa',  null , array('placeholder' => __('Argitaletxea') ,'class' => 'buscadorAldikariak form-control')) !!}
+			            </div>
+		            @else
+		              	<div class="form-group">
+		                	<label><strong>{{ __('Aldizkaria') }} :</strong></label>
+		                	{!! Form::text('editorialRevisa',  null , array('placeholder' => __('Aldizkaria') ,'class' => 'form-control buscadorAldikariak')) !!}
+		            	</div>
+		            @endif
+
+
+		        </div>
+		        {{--
+		        <div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>Titulo:</strong></label>
 		                {!! Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')) !!}
 		            </div>
 		        </div>
+		        --}}
 		    </div>
-			<div>
-		        <div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>{{ __('Argitaletxea / revista') }} :</strong></label>
-		                {!! Form::text('editorialRevisa', null, array('placeholder' => __('Editorial / revista') ,'class' => 'form-control')) !!}
-		            </div>
-		        </div>
 
-		    </div>
 		    <div class="row" style="margin:1px;">
 		        <div class="col-sm-6 ">
 		        	@if( $publicacion->tipo =='libros')
@@ -76,14 +86,29 @@
 		            	</div>
 		            @endif
 		        </div>
-				<div class="col-sm-6 ">
+		         <div class="col-sm-6 ">
+		        	@if( $publicacion->tipo =='libros')
+			            <div class="form-group">
+			                <label><strong>{{ __('ISBN') }} :</strong></label>
+			                {!! Form::text('ISBN',  null , array('placeholder' => __('ISBN') ,'class' => ' form-control')) !!}
+			            </div>
+		            @else
+		              	<div class="form-group">
+		                	<label><strong>{{ __('ISSN') }} :</strong></label>
+		                	{!! Form::text('ISBN',  null , array('placeholder' => __('ISSN') ,'class' => ' form-control')) !!}
+		            	</div>
+		            @endif
+		        </div>
+
+
+		    </div>
+		    <div>
+		    	<div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>{{ __('Data') }} :</strong></label>
 		                {!! Form::text('year', null , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')) !!}
 		            </div>
 		        </div>
-		    </div>
-		    <div>
 		    	<div class="col-sm-6">
 		    		<label><strong>{{ __('Egilea(k)')}}:</strong></label>
 		    	 	{{Form::text('publicacionesAutores', '', [

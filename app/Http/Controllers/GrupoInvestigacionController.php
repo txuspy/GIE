@@ -43,8 +43,12 @@ class GrupoInvestigacionController extends Controller
         $this->validate($request, [
             'grupo_eu'     => 'required',
             'lineasInv_eu' => 'required',
-            'desde'        => 'required',
-            'hasta'        => 'required',
+            'desde'        => 'required'
+        ],
+        [
+            'grupo_eu.required'        => __('Taldea beharrezkoa da.'),
+            'lineasInv_eu.required'    => __('Ikerkuntza lerrorak beharrezkoa da.'),
+            'desde.required'           => __('Noiztik beharrezkoa da.')
         ]);
         if($request->grupo_es==''){
              $request['grupo_es'] = $request->grupo_eu;
@@ -77,7 +81,13 @@ class GrupoInvestigacionController extends Controller
         //dd($request->all());
         $this->validate($request, [
             'grupo_eu' => 'required',
-            'lineasInv_eu' => 'required'
+            'lineasInv_eu' => 'required',
+            'desde'        => 'required'
+        ],
+        [
+            'grupo_eu.required'        => __('Taldea beharrezkoa da.'),
+            'lineasInv_eu.required'    => __('Ikerkuntza lerrorak beharrezkoa da.'),
+            'desde.required'           => __('Noiztik beharrezkoa da.')
         ]);
         $input = $request->all();
         if(!$input['hasta']){ $input['hasta'] = null; }

@@ -15,16 +15,19 @@
 						</div>
 					</div>
 				</div>
+
 				@if ($message = Session::get('success'))
 				<div class="alert alert-success">
 					<p>{{ $message }}</p>
 				</div>
+
 				@endif
+
 				<table class="table">
 					<tr>
 						<th>{{ __('Kongresu') }}</th>
-						<th>{{ __('Ekarpen mota') }}  </th>ç
-						<th>{{ __('Arduraduna(k)') }}</th>
+						<th>{{ __('Ekarpen mota') }}  </th>
+						<th>{{ __('Irakaslea(k)') }}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>
 					@foreach ($data as $key => $congreso)

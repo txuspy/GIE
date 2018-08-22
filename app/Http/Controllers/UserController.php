@@ -70,7 +70,7 @@ class UserController extends Controller
         $roles = Role::pluck('display_name','id');
         $userRole = $user->roles->pluck('id','id')->toArray();
 
-        return view('users.edit',compact('user','roles','userRole', 'imagenes', 'adjuntos'));
+        return view('users.edit',compact('user','roles','userRole' ));
     }
 
     public function update(Request $request, $id)
@@ -120,7 +120,14 @@ class UserController extends Controller
             $input['id_autor'] = $autor->id;
             $user->update($input);
         }
-        return redirect()->route('users.index')->with('success', __('Erabiltzailea zuzen aldatatu da'));
+
+
+        $roles = Role::pluck('display_name','id');
+        $userRole = $user->roles->pluck('id','id')->toArray();
+        \Session::put('locale', $request->lng);
+        \LaravelGettext::setLocale($request->lng) ;
+        return view('users.edit',compact('user','roles','userRole' ));
+        //return redirect()->route('users.index')->with('success', __('Erabiltzailea zuzen aldatatu da'));
     }
 
     public function destroy($id)

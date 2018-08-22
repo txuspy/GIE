@@ -24,8 +24,11 @@
 	        {!! Form::open(array('route' => 'equipamientoNuevo.store','method'=>'POST', 'class'=>'form' )) !!}
         	    <div>
             		<div class="col-sm-6 ">
-                        <div class="form-group has-success">
+                        <div class="form-group has-error">
                             <label><strong>Hornikuntza (*):</strong></label>
+                            @if ($errors->has('equipo_eu'))
+    	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+    	                    @endif
                             {!! Form::text('equipo_eu', null, array('placeholder' => 'Hornikuntza','class' => 'form-control buscadorEquipamientoNuevo')) !!}
                         </div>
                     </div>
@@ -38,14 +41,17 @@
                 </div>
             	<div>
             		<div class="col-sm-6 ">
-                       <div class="form-group has-success">
+                       <div class="form-group has-error">
                             <label><strong>Saila/ Departamento (*):</strong></label>
                             {!! Form::select('departamento',  \App\Traits\Listados::listadoDepartamentos( \Session::get('locale') ), '54', ['id' =>'departamento',   'class' => 'form-control chosen-select'])  !!}
                         </div>
                     </div>
                     <div class="col-sm-6 ">
-                        <div class="form-group has-success">
+                        <div class="form-group has-error">
                             <label><strong>{{ __('Instituzioa') }} (*):</strong></label>
+                            @if ($errors->has('institucion'))
+    	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+    	                    @endif
                             {!! Form::text('institucion', null, array('placeholder' => __('Instituzioa') ,'class' => 'form-control')) !!}
                         </div>
                     </div>
@@ -53,8 +59,11 @@
             	<div>
 
                     <div class="col-sm-6 ">
-                        <div class="form-group has-success">
+                        <div class="form-group has-error">
                             <label><strong>{{ __('Data') }} (*):</strong></label>
+                            @if ($errors->has('data'))
+    	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+    	                    @endif
                             {!! Form::text('data',  null , array('placeholder' => __('Data') ,'class' => 'datepicker form-control')) !!}
                         </div>
                     </div>
@@ -65,7 +74,12 @@
                         </div>
                     </div>
                 </div>
-                 <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+            	<div>
+
+                    <div class="col-sm-12 ">
+                     <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+                     </div>
+                </div>
                 <div>
                     <div class="col-sm-12 col-sm-12 col-md-12 text-center">
             			<button type="submit" class="btn btn-success">

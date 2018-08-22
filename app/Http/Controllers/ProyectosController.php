@@ -46,6 +46,10 @@ class ProyectosController extends Controller
             'proyecto_eu' => 'required',
             'tipo' => 'required',
             'desde' => 'required',
+        ],
+        [
+            'proyecto_eu.required'    => __('Proiektua  beharrezkoa da.'),
+            'desde.required'          => __('Noiztik beharrezkoa da.')
         ]);
         if($request->proyecto_es==''){
              $request['proyecto_es'] = $request->proyecto_eu;
@@ -83,6 +87,10 @@ class ProyectosController extends Controller
         $this->validate($request, [
             'proyecto_es' => 'required',
             'tipo' => 'required'
+        ],
+        [
+            'proyecto_eu.required'    => __('Proiektua  beharrezkoa da.'),
+            'desde.required'          => __('Noiztik beharrezkoa da.')
         ]);
         $input         = $request->all();
         $proyecto = Proyectos::find($id);

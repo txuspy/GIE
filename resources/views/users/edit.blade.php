@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-   {!! Breadcrumbs::render('usuariosEdit', $user) !!}
+    @if(\Auth::user()->hasRole('admin'))
+        {!! Breadcrumbs::render('usuariosEdit', $user) !!}
+    @else
+       {!! Breadcrumbs::render('usuariosNOAdminVer', $user) !!}
+    @endif
    @include('dialog.upload')
     @if(session()->has('firstTime'))
         <div id="msj-ok" class="alert alert-success alert-dismissible" role="alert">
@@ -38,13 +42,14 @@
                 {!! Form::text('lname', null, array('placeholder' => __('Abizenak') ,'class' => 'form-control')) !!}
             </div>
         </div>
-
+        {{--
     	<div class="col-xs-10 col-sm-10 col-md-10">
             <div class="form-group">
                 <strong>{{ __('Webunits') }}:</strong>
                 {!! Form::text('ldap', null, array('placeholder' => __('Webunits'),'class' => 'form-control')) !!}
             </div>
         </div>
+        --}}
         <div class="col-xs-10 col-sm-10 col-md-10">
             <div class="form-group">
                 <strong>{{ __('Posta elektronikoa') }}:</strong>
@@ -88,6 +93,7 @@
             </div>
         </div>
         @role('admin')
+
             <div class="col-xs-10 col-sm-10 col-md-10">
                 <div class="form-group">
                     <strong>{{ __('Errola') }}:</strong>

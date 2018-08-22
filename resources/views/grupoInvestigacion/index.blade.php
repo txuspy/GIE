@@ -10,12 +10,12 @@
 						<div class="pull-left margen-left">
 							<a class="btn btn-info" href="{{ route('grupoInvestigacion.indexAll') }}"><i class="fa fa-eye" title="{{ __('Ikerkuntza taldea guztiak ikusi') }}"></i></a>
 						</div>
-
+<!--
                     	<div class="pull-left margen-left">
 							<a class="btn btn-info" href="{{ url(App\Lib\Functions::parseLang().'/grupoInvestigacion/word') }}" >
 							<i class="fa fa-file-word-o" title="{{ __('Word sortu') }}"></i> </a>
 						</div>
-<!--
+
 						<div class="pull-left margen-left">
 							<a class="btn btn-info" href="{{ url(App\Lib\Functions::parseLang().'/grupoInvestigacion/envioEmail') }}" >
 							<i class="fa fa-envelope"></i> {{ __('Emaila bidali') }}</a>

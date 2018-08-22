@@ -50,7 +50,7 @@
 	    </div>
 		<div>
 			<div class="col-xs-6 ">
-		      	 <div class="form-group has-success">
+		      	 <div class="form-group has-error">
 		                <label><strong>{{ __('Ekarpen mota') }} (*):</strong></label>
 
 		                {!! Form::select('ekarpena',  \App\Traits\Listados::listadoEkarpena(), $congreso->ekarpena , ['id' =>'ekarpena',   'class' => 'form-control chosen-select'])  !!}

@@ -43,7 +43,13 @@ class ProgramasDeIntercambioController extends Controller
             'lugar' => 'required',
             'desde' => 'required',
             'tipo' => 'required'
-        ]);
+            ],
+            [
+                'actividad_eu.required'      => __('Aktibitatea  beharrezkoa da.'),
+                'lugar.required'             => __('Tokia   beharrezkoa da.'),
+                'desde.required'             => __('Noiztik  beharrezkoa da.')
+            ]
+            );
         if($request->actividad_es==''){
              $request['actividad_es'] = $request->actividad_eu;
         }
@@ -74,6 +80,11 @@ class ProgramasDeIntercambioController extends Controller
             'lugar' => 'required',
             'desde' => 'required',
             'tipo' => 'required'
+        ],
+        [
+            'actividad_eu.required'      => __('Aktibitatea  beharrezkoa da.'),
+            'lugar.required'             => __('Tokia   beharrezkoa da.'),
+            'desde.required'             => __('Noiztik  beharrezkoa da.')
         ]);
         if($request->actividad_es==''){
              $request['actividad_es'] = $request->actividad_eu;

@@ -31,8 +31,11 @@
         	{!! Form::open(array('route' => 'programasDeIntercambio.store','method'=>'POST', 'class'=>'form' )) !!}
         	<div>
         		<div class="col-sm-6 ">
-                      <div class="form-group has-success">
+                      <div class="form-group has-error">
                         <label><strong>Aktibitatea (*):</strong></label>
+                        @if ($errors->has('actividad_eu'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
                         {!! Form::text('actividad_eu', null, array('placeholder' => 'Aktibitea','class' => 'form-control buscadorProgramasDeIntercambio', 'data-tipo'  => $tipo )) !!}
                     </div>
                 </div>
@@ -43,19 +46,14 @@
                     </div>
                 </div>
             </div>
-        	<div>
-        		<div class="col-sm-6 ">
-                      <div class="form-group has-success">
-                        <label><strong>{{ __('Tokia') }} (*):</strong></label>
-                        {!! Form::text('lugar', null, array('placeholder' => 'Aktibitea','class' => 'form-control')) !!}
-                    </div>
-                </div>
 
-            </div>
             <div>
                 <div class="col-sm-6 ">
-                      <div class="form-group has-success">
+                      <div class="form-group has-error">
                         <label><strong>{{ __('Noiztik') }} (*):</strong></label>
+                        @if ($errors->has('desde'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
                         {!! Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')) !!}
                     </div>
                 </div>
@@ -66,7 +64,24 @@
                     </div>
                 </div>
             </div>
-            <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+
+        		<div class="col-sm-6 ">
+                      <div class="form-group has-error">
+                        <label><strong>{{ __('Tokia') }} (*):</strong></label>
+                        @if ($errors->has('lugar'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
+                        {!! Form::text('lugar', null, array('placeholder' => 'Aktibitea','class' => 'form-control')) !!}
+                    </div>
+                </div>
+                     <div>
+                    <div class="col-sm-12">
+                        <p ><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+                    </div>
+                </div>
+            </div>
+
+
             <div>
                 <div class="col-sm-12 col-sm-12 col-md-12 text-center">
                     {{ Form::hidden('tipo', $tipo) }}

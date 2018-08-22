@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
         {
             return substr($value, 0, 1) == '+';
         });
+        \Debugbar::disable();
     }
 
     /**

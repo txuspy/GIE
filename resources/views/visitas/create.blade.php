@@ -27,8 +27,11 @@
 			{!! Form::open(array('route' => 'visitas.store','method'=>'POST', 'class'=>'form' )) !!}
 			<div>
 				<div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group has-error">
 		                <label><strong>Aktibitatea (*):</strong></label>
+		                 @if ($errors->has('titulo_eu'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Aktibitatea','class' => 'form-control buscadorVisitas')) !!}
 		            </div>
 		        </div>
@@ -41,19 +44,30 @@
 		    </div>
 			<div>
 				<div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group has-error">
 		                <label><strong>{{ __('Tokia') }} (*):</strong></label>
+		                @if ($errors->has('lugar'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
 		                {!! Form::text('lugar', null , array('placeholder' => __('Tokia') ,'class' => 'form-control')) !!}
 		            </div>
 		        </div>
 				<div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group has-error">
 		                <label><strong>{{ __('Data') }} (*):</strong></label>
+		                @if ($errors->has('fecha'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
 		                {!! Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker form-control')) !!}
 		            </div>
 		        </div>
 		    </div>
-		    <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+		     <div>
+                <div class="col-sm-12">
+                    <p ><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+                </div>
+            </div>
+
 		    <div>
 		       <div class="col-sm-12 col-sm-12 col-md-12 text-center">
 

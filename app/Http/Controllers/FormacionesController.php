@@ -50,6 +50,11 @@ class FormacionesController extends Controller
                 'tipo'           => 'required',
                 'modo'           => 'required',
                 'fecha'          => 'required',
+            ],
+            [
+                'titulo_eu.required'      => __('Ikastaroa beharrezkoa da.'),
+                'organizador_eu.required' => __('Antolatzailea(k) beharrezkoa da.'),
+                'fecha.required'          => __('Data beharrezkoa da.')
             ]);
             if($request->organizador_es==''){
                  $request['organizador_es'] = $request->organizador_eu;
@@ -60,6 +65,10 @@ class FormacionesController extends Controller
                 'tipo'           => 'required',
                 'modo'           => 'required',
                 'fecha'          => 'required',
+            ],
+            [
+                'titulo_eu.required'      => __('Ikastaroa beharrezkoa da.'),
+                'fecha.required'          => __('Data beharrezkoa da.')
             ]);
     	}
         if($request->titulo_es==''){
@@ -87,10 +96,13 @@ class FormacionesController extends Controller
     {
         $this->validate($request, [
             'titulo_eu'      => 'required',
-            'organizador_eu' => 'required',
             'tipo'           => 'required',
             'modo'           => 'required',
             'fecha'          => 'required',
+        ],
+        [
+            'titulo_eu.required'      => __('Ikastaroa beharrezkoa da.'),
+            'fecha.required'          => __('Data beharrezkoa da.')
         ]);
         if($request->titulo_es==''){
              $request['titulo_es'] = $request->titulo_eu;

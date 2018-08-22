@@ -24,8 +24,11 @@
         	{!! Form::open(array('route' => 'grupoInvestigacion.store','method'=>'POST', 'class'=>'form' )) !!}
             	<div>
             	     <div class="col-sm-6 ">
-                        <div class="form-group has-success">
+                        <div class="form-group has-error">
                             <label><strong>Taldea *:</strong></label>
+                             @if ($errors->has('grupo_eu'))
+    	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+    	                    @endif
                             {!! Form::text('grupo_eu', null, array('placeholder' => 'Taldea','class' => 'form-control buscadorGrupoInvestigacion')) !!}
                         </div>
                     </div>
@@ -40,8 +43,11 @@
             	<div>
 
                      <div class="col-sm-6 ">
-                        <div class="form-group has-success">
+                        <div class="form-group has-error">
                             <label><strong>Ikerkuntza lerroak *:</strong></label>
+                            @if ($errors->has('lineasInv_eu'))
+    	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+    	                    @endif
                             {!! Form::textarea('lineasInv_eu', null, array('placeholder' => 'Ikerkuntza lerroak','class' => 'form-control')) !!}
                         </div>
                     </div>
@@ -56,19 +62,26 @@
 
                 <div>
                     <div class="col-sm-6 ">
-                        <div class="form-group has-success">
+                        <div class="form-group has-error">
                             <label><strong>{{ __('Noiztik') }} *:</strong></label>
+                            @if ($errors->has('desde'))
+    	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+    	                    @endif
                             {!! Form::text('desde',  null , array('placeholder' => __('Noiztik') ,'class' => 'date-year form-control')) !!}
                         </div>
                     </div>
             		<div class="col-sm-6 ">
-                        <div class="form-group has-success">
+                        <div class="form-group has-error">
                             <label><strong>{{ __('Arte') }} *:</strong></label>
                             {!! Form::text('hasta', null , array('placeholder' => __('Hutsik utzi gaur egun martxan badago') ,'class' => 'date-year form-control')) !!}
                         </div>
                     </div>
                 </div>
-                <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+                 <div>
+                        <div class="col-sm-12">
+                            <p ><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+                        </div>
+                    </div>
                 <div>
                     <div class="col-md-12 col-sm-12 col-md-12 text-center">
             			<button type="submit" class="btn btn-success">

@@ -45,6 +45,10 @@ class TesisDoctoralesController extends Controller
             'departamento' => 'required',
             'fechaLectura' => 'required',
             'tipo'         => 'required'
+        ],
+        [
+            'titulo_eu.required'           => __('Izenburua  beharrezkoa da.'),
+            'fechaLectura.required'        => __('Data beharrezkoa da.')
         ]);
         $departamento = Departamentos::find($request->departamento);
         $request['fechaLectura'] = Carbon::now('Europe/Madrid');
@@ -74,7 +78,12 @@ class TesisDoctoralesController extends Controller
     {
         $this->validate($request, [
             'titulo_es' => 'required',
-            'tipo' => 'required'
+            'tipo' => 'required',
+            'fechaLectura' => 'required'
+        ],
+        [
+            'titulo_eu.required'           => __('Izenburua  beharrezkoa da.'),
+            'fechaLectura.required'        => __('Data beharrezkoa da.')
         ]);
         $input         = $request->all();
         $tesisDoctoral = TesisDoctorales::find($id);

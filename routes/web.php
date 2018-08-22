@@ -59,6 +59,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::resource('equipamientoNuevo','EquipamientoNuevoController');
 
 
+
 	Route::get('tesisDoctorales/autocompletar/{nombre}', 'TesisDoctoralesController@tesisDoctoralesAjax');
 	Route::get('tesisDoctorales/show/{tipo}', ['as' => 'tesisDoctorales.index', 'uses' => 'TesisDoctoralesController@index'] );
 	Route::get('tesisDoctorales/showAll/{tipo}', ['as' => 'tesisDoctorales.indexAll', 'uses' => 'TesisDoctoralesController@indexAll'] );
@@ -97,6 +98,9 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::delete('publicaciones/{id}/{tipo}', ['as' => 'publicaciones.destroy', 'uses' => 'PublicacionesController@destroy'] );
 	Route::get('publicaciones/{id}/autores/{id_autor}','PublicacionesController@enlazarAutores');
 	Route::get('publicaciones/detach/{id}/autores/{id_autor}','PublicacionesController@detachAutores');
+
+	Route::get('aldizkariak/autocompletar', 'PublicacionesController@aldizkariakAjax');
+
 
 	Route::get('visitas/autocompletar/{nombre}', 'VisitasController@visitasAjax');
 	Route::get('visitas/showAll', ['as' => 'visitas.indexAll', 'uses' => 'VisitasController@indexAll'] );
@@ -161,7 +165,18 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::patch('roles/{id}',['as'=>'roles.update','uses'=>'RoleController@update','middleware' => ['permission:role-edit']]);
 	Route::delete('roles/{id}',['as'=>'roles.destroy','uses'=>'RoleController@destroy','middleware' => ['permission:role-delete']]);
 
-
+	// VIDEO STREAM
+	Route::get('/video/{filename}', function ($filename) {
+	    // Pasta dos videos.
+	    $videosDir = base_path('resources/assets/videos');
+	    if (file_exists($filePath = $videosDir."/".$filename)) {
+	        $stream = new \App\Http\VideoStream($filePath);
+	        return response()->stream(function() use ($stream) {
+	            $stream->start();
+	        });
+	    }
+	    return response("File doesn't exists", 404);
+	});
 
 
 	// PDF CREAR
@@ -186,7 +201,7 @@ Route::group(['middleware' => ['auth']], function() {
 	});
 	// LIMPIAR CACHE Y MIERDAS
 	Route::get('limpiar', ['as' => 'limpiar',  function () {
-		$exitCode = Artisan::call('  ');
+
 	    $exitCode = Artisan::call('config:cache');
 	    $exitCode = Artisan::call('view:clear');
 	    $exitCode = Artisan::call('optimize');

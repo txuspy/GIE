@@ -29,8 +29,11 @@
 			{!! Form::open(array('route' => 'formaciones.store','method'=>'POST', 'class'=>'form' )) !!}
 			<div>
 				<div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group has-error">
 		                <label><strong>Ikastaro (*):</strong></label>
+		                 @if ($errors->has('titulo_eu'))
+		                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+		                    @endif
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
 		            </div>
 		        </div>
@@ -44,8 +47,11 @@
 			@if( $modo == 'recibir' )
 			    <div>
 					<div class="col-sm-6 ">
-			            <div class="form-group has-success">
+			            <div class="form-group has-error">
 			                <label><strong>Antolatzailea(k) (*):</strong></label>
+			                @if ($errors->has('organizador_eu'))
+		                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+		                    @endif
 			                {!! Form::text('organizador_eu', null, array('placeholder' => 'Antolatzailea(k)','class' => 'form-control ', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
 			            </div>
 			        </div>
@@ -59,8 +65,11 @@
 			@endif
 			<div>
 				<div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group has-error">
 		                <label><strong>{{ __('Data') }} (*):</strong></label>
+		                @if ($errors->has('fecha'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
 		                {!! Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker  form-control')) !!}
 		            </div>
 		        </div>
@@ -80,7 +89,11 @@
 		            </div>
 		        </div>
 		    </div>
-		    <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+		    <div>
+                <div class="col-sm-12">
+		    		<p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+		    	</div>
+	    	</div>
 		    <div>
 		       <div class="col-sm-12 col-sm-12 col-md-12 text-center">
 		            {{ Form::hidden('tipo', $tipo) }}

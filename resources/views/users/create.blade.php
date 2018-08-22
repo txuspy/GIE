@@ -44,13 +44,15 @@
         </div>
     </div>
     <div class="row">
+        {{--
         <div class="col-xs-4 ">
 
             <div class="form-group">
-                <label><strong>{{ __('LDAP') }}:</strong></label>
-                {!! Form::text('ldap', null, array('placeholder' => __('LDAP') ,'class' => 'form-control')) !!}
+                <label><strong>{{ __('WebUntis') }}:</strong></label>
+                {!! Form::text('WebUntis', null, array('placeholder' => __('WebUntis') ,'class' => 'form-control')) !!}
             </div>
         </div>
+        --}}
         <div class="col-xs-4 ">
             <div class="form-group">
                 <label><strong>{{ __('Posta elektronikoa') }}:</strong></label>

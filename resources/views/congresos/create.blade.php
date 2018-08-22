@@ -25,48 +25,67 @@
         	{!! Form::open(array('route' => 'congresos.store','method'=>'POST', 'class'=>'form' )) !!}
         	<div>
         		<div class="col-sm-6 ">
-                    <div class="form-group has-success">
+                    <div class="form-group has-error">
                         <label><strong>{{ _('Kongresua')}} (*):</strong></label>
+                        @if ($errors->has('congreso_eu'))
+                            <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                        @endif
                         {!! Form::text('congreso_eu', null, array('placeholder' => _('Kongresua') ,'class' => 'form-control buscadorCongresos')) !!}
                     </div>
                 </div>
                 <div class="col-sm-6 ">
-                     <div class="form-group has-success">
+                     <div class="form-group has-error">
                         <label><strong>{{ ('Izenburua') }} (*):</strong></label>
+                        @if ($errors->has('conferenciaPoster'))
+                            <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                        @endif
                         {!! Form::text('conferenciaPoster', null, array('placeholder' => __('Izenburua') ,'class' => 'form-control')) !!}
                     </div>
                 </div>
             </div>
             <div>
                 <div class="col-sm-6 ">
-                    <div class="form-group has-success">
+                    <div class="form-group has-error">
                         <label><strong>{{ __('Ekarpen mota') }} (*):</strong></label>
                         {!! Form::select('ekarpena',  \App\Traits\Listados::listadoEkarpena(), '1', ['id' =>'departamento',   'class' => 'form-control chosen-select'])  !!}
 
                     </div>
                 </div>
                  <div class="col-sm-6 ">
-                     <div class="form-group has-success">
+                     <div class="form-group has-error">
                         <label><strong>{{ __('Tokia') }} (*):</strong></label>
+                         @if ($errors->has('lugar'))
+                            <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                        @endif
                         {!! Form::text('lugar', null, array('placeholder' => __('Viena, Austria'),'class' => 'form-control')) !!}
                     </div>
                 </div>
             </div>
             <div>
                 <div class="col-sm-6 ">
-                     <div class="form-group has-success">
+                     <div class="form-group has-error">
                         <label><strong>{{ __('Noiztik') }} (*):</strong></label>
+                        @if ($errors->has('desde'))
+                            <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                        @endif
                         {!! Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')) !!}
                     </div>
                 </div>
         		<div class="col-sm-6 ">
-                     <div class="form-group has-success">
+                     <div class="form-group has-error">
                         <label><strong>{{ __('Arte') }} (*):</strong></label>
+                        @if ($errors->has('hasta'))
+                            <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                        @endif
                         {!! Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')) !!}
                     </div>
                 </div>
             </div>
-            <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+             <div>
+                <div class="col-sm-12">
+                    <p ><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-sm-12 col-sm-12 col-md-12 text-center">
                    	<button type="submit" class="btn btn-success">
@@ -79,4 +98,6 @@
         	{!! Form::close() !!}
         </div>
     </div>
+
 @endsection
+

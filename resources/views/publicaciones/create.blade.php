@@ -29,27 +29,55 @@
 			{!! Form::open(array('route' => 'publicaciones.store','method'=>'POST', 'class'=>'form' )) !!}
 			<div>
 				<div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group has-error">
 		                <label><strong>Izenburua (*):</strong></label>
+		                @if ($errors->has('titulo_eu'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control buscadorPublicaciones', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
+		        <div class="col-sm-6 ">
+		         @if( $tipo =='libros')
+			            <div class="form-group">
+			                <label><strong>{{ __('Argitaletxea') }} :</strong></label>
+			                {!! Form::text('editorialRevisa',  null , array('placeholder' => __('Argitaletxea') ,'class' => ' form-control')) !!}
+			            </div>
+		            @else
+		              	<div class="form-group">
+		                	<label><strong>{{ __('Aldizkaria') }} :</strong></label>
+		                	{!! Form::text('editorialRevisa',  null , array('placeholder' => __('Aldizkaria') ,'class' => 'form-control buscadorAldikariak')) !!}
+		            	</div>
+		            @endif
+		    	</div>
+
+		        {{--
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>Titulo :</strong></label>
 		                {!! Form::text('titulo_es', null, array('placeholder' => 'Titulo','class' => 'form-control buscadorPublicaciones', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
+		        --}}
+
 		    </div>
 			<div>
 				<div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group has-error">
 		                <label><strong>{{ __('Data') }} (*):</strong></label>
+		                @if ($errors->has('year'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
 		                {!! Form::text('year', null , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')) !!}
 		            </div>
 		        </div>
+
 		    </div>
-		    <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+		    <div>
+				<div class="col-sm-12">
+			    	<p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+			    </div>
+		    </div>
 		    <div>
 		       <div class="col-sm-12 col-sm-12 col-md-12 text-center">
 		            {{ Form::hidden('tipo', $tipo) }}

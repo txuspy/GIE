@@ -30,6 +30,11 @@ class EquipamientoNuevoController extends Controller
             'departamento' => 'required',
             'institucion' => 'required',
             'data' => 'required',
+        ],
+        [
+            'equipo_eu.required'        => __('Hornikuntza  beharrezkoa da.'),
+            'institucion.required'      => __('Instituzioa   beharrezkoa da.'),
+            'data.required'             => __('Data  beharrezkoa da.')
         ]);
         if($request->equipo_es==''){
              $request['equipo_es'] = $request->equipo_eu;
@@ -57,6 +62,11 @@ class EquipamientoNuevoController extends Controller
         $this->validate($request, [
             'equipo_es' => 'required',
             'departamento' => 'required'
+        ],
+        [
+            'equipo_eu.required'        => __('Hornikuntza  beharrezkoa da.'),
+            'institucion.required'      => __('Instituzioa   beharrezkoa da.'),
+            'data.required'             => __('Data  beharrezkoa da.')
         ]);
         $input = $request->all();
         if(!$input['data']){ $input['data'] = null; }

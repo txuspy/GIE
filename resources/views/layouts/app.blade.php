@@ -25,6 +25,7 @@
     {!! Html::style( asset('css/bootstrap-datepicker3.css')) !!}
     {!! Html::style( asset('css/bootstrap-datepicker.standalone.min.css')) !!}
 
+
     {!! Html::script('js/app.js') !!}
     {!! Html::script('js/jquery-ui.js') !!}
     {!! Html::script('js/jquery.dataTables.min.js') !!}
@@ -33,10 +34,12 @@
     {!! Html::script('js/jquery.responsiveTabs.min.js') !!}
     {!! Html::script('js/bootstrap-datepicker.js') !!}
     {!! Html::script('js/bootstrap-datepicker.es.min.js') !!}
+    {!! Html::script('js/bootstrap-datepicker.eu.min.js') !!}
     {!! Html::script('js/filesImgScript.js') !!}
     {!! Html::script('js/funcionesComunes.js') !!}
     {!! Html::script('js/autocomplementar.js') !!}
     {!! Html::script('js/jqueryComunes.js') !!}
+
 
 </head>
 
@@ -52,17 +55,22 @@
     </nav>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-2 ">
+        <div class="col-sm-3">
            @section('sidebar')
                 @include('layouts.menu')
             @show
         </div>
-          <div class="col-sm-10">
+          <div class="col-sm-9">
           <h1>{{ config('app.name', 'GIE') }}</h1>
           @yield('content')
           </div>
       </div>
     </div>
+    <script>
+      $('.datepicker').datepicker({
+          language: "{{\Session::get('locale')}}"
+      });
+    </script>
     @yield('scripts')
   </body>
 

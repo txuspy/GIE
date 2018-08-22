@@ -35,7 +35,7 @@ $(document).ready(function () {
                     tipo     : $(this).attr('data-tipo') ,
                     idUl     : $(this).attr('data-idUl')
                 };
-                enlazar( config );
+                var idnuevo = enlazar( config );
                 $("#"+$(this).attr('data-idUl')).append('<li class="list-group-item"><a data-id="'+config.id+'" data-idautor="'+config.id_autor+'" data-carpeta="'+config.carpeta+'" data-tipo="'+config.tipo+'" class="desenlazar"><i class="fa fa-trash deleteRelation"></i> </a>'+ui.item.value+'</li>');
                 $(this).val('');
                 $(this).focus();
@@ -44,7 +44,8 @@ $(document).ready(function () {
         }
     });
     $(".buscadorAutor").keydown(function (e) {
-        if ( (e.which == 9) || (e.which == 13) ){ //(e.which == 13) ENTER ; e.which == 9 TAB
+        //if ( (e.which == 9) || (e.which == 13) ){ //(e.which == 13) ENTER ; e.which == 9 TAB
+        if ( (e.which == 9) ){ //(e.which == 13) ENTER ; e.which == 9 TAB
             var stringOriginal = $(this).val().trim();
             var string         = stringOriginal.split(' ');
             var apellidoDialog = '';
@@ -94,6 +95,7 @@ $(document).ready(function () {
             success: function (data) {
                 console.log("Enlazado OK");
                 console.log(data);
+
             },
             error: function (data) { console.log("ERROR enlazando "+data); }
         });
@@ -203,6 +205,24 @@ $(document).ready(function () {
                     if (url) { // require a URL
                         window.location = url; // redirect
                     }
+                }
+            }
+        });
+    });
+
+    $(".buscadorAldikariak" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        $(this).autocomplete({
+            source: "/aldizkariak/autocompletar",
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                    /*console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/programasDeIntercambio/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }*/
                 }
             }
         });

@@ -11,9 +11,11 @@
     							<h2>{{ __('Doktoretza-programetan parte-hartzea') }}</h2>
 							@endif
 						</div>
-						<div class="pull-left margen-left">
-							<a class="btn btn-info" href="{{ route('postgrados.indexAll', [ 'tipo'=> $tipo ]) }}"><i class="fa fa-eye" title="{{ __('Guztiak ikusi') }}"></i></a>
-						</div>
+
+							<div class="pull-left margen-left">
+								<a class="btn btn-info" href="{{ route('postgrados.indexAll', [ 'tipo'=> $tipo ]) }}"><i class="fa fa-eye" title="{{ __('Guztiak ikusi') }}"></i></a>
+							</div>
+
 						<div class="pull-right">
 							<a class="btn btn-success" href="{{ route('postgrados.create', [ 'tipo'=> $tipo ] ) }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i></a>
 						</div>

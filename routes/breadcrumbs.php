@@ -11,6 +11,12 @@ Breadcrumbs::register('usuarios', function($breadcrumbs)
     $breadcrumbs->parent('home');
     $breadcrumbs->push('Usuarios', url('/users'));
 });
+
+Breadcrumbs::register('usuariosNOAdminVer', function($breadcrumbs, $usuario)
+{
+     $breadcrumbs->parent('home');
+    $breadcrumbs->push($usuario->name, url('users/'.$usuario->id));
+});
 Breadcrumbs::register('usuariosVer', function($breadcrumbs, $usuario)
 {
     $breadcrumbs->parent('usuarios');

@@ -55,11 +55,12 @@
         <script type="text/javascript">
 			$('.date-year').datepicker({
 			    minViewMode: 2,
-			    format     : 'yyyy'
+			    format     : 'yyyy',
 			});
 			$('.date-mes').datepicker({
 			    minViewMode: 1,
-			    format     : 'mm'
+			    format     : 'mm',
+			    language: "{{\Session::get('locale')}}"
 			});
 		</script>
 	{!! Form::close() !!}

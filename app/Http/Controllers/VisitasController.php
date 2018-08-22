@@ -43,6 +43,11 @@ class VisitasController extends Controller
             'titulo_eu' => 'required',
             'lugar' => 'required',
             'fecha' => 'required',
+        ],
+        [
+            'titulo_eu.required'      => __('Aktibitatea  beharrezkoa da.'),
+            'lugar.required'          => __('Tokia   beharrezkoa da.'),
+            'fecha.required'          => __('Data  beharrezkoa da.')
         ]);
         if($request->titulo_es==''){
              $request['titulo_es'] = $request->titulo_eu;
@@ -70,6 +75,11 @@ class VisitasController extends Controller
             'titulo_eu' => 'required',
             'lugar' => 'required',
             'fecha' => 'required',
+        ],
+        [
+            'titulo_eu.required'      => __('Aktibitatea  beharrezkoa da.'),
+            'lugar.required'          => __('Tokia   beharrezkoa da.'),
+            'fecha.required'          => __('Data  beharrezkoa da.')
         ]);
         if($request->titulo_es==''){
              $request['titulo_es'] = $request->titulo_eu;

@@ -30,7 +30,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $hasher = app('hash');
+        $passwordCambiar = false;
+        if ($hasher->check('secret', \Auth::user()->password)) {
+             $passwordCambiar = true ;
+        }
+
+        return view('home', compact('passwordCambiar'));
     }
 
     public function gie()

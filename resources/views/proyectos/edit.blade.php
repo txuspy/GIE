@@ -83,7 +83,7 @@
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong>{{ __('Ikertzaile nagusia')}}:</strong></label>
+		    		<label><strong>{{ __('Ikertzaile nagusia(k)')}}:</strong></label>
 		    	 	{{Form::text('proyectosDirector', '', [
 				        'id'           =>'proyectosDirector',
 				        'placeholder'  =>__('Ikertzaile nagusia bilatu'),
@@ -107,7 +107,7 @@
 			 		</ul>
 			 	</div>
 			 	<div class="col-sm-6 ">
-		    		<label><strong>{{ __('Partaideak')}}:</strong></label>
+		    		<label><strong>{{ __('Partaidea(k)')}}:</strong></label>
 		    	 	{{Form::text('proyectosInvestigador', '', [
 			         'id'           =>'proyectosInvestigador',
 			         'placeholder'  =>__('Partaideak bilatu'),

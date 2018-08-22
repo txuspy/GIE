@@ -31,8 +31,11 @@
 	{!! Form::open(array('route' => 'proyectos.store','method'=>'POST', 'class'=>'form' )) !!}
 	<div>
 		<div class="col-sm-6 ">
-            <div class="form-group has-success">
+            <div class="form-group has-error">
                 <label><strong>Proiektua (*):</strong></label>
+                @if ($errors->has('proyecto_eu'))
+                    <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                @endif
                 {!! Form::text('proyecto_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control buscadorProyectos', 'data-tipo'  => $tipo)) !!}
             </div>
         </div>
@@ -40,6 +43,24 @@
             <div class="form-group">
                 <label><strong>Proyecto:</strong></label>
                 {!! Form::text('proyecto_es', null, array('placeholder' => 'Proyecto','class' => 'form-control buscadorProyectos', 'data-tipo'  => $tipo)) !!}
+            </div>
+        </div>
+    </div>
+
+	<div>
+        <div class="col-sm-6 ">
+            <div class="form-group has-error">
+                <label><strong>{{ __('Noiztik') }} (*):</strong></label>
+                @if ($errors->has('desde'))
+                    <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                @endif
+                {!! Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')) !!}
+            </div>
+        </div>
+		<div class="col-sm-6 ">
+            <div class="form-group">
+                <label><strong>{{ __('Arte') }} :</strong></label>
+                {!! Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')) !!}
             </div>
         </div>
     </div>
@@ -51,21 +72,11 @@
             </div>
         </div>
     </div>
-	<div>
-        <div class="col-sm-6 ">
-            <div class="form-group has-success">
-                <label><strong>{{ __('Noiztik') }} (*):</strong></label>
-                {!! Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')) !!}
-            </div>
-        </div>
-		<div class="col-sm-6 ">
-            <div class="form-group">
-                <label><strong>{{ __('Arte') }} :</strong></label>
-                {!! Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')) !!}
-            </div>
+    <div>
+        <div class="col-sm-12 ">
+            <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
         </div>
     </div>
-    <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
     <div>
         <div class="col-md-12 col-sm-12 col-md-12 text-center">
             {{ Form::hidden('tipo', $tipo) }}

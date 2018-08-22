@@ -31,7 +31,7 @@ class PostgradosController extends Controller
     public function indexAll($tipo)
     {
        $data = Postgrados::where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
-       dd($data);
+
        return view('postgrados.index',compact('data', 'tipo')) ;
     }
 
@@ -50,7 +50,19 @@ class PostgradosController extends Controller
             'duracion' => 'required',
             'lugar' => 'required',
             'fecha' => 'required',
+        ],
+        [
+            'titulo_eu.required'    => __('Programa beharrezkoa da.'),
+            'curso_eu.required'     => __('Kurtsoa beharrezkoa da.'),
+            'departamento.required' => __('Saila beharrezkoa da.'),
+            'duracion.required'     => __('Iraupena beharrezkoa da.'),
+            'lugar.required'        => __('Tokia beharrezkoa da.'),
+            'fecha.required'        => __('Data beharrezkoa da.')
         ]);
+
+
+
+
         if($request->titulo_es==''){
              $request['titulo_es'] = $request->titulo_eu;
         }

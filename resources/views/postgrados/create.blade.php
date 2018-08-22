@@ -29,22 +29,30 @@
 			{!! Form::open(array('route' => 'postgrados.store','method'=>'POST', 'class'=>'form' )) !!}
 			<div>
 				<div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group  has-error">
 		                <label><strong>Programa (*):</strong></label>
-		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
+		                @if ($errors->has('titulo_eu'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
+		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Programa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
 		            </div>
+
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>Programa :</strong></label>
-		                {!! Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
+		                {!! Form::text('titulo_es', null, array('placeholder' => 'Programa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
 		    </div>
 		    <div>
 				<div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group  has-error">
 		                <label><strong>Kurtsoa (*):</strong></label>
+		                @if ($errors->has('curso_eu'))
+	                       <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
+
 		                {!! Form::text('curso_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
@@ -57,34 +65,49 @@
 		    </div>
 			<div>
 				<div class="col-sm-6 ">
-                   <div class="form-group has-success">
-                        <label><strong>Saila/ Departamento (*):</strong></label>
+                   <div class="form-group  has-error">
+                        <label><strong>{{ __('Saila') }} (*):</strong> </label>
                         {!! Form::select('departamento',  \App\Traits\Listados::listadoDepartamentos( \Session::get('locale') ), '54', ['id' =>'departamento',   'class' => 'form-control chosen-select'])  !!}
                     </div>
                 </div>
                 <div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group  has-error">
 		                <label><strong>{{ __('Iraupena') }} (*):</strong></label>
+		                @if ($errors->has('duracion'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
+
 		                {!! Form::text('duracion', null, array('placeholder' => '15 ECTS','class' => 'form-control ')) !!}
 		            </div>
+
 		        </div>
 		    </div>
 		    <div>
 
                 <div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group  has-error">
 		                <label><strong>{{ __('Tokia') }} (*):</strong></label>
+		                 @if ($errors->has('lugar'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
 		                {!! Form::text('lugar', 'Gipuzkoako Ingeniaritza Eskola', array('placeholder' => '15 ECTS','class' => 'form-control ')) !!}
 		            </div>
 		        </div>
 		         <div class="col-sm-6 ">
-		            <div class="form-group has-success">
+		            <div class="form-group  has-error">
 		                <label><strong>{{ __('Data') }} (*):</strong></label>
+		                @if ($errors->has('fecha'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
 		                {!! Form::text('fecha', null, array('placeholder' => __('Data'),'class' => 'datepicker form-control ')) !!}
 		            </div>
 		        </div>
 		    </div>
-		    <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+		    <div>
+                <div class="col-sm-12 ">
+			   		 <p><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
+			   	</div>
+            </div>
 		    <div>
 		       <div class="col-sm-12 col-sm-12 col-md-12 text-center">
 		            {{ Form::hidden('tipo', $tipo) }}
