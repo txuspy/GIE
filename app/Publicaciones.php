@@ -10,7 +10,7 @@ class Publicaciones extends Model
     protected $table      = "publicaciones";
     use SoftDeletes;
     protected $fillable = [
-        'id', 'user_id', 'tipo', 'titulo_eu', 'titulo_es', 'editorialRevisa', 'capitulo', 'volumen',  'year'
+        'id', 'user_id', 'tipo', 'titulo_eu', 'titulo_es', 'editorialRevisa', 'capitulo', 'volumen',  'year', 'ISBN'
     ];
 
 

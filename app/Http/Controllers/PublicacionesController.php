@@ -82,6 +82,7 @@ class PublicacionesController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $this->validate($request, [
             'titulo_eu' => 'required',
             'tipo' => 'required',
@@ -93,6 +94,19 @@ class PublicacionesController extends Controller
         ]);
         if($request->titulo_es==''){
              $request['titulo_es'] = $request->titulo_eu;
+        }
+
+         if($request->editorialRevisa!=''){
+            if($request->tipo=='articulos'){
+                $aldizkaria = Aldizkariak::where('titulo', 'LIKE', '%' .$request->editorialRevisa. '%')
+                    ->orWhere('corto', 'LIKE', '%' . $request->editorialRevisa. '%')
+                    ->first();
+                if($request->ISBN==''){
+                    if(count($aldizkaria)){
+                        $request['ISBN'] = $aldizkaria->ISSN;
+                    }
+                }
+            }
         }
         $input       = $request->all();
         $publicacion = Publicaciones::find($id);
