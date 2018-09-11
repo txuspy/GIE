@@ -21,10 +21,10 @@
 		<div class="panel-body">
 			<div class="col-sm-12 margin-tb">
 		        <div class="pull-left">
-		           	@if( $postgrado->tipo == 'libros' )
-						<h2>{{ __('Liburuak eta Monografiak') }}</h2>
+		           	@if( $postgrado->tipo == 'master' )
+						<h2>{{ __('Masterretan parte-hartzea') }}</h2>
 					@else
-						<h2>{{ __('Artikuloak') }}</h2>
+						<h2>{{ __('Doktoretza-programetan parte-hartzea') }}</h2>
 					@endif
 		        </div>
 		        <div class="pull-right">
