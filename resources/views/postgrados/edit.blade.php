@@ -89,7 +89,7 @@
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
-		            <div class="form-group has-error">
+		            <div class="form-group">
 		                <label><strong>{{ __('Data') }} (*):</strong></label>
 		                {!! Form::text('fecha', null, array('placeholder' => __('Data'),'class' => 'datepicker form-control ')) !!}
 		            </div>
