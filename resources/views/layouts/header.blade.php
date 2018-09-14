@@ -26,7 +26,7 @@
                         @endif
 
                 </nav>
-                <nav id="menu-campus" class="span8 navbar" aria-label="Menú de campus" role="navigation">
+                <nav id="menu-campus" class="navbar" aria-label="Menú de campus" role="navigation">
                     <ul aria-label="Menú de campus" role="menubar" class="nav nav-right pull-right">
                         @if (Auth::guest())
                             <li class="sign-in btn btn-info" role="presentation"><a href="{{ url('/login') }}">{{ __('Sesioa hasi')}} <i class="fa fa-lock" aria-hidden="true"></i></a></li>
