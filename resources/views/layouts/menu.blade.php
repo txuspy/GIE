@@ -8,7 +8,7 @@
             <ul class="sub-nav level-2">
                 <li>
                     <a href="https://www.ehu.eus/es">
-                        <img class="logo" src="/images/UPV_Excelencia_bilingue_positivo_alta.png"
+                        <img class="logo" src="/images/Escuela-Ingenieria_Gipuzkoa.png"
                          alt="{{ __('Euskal Herriko unibertsitatea')}}" width="100%">
                     </a>
                 </li>

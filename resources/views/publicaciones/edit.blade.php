@@ -42,7 +42,7 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Izenburua:</strong></label>
+		                <label><strong>{{ __('Izenburua') }}:</strong></label>
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')) !!}
 		            </div>
 		        </div>
