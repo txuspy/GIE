@@ -66,9 +66,20 @@
           </div>
       </div>
     </div>
+
     <script>
       $('.datepicker').datepicker({
           language: "{{\Session::get('locale')}}"
+      });
+      $(function() {
+          // Set idle time
+          $( document ).idleTimer( 72000 );
+      });
+
+      $(function() {
+          $( document ).on( "idle.idleTimer", function(event, elem, obj){
+              window.location.href = "example.com/login"
+          });
       });
     </script>
     @yield('scripts')
