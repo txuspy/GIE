@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ERP Forest Pioneer SL\n"
 "POT-Creation-Date: 2018-09-11 09:05+0200\n"
-"PO-Revision-Date: 2018-09-19 15:51+0200\n"
+"PO-Revision-Date: 2018-09-13 17:16+0200\n"
 "Last-Translator: Unai Susperregi <sistemas@forestpioneer.com>\n"
 "Language-Team: Unai Susperregi <sistemas@forestpioneer.com>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-KeywordsList: _;__;gettext;_n:1,2;ngettext:1,2;dgettext:2\n"
 "X-Poedit-Basepath: ../../../../../app\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -127,6 +127,7 @@ msgstr "Contraseña"
 #: ../storage/framework/textos/954db84fa835d30e0ef3dcc3c931366f1981b9f1.php.php:78
 #: ../storage/framework/textos/954db84fa835d30e0ef3dcc3c931366f1981b9f1.php.php:81
 #: ../storage/framework/textos/954db84fa835d30e0ef3dcc3c931366f1981b9f1.php.php:84
+#, fuzzy
 msgid "Pasahitza Konfirmatu"
 msgstr "Confirmar contraseña"
 
@@ -1470,7 +1471,7 @@ msgstr "Nombre"
 #: ../storage/framework/textos/dd645a7b00f97360b14d4647730a10bc2afa9569.php.php:21
 #: ../storage/framework/textos/fd63e1cd097ae92aea44d0996695196cdc16d873.php.php:24
 msgid "Email"
-msgstr "Email"
+msgstr "Nombre."
 
 #: ../storage/framework/textos/dd645a7b00f97360b14d4647730a10bc2afa9569.php.php:22
 #: ../storage/framework/textos/fd63e1cd097ae92aea44d0996695196cdc16d873.php.php:26

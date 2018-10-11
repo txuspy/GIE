@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ERP Forest Pioneer SL\n"
 "POT-Creation-Date: 2018-09-11 09:05+0200\n"
-"PO-Revision-Date: 2018-09-19 15:53+0200\n"
+"PO-Revision-Date: 2018-09-13 17:36+0200\n"
 "Last-Translator: Unai Susperregi <sistemas@forestpioneer.com>\n"
 "Language-Team: Unai Susperregi <sistemas@forestpioneer.com>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-KeywordsList: _;__;gettext;_n:1,2;ngettext:1,2;dgettext:2\n"
 "X-Poedit-Basepath: ../../../../../app\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -535,7 +535,7 @@ msgstr "Baimenak"
 #: ../storage/framework/textos/d7a3417730bd454aee07baaf5c0ead759a9f6b19.php.php:118
 #: ../storage/framework/textos/dd645a7b00f97360b14d4647730a10bc2afa9569.php.php:8
 msgid "Partaideak"
-msgstr "Kidea(k)"
+msgstr "Partaideak"
 
 #: ../storage/framework/textos/26cb9f8562b2f4a31bf42ef140e7e008d56f948f.php.php:40
 msgid "Txostenak"
@@ -573,7 +573,7 @@ msgstr "IIPen formakuntza-jarduerak"
 #: Http/Controllers/WordController.php:116
 #: Http/Controllers/WordController.php:119
 msgid "Hartutako formazioa"
-msgstr "Jasotako formakuntza"
+msgstr "Hartutako formakuntza"
 
 #: ../storage/framework/textos/26cb9f8562b2f4a31bf42ef140e7e008d56f948f.php.php:66
 #: ../storage/framework/textos/26cb9f8562b2f4a31bf42ef140e7e008d56f948f.php.php:72
@@ -1298,7 +1298,7 @@ msgstr "Arduradun berria sortu"
 
 #: ../storage/framework/textos/9d9c6921d1f6de31917fd57e760bd89848ebca57.php.php:39
 msgid "Partaide berria sortu"
-msgstr "Kide berria sortu"
+msgstr "Partaide berria sortu"
 
 #: ../storage/framework/textos/9d9c6921d1f6de31917fd57e760bd89848ebca57.php.php:88
 #: ../storage/framework/textos/caea7f19c7f4c4f15b92b96b934dfbe09b8e1d5c.php.php:73
@@ -1312,11 +1312,11 @@ msgstr "Arduraduna bilatu"
 #: ../storage/framework/textos/9d9c6921d1f6de31917fd57e760bd89848ebca57.php.php:121
 #: Http/Controllers/WordController.php:371
 msgid "Partaidea(k)"
-msgstr "Kidea(k)"
+msgstr "Partaidea(k)"
 
 #: ../storage/framework/textos/9d9c6921d1f6de31917fd57e760bd89848ebca57.php.php:124
 msgid "Partaidea bilatu"
-msgstr "Kidea bilatu"
+msgstr "Partaidea bilatu"
 
 #: ../storage/framework/textos/a0e4a10c3ea7ab395e5f502011858fa07de17d1f.php.php:17
 msgid "Proiektu guztiak ikusi"
@@ -1440,7 +1440,7 @@ msgstr "Ikertzaile nagusia bilatu"
 
 #: ../storage/framework/textos/d7a3417730bd454aee07baaf5c0ead759a9f6b19.php.php:121
 msgid "Partaideak bilatu"
-msgstr "Kidea bilatu"
+msgstr "Partaideak bilatu"
 
 #: ../storage/framework/textos/d8417ec4cf59152c5c157ece04e273fda715e704.php.php:26
 msgid "Delete file: "
@@ -1722,7 +1722,7 @@ msgstr "Erabiltzaile berria sortu"
 
 #: ../storage/framework/textos/fd63e1cd097ae92aea44d0996695196cdc16d873.php.php:22
 msgid "N."
-msgstr "Zk."
+msgstr "N."
 
 #: ../storage/framework/textos/fd63e1cd097ae92aea44d0996695196cdc16d873.php.php:25
 msgid "Roles"
