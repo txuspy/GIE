@@ -42,8 +42,8 @@ class HomeController extends Controller
 
     public function gie()
     {
-
-        //$gies01 = GIE01::orderBy('apellidos','ASC')->get();
+        // si pasan una lista se mete en mysql crear el modelo y con este script mira si existe y si no lo mete, CUIDADO: los campos como se llaman
+        // $gies01 = GIE01::orderBy('apellidos','ASC')->get();
         $gies02 = GIEBERRIA::orderBy('apellidos','ASC')->get();
         $pos=1;
         $usuario = array();

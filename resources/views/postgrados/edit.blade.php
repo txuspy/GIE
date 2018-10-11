@@ -56,8 +56,8 @@
 		    <div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Kurtsoa:</strong></label>
-		                {!! Form::text('curso_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control')) !!}
+		                <label><strong>Ikastaroa:</strong></label>
+		                {!! Form::text('curso_eu', null, array('placeholder' => 'Ikastaroa','class' => 'form-control')) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
@@ -90,7 +90,7 @@
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Data') }} (*):</strong></label>
+		                <label><strong>{{ __('Hasiera Data') }} (*):</strong></label>
 		                {!! Form::text('fecha', null, array('placeholder' => __('Data'),'class' => 'datepicker form-control ')) !!}
 		            </div>
 		        </div>

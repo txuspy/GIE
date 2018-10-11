@@ -66,7 +66,7 @@ class RouteServiceProvider extends ServiceProvider
             \LaravelGettext::setLocale($locale);
             \App::setLocale($locale);
         }else{
-            $locale=null;
+            //$locale = null;
             //$locale='eu';
         }
         return $locale;

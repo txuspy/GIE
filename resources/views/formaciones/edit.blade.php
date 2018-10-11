@@ -79,7 +79,7 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Data') }} :</strong></label>
+		                <label><strong>{{ __('Hasiera-Data') }} :</strong></label>
 		                {!! Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker  form-control')) !!}
 		            </div>
 		        </div>

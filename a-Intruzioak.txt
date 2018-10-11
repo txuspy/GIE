@@ -1,4 +1,14 @@
 LARAVEL
+
+MYSQL       Para importar base de datos
+            mysql -u usuario -p nombre-bd < backup.sql
+
+            para exportar
+            mysqldump -u usuario -p nombre-bd > backup.sql
+            para exportar tabla
+            mysqldump -u usuario -p nombre-bd nombre-tabla > backup.sql
+            
+            
 2017/11/30  session / cookie
             https://laravel.com/docs/5.5/session
             https://desarrolloweb.com/articulos/trabajo-cookies-laravel.html
