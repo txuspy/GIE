@@ -1,5 +1,5 @@
 <div class="top-menu">
-                <nav id="menu-languages" class="span12 navbar" aria-label="Menú de idiomas" role="navigation">
+                <nav id="menu-languages" class="navbar" aria-label="Menú de idiomas" role="navigation">
                         @if (!Auth::guest())
 
                                 <ul aria-label="Menú de idiomas" role="menubar" class="nav nav-left pull-left">
