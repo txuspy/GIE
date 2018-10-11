@@ -1,5 +1,5 @@
 <div class="top-menu">
-                <nav id="menu-languages" class="span4 navbar" aria-label="Menú de idiomas" role="navigation">
+                <nav id="menu-languages" class="span12 navbar" aria-label="Menú de idiomas" role="navigation">
                         @if (!Auth::guest())
 
                                 <ul aria-label="Menú de idiomas" role="menubar" class="nav nav-left pull-left">
@@ -21,9 +21,10 @@
                                 </ul>
 
                         @endif
-
+                <!--
                 </nav>
                 <nav id="menu-campus" class="navbar" aria-label="Menú de campus" role="navigation">
+                    -->
                     <ul aria-label="Menú de campus" role="menubar" class="nav nav-right pull-right">
                         @if (Auth::guest())
                             <li class="sign-in btn btn-info" role="presentation"><a href="{{ url('/login') }}">{{ __('Sesioa hasi')}} <i class="fa fa-lock" aria-hidden="true"></i></a></li>
@@ -54,14 +55,3 @@
 
 
     </div>
-    <!--<div class="header-brand">
-            <div class="row">
-                <h1 class="brand span12">
-                    <a href="https://www.ehu.eus/es">
-                        <img class="logo" src="https://www.ehu.eus/ehu-theme/images/custom/logo.png"
-                             alt="{{ __('Euskal Herriko unibertsitatea')}}">
-                    </a>
-                </h1>
-                <h1>{{ config('app.name', 'GIE') }}</h1>
-            </div>
-    </div>-->

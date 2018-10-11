@@ -67,11 +67,13 @@
       </div>
     </div>
 
+
+    @yield('scripts')
     <script>
       $('.datepicker').datepicker({
           language: "{{\Session::get('locale')}}"
       });
-      $(function() {
+    /*  $(function() {
           // Set idle time
           $( document ).idleTimer( 72000 );
       });
@@ -80,9 +82,8 @@
           $( document ).on( "idle.idleTimer", function(event, elem, obj){
               window.location.href = "example.com/login"
           });
-      });
+      });*/
     </script>
-    @yield('scripts')
   </body>
 
 
