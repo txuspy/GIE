@@ -62,13 +62,13 @@
                   </li>
                   <li><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PDI/recibir') }}"><i class="fa fa-book" aria-hidden="true"></i> {{ __('IIPko Formazioa') }}</a>
                        <ul>
-                            <li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PDI/recibir') }}"><i class="fa fa-address-book" aria-hidden="true"></i> {{__('Hartutako formazioa')}}</a></li>
+                            <li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PDI/recibir') }}"><i class="fa fa-address-book" aria-hidden="true"></i> {{__('Jasotako formakuntza')}}</a></li>
                             <li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PDI/dar') }}"><i class="fa fa-address-book-o" aria-hidden="true"></i> {{__('Emandako formazioa')}}</a></li>
                         </ul>
                   </li>
                   <li><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/recibir') }}"><i class="fa fa-book" aria-hidden="true"></i> {{ __('AZPko Formazioa') }}</a>
                        <ul>
-                            <li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/recibir') }}"><i class="fa fa-address-book" aria-hidden="true"></i> {{__('Hartutako formazioa')}}</a></li>
+                            <li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/recibir') }}"><i class="fa fa-address-book" aria-hidden="true"></i> {{__('Jasotako formakuntza')}}</a></li>
                             <li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/dar') }}"><i class="fa fa-address-book-o" aria-hidden="true"></i> {{__('Emandako formazioa')}}</a></li>
                         </ul>
                   </li>

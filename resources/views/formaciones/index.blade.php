@@ -13,7 +13,7 @@
 									{{  __('AZKko formazioa') }}
 								@endif
 								@if( $modo == 'recibir' )
-									- {{  __('Hartutakoa') }}
+									- {{  __('Jasotakoa') }}
 								@else
 									- {{  __('Emandakoa') }}
 								@endif

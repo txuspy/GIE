@@ -572,7 +572,7 @@ msgstr "IIPen formakuntza-jarduerak"
 #: ../storage/framework/textos/e1d1a045603f71b3130b05047198419fc3b9a741.php.php:120
 #: Http/Controllers/WordController.php:116
 #: Http/Controllers/WordController.php:119
-msgid "Hartutako formazioa"
+msgid "Jasotako formakuntza"
 msgstr "Jasotako formakuntza"
 
 #: ../storage/framework/textos/26cb9f8562b2f4a31bf42ef140e7e008d56f948f.php.php:66
@@ -1564,7 +1564,7 @@ msgstr "IIPen formakuntza-jarduerak "
 #: ../storage/framework/textos/ec359f2c15971e559a5eb717f57cb01803887e6d.php.php:18
 #: ../storage/framework/textos/ec41ee09a20049986a1901c0be55c1a59384fcdb.php.php:33
 #: Http/Controllers/WordController.php:192
-msgid "Hartutakoa"
+msgid "Jasotakoa"
 msgstr "Jasotakoa"
 
 #: ../storage/framework/textos/e1d1a045603f71b3130b05047198419fc3b9a741.php.php:194
