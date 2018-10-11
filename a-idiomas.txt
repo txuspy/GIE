@@ -1,0 +1,32 @@
+1- Textuak sortu behar dire
+
+-Cloud 9-an codean aldaketak egin
+-git commit
+-git push
+-Orain https://github.com/txuspy/GIE/ copia degu
+
+GIE zerbitzarira SHH bitartez konektatu
+-resouces/lang borratu ez dakit zergaitik ez du eguneratzen
+-git pull egin eta kopia orain GIE-n dago
+-php artisan gettext:update ( hemen egin behar da ze ez doa cloud9-an)
+-git push egin
+-Orain https://github.com/txuspy/GIE/ copia degu
+
+-gure ordenagilu fijoan
+-resouces/lang borratu ez dakit zergaitik ez du eguneratzen
+-git pull
+-po.edit erabiliz textuak eguneratu
+Orain textu onak gure makina lokalean daude
+
+-Cloud 9 joan
+-resouces/lang borratu
+-resouces/lang locala hemen copiatu
+-Orain lang localen eta cloud 9 berdinak dire
+-coud9-tik git push, konprobatu orain 3 tokitan bertsion ona dagoela
+-GIE-ra joan, resouces/lang borratu eta git pull, berez 4 bertsioak berdinak beharko lukete izan.
+
+2-Izaskunek textuak ematen dizkugu
+
+Cloud 9- an resouces/lang borratu  eta berriak kopiatu
+push egin.
+GIE maquinan borratu resources/lang eta pull egin
