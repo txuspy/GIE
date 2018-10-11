@@ -49,7 +49,7 @@ class LoginController extends Controller
     }
     public function logout(\Request $request)
     {
-         //$this->redirectAfterLogout = \App\Lib\Functions::parseLang().'/';
+         $this->redirectAfterLogout = \App\Lib\Functions::parseLang().'/';
          $this->guard()->logout();
          \Session::forget('locale');
          return redirect($this->redirectAfterLogout);

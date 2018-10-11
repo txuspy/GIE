@@ -19,6 +19,7 @@ Route::get('/', function () {
     // return view('prueba');
 });
 Route::get('/gie', 'HomeController@gie' );
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::auth();
 Route::group(['middleware' => ['auth']], function() {
 	Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
