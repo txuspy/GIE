@@ -39,21 +39,24 @@
 
 		        </div>
 		        <div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>Programa :</strong></label>
-		                {!! Form::text('titulo_es', null, array('placeholder' => 'Programa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
-		            </div>
-		        </div>
-		    </div>
-		    <div>
-				<div class="col-sm-6 ">
 		            <div class="form-group  has-error">
-		                <label><strong>Kurtsoa (*):</strong></label>
+		                <label><strong>Ikastaroa / Curso (*):</strong></label>
 		                @if ($errors->has('curso_eu'))
 	                       <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
 
 		                {!! Form::text('curso_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
+		            </div>
+		        </div>
+
+		    </div>
+		    <!--<div>
+
+
+		         <div class="col-sm-6 ">
+		            <div class="form-group">
+		                <label><strong>Programa :</strong></label>
+		                {!! Form::text('titulo_es', null, array('placeholder' => 'Programa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
@@ -62,7 +65,8 @@
 		                {!! Form::text('curso_es', null, array('placeholder' => 'Curso','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)) !!}
 		            </div>
 		        </div>
-		    </div>
+
+		    </div>-->
 			<div>
 				<div class="col-sm-6 ">
                    <div class="form-group  has-error">
@@ -72,7 +76,7 @@
                 </div>
                 <div class="col-sm-6 ">
 		            <div class="form-group  has-error">
-		                <label><strong>{{ __('Iraupena') }} (*):</strong></label>
+		                <label><strong>Iraupena / Duración (*):</strong></label>
 		                @if ($errors->has('duracion'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
@@ -86,7 +90,7 @@
 
                 <div class="col-sm-6 ">
 		            <div class="form-group  has-error">
-		                <label><strong>{{ __('Tokia') }} (*):</strong></label>
+		                <label><strong>Tokia / Lugar (*):</strong></label>
 		                 @if ($errors->has('lugar'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
@@ -95,7 +99,7 @@
 		        </div>
 		         <div class="col-sm-6 ">
 		            <div class="form-group  has-error">
-		                <label><strong>{{ __('Data') }} (*):</strong></label>
+		                <label><strong>{{ __('Hasiera Data') }} (*):</strong></label>
 		                @if ($errors->has('fecha'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif

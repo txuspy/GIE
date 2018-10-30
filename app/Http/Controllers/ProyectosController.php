@@ -43,13 +43,15 @@ class ProyectosController extends Controller
     public function store(Request $request)
     {
           $this->validate($request, [
-            'proyecto_eu' => 'required',
-            'tipo' => 'required',
-            'desde' => 'required',
+            'proyecto_eu'   => 'required',
+            'tipo'          => 'required',
+            'financinacion' => 'required',
+            'desde'         => 'required',
         ],
         [
-            'proyecto_eu.required'    => __('Proiektua  beharrezkoa da.'),
-            'desde.required'          => __('Noiztik beharrezkoa da.')
+            'proyecto_eu.required'      => __('Proiektua  beharrezkoa da.'),
+            'financinacion.required'    => __('Finantziazioa beharrezkoa da.'),
+            'desde.required'            => __('Noiztik beharrezkoa da.')
         ]);
         if($request->proyecto_es==''){
              $request['proyecto_es'] = $request->proyecto_eu;
@@ -86,12 +88,22 @@ class ProyectosController extends Controller
     {
         $this->validate($request, [
             'proyecto_es' => 'required',
+            'financinacion' => 'required',
             'tipo' => 'required'
         ],
         [
             'proyecto_eu.required'    => __('Proiektua  beharrezkoa da.'),
+            'financinacion.required'    => __('Finantziazioa beharrezkoa da.'),
             'desde.required'          => __('Noiztik beharrezkoa da.')
         ]);
+
+         if($request->proyecto_es==''){
+             $request['proyecto_es'] = $request->proyecto_eu;
+        }
+        if($request->hasta==''){
+             $request['hasta'] = \Carbon\Carbon::now('Europe/Madrid');
+        }
+
         $input         = $request->all();
         $proyecto = Proyectos::find($id);
         $proyecto->update($input);

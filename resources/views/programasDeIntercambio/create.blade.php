@@ -32,19 +32,22 @@
         	<div>
         		<div class="col-sm-6 ">
                       <div class="form-group has-error">
-                        <label><strong>Aktibitatea (*):</strong></label>
+                        <label><strong>Aktibitatea(*):</strong></label>
                         @if ($errors->has('actividad_eu'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
                         {!! Form::text('actividad_eu', null, array('placeholder' => 'Aktibitea','class' => 'form-control buscadorProgramasDeIntercambio', 'data-tipo'  => $tipo )) !!}
                     </div>
                 </div>
+
                 <div class="col-sm-6 ">
                     <div class="form-group">
                         <label><strong>Actividad :</strong></label>
                         {!! Form::text('actividad_es', null, array('placeholder' => 'Actividad','class' => 'form-control buscadorProgramasDeIntercambio', 'data-tipo'  => $tipo )) !!}
                     </div>
                 </div>
+
+
             </div>
 
             <div>
@@ -65,13 +68,13 @@
                 </div>
             </div>
 
-        		<div class="col-sm-6 ">
+<div class="col-sm-6 ">
                       <div class="form-group has-error">
                         <label><strong>{{ __('Tokia') }} (*):</strong></label>
                         @if ($errors->has('lugar'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
-                        {!! Form::text('lugar', null, array('placeholder' => 'Aktibitea','class' => 'form-control')) !!}
+                        {!! Form::text('lugar', null, array('placeholder' => __('Tokia'),'class' => 'form-control')) !!}
                     </div>
                 </div>
                      <div>

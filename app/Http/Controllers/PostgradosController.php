@@ -52,7 +52,7 @@ class PostgradosController extends Controller
         ],
         [
             'titulo_eu.required'    => __('Programa beharrezkoa da.'),
-            'curso_eu.required'     => __('Kurtsoa beharrezkoa da.'),
+            'curso_eu.required'     => __('Ikastaroa beharrezkoa da.'),
             'departamento.required' => __('Saila beharrezkoa da.'),
             'duracion.required'     => __('Iraupena beharrezkoa da.'),
             'lugar.required'        => __('Tokia beharrezkoa da.'),

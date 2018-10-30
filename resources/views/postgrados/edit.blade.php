@@ -42,22 +42,24 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Izenburua:</strong></label>
+		                <label><strong>Programa:</strong></label>
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Titulo:</strong></label>
-		                {!! Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')) !!}
+		                <label><strong>Ikastaroa / Curso:</strong></label>
+		                {!! Form::text('curso_eu', null, array('placeholder' => 'Ikastaroa','class' => 'form-control')) !!}
 		            </div>
 		        </div>
 		    </div>
+		    <!--
 		    <div>
-				<div class="col-sm-6 ">
+
+		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Ikastaroa:</strong></label>
-		                {!! Form::text('curso_eu', null, array('placeholder' => 'Ikastaroa','class' => 'form-control')) !!}
+		                <label><strong>Titulo:</strong></label>
+		                {!! Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
@@ -67,6 +69,7 @@
 		            </div>
 		        </div>
 		    </div>
+		    -->
 			<div>
 		        <div class="col-sm-6 ">
 		           <div class="form-group">
@@ -76,7 +79,7 @@
 		        </div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Iraupena') }} (*):</strong></label>
+		                <label><strong>Iraupena / Duración(*):</strong></label>
 		                {!! Form::text('duracion', null, array('placeholder' => '15 ECTS','class' => 'form-control ')) !!}
 		            </div>
 		        </div>
@@ -84,7 +87,7 @@
 		    <div class="row" style="margin:1px;">
 		       <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Tokia') }} (*):</strong></label>
+		                <label><strong>Tokia / Lugar (*):</strong></label>
 		                {!! Form::text('lugar', 'Gipuzkoako Ingeniaritza Eskola', array('placeholder' => '15 ECTS','class' => 'form-control ')) !!}
 		            </div>
 		        </div>

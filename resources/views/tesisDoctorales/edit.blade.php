@@ -58,16 +58,19 @@
 		<div>
 		<div class="col-sm-6 ">
             <div class="form-group">
-                <label><strong>Izenburua:</strong></label>
+                <label><strong>Izenburua / Titulo:</strong></label>
                 {!! Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control')) !!}
             </div>
         </div>
         <div class="col-sm-6 ">
+            <br><br><br><br><br>
+        </div>
+        <!--<div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>Titulo:</strong></label>
                 {!! Form::text('titulo_es', null, array('placeholder' => 'Titulo','class' => 'form-control')) !!}
             </div>
-        </div>
+        </div>-->
     </div>
 	<div>
 		<div class="col-sm-6 ">

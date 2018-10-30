@@ -49,16 +49,24 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Ikastaro:</strong></label>
+		                <label><strong>Ikastaroa / Curso:</strong></label>
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')) !!}
 		            </div>
 		        </div>
+		        <div class="col-sm-6 ">
+		            <div class="form-group">
+		                <label><strong>{{ __('Hasiera-Data') }} :</strong></label>
+		                {!! Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker  form-control')) !!}
+		            </div>
+		        </div>
+		        <!--
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>Curso:</strong></label>
 		                {!! Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')) !!}
 		            </div>
 		        </div>
+		        -->
 		    </div>
 		    @if( $formacion->modo == 'recibir' )
 			     <div>
@@ -77,12 +85,7 @@
 			    </div>
 			@endif
 			<div>
-				<div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>{{ __('Hasiera-Data') }} :</strong></label>
-		                {!! Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker  form-control')) !!}
-		            </div>
-		        </div>
+
 				<div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>{{ __('Tokia') }} :</strong></label>

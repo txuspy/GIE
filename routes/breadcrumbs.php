@@ -173,7 +173,6 @@ Breadcrumbs::register('publicacionesEdit', function($breadcrumbs, $publicacion)
 //Postgrados
 Breadcrumbs::register('postgrados', function($breadcrumbs, $tipo)
 {
-
     $breadcrumbs->parent('home');
     if( $tipo == 'master' ){
         $breadcrumbs->push( __('Masterretan parte-hartzea'), url(App\Lib\Functions::parseLang().'/postgrados/show/'.$tipo));
@@ -220,7 +219,10 @@ Breadcrumbs::register('formacionesEdit', function($breadcrumbs, $formacion )
 Breadcrumbs::register('programasDeIntercambio', function($breadcrumbs, $tipo)
 {
     $breadcrumbs->parent('home');
-    if( $tipo == 'enCasa' ){
+
+
+
+    if( $tipo == 'fuera' ){
         $breadcrumbs->push( __('Egonaldi zientifikoak beste Unibertsitateetan'), url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/'.$tipo));
     }elseif($tipo == 'azp'){
         $breadcrumbs->push( __('IIP / AZPren mugikortasuna'), url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/'.$tipo));

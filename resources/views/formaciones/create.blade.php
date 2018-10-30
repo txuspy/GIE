@@ -15,11 +15,18 @@
         <div class="panel-body">
             <div class="col-sm-12 margin-tb">
 		        <div class="pull-left">
-		           	@if( $tipo == 'libros' )
-						<h2>{{ __('Liburuak eta Monografiak') }}</h2>
-					@else
-						<h2>{{ __('Artikuloak') }}</h2>
-					@endif
+	           		<h2>
+						@if( $tipo == 'PDI' )
+							{{  __('IIPko formazioa') }}
+						@else
+							{{  __('AZKko formazioa') }}
+						@endif
+						@if( $modo )
+							- {{  __('Jasotakoa') }}
+						@else
+							- {{  __('Emandakoa') }}
+						@endif
+					</h2>
 		        </div>
 		        <div class="pull-right">
 		            <a class="btn btn-primary" href="{{ route('formaciones.index', ['tipo'  => $tipo , 'modo'  => $modo]) }}"><i class="fa fa-reply" title="{{ __('Atzera') }}"></i></a>
@@ -30,7 +37,7 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group has-error">
-		                <label><strong>Ikastaro (*):</strong></label>
+		                <label><strong>Ikastaro / Curso (*):</strong></label>
 		                 @if ($errors->has('titulo_eu'))
 		                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 		                    @endif
@@ -38,11 +45,20 @@
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>Curso :</strong></label>
-		                {!! Form::text('titulo_es', null, array('placeholder' => 'Curso','class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
+		            <div class="form-group has-error">
+		                <label><strong>{{ __('Hasiera-Data') }} (*):</strong></label>
+		                @if ($errors->has('fecha'))
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    @endif
+		                {!! Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker  form-control')) !!}
 		            </div>
 		        </div>
+		       <!-- <div class="col-sm-6 ">
+		            <div class="form-group">
+		                <label><strong> :</strong></label>
+		                {!! Form::text('titulo_es', null, array('placeholder' => 'Curso','class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
+		            </div>
+		        </div>-->
 		    </div>
 			@if( $modo == 'recibir' )
 			    <div>
@@ -64,15 +80,7 @@
 			    </div>
 			@endif
 			<div>
-				<div class="col-sm-6 ">
-		            <div class="form-group has-error">
-		                <label><strong>{{ __('Data') }} (*):</strong></label>
-		                @if ($errors->has('fecha'))
-	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
-	                    @endif
-		                {!! Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker  form-control')) !!}
-		            </div>
-		        </div>
+
 				<div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>{{ __('Tokia') }} :</strong></label>
