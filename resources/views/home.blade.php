@@ -24,7 +24,7 @@
                         <div class="col-md-6">
                             <p><stong>{{ __('Erabiltzailearen honespenak') }}:</stong> </p>
                             <p><small>{{ __('Pasahitza aldatzeko, hizkuntza ...')}}</small></p>
-                            <?php //phpinfo(); ?>
+
                             <video controls height="170" width="auto">
 
                                 <source src="/videos/pasahitza.mp4" type="video/mp4" />

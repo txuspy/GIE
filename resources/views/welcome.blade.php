@@ -83,4 +83,3 @@
         </div>
     </body>
 </html>
-<?php phpinfo(); ?>
