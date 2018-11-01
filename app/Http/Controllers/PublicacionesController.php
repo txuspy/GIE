@@ -57,7 +57,7 @@ class PublicacionesController extends Controller
                 $aldizkaria = Aldizkariak::where('titulo', 'LIKE', '%' .$request->editorialRevisa. '%')
                     ->orWhere('corto', 'LIKE', '%' . $request->editorialRevisa. '%')
                     ->first();
-                if(count($aldizkaria)){
+                if($aldizkaria!=''){
                     $request['ISBN'] = $aldizkaria->ISSN;
                 }
             }
