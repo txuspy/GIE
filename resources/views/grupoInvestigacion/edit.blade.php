@@ -59,13 +59,13 @@
 		 <div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>Ikerkuntza lerroak :</strong></label>
-                {!! Form::textarea('lineasInv_eu', null, array('placeholder' => 'Ikerkuntza lerroak','class' => 'form-control')) !!}
+                {!! Form::textarea('lineasInv_eu', null, array('placeholder' => 'Ikerkuntza lerroak','class' => 'form-control summernote')) !!}
             </div>
         </div>
         <div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>Líneas de investigación :</strong></label>
-                {!! Form::textarea('lineasInv_es', null, array('placeholder' => 'Líneas de investigación','class' => 'form-control')) !!}
+                {!! Form::textarea('lineasInv_es', null, array('placeholder' => 'Líneas de investigación','class' => 'form-control summernote')) !!}
             </div>
         </div>
     </div>

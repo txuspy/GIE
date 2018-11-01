@@ -6,6 +6,21 @@ $(document).ready(function () {
           return false;
         }
     });
+     $('.summernote').summernote({
+        height: 300,
+        tabsize: 2,
+        toolbar: [ ['style', ['bold', 'italic', 'underline']], ['para', ['ul', 'ol'] ],  ['codeview'] ],
+        callbacks: {
+            onKeyup: function(contents, e) {
+                // console.log('Unai change:', contents, e);
+                console.log('Summernote KeyUp');
+                if($(this).attr('data-nombretabla')){
+                    guardarInputEnBD($(this));
+                    console.log("Guardando en Bd");
+                }
+            }
+        }
+    });
      $('.input-daterange').datepicker({
             weekStart: 1,
             language: "es",
@@ -185,3 +200,4 @@ function disparadorCargarProvincias(idHtmlPais, idHtmlProvincia){
         });
     });
 }
+
