@@ -5,13 +5,13 @@
                                 <ul aria-label="Menú de idiomas" role="menubar" class="nav nav-left pull-left">
 
                                     @foreach(  config('app.supported-locales') as $locale )
-                                        @if(\Session::get('locale') == strtolower(ucfirst($locale)) )
+                                        @if(\Request::segment(1) == strtolower(ucfirst($locale)) )
                                             <li role="presentation" class="selected">
                                         @else
                                             <li role="presentation">
                                         @endif
-                                            <a href='/{{ $locale }}/home'>
-                                                @if(\Session::get('locale') == strtolower(ucfirst($locale)) )
+                                            <a href='{{ \App\Traits\Listados::cambiarURLIdioma($locale) }}'>
+                                                @if(\Request::segment(1) == strtolower(ucfirst($locale)) )
                                                     <i class="fa fa-check" aria-hidden="true"></i>
                                                 @endif
                                                 {{ ucfirst($locale) }}

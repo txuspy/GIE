@@ -27,6 +27,11 @@ trait Listados
         return $valores;
     }
 
+    public static function cambiarURLIdioma($lng )
+    {
+        return str_replace("/".\Request::segment(1)."/", "/".$lng."/", \URL::full() );
+    }
+
     public static function listadoEkarpena()
     {
 

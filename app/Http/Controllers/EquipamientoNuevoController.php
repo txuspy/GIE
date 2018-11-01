@@ -13,7 +13,7 @@ class EquipamientoNuevoController extends Controller
 {
     public function index()
     {
-       $data = EquipamientoNuevo::where('id','>=','1')
+        $data = EquipamientoNuevo::where('id','>=','1')
            ->orderBy('id','DESC')
            ->paginate(25);
        return view('equipamientoNuevo.index',compact('data')) ;
