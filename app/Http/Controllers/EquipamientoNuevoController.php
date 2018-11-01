@@ -14,7 +14,10 @@ class EquipamientoNuevoController extends Controller
     public function index()
     {
        $data = EquipamientoNuevo::orderBy('id','DESC')->paginate(25);
-       return view('equipamientoNuevo.index',compact('data')) ;
+       /*return view('equipamientoNuevo.index',compact('data')) ;
+       $users= User::paginate(3);*/
+        return view('equipamientoNuevo.index')->with('data', $data);
+
     }
 
     public function create()
