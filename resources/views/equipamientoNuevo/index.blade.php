@@ -46,11 +46,7 @@
 							</td>
 						</tr>
 						@endforeach
-						<tr>
-							<td>{{ __('Guztira:' )}} {{ $data->total() }}</td>
-							<td colspan='1' class='text-center'>{{ $data->links() }}</td>
-							<td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td>
-							</tr>
+
 					@endif
 				</table>
 			</div>
