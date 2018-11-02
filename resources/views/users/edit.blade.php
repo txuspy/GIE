@@ -107,4 +107,28 @@
 	</div>
 	{!! Form::close() !!}
 	</div>
+	<div id="dialog2" title="PASAHITZA ALDATU / CAMBIAR PASSWORD" class='ocultar' >
+      @if ($errors->any())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <p>{!! $error !!}</p>
+            @endforeach
+        </div>
+    @endif
+    </div>
+	<script type="text/javascript" >
+	$( function() {
+	     if ( $( ".alert-danger" )[0] ) {
+
+            $( "#dialog2" ).show();
+            $("#dialog2").dialog({
+				modal: true,
+				resizable: false,
+				width: 600
+			});
+        }
+    } );
+
+	</script>
 @endsection
+

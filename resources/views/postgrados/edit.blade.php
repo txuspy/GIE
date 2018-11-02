@@ -42,44 +42,27 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Programa:</strong></label>
+		                <label><strong>{{ __('Programa') }} :</strong></label>
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Ikastaroa / Curso:</strong></label>
+		                <label><strong>{{ __('Ikastaroa') }}:</strong></label>
 		                {!! Form::text('curso_eu', null, array('placeholder' => 'Ikastaroa','class' => 'form-control')) !!}
 		            </div>
 		        </div>
 		    </div>
-		    <!--
-		    <div>
-
-		        <div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>Titulo:</strong></label>
-		                {!! Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')) !!}
-		            </div>
-		        </div>
-		        <div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>Curso:</strong></label>
-		                {!! Form::text('curso_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')) !!}
-		            </div>
-		        </div>
-		    </div>
-		    -->
 			<div>
 		        <div class="col-sm-6 ">
 		           <div class="form-group">
-		                <label><strong>Saila/ Departamento (*):</strong></label>
+		                <label><strong>{{ __('Saila') }} (*):</strong></label>
 		                {!! Form::select('departamento',  \App\Traits\Listados::listadoDepartamentos( \Session::get('locale') ), $postgrado->departamento , ['id' =>'departamento',   'class' => 'form-control chosen-select'])  !!}
 		            </div>
 		        </div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Iraupena / Duración(*):</strong></label>
+		                <label><strong>{{ __('Iraupena') }}(*):</strong></label>
 		                {!! Form::text('duracion', null, array('placeholder' => '15 ECTS','class' => 'form-control ')) !!}
 		            </div>
 		        </div>
@@ -87,20 +70,20 @@
 		    <div class="row" style="margin:1px;">
 		       <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Tokia / Lugar (*):</strong></label>
+		                <label><strong>{{ __('Tokia') }} (*):</strong></label>
 		                {!! Form::text('lugar', 'Gipuzkoako Ingeniaritza Eskola', array('placeholder' => '15 ECTS','class' => 'form-control ')) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>{{ __('Hasiera Data') }} (*):</strong></label>
-		                {!! Form::text('fecha', null, array('placeholder' => __('Data'),'class' => 'datepicker form-control ')) !!}
+		                {!! Form::text('fecha', null, array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker form-control ')) !!}
 		            </div>
 		        </div>
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong>{{ __('Irakaslea(k)')}}:</strong></label>
+		    		<label><strong>{{ __('Irakaslea(k)')}} (*): <span id='autorInfo'></span></strong></label>
 		    	 	{{Form::text('postgradosAutores', '', [
 				        'id'           =>'postgradosAutores',
 				        'placeholder'  =>__('Irakaslea bilatu'),

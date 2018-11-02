@@ -121,6 +121,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('postgrados/{id}/edit', ['as' => 'postgrados.edit', 'uses' => 'PostgradosController@edit']  );
 	Route::put('postgrados/{id}',  ['as' => 'postgrados.update', 'uses' => 'PostgradosController@update']  );
 	Route::post('postgrados/',  ['as' => 'postgrados.store', 'uses' => 'PostgradosController@store']  );
+	Route::post('postgrados/search',  ['as' => 'postgrados.search', 'uses' => 'PostgradosController@search']  );
 	Route::delete('postgrados/{id}/{tipo}', ['as' => 'postgrados.destroy', 'uses' => 'PostgradosController@destroy'] );
 	Route::get('postgrados/{id}/autores/{id_autor}','PostgradosController@enlazarAutores');
 	Route::get('postgrados/detach/{id}/autores/{id_autor}','PostgradosController@detachAutores');

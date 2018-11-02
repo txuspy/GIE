@@ -22,27 +22,54 @@ $(document).on('click',  '.desenlazar', function(){
 
 });
 $(document).ready(function () {
+
+
+
+
     console.log("public/js/autocomplementar.js ready!")
-    $(".buscadorAutor").autocomplete({
+    $(".buscadorDeAutor").autocomplete({
         source: "/autor/autocompletar",
         minLength: 3,
         select: function (event, ui) {
-            if(ui.item.id){
-               var config ={
-                    id       : $(this).attr('data-id') ,
-                    id_autor : ui.item.id,
-                    carpeta  : $(this).attr('data-carpeta') ,
-                    tipo     : $(this).attr('data-tipo') ,
-                    idUl     : $(this).attr('data-idUl')
-                };
-                var idnuevo = enlazar( config );
-                $("#"+$(this).attr('data-idUl')).append('<li class="list-group-item"><a data-id="'+config.id+'" data-idautor="'+config.id_autor+'" data-carpeta="'+config.carpeta+'" data-tipo="'+config.tipo+'" class="desenlazar"><i class="fa fa-trash deleteRelation"></i> </a>'+ui.item.value+'</li>');
-                $(this).val('');
-                $(this).focus();
-                return false;
-            }
+            console.log( "Selected: " + ui.item.value + " id " + ui.item.id );
+            $(this).next().val(ui.item.nombre);
+            $("#id_autor").val(ui.item.id);
+            $(this).next().trigger('keyup');
         }
     });
+    if($(".buscadorAutor")[0]){
+        $(".buscadorAutor").autocomplete({
+            source: "/autor/autocompletar",
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                   var config ={
+                        id       : $(this).attr('data-id') ,
+                        id_autor : ui.item.id,
+                        carpeta  : $(this).attr('data-carpeta') ,
+                        tipo     : $(this).attr('data-tipo') ,
+                        idUl     : $(this).attr('data-idUl')
+                    };
+                    var idnuevo = enlazar( config );
+                    $("#"+$(this).attr('data-idUl')).append('<li class="list-group-item"><a data-id="'+config.id+'" data-idautor="'+config.id_autor+'" data-carpeta="'+config.carpeta+'" data-tipo="'+config.tipo+'" class="desenlazar"><i class="fa fa-trash deleteRelation"></i> </a>'+ui.item.value+'</li>');
+                    $(this).val('');
+                    $(this).focus();
+                    return false;
+                }
+            }
+        }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+        	return $( "<li></li>" )
+        		.data( "item.autocomplete", item )
+        		.append( "<i class='fa fa-info-circle' title ='Enter edo izenean gainean sakatu erlazioa sortzeko/Pulsa Enter o click para crear una nueva relación.\nTab sakatu datu berria sortzeko/Pulsa Tab para crear registro nuevo.'></i> "+item.label )
+        		.appendTo( ul );
+        }
+    }
+
+    $(".buscadorAutor").focus(function() {
+        $("#autorInfo").html('');
+        $("#autorInfo").append( "<i class='fa fa-info-circle mostrarCursor' title ='Enter edo izenean gainean sakatu erlazioa sortzeko/Pulsa Enter o click para crear una nueva relación.\nTab sakatu datu berria sortzeko/Pulsa Tab para crear registro nuevo.'></i> " );
+    });
+
     $(".buscadorAutor").keydown(function (e) {
         //if ( (e.which == 9) || (e.which == 13) ){ //(e.which == 13) ENTER ; e.which == 9 TAB
         if ( (e.which == 9) ){ //(e.which == 13) ENTER ; e.which == 9 TAB
@@ -227,4 +254,25 @@ $(document).ready(function () {
             }
         });
     });
+
+    $(".buscadorPostgrados" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        var tipo = $(this).closest('input').attr("data-tipo");
+        console.log("name:"+name+", tipo: "+tipo);
+        $(this).autocomplete({
+            source: "/postgrados/autocompletar/"+name+"/"+tipo,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                   console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/postgrados/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+
 });

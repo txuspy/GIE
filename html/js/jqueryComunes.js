@@ -39,15 +39,14 @@ $(document).ready(function () {
             calendarWeeks: true,
             daysOfWeekHighlighted: "0,6"
     });
-
+console.log("antes");
     $('.mostraOcultar').click(function (e) {
         var nombreDiv = $(this).attr('data-nomDiv');
-        if ($("#" + nombreDiv).css('display') == 'block') {
-            $("#" + nombreDiv).hide();
-        } else {
-            $("#" + nombreDiv).show();
-        }
+        console.log("click en ocultarMostrar , div a mostrar/ocultar:"+nombreDiv);
+        $("#" + nombreDiv).toggle();
     });
+console.log("despues");
+
     var touchtime = 0;
 
     $('.mostraOcultarInput').dblclick(function () {

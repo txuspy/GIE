@@ -12,6 +12,9 @@ a:hover {
 .mostrar{
 	display:block;
 }
+.mostrarOcultar, .mostrarCursor{
+    cursor: pointer;
+}
 /* DATATABLES */
 td.details-control {
     background: url('/images/details_open.png') no-repeat center center;
