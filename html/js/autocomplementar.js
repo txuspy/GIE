@@ -37,6 +37,16 @@ $(document).ready(function () {
             $(this).next().trigger('keyup');
         }
     });
+     $(".buscadorDeAutor2").autocomplete({
+        source: "/autor/autocompletar",
+        minLength: 3,
+        select: function (event, ui) {
+            console.log( "Selected: " + ui.item.value + " id " + ui.item.id );
+            $(this).next().val(ui.item.nombre);
+            $("#id_autor2").val(ui.item.id);
+            $(this).next().trigger('keyup');
+        }
+    });
     if($(".buscadorAutor")[0]){
         $(".buscadorAutor").autocomplete({
             source: "/autor/autocompletar",
@@ -66,8 +76,8 @@ $(document).ready(function () {
     }
 
     $(".buscadorAutor").focus(function() {
-        $("#autorInfo").html('');
-        $("#autorInfo").append( "<i class='fa fa-info-circle mostrarCursor' title ='Enter edo izenean gainean sakatu erlazioa sortzeko/Pulsa Enter o click para crear una nueva relación.\nTab sakatu datu berria sortzeko/Pulsa Tab para crear registro nuevo.'></i> " );
+        $(".autorInfo").html('');
+        $(".autorInfo").append( "<i class='fa fa-info-circle mostrarCursor' title ='Enter edo izenean gainean sakatu erlazioa sortzeko/Pulsa Enter o click para crear una nueva relación.\nTab sakatu datu berria sortzeko/Pulsa Tab para crear registro nuevo.'></i> " );
     });
 
     $(".buscadorAutor").keydown(function (e) {
@@ -182,17 +192,17 @@ $(document).ready(function () {
             }
         });
     });
-    // Proyectos
-    $(".buscadorProyectos" ).focus(function() {
+    // Visitas
+    $(".buscadorVisitas" ).focus(function() {
         var name = $(this).closest('input').attr("name");
         $(this).autocomplete({
-            source: "/proyectos/autocompletar/"+name,
+            source: "/visitas/autocompletar/"+name,
             minLength: 3,
             select: function (event, ui) {
                 if(ui.item.id){
                     console.log($(this).attr('name'));
                     console.log("redirigir");
-                    var url = "/proyectos/" + ui.item.id + "/edit"; // get selected value
+                    var url = "/visitas/" + ui.item.id + "/edit"; // get selected value
                     if (url) { // require a URL
                         window.location = url; // redirect
                     }
@@ -218,17 +228,36 @@ $(document).ready(function () {
             }
         });
     });
-      // Publicaciones
-    $(".buscadorPublicaciones" ).focus(function() {
+
+    $(".buscadorEquipamientoNuevo" ).focus(function() {
         var name = $(this).closest('input').attr("name");
         $(this).autocomplete({
-            source: "/programasDeIntercambio/autocompletar/"+name,
+            source: "/equipamientoNuevo/autocompletar/"+name,
             minLength: 3,
             select: function (event, ui) {
                 if(ui.item.id){
                     console.log($(this).attr('name'));
                     console.log("redirigir");
-                    var url = "/programasDeIntercambio/" + ui.item.id + "/edit"; // get selected value
+                    var url = "/equipamientoNuevo/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+      // Publicaciones
+    $(".buscadorPublicaciones" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        var tipo = $(this).closest('input').attr("data-tipo");
+        $(this).autocomplete({
+            source: "/publicaciones/autocompletar/"+name+"/"+tipo,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                    console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/publicaciones/" + ui.item.id + "/edit"; // get selected value
                     if (url) { // require a URL
                         window.location = url; // redirect
                     }
@@ -267,6 +296,67 @@ $(document).ready(function () {
                    console.log($(this).attr('name'));
                     console.log("redirigir");
                     var url = "/postgrados/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+
+    $(".buscadorProgramasDeIntercambio" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        var tipo = $(this).closest('input').attr("data-tipo");
+        console.log("name:"+name+", tipo: "+tipo);
+        $(this).autocomplete({
+            source: "/programasDeIntercambio/autocompletar/"+name+"/"+tipo,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                   console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/programasDeIntercambio/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+
+    $(".buscadorFormaciones" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        var tipo = $(this).closest('input').attr("data-tipo");
+        var modo = $(this).closest('input').attr("data-modo");
+        console.log("name:"+name+", tipo: "+tipo);
+        $(this).autocomplete({
+            source: "/formaciones/autocompletar/"+name+"/"+tipo+"/"+modo,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                   console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/formaciones/" + ui.item.id + "/edit"; // get selected value
+                    if (url) { // require a URL
+                        window.location = url; // redirect
+                    }
+                }
+            }
+        });
+    });
+
+    $(".buscadorProyectos" ).focus(function() {
+        var name = $(this).closest('input').attr("name");
+        var tipo = $(this).closest('input').attr("data-tipo");
+        console.log("name:"+name+", tipo: "+tipo);
+        $(this).autocomplete({
+            source: "/proyectos/autocompletar/"+name+"/"+tipo,
+            minLength: 3,
+            select: function (event, ui) {
+                if(ui.item.id){
+                   console.log($(this).attr('name'));
+                    console.log("redirigir");
+                    var url = "/proyectos/" + ui.item.id + "/edit"; // get selected value
                     if (url) { // require a URL
                         window.location = url; // redirect
                     }

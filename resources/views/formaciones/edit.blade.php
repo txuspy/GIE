@@ -49,36 +49,28 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Ikastaroa / Curso:</strong></label>
+		                <label><strong>{{ __('Ikastaroa') }} (*):</strong></label>
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Hasiera-Data') }} :</strong></label>
+		                <label><strong>{{ __('Hasiera-Data') }} (*) :</strong></label>
 		                {!! Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker  form-control')) !!}
 		            </div>
 		        </div>
-		        <!--
-		        <div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>Curso:</strong></label>
-		                {!! Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')) !!}
-		            </div>
-		        </div>
-		        -->
 		    </div>
 		    @if( $formacion->modo == 'recibir' )
 			     <div>
 					<div class="col-sm-6 ">
 			            <div class="form-group">
-			                <label><strong>Antolatzailea(k):</strong></label>
+			                <label><strong>Antolatzailea(k) (*):</strong></label>
 			                {!! Form::text('organizador_eu', null, array('placeholder' => 'Antolatzailea(k)','class' => 'form-control buscadorformaciones')) !!}
 			            </div>
 			        </div>
 			        <div class="col-sm-6 ">
 			            <div class="form-group">
-			                <label><strong>Organizador(es) :</strong></label>
+			                <label><strong>Organizador(es):</strong></label>
 			                {!! Form::text('organizador_es', null, array('placeholder' => 'Organizador(es)','class' => 'form-control buscadorformaciones')) !!}
 			            </div>
 			        </div>
@@ -107,11 +99,11 @@
 		    	<div class="col-sm-6">
 		    		<label><strong>
 		    				@if( $formacion->modo == 'recibir' )
-								{{ __('Parte-hartzailea(k)') }}
+								{{ __('Parte-hartzailea(k)') }} (*)
 							@else
-								{{ __('Hizlaria(k)') }}
+								{{ __('Hizlaria(k)') }} (*)
 							@endif
-						</strong></label>
+						</strong><span class='autorInfo'></span></label>
 		    	 	{{Form::text('formacionesAutores', '', [
 				        'id'           =>'formacionesAutores',
 				        'placeholder'  =>__('Egilea bilatu'),

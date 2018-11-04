@@ -57,7 +57,7 @@
                          @if ($errors->has('lugar'))
                             <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                         @endif
-                        {!! Form::text('lugar', null, array('placeholder' => __('Viena, Austria'),'class' => 'form-control')) !!}
+                        {!! Form::text('lugar', null, array('placeholder' => 'University of Cambridge, Cambridge, UK','class' => 'form-control')) !!}
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                         @if ($errors->has('desde'))
                             <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                         @endif
-                        {!! Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')) !!}
+                        {!! Form::text('desde',  null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker form-control')) !!}
                     </div>
                 </div>
         		<div class="col-sm-6 ">
@@ -77,7 +77,7 @@
                         @if ($errors->has('hasta'))
                             <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                         @endif
-                        {!! Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')) !!}
+                        {!! Form::text('hasta', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->addYear('1')->format('Y-m-d') ,'class' => 'datepicker form-control')) !!}
                     </div>
                 </div>
             </div>

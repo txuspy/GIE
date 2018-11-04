@@ -25,24 +25,24 @@
         	    <div>
             		<div class="col-sm-6 ">
                         <div class="form-group has-error">
-                            <label><strong>Hornikuntza (*):</strong></label>
-                            @if ($errors->has('equipo_eu'))
+                            <label><strong>{{ __('Hornikuntza') }} (*):</strong></label>
+                            @if ($errors->has('hornikuntza'))
     	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
     	                    @endif
-                            {!! Form::text('equipo_eu', null, array('placeholder' => 'Hornikuntza','class' => 'form-control buscadorEquipamientoNuevo')) !!}
+                            {!! Form::text('hornikuntza', null, array('placeholder' => __('Hornikuntza')  ,'class' => 'form-control buscadorEquipamientoNuevo')) !!}
                         </div>
                     </div>
                     <div class="col-sm-6 ">
                         <div class="form-group">
-                            <label><strong>Equipamiento:</strong></label>
-                            {!! Form::text('equipo_es', null, array('placeholder' => 'Equipamiento','class' => 'form-control buscadorEquipamientoNuevo')) !!}
+                            <label><strong>{{ __('Ekipamendua') }} :</strong></label>
+                            {!! Form::text('ekipamendua', null, array('placeholder' => __('Ekipamendua'),'class' => 'form-control buscadorEquipamientoNuevo')) !!}
                         </div>
                     </div>
                 </div>
             	<div>
             		<div class="col-sm-6 ">
                        <div class="form-group has-error">
-                            <label><strong>Saila/ Departamento (*):</strong></label>
+                            <label><strong>{{ __('Saila') }} (*):</strong></label>
                             {!! Form::select('departamento',  \App\Traits\Listados::listadoDepartamentos( \Session::get('locale') ), '54', ['id' =>'departamento',   'class' => 'form-control chosen-select'])  !!}
                         </div>
                     </div>
@@ -64,13 +64,13 @@
                             @if ($errors->has('data'))
     	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
     	                    @endif
-                            {!! Form::text('data',  null , array('placeholder' => __('Data') ,'class' => 'datepicker form-control')) !!}
+                            {!! Form::text('data',  null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y') ,'class' => 'datepicker date-year form-control')) !!}
                         </div>
                     </div>
                     <div class="col-sm-6 ">
                         <div class="form-group">
-                            <label><strong>{{ __('Zenbateko') }} :</strong></label>
-                            {!! Form::text('importe', null, array('placeholder' => __('Zenbateko'),'class' => 'form-control')) !!}
+                            <label><strong>{{ __('Zenbateko') }} :</strong><small>(€)</small></label>
+                            {!! Form::text('importe', null, array('placeholder' => 15000,'class' => 'form-control')) !!}
                         </div>
                     </div>
                 </div>

@@ -7,23 +7,18 @@
 						<div class="pull-left">
 							<h2>{{ __('Ikerkuntza taldea') }}</h2>
 						</div>
-						<div class="pull-left margen-left">
-							<a class="btn btn-info" href="{{ route('grupoInvestigacion.indexAll') }}"><i class="fa fa-eye" title="{{ __('Ikerkuntza taldea guztiak ikusi') }}"></i></a>
-						</div>
-<!--
-                    	<div class="pull-left margen-left">
-							<a class="btn btn-info" href="{{ url(App\Lib\Functions::parseLang().'/grupoInvestigacion/word') }}" >
-							<i class="fa fa-file-word-o" title="{{ __('Word sortu') }}"></i> </a>
-						</div>
 
-						<div class="pull-left margen-left">
-							<a class="btn btn-info" href="{{ url(App\Lib\Functions::parseLang().'/grupoInvestigacion/envioEmail') }}" >
-							<i class="fa fa-envelope"></i> {{ __('Emaila bidali') }}</a>
-						</div>
--->
+
 						<div class="pull-right">
+								<a class="btn btn-info" href="{{ route('grupoInvestigacion.indexAll') }}"><i class="fa fa-list" title="{{ __('Ikerkuntza taldea guztiak ikusi') }}"></i></a>
+								&nbsp;
+								&nbsp;
+							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="{{ __('Bilatu') }}" ></i></a>
+								&nbsp;
+								&nbsp;
 							<a class="btn btn-success" href="{{ route('grupoInvestigacion.create') }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i> </a>
 						</div>
+
 					</div>
 				</div>
 				@if ($message = Session::get('success'))
@@ -31,6 +26,8 @@
 						<p>{{ $message }}</p>
 					</div>
 				@endif
+
+					@include('grupoInvestigacion.search')
 				<table class="table">
 					<tr>
 						<th>{{ __('Taldea')}}</th>

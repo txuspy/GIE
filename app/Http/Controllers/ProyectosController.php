@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use App\Autor;
 use App\ProyectosInvestigadores;
 use App\ProyectosDirectores;
+use App\Lib\Functions;
 
 
 class ProyectosController extends Controller
@@ -119,6 +120,83 @@ class ProyectosController extends Controller
         //Proyectos::find($id)->forceDelete();
         return redirect()->route('proyectos.index', compact( 'tipo'))
             ->with('success', __('Zuzen ezabatu da'));
+    }
+
+    private function crearSql($q, $request = false)
+	{
+
+
+		if(isset($request['proyecto_eu'])) {
+			if($request['proyecto_eu'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('proyecto_eu', 'like', "%".$request['proyecto_eu']."%");
+				});
+			}
+		}
+
+
+
+    	if(isset($request['financinacion'])) {
+			if($request['financinacion'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('financinacion', 'like', "%".$request['financinacion']."%");
+				});
+			}
+		}
+
+
+          if(isset($request['desde']) and isset($request['hasta']) ) {
+            if($request['desde'] != '' and $request['hasta'] != '') {
+				$q->where(function ($query) use ($request)  {
+                      $query->where('desde', '>=', $request['desde']);
+                      $query->where('desde', '<=', $request['hasta']);
+                      $query->orWhere('hasta', '>=', $request['desde']);
+                      $query->where('hasta', '<=', $request['hasta']);
+                      return $query;
+				});
+
+			}
+
+		}
+
+        if(isset($request['tipo'])) {
+			if($request['tipo'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('tipo', $request['tipo'] );
+				});
+			}
+		}
+
+        if(isset($request['id_autor'])) {
+			if($request['id_autor'] != '') {
+			    $idAutor = $request['id_autor'];
+			    $q  = $q->whereHas('directores', function ($q) use (  $idAutor ) {
+                    $q->where('id_autor',  $idAutor );
+                });
+			}
+		}
+
+        if(isset($request['id_autor2'])) {
+			if($request['id_autor2'] != '') {
+			    $idAutor = $request['id_autor2'];
+			    $q  = $q->whereHas('investigadores', function ($q) use (  $idAutor ) {
+                    $q->where('id_autor',  $idAutor );
+                });
+			}
+		}
+
+		return $q;
+	}
+
+    public function search(Request $request)
+    {
+        $q    = Proyectos::query();
+        $q    = $this->crearSql($q, $request);
+        $data = $q->orderBy('id','DESC')
+                ->paginate(25);
+        $sql  = Functions::getSql($q, $q->toSql());
+        $tipo = $request['tipo'];
+        return view('proyectos.index',compact('data', 'tipo')) ;
     }
 
     public function proyectosAjax($nombre, $tipo){

@@ -41,12 +41,12 @@
 		         @if( $tipo =='libros')
 			            <div class="form-group">
 			                <label><strong>{{ __('Argitaletxea') }} :</strong></label>
-			                {!! Form::text('editorialRevisa',  null , array('placeholder' => __('Argitaletxea') ,'class' => ' form-control')) !!}
+			                {!! Form::text('editorialRevisa',  null , array('placeholder' =>  __('Argitaletxea') ,'class' => ' form-control')) !!}
 			            </div>
 		            @else
 		              	<div class="form-group">
 		                	<label><strong>{{ __('Aldizkaria') }} :</strong></label>
-		                	{!! Form::text('editorialRevisa',  null , array('placeholder' => __('Aldizkaria') ,'class' => 'form-control buscadorAldikariak')) !!}
+		                	{!! Form::text('editorialRevisa',  null , array('placeholder' => __('Autocomplete....') ,'class' => 'form-control buscadorAldikariak')) !!}
 		            	</div>
 		            @endif
 		    	</div>
@@ -68,7 +68,7 @@
 		                @if ($errors->has('year'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
-		                {!! Form::text('year', null , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')) !!}
+		                {!! Form::text('year', null , array('placeholder' =>  \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker date-year form-control')) !!}
 		            </div>
 		        </div>
 

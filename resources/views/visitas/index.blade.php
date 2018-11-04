@@ -7,12 +7,18 @@
 						<div class="pull-left">
 								<h2>{{ __('Bisitak') }}</h2>
 						</div>
-						<div class="pull-left margen-left">
-							<a class="btn btn-info" href="{{ route('visitas.indexAll' ) }}"><i class="fa fa-eye" title="{{ __('Guztiak ikusi') }}"></i></a>
-						</div>
 						<div class="pull-right">
+							<a class="btn btn-info" href="{{ route('visitas.indexAll' ) }}"><i class="fa fa-list" title="{{ __('Guztiak ikusi') }}"></i></a>
+								&nbsp;
+								&nbsp;
+							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="{{ __('Bilatu') }}" ></i></a>
+								&nbsp;
+								&nbsp;
 							<a class="btn btn-success" href="{{ route('visitas.create'  ) }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i></a>
 						</div>
+
+
+
 					</div>
 				</div>
 
@@ -21,6 +27,7 @@
 					<p>{{ $message }}</p>
 				</div>
 				@endif
+				@include('visitas.search')
 				<table class="table">
 					<tr>
 						<th>{{ __('Aktibitatea') }}</th>

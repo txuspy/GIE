@@ -38,7 +38,7 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Aktibitatea:</strong></label>
+		                <label><strong>Aktibitatea (*):</strong></label>
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')) !!}
 		            </div>
 		        </div>
@@ -66,7 +66,7 @@
 
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong>{{ __('Irakaslea(k)')}}:</strong></label>
+		    		<label><strong>{{ __('Irakaslea(k)')}} (*):</strong><span class='autorInfo'></span></label>
 		    	 	{{Form::text('visitasAutores', '', [
 				        'id'           =>'visitasAutores',
 				        'placeholder'  =>__('Egilea bilatu'),

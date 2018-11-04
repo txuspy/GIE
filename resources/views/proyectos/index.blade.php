@@ -14,12 +14,18 @@
     							<h2>{{ __('Enpresek diru-laguntza emandako Ikerkuntza Proiektuak') }}</h2>
 							@endif
 						</div>
-						<div class="pull-left margen-left">
-							<a class="btn btn-info" href="{{ route('proyectos.indexAll', [ 'tipo'=> $tipo ]) }}"><i class="fa fa-eye" title="{{ __('Proiektu guztiak ikusi') }}"></i></a>
-						</div>
+
 						<div class="pull-right">
+							<a class="btn btn-info" href="{{ route('proyectos.indexAll', [ 'tipo'=> $tipo ]) }}"><i class="fa fa-list" title="{{ __('Proiektu guztiak ikusi') }}"></i></a>
+								&nbsp;
+								&nbsp;
+							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="{{ __('Bilatu') }}" ></i></a>
+								&nbsp;
+								&nbsp;
 							<a class="btn btn-success" href="{{ route('proyectos.create', [ 'tipo'=> $tipo ] ) }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i> </a>
 						</div>
+
+
 					</div>
 				</div>
 
@@ -28,6 +34,9 @@
 					<p>{{ $message }}</p>
 				</div>
 				@endif
+
+				@include('proyectos.search')
+
 				<table class="table">
 					<tr>
 						<th>{{ __('Proiektua') }}</th>

@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('grupoInvestigacion/showAll', ['as' => 'grupoInvestigacion.indexAll', 'uses' => 'GrupoInvestigacionController@indexAll'] );
 	Route::resource('grupoInvestigacion','GrupoInvestigacionController');
 	Route::get('grupoInvestigacion/{id}/responsable/{id_autor}','GrupoInvestigacionController@enlazarResponsable');
+	Route::post('grupoInvestigacion/search', ['as' => 'grupoInvestigacion.search', 'uses' => 'GrupoInvestigacionController@search']);
 	Route::get('grupoInvestigacion/{id}/participante/{id_autor}','GrupoInvestigacionController@enlazarParticipante');
 	Route::get('grupoInvestigacion/detach/{id}/responsable/{id_autor}','GrupoInvestigacionController@detachResponsable');
 	Route::get('grupoInvestigacion/detach/{id}/participante/{id_autor}', 'GrupoInvestigacionController@detachParticipante');
@@ -52,11 +53,14 @@ Route::group(['middleware' => ['auth']], function() {
 
 	Route::get('congresos/autocompletar/{nombre}', 'CongresosController@congresosAjax');
 	Route::get('congresos/showAll', ['as' => 'congresos.indexAll', 'uses' => 'CongresosController@indexAll'] );
+	Route::post('congresos/search', ['as' => 'congresos.search', 'uses' => 'CongresosController@search'] );
 	Route::resource('congresos','CongresosController');
 	Route::get('congresos/{id}/profesor/{id_autor}','CongresosController@enlazarProfesor');
 	Route::get('congresos/detach/{id}/profesor/{id_autor}','CongresosController@detachProfesor');
 
 	Route::get('equipamientoNuevo/autocompletar/{nombre}', 'EquipamientoNuevoController@equipamientoNuevoAjax');
+	Route::get('equipamientoNuevo/showAll', ['as' => 'equipamientoNuevo.indexAll', 'uses' => 'EquipamientoNuevoController@indexAll'] );
+	Route::post('equipamientoNuevo/search',  ['as' => 'equipamientoNuevo.search', 'uses' => 'EquipamientoNuevoController@search']  );
 	Route::resource('equipamientoNuevo','EquipamientoNuevoController');
 
 
@@ -68,6 +72,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('tesisDoctorales/{id}/edit', ['as' => 'tesisDoctorales.edit', 'uses' => 'TesisDoctoralesController@edit']  );
 	Route::put('tesisDoctorales/{id}',  ['as' => 'tesisDoctorales.update', 'uses' => 'TesisDoctoralesController@update']  );
 	Route::post('tesisDoctorales/',  ['as' => 'tesisDoctorales.store', 'uses' => 'TesisDoctoralesController@store']  );
+	Route::post('tesisDoctorales/search',  ['as' => 'tesisDoctorales.search', 'uses' => 'TesisDoctoralesController@search']  );
 	Route::delete('tesisDoctorales/{id}/{tipo}', ['as' => 'tesisDoctorales.destroy', 'uses' => 'TesisDoctoralesController@destroy'] );
 	Route::get('tesisDoctorales/{id}/director/{id_autor}','TesisDoctoralesController@enlazarDirector');
 	Route::get('tesisDoctorales/{id}/doctorando/{id_autor}','TesisDoctoralesController@enlazarDoctorando');
@@ -82,6 +87,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('proyectos/{id}/edit', ['as' => 'proyectos.edit', 'uses' => 'ProyectosController@edit']  );
 	Route::put('proyectos/{id}',  ['as' => 'proyectos.update', 'uses' => 'ProyectosController@update']  );
 	Route::post('proyectos/',  ['as' => 'proyectos.store', 'uses' => 'ProyectosController@store']  );
+	Route::post('proyectos/search',  ['as' => 'proyectos.search', 'uses' => 'ProyectosController@search']  );
 	Route::delete('proyectos/{id}/{tipo}', ['as' => 'proyectos.destroy', 'uses' => 'ProyectosController@destroy'] );
 	Route::get('proyectos/{id}/director/{id_autor}','ProyectosController@enlazarDirector');
 	Route::get('proyectos/{id}/doctorando/{id_autor}','ProyectosController@enlazarInvestigador');
@@ -96,6 +102,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('publicaciones/{id}/edit', ['as' => 'publicaciones.edit', 'uses' => 'PublicacionesController@edit']  );
 	Route::put('publicaciones/{id}',  ['as' => 'publicaciones.update', 'uses' => 'PublicacionesController@update']  );
 	Route::post('publicaciones/',  ['as' => 'publicaciones.store', 'uses' => 'PublicacionesController@store']  );
+	Route::post('publicaciones/search',  ['as' => 'publicaciones.search', 'uses' => 'PublicacionesController@search']  );
 	Route::delete('publicaciones/{id}/{tipo}', ['as' => 'publicaciones.destroy', 'uses' => 'PublicacionesController@destroy'] );
 	Route::get('publicaciones/{id}/autores/{id_autor}','PublicacionesController@enlazarAutores');
 	Route::get('publicaciones/detach/{id}/autores/{id_autor}','PublicacionesController@detachAutores');
@@ -110,6 +117,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('visitas/{id}/edit', ['as' => 'visitas.edit', 'uses' => 'VisitasController@edit']  );
 	Route::put('visitas/{id}',  ['as' => 'visitas.update', 'uses' => 'VisitasController@update']  );
 	Route::post('visitas/',  ['as' => 'visitas.store', 'uses' => 'VisitasController@store']  );
+	Route::post('visitas/search',  ['as' => 'visitas.search', 'uses' => 'VisitasController@search']  );
 	Route::delete('visitas/{id}', ['as' => 'visitas.destroy', 'uses' => 'VisitasController@destroy'] );
 	Route::get('visitas/{id}/autores/{id_autor}','VisitasController@enlazarAutores');
 	Route::get('visitas/detach/{id}/autores/{id_autor}','VisitasController@detachAutores');
@@ -132,6 +140,8 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('formaciones/create/{tipo}/{modo}', ['as' => 'formaciones.create', 'uses' => 'FormacionesController@create']  );
 	Route::get('formaciones/{id}/edit', ['as' => 'formaciones.edit', 'uses' => 'FormacionesController@edit']  );
 	Route::put('formaciones/{id}',  ['as' => 'formaciones.update', 'uses' => 'FormacionesController@update']  );
+	Route::post('formaciones/search',  ['as' => 'formaciones.search', 'uses' => 'FormacionesController@search']  );
+
 	Route::post('formaciones/',  ['as' => 'formaciones.store', 'uses' => 'FormacionesController@store']  );
 	Route::delete('formaciones/{id}/{tipo}/{modo}', ['as' => 'formaciones.destroy', 'uses' => 'FormacionesController@destroy'] );
 	Route::get('formaciones/{id}/autores/{id_autor}','FormacionesController@enlazarAutores');
@@ -145,6 +155,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('programasDeIntercambio/{id}/edit', ['as' => 'programasDeIntercambio.edit', 'uses' => 'ProgramasDeIntercambioController@edit']  );
 	Route::put('programasDeIntercambio/{id}',  ['as' => 'programasDeIntercambio.update', 'uses' => 'ProgramasDeIntercambioController@update']  );
 	Route::post('programasDeIntercambio/',  ['as' => 'programasDeIntercambio.store', 'uses' => 'ProgramasDeIntercambioController@store']  );
+	Route::post('programasDeIntercambio/search',  ['as' => 'programasDeIntercambio.search', 'uses' => 'ProgramasDeIntercambioController@search']  );
 	Route::delete('programasDeIntercambio/{id}/{tipo}', ['as' => 'programasDeIntercambio.destroy', 'uses' => 'ProgramasDeIntercambioController@destroy'] );
 	Route::get('programasDeIntercambio/{id}/profesor/{id_autor}','ProgramasDeIntercambioController@enlazarProfesor');
 	Route::get('programasDeIntercambio/detach/{id}/profesor/{id_autor}','ProgramasDeIntercambioController@detachProfesor');

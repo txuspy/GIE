@@ -42,7 +42,7 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Izenburua') }}:</strong></label>
+		                <label><strong>{{ __('Izenburua') }} (*):</strong></label>
 		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')) !!}
 		            </div>
 		        </div>
@@ -51,7 +51,7 @@
 		           @if( $publicacion->tipo =='libros')
 			            <div class="form-group">
 			                <label><strong>{{ __('Argitaletxea') }} :</strong></label>
-			                {!! Form::text('editorialRevisa',  null , array('placeholder' => __('Argitaletxea') ,'class' => 'buscadorAldikariak form-control')) !!}
+			                {!! Form::text('editorialRevisa',  null , array('placeholder' => __('Argitaletxea') ,'class' => 'form-control')) !!}
 			            </div>
 		            @else
 		              	<div class="form-group">
@@ -105,12 +105,12 @@
 		    <div>
 		    	<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Data') }} :</strong></label>
+		                <label><strong>{{ __('Data') }} (*):</strong></label>
 		                {!! Form::text('year', null , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')) !!}
 		            </div>
 		        </div>
 		    	<div class="col-sm-6">
-		    		<label><strong>{{ __('Egilea(k)')}}:</strong></label>
+		    		<label><strong>{{ __('Egilea(k)')}} (*):</strong></label>
 		    	 	{{Form::text('publicacionesAutores', '', [
 				        'id'           =>'publicacionesAutores',
 				        'placeholder'  =>__('Egilea bilatu'),

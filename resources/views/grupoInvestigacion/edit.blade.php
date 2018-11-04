@@ -43,7 +43,7 @@
 	<div>
 		<div class="col-sm-6 ">
             <div class="form-group">
-                <label><strong>Taldea:</strong></label>
+                <label><strong>Taldea (*)</strong></label>
                 {!! Form::text('grupo_eu', null, array('placeholder' => 'Taldea','class' => 'form-control')) !!}
             </div>
         </div>
@@ -58,7 +58,7 @@
 	<div>
 		 <div class="col-sm-6 ">
             <div class="form-group">
-                <label><strong>Ikerkuntza lerroak :</strong></label>
+                <label><strong>Ikerkuntza lerroak (*):</strong></label>
                 {!! Form::textarea('lineasInv_eu', null, array('placeholder' => 'Ikerkuntza lerroak','class' => 'form-control summernote')) !!}
             </div>
         </div>
@@ -72,7 +72,7 @@
 	<div>
         <div class="col-sm-6 ">
             <div class="form-group">
-                <label><strong>{{ __('Noiztik') }} :</strong></label>
+                <label><strong>{{ __('Noiztik') }} (*)</strong></label>
                 {!! Form::text('desde',  null , array('placeholder' => __('Noiztik') ,'class' => 'date-year form-control')) !!}
             </div>
         </div>
@@ -85,7 +85,7 @@
     </div>
     <div>
     	<div class="col-sm-6 ">
-    		<label><strong>{{ __('Arduraduna(k)')}}:</strong></label>
+    		<label><strong>{{ __('Arduraduna(k)')}} (*)</strong><span class='autorInfo'></span></label>
     	 	{{Form::text('grupoInvestigacionResponsable', '', [
 		        'id'           =>'grupoInvestigacionResponsable',
 		        'placeholder'  =>__('Arduraduna bilatu'),
@@ -109,7 +109,7 @@
 	 		</ul>
 	 	</div>
 	 	<div class="col-sm-6 ">
-    		<label><strong>{{ __('Partaidea(k)')}}:</strong></label>
+    		<label><strong>{{ __('Partaidea(k)')}} (*)</strong><span class='autorInfo'></span></label>
     	 	{{Form::text('grupoInvestigacionParticipante', '', [
 	         'id'           =>'grupoInvestigacionParticipante ',
 	         'placeholder'  =>__('Partaidea bilatu'),

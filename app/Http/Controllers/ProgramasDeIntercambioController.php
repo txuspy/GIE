@@ -10,12 +10,14 @@ use DB;
 use Response;
 use Carbon\Carbon;
 use App\Mail\Welcome as WelcomeEmail;
+use App\Lib\Functions;
 
 class ProgramasDeIntercambioController extends Controller
 {
     public function index($tipo)
     {
-       $data = ProgramasDeIntercambio::where('tipo',$tipo)
+       $data = ProgramasDeIntercambio::select('*','programasDeIntercambio.id as proId')
+            ->where('tipo',$tipo)
             ->where(function($query) {
                 $query->where('user_id', \Auth::user()->id);
                 $query->orWhereIN('id', ProgramasDeIntercambioProfesores::where('id_autor', \Auth::user()->id_autor)->pluck('id_programaIntercambio'));
@@ -107,6 +109,86 @@ class ProgramasDeIntercambioController extends Controller
         //ProgramasDeIntercambio::find($id)->forceDelete();
         return redirect()->route('programasDeIntercambio.index', compact( 'tipo'))
             ->with('success', __('Zuzen ezabatu da'));
+    }
+
+    private function crearSql($q, $request = false)
+	{
+
+
+		if(isset($request['actividad_eu'])) {
+			if($request['actividad_eu'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('programasDeIntercambio.actividad_eu', 'like', "%".$request['actividad_eu']."%");
+				});
+			}
+		}
+
+		if(isset($request['actividad_es'])) {
+			if($request['actividad_es'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('programasDeIntercambio.actividad_es', 'like', "%".$request['actividad_es']."%");
+				});
+			}
+		}
+
+
+    	if(isset($request['lugar'])) {
+			if($request['lugar'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('programasDeIntercambio.lugar', 'like', "%".$request['lugar']."%");
+				});
+			}
+		}
+
+
+        if(isset($request['desde']) and isset($request['hasta']) ) {
+            if($request['desde'] != '' and $request['hasta'] != '') {
+				$q->where(function ($query) use ($request)  {
+                      $query->where('desde', '>=', $request['desde']);
+                      $query->where('desde', '<=', $request['hasta']);
+                      $query->orWhere('hasta', '>=', $request['desde']);
+                      $query->where('hasta', '<=', $request['hasta']);
+                      return $query;
+				});
+
+			}
+
+		}
+
+        if(isset($request['tipo'])) {
+			if($request['tipo'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('programasDeIntercambio.tipo', $request['tipo'] );
+				});
+			}
+		}
+
+        if(isset($request['id_autor'])) {
+			if($request['id_autor'] != '') {
+			    $idAutor = $request['id_autor'];
+			    $q  = $q->whereHas('profesores', function ($q) use (  $idAutor ) {
+                    $q->where('id_autor',  $idAutor );
+                });
+			}
+		}
+
+
+		return $q;
+	}
+
+    public function search(Request $request)
+    {
+
+        $q    = ProgramasDeIntercambio::query();
+        $q    = $this->crearSql($q, $request);
+        $data = $q->select('*','programasDeIntercambio.id as proId')
+                ->orderBy('programasDeIntercambio.id','DESC')
+                ->paginate(25);
+        $sql  = Functions::getSql($q, $q->toSql());
+        // dd($sql );
+        $tipo = $request['tipo'];
+
+        return view('programasDeIntercambio.index',compact('data', 'tipo')) ;
     }
 
     public function programasDeIntercambioAjax($nombre, $tipo){

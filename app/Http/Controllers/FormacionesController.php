@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use Response;
 use Carbon\Carbon;
+use App\Lib\Functions;
 
 
 class FormacionesController extends Controller
@@ -16,7 +17,8 @@ class FormacionesController extends Controller
     public function index($tipo, $modo)
     {
 
-       $data = Formaciones::where('tipo', $tipo)
+       $data = Formaciones::select('*','formaciones.id as forId')
+            ->where('tipo', $tipo)
             ->where('modo', $modo)
             ->where(function($query) {
                 $query->where('user_id', \Auth::user()->id);
@@ -124,6 +126,105 @@ class FormacionesController extends Controller
         Formaciones::find($id)->delete();
         return redirect()->route('formaciones.index', compact( 'tipo', 'modo'))
             ->with('success', __('Zuzen ezabatu da'));
+    }
+
+    private function crearSql($q, $request = false)
+	{
+
+
+		if(isset($request['titulo_eu'])) {
+			if($request['titulo_eu'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('formaciones.titulo_eu', 'like', "%".$request['titulo_eu']."%");
+				});
+			}
+		}
+
+		if(isset($request['organizador_eu'])) {
+			if($request['organizador_eu'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('formaciones.organizador_eu', 'like', "%".$request['organizador_eu']."%");
+				});
+			}
+		}
+
+		if(isset($request['organizador_es'])) {
+			if($request['organizador_es'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('formaciones.organizador_es', 'like', "%".$request['organizador_es']."%");
+				});
+			}
+		}
+
+	    if(isset($request['duracion'])) {
+			if($request['duracion'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('formaciones.duracion', $request['duracion'] );
+				});
+			}
+		}
+
+    	if(isset($request['lugar'])) {
+			if($request['lugar'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('formaciones.lugar', 'like', "%".$request['lugar']."%");
+				});
+			}
+		}
+
+
+        if(isset($request['fecha'])) {
+			if($request['fecha'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('formaciones.fecha', $request['fecha'] );
+				});
+			}
+		}
+
+        if(isset($request['tipo'])) {
+			if($request['tipo'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('formaciones.tipo', $request['tipo'] );
+				});
+			}
+		}
+
+        if(isset($request['modo'])) {
+			if($request['modo'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('formaciones.modo', $request['modo'] );
+				});
+			}
+		}
+
+        if(isset($request['id_autor'])) {
+			if($request['id_autor'] != '') {
+			    $idAutor = $request['id_autor'];
+			    $q  = $q->whereHas('autores', function ($q) use (  $idAutor ) {
+                    $q->where('id_autor',  $idAutor );
+                });
+			}
+		}
+
+
+		return $q;
+	}
+
+    public function search(Request $request)
+    {
+
+        $q    = Formaciones::query();
+        $q    = $this->crearSql($q, $request);
+
+
+        $data = $q->select('*','formaciones.id as forId')
+                ->orderBy('formaciones.id','DESC')
+                ->paginate(25);
+        $sql  = Functions::getSql($q, $q->toSql());
+        //dd($sql );
+        $tipo = $request['tipo'];
+        $modo = $request['modo'];
+        return view('formaciones.index',compact('data', 'tipo', 'modo')) ;
     }
 
     public function formacionesAjax($nombre, $tipo, $modo){

@@ -49,7 +49,7 @@
 		                @if ($errors->has('lugar'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
-		                {!! Form::text('lugar', null , array('placeholder' => __('Tokia') ,'class' => 'form-control')) !!}
+		                {!! Form::text('lugar', null , array('placeholder' => 'University of Cambridge, Cambridge, UK' ,'class' => 'form-control')) !!}
 		            </div>
 		        </div>
 				<div class="col-sm-6 ">
@@ -58,7 +58,7 @@
 		                @if ($errors->has('fecha'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
-		                {!! Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker form-control')) !!}
+		                {!! Form::text('fecha', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker form-control')) !!}
 		            </div>
 		        </div>
 		    </div>

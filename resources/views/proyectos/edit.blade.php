@@ -47,7 +47,7 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Proiektua:</strong></label>
+		                <label><strong>Proiektua (*):</strong></label>
 		                {!! Form::text('proyecto_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control')) !!}
 		            </div>
 		        </div>
@@ -61,7 +61,7 @@
 			<div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Finantziazioa') }} :</strong></label>
+		                <label><strong>{{ __('Finantziazioa') }} (*):</strong></label>
 		                {!! Form::text('financinacion', null, array('placeholder' => __('Finantziazioa') ,'class' => 'form-control')) !!}
 		            </div>
 		        </div>
@@ -70,7 +70,7 @@
 		    <div class="row" style="margin:1px;">
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Noiztik') }} :</strong> ( {{$periodo}} )</label>
+		                <label><strong>{{ __('Noiztik') }} (*):</strong> ( {{$periodo}} )</label>
 		                {!! Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')) !!}
 		            </div>
 		        </div>
@@ -83,7 +83,7 @@
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong>{{ __('Ikertzaile nagusia(k)')}}:</strong></label>
+		    		<label><strong>{{ __('Ikertzaile nagusia(k)')}} (*):</strong></label>
 		    	 	{{Form::text('proyectosDirector', '', [
 				        'id'           =>'proyectosDirector',
 				        'placeholder'  =>__('Ikertzaile nagusia bilatu'),
@@ -107,7 +107,7 @@
 			 		</ul>
 			 	</div>
 			 	<div class="col-sm-6 ">
-		    		<label><strong>{{ __('Partaidea(k)')}}:</strong></label>
+		    		<label><strong>{{ __('Partaidea(k)')}} (*):</strong></label>
 		    	 	{{Form::text('proyectosInvestigador', '', [
 			         'id'           =>'proyectosInvestigador',
 			         'placeholder'  =>__('Partaideak bilatu'),

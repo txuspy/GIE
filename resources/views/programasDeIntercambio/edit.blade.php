@@ -43,7 +43,7 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Aktibitatea:</strong></label>
+		                <label><strong>Aktibitatea:(*):</strong></label>
 		                {!! Form::text('actividad_eu', null, array('placeholder' => 'Aktibitea','class' => 'form-control')) !!}
 		            </div>
 		        </div>
@@ -57,7 +57,7 @@
 			<div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Tokia') }} :</strong></label>
+		                <label><strong>{{ __('Tokia') }} (*):</strong></label>
 		                {!! Form::text('lugar', null, array('placeholder' => __('Tokia') ,'class' => 'form-control')) !!}
 		            </div>
 		        </div>
@@ -65,7 +65,7 @@
 
 		        <div class="col-sm-3">
 		            <div class="form-group">
-		                <label><strong>{{ __('Noiztik') }} :</strong></label>
+		                <label><strong>{{ __('Noiztik') }} (*):</strong></label>
 		                {!! Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')) !!}
 		            </div>
 		        </div>
@@ -78,7 +78,13 @@
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong>{{ __('Irakaslea(k)')}}:</strong></label>
+		    		<label><strong>
+		    		@if( $programaDeIntercambio->tipo  == 'azp' )
+						{{ __('IIP / AZP') }} (*):
+					@else
+						{{ __('Irakaslea(k)')}} (*):
+					@endif
+		    			</strong><span class='autorInfo'></span> </label>
 		    	 	{{Form::text('programaDeIntercambioProfesores', '', [
 				        'id'           =>'programaDeIntercambioProfesores',
 				        'placeholder'  =>__('Egilea bilatu'),

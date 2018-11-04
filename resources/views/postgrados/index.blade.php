@@ -12,9 +12,6 @@
 							@endif
 						</div>
 
-							<div class="pull-left margen-left">
-									</div>
-
 						<div class="pull-right">
 							<a class="btn btn-info" href="{{ route('postgrados.indexAll', [ 'tipo'=> $tipo ]) }}"><i class="fa fa-list" title="{{ __('Guztiak ikusi') }}"></i></a>
 								&nbsp;
@@ -25,8 +22,6 @@
 							<a class="btn btn-success" href="{{ route('postgrados.create', [ 'tipo'=> $tipo ] ) }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i></a>
 						</div>
 
-						<div class="pull-right">
-						</div>
 					</div>
 				</div>
 

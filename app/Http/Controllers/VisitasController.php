@@ -9,13 +9,12 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use Response;
 use Carbon\Carbon;
-
+use App\Lib\Functions;
 
 class VisitasController extends Controller
 {
     public function index()
     {
-
        $data = Visitas::where(function($query) {
                 $query->where('user_id', \Auth::user()->id);
                 $query->orWhereIN('id', VisitasAutores::where('id_autor', \Auth::user()->id_autor)->pluck('id_visita'));
@@ -97,6 +96,81 @@ class VisitasController extends Controller
         Visitas::find($id)->delete();
         return redirect()->route('visitas.index')
             ->with('success', __('Zuzen ezabatu da'));
+    }
+
+
+ private function crearSql($q, $request = false)
+	{
+
+
+		if(isset($request['actividad_eu'])) {
+			if($request['actividad_eu'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('visitas.actividad_eu', 'like', "%".$request['actividad_eu']."%");
+				});
+			}
+		}
+
+		if(isset($request['actividad_es'])) {
+			if($request['actividad_es'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('visitas.actividad_es', 'like', "%".$request['actividad_es']."%");
+				});
+			}
+		}
+
+
+    	if(isset($request['lugar'])) {
+			if($request['lugar'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('visitas.lugar', 'like', "%".$request['lugar']."%");
+				});
+			}
+		}
+
+
+        if(isset($request['desde'])) {
+			if($request['desde'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('visitas.desde', $request['desde'] );
+				});
+			}
+		}
+
+        if(isset($request['tipo'])) {
+			if($request['tipo'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('visitas.tipo', $request['tipo'] );
+				});
+			}
+		}
+
+        if(isset($request['id_autor'])) {
+			if($request['id_autor'] != '') {
+			    $idAutor = $request['id_autor'];
+			    $q  = $q->whereHas('autores', function ($q) use (  $idAutor ) {
+                    $q->where('id_autor',  $idAutor );
+                });
+			}
+		}
+
+
+		return $q;
+	}
+
+    public function search(Request $request)
+    {
+
+        $q    = Visitas::query();
+        $q    = $this->crearSql($q, $request);
+        $data = $q
+                ->orderBy('visitas.id','DESC')
+                ->paginate(25);
+        $sql  = Functions::getSql($q, $q->toSql());
+       // dd($sql );
+        $tipo = $request['tipo'];
+
+         return view('visitas.index',compact('data')) ;
     }
 
     public function visitasAjax($nombre){

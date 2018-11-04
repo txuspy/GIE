@@ -83,7 +83,7 @@
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong>{{ __('Irakaslea(k)')}} (*): <span id='autorInfo'></span></strong></label>
+		    		<label><strong>{{ __('Irakaslea(k)')}} (*): <span class='autorInfo'></span></label>
 		    	 	{{Form::text('postgradosAutores', '', [
 				        'id'           =>'postgradosAutores',
 				        'placeholder'  =>__('Irakaslea bilatu'),

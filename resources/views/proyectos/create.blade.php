@@ -36,6 +36,7 @@
                 @if ($errors->has('proyecto_eu'))
                     <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                 @endif
+
                 {!! Form::text('proyecto_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control buscadorProyectos', 'data-tipo'  => $tipo)) !!}
             </div>
         </div>
@@ -62,13 +63,13 @@
                 @if ($errors->has('desde'))
                     <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                 @endif
-                {!! Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')) !!}
+                {!! Form::text('desde',  null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker form-control')) !!}
             </div>
         </div>
 		<div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>{{ __('Arte') }} :</strong></label>
-                {!! Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')) !!}
+                {!! Form::text('hasta', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->addYear('1')->format('Y-m-d') ,'class' => 'datepicker form-control')) !!}
             </div>
         </div>
     </div>

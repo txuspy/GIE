@@ -12,12 +12,19 @@
 								<h2>{{ __('Tesiak') }}</h2>
 							@endif
 						</div>
-						<div class="pull-left margen-left">
-							<a class="btn btn-info" href="{{ route('tesisDoctorales.indexAll', [ 'tipo'=> $tipo ]) }}"><i class="fa fa-eye" title="{{ __('Guztiak ikusi') }}"></i></a>
-						</div>
 						<div class="pull-right">
+								<a class="btn btn-info" href="{{ route('tesisDoctorales.indexAll', [ 'tipo'=> $tipo ]) }}"><i class="fa fa-list" title="{{ __('Guztiak ikusi') }}"></i></a>
+
+								&nbsp;
+								&nbsp;
+							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="{{ __('Bilatu') }}" ></i></a>
+								&nbsp;
+								&nbsp;
 							<a class="btn btn-success" href="{{ route('tesisDoctorales.create', [ 'tipo'=> $tipo ] ) }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i></a>
 						</div>
+
+
+
 					</div>
 				</div>
 
@@ -26,6 +33,7 @@
 					<p>{{ $message }}</p>
 				</div>
 				@endif
+					@include('tesisDoctorales.search')
 				<table class="table table-striped">
 					<tr>
 						<th>{{ __('Izenburua') }}</th>

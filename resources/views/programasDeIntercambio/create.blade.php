@@ -57,13 +57,13 @@
                         @if ($errors->has('desde'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
-                        {!! Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')) !!}
+                        {!! Form::text('desde',  null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker form-control')) !!}
                     </div>
                 </div>
         		<div class="col-sm-6 ">
                     <div class="form-group">
-                        <label><strong>{{ __('Arte') }} :</strong></label>
-                        {!! Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')) !!}
+                        <label><strong>{{ __('Noiz arte') }} :</strong></label>
+                        {!! Form::text('hasta', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->addMonths(6)->format('Y-m-d') ,'class' => 'datepicker form-control')) !!}
                     </div>
                 </div>
             </div>
@@ -74,18 +74,15 @@
                         @if ($errors->has('lugar'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
-                        {!! Form::text('lugar', null, array('placeholder' => __('Tokia'),'class' => 'form-control')) !!}
+                        {!! Form::text('lugar', null, array('placeholder' => 'University of Cambridge, Cambridge, UK','class' => 'form-control')) !!}
                     </div>
                 </div>
-                     <div>
+                <div>
                     <div class="col-sm-12">
                         <p ><small>(*) {{ __('Derrigorrezko eremuak') }}</small></p>
                     </div>
                 </div>
-            </div>
-
-
-            <div>
+                 <div>
                 <div class="col-sm-12 col-sm-12 col-md-12 text-center">
                     {{ Form::hidden('tipo', $tipo) }}
                     {{ Form::hidden('user_id', \Auth::user()->id) }}
@@ -94,6 +91,12 @@
         		    </button>
                 </div>
         	</div>
+            </div>
+
+
+
+
+
         	{!! Form::close() !!}
         </div>
     </div>

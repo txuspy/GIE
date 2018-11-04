@@ -7,12 +7,18 @@
 						<div class="pull-left">
 							<h2>{{ __('Kongresu Zientifikoetan parte-hartzea') }}</h2>
 						</div>
-						<div class="pull-left margen-left">
-							<a class="btn btn-info" href="{{ route('congresos.indexAll') }}"><i class="fa fa-eye" title="{{ __('Kongresu zientifiko guztiak ikusi') }}"></i></a>
-						</div>
+
 						<div class="pull-right">
+							<a class="btn btn-info" href="{{ route('congresos.indexAll') }}"><i class="fa fa-list" title="{{ __('Kongresu zientifiko guztiak ikusi') }}"></i></a>
+
+								&nbsp;
+								&nbsp;
+							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="{{ __('Bilatu') }}" ></i></a>
+								&nbsp;
+								&nbsp;
 							<a class="btn btn-success" href="{{ route('congresos.create') }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i></a>
 						</div>
+
 					</div>
 				</div>
 
@@ -22,7 +28,7 @@
 				</div>
 
 				@endif
-
+				@include('congresos.search')
 				<table class="table">
 					<tr>
 						<th>{{ __('Kongresu') }}</th>

@@ -31,10 +31,25 @@
 	{!! Form::model($equipamientoNuevo, ['method' => 'PATCH','route' => ['equipamientoNuevo.update', $equipamientoNuevo->id]]) !!}
 	<div>
 
+        <div class="col-sm-6 ">
+            <div class="form-group">
+                <label><strong>{{ __('Hornikuntza') }}:</strong></label>
+                {!! Form::text('hornikuntza', null, array('placeholder' => 'Taldea','class' => 'form-control')) !!}
+            </div>
+        </div>
+        <div class="col-sm-6 ">
+            <div class="form-group">
+                <label><strong>{{ __('Ekipamendua') }}:</strong></label>
+                {!! Form::text('ekipamendua', null, array('placeholder' => 'Equipo','class' => 'form-control')) !!}
+            </div>
+        </div>
+
+    </div>
+    <div>
 
         <div class="col-sm-6 ">
            <div class="form-group">
-                <label><strong>Saila/ Departamento (*):</strong></label>
+                <label><strong>{{ __('Saila') }} :</strong></label>
                 {!! Form::select('departamento',  \App\Traits\Listados::listadoDepartamentos( \Session::get('locale') ), $equipamientoNuevo->departamento , ['id' =>'departamento',   'class' => 'form-control chosen-select'])  !!}
             </div>
         </div>
@@ -45,37 +60,22 @@
             </div>
         </div>
     </div>
-    <div>
-		<div class="col-sm-6 ">
-            <div class="form-group">
-                <label><strong>Hornikuntza:</strong></label>
-                {!! Form::text('equipo_eu', null, array('placeholder' => 'Taldea','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-sm-6 ">
-            <div class="form-group">
-                <label><strong>Equipo:</strong></label>
-                {!! Form::text('equipo_es', null, array('placeholder' => 'Equipo','class' => 'form-control')) !!}
-            </div>
-        </div>
-    </div>
 	<div>
-
-         <div class="col-sm-6 ">
-            <div class="form-group">
-                <label><strong>{{ __('Zenbateko') }} :</strong></label>
-                {!! Form::text('importe', null, array('placeholder' => __('Zenbateko'),'class' => 'form-control')) !!}
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="col-sm-6 ">
+	    <div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>{{ __('Data') }} :</strong></label>
                 {!! Form::text('data',  null , array('placeholder' => __('Data') ,'class' => 'datepicker form-control')) !!}
             </div>
         </div>
+
+         <div class="col-sm-6 ">
+            <div class="form-group">
+                <label><strong>{{ __('Zenbateko') }} :</strong><small>(€)</small></label>
+                {!! Form::text('importe', null, array('placeholder' => __('Zenbateko'),'class' => 'form-control')) !!}
+            </div>
+        </div>
     </div>
+
     <div>
     <div class="col-md-12 col-sm-12 col-md-12 text-center">
 		<button type="submit" class="btn btn-primary"><i class="fa fa-refresh" title="{{ __('Gorde') }}"></i> {{ __('Gorde') }}</button>

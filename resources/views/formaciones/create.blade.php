@@ -37,11 +37,11 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group has-error">
-		                <label><strong>Ikastaro / Curso (*):</strong></label>
+		                <label><strong>{{ __('Ikastaroa') }} (*):</strong></label>
 		                 @if ($errors->has('titulo_eu'))
 		                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 		                    @endif
-		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
+		                {!! Form::text('titulo_eu', null, array('placeholder' =>  __('Ikastaroa') ,'class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
@@ -50,7 +50,7 @@
 		                @if ($errors->has('fecha'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
-		                {!! Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker  form-control')) !!}
+		                {!! Form::text('fecha', null , array('placeholder' =>  \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d')  ,'class' => 'datepicker  form-control')) !!}
 		            </div>
 		        </div>
 		       <!-- <div class="col-sm-6 ">
@@ -84,7 +84,7 @@
 				<div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>{{ __('Tokia') }} :</strong></label>
-		                {!! Form::text('lugar', null, array('placeholder' => __('Tokia') ,'class' => 'form-control ')) !!}
+		                {!! Form::text('lugar', null, array('placeholder' => 'University of Cambridge, Cambridge, UK' ,'class' => 'form-control ')) !!}
 		            </div>
 		        </div>
 
@@ -92,8 +92,8 @@
 		    <div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Iraupena') }} : </strong></label><small>({{ __('orduak') }})</small>
-		                {!! Form::text('duracion', null, array('placeholder' => '10' ,'class' => 'form-control ')) !!}
+		                <label><strong>{{ __('Iraupena') }} : </strong></label><small>(h)</small>
+		                {!! Form::text('duracion', null, array('placeholder' => '10 h' ,'class' => 'form-control ')) !!}
 		            </div>
 		        </div>
 		    </div>

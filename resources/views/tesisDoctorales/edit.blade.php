@@ -120,7 +120,7 @@
 
     <div>
     	<div class="col-sm-6">
-    		<label><strong>{{ __('Zuzendaria(k)')}}:</strong></label>
+    		<label><strong>{{ __('Zuzendaria(k)')}} (*):</strong></label>
     	 	{{Form::text('tesisDoctoralesDirector', '', [
 		        'id'           =>'tesisDoctoralesDirector',
 		        'placeholder'  =>__('Zuzendaria bilatu'),
@@ -144,7 +144,7 @@
 	 		</ul>
 	 	</div>
 	 	<div class="col-sm-6 ">
-    		<label><strong>{{ __('Ikerlaria(k)')}}:</strong></label>
+    		<label><strong>{{ __('Ikerlaria(k)')}} (*):</strong></label>
     	 	{{Form::text('tesisDoctoralesDoctorando', '', [
 	         'id'           =>'tesisDoctoralesDoctorando ',
 	         'placeholder'  =>__('Doktorandoa bilatu'),

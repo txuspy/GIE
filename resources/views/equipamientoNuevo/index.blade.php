@@ -8,7 +8,15 @@
 						<div class="pull-left">
 							<h2>{{ __('Hornikuntza Zientifikoa eskuratzea') }}</h2>
 						</div>
+
 						<div class="pull-right">
+							<a class="btn btn-info" href="{{ route('equipamientoNuevo.indexAll') }}"><i class="fa fa-list" title="{{ __('Kongresu zientifiko guztiak ikusi') }}"></i></a>
+
+								&nbsp;
+								&nbsp;
+							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="{{ __('Bilatu') }}" ></i></a>
+								&nbsp;
+								&nbsp;
 							<a class="btn btn-success" href="{{ route('equipamientoNuevo.create') }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i></a>
 						</div>
 					</div>
@@ -18,6 +26,7 @@
 					<p>{{ $message }}</p>
 				</div>
 				@endif
+					@include('equipamientoNuevo.search')
 				<table class="table">
 					<tr>
 						<th>{{ __('Hornikuntza') }}</th>
@@ -29,8 +38,8 @@
 						<tr>
 							<td>
 								<?php
-								$equipo = "equipo_".\Session::get('locale') ;
-								$departamento = "departamento_".\Session::get('locale') ;
+								$equipo = "hornikuntza" ;
+								$departamento = "departamento" ;
 								?>
 								<a href="{{ route('equipamientoNuevo.edit',$equipamientoNuevo->id) }}">{{ $equipamientoNuevo->$equipo }}, ( {{ $equipamientoNuevo->data }} )</a>
 								<br> <i>({{ $equipamientoNuevo->usuario?$equipamientoNuevo->usuario->name:'' }} {{ $equipamientoNuevo->usuario?$equipamientoNuevo->usuario->lname:'' }})</i>
