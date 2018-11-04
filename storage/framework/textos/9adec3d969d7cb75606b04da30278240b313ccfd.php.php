@@ -110,6 +110,30 @@
 	<?php echo Form::close(); ?>
 
 	</div>
+	<div id="dialog2" title="PASAHITZA ALDATU / CAMBIAR PASSWORD" class='ocultar' >
+      <?php if($errors->any()): ?>
+        <div class="alert alert-danger">
+            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+                <p><?php echo $error; ?></p>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+        </div>
+    <?php endif; ?>
+    </div>
+	<script type="text/javascript" >
+	$( function() {
+	     if ( $( ".alert-danger" )[0] ) {
+
+            $( "#dialog2" ).show();
+            $("#dialog2").dialog({
+				modal: true,
+				resizable: false,
+				width: 600
+			});
+        }
+    } );
+
+	</script>
 <?php $__env->stopSection(); ?>
+
 
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

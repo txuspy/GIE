@@ -26,12 +26,13 @@
 		        </div>
 	        </div>
 
+
 			<?php echo Form::open(array('route' => 'postgrados.store','method'=>'POST', 'class'=>'form' )); ?>
 
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group  has-error">
-		                <label><strong>Programa (*):</strong></label>
+		                <label><strong><?php echo e(__('Programa')); ?> (*):</strong></label>
 		                <?php if($errors->has('titulo_eu')): ?>
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
@@ -41,22 +42,25 @@
 
 		        </div>
 		        <div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>Programa :</strong></label>
-		                <?php echo Form::text('titulo_es', null, array('placeholder' => 'Programa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)); ?>
-
-		            </div>
-		        </div>
-		    </div>
-		    <div>
-				<div class="col-sm-6 ">
 		            <div class="form-group  has-error">
-		                <label><strong>Kurtsoa (*):</strong></label>
+		                <label><strong><?php echo e(__('Ikastaroa')); ?> (*):</strong></label>
 		                <?php if($errors->has('curso_eu')): ?>
 	                       <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
 
 		                <?php echo Form::text('curso_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)); ?>
+
+		            </div>
+		        </div>
+
+		    </div>
+		    <!--<div>
+
+
+		         <div class="col-sm-6 ">
+		            <div class="form-group">
+		                <label><strong>Programa :</strong></label>
+		                <?php echo Form::text('titulo_es', null, array('placeholder' => 'Programa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)); ?>
 
 		            </div>
 		        </div>
@@ -67,7 +71,8 @@
 
 		            </div>
 		        </div>
-		    </div>
+
+		    </div>-->
 			<div>
 				<div class="col-sm-6 ">
                    <div class="form-group  has-error">
@@ -97,17 +102,17 @@
 		                 <?php if($errors->has('lugar')): ?>
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
-		                <?php echo Form::text('lugar', 'Gipuzkoako Ingeniaritza Eskola', array('placeholder' => '15 ECTS','class' => 'form-control ')); ?>
+		                <?php echo Form::text('lugar', '', array('placeholder' => 'University of Cambridge, Cambridge, UK','class' => 'form-control ')); ?>
 
 		            </div>
 		        </div>
 		         <div class="col-sm-6 ">
 		            <div class="form-group  has-error">
-		                <label><strong><?php echo e(__('Data')); ?> (*):</strong></label>
+		                <label><strong><?php echo e(__('Hasiera Data')); ?> (*):</strong></label>
 		                <?php if($errors->has('fecha')): ?>
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
-		                <?php echo Form::text('fecha', null, array('placeholder' => __('Data'),'class' => 'datepicker form-control ')); ?>
+		                <?php echo Form::text('fecha', null, array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker form-control ')); ?>
 
 		            </div>
 		        </div>

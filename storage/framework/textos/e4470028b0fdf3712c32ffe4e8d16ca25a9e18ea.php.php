@@ -5,13 +5,13 @@
                                 <ul aria-label="Menú de idiomas" role="menubar" class="nav nav-left pull-left">
 
                                     <?php $__currentLoopData = config('app.supported-locales'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $locale): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
-                                        <?php if(\Session::get('locale') == strtolower(ucfirst($locale)) ): ?>
+                                        <?php if(\Request::segment(1) == strtolower(ucfirst($locale)) ): ?>
                                             <li role="presentation" class="selected">
                                         <?php else: ?>
                                             <li role="presentation">
                                         <?php endif; ?>
-                                            <a href='/<?php echo e($locale); ?>/home'>
-                                                <?php if(\Session::get('locale') == strtolower(ucfirst($locale)) ): ?>
+                                            <a href='<?php echo e(\App\Traits\Listados::cambiarURLIdioma($locale)); ?>'>
+                                                <?php if(\Request::segment(1) == strtolower(ucfirst($locale)) ): ?>
                                                     <i class="fa fa-check" aria-hidden="true"></i>
                                                 <?php endif; ?>
                                                 <?php echo e(ucfirst($locale)); ?>

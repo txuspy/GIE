@@ -44,7 +44,7 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Aktibitatea:</strong></label>
+		                <label><strong>Aktibitatea:(*):</strong></label>
 		                <?php echo Form::text('actividad_eu', null, array('placeholder' => 'Aktibitea','class' => 'form-control')); ?>
 
 		            </div>
@@ -60,7 +60,7 @@
 			<div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Tokia')); ?> :</strong></label>
+		                <label><strong><?php echo e(__('Tokia')); ?> (*):</strong></label>
 		                <?php echo Form::text('lugar', null, array('placeholder' => __('Tokia') ,'class' => 'form-control')); ?>
 
 		            </div>
@@ -69,7 +69,7 @@
 
 		        <div class="col-sm-3">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Noiztik')); ?> :</strong></label>
+		                <label><strong><?php echo e(__('Noiztik')); ?> (*):</strong></label>
 		                <?php echo Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')); ?>
 
 		            </div>
@@ -84,7 +84,13 @@
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong><?php echo e(__('Irakaslea(k)')); ?>:</strong></label>
+		    		<label><strong>
+		    		<?php if( $programaDeIntercambio->tipo  == 'azp' ): ?>
+						<?php echo e(__('IIP / AZP')); ?> (*):
+					<?php else: ?>
+						<?php echo e(__('Irakaslea(k)')); ?> (*):
+					<?php endif; ?>
+		    			</strong><span class='autorInfo'></span> </label>
 		    	 	<?php echo e(Form::text('programaDeIntercambioProfesores', '', [
 				        'id'           =>'programaDeIntercambioProfesores',
 				        'placeholder'  =>__('Egilea bilatu'),

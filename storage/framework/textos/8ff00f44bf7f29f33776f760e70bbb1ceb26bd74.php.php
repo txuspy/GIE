@@ -32,14 +32,19 @@
 	<div>
 		<div class="col-sm-6 ">
             <div class="form-group has-error">
-                <label><strong>Izenburua (*):</strong></label>
+                <label><strong>Izenburua / Titulo (*):</strong></label>
                 <?php if($errors->has('titulo_eu')): ?>
                     <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                 <?php endif; ?>
                 <?php echo Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control buscadorTesisDoctorales')); ?>
 
             </div>
+
         </div>
+        <div class="col-sm-6 ">
+            <br><br><br><br><br>
+        </div>
+        <!--
         <div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>Titulo:</strong></label>
@@ -47,6 +52,7 @@
 
             </div>
         </div>
+        -->
     </div>
 	<div>
         <div class="col-sm-6 ">
@@ -78,7 +84,7 @@
                 <?php if($errors->has('fechaLectura')): ?>
                     <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                 <?php endif; ?>
-                <?php echo Form::text('fechaLectura', date('Y') , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')); ?>
+                <?php echo Form::text('fechaLectura', date('Y') , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y') ,'class' => 'datepicker date-year form-control')); ?>
 
             </div>
         </div>

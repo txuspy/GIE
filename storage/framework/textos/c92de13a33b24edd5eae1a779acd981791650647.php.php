@@ -32,10 +32,27 @@
 
 	<div>
 
+        <div class="col-sm-6 ">
+            <div class="form-group">
+                <label><strong><?php echo e(__('Hornikuntza')); ?>:</strong></label>
+                <?php echo Form::text('hornikuntza', null, array('placeholder' => 'Taldea','class' => 'form-control')); ?>
+
+            </div>
+        </div>
+        <div class="col-sm-6 ">
+            <div class="form-group">
+                <label><strong><?php echo e(__('Ekipamendua')); ?>:</strong></label>
+                <?php echo Form::text('ekipamendua', null, array('placeholder' => 'Equipo','class' => 'form-control')); ?>
+
+            </div>
+        </div>
+
+    </div>
+    <div>
 
         <div class="col-sm-6 ">
            <div class="form-group">
-                <label><strong>Saila/ Departamento (*):</strong></label>
+                <label><strong><?php echo e(__('Saila')); ?> :</strong></label>
                 <?php echo Form::select('departamento',  \App\Traits\Listados::listadoDepartamentos( \Session::get('locale') ), $equipamientoNuevo->departamento , ['id' =>'departamento',   'class' => 'form-control chosen-select']); ?>
 
             </div>
@@ -48,41 +65,24 @@
             </div>
         </div>
     </div>
-    <div>
-		<div class="col-sm-6 ">
-            <div class="form-group">
-                <label><strong>Hornikuntza:</strong></label>
-                <?php echo Form::text('equipo_eu', null, array('placeholder' => 'Taldea','class' => 'form-control')); ?>
-
-            </div>
-        </div>
-        <div class="col-sm-6 ">
-            <div class="form-group">
-                <label><strong>Equipo:</strong></label>
-                <?php echo Form::text('equipo_es', null, array('placeholder' => 'Equipo','class' => 'form-control')); ?>
-
-            </div>
-        </div>
-    </div>
 	<div>
-
-         <div class="col-sm-6 ">
-            <div class="form-group">
-                <label><strong><?php echo e(__('Zenbateko')); ?> :</strong></label>
-                <?php echo Form::text('importe', null, array('placeholder' => __('Zenbateko'),'class' => 'form-control')); ?>
-
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="col-sm-6 ">
+	    <div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong><?php echo e(__('Data')); ?> :</strong></label>
                 <?php echo Form::text('data',  null , array('placeholder' => __('Data') ,'class' => 'datepicker form-control')); ?>
 
             </div>
         </div>
+
+         <div class="col-sm-6 ">
+            <div class="form-group">
+                <label><strong><?php echo e(__('Zenbateko')); ?> :</strong><small>(€)</small></label>
+                <?php echo Form::text('importe', null, array('placeholder' => __('Zenbateko'),'class' => 'form-control')); ?>
+
+            </div>
+        </div>
     </div>
+
     <div>
     <div class="col-md-12 col-sm-12 col-md-12 text-center">
 		<button type="submit" class="btn btn-primary"><i class="fa fa-refresh" title="<?php echo e(__('Gorde')); ?>"></i> <?php echo e(__('Gorde')); ?></button>

@@ -44,7 +44,7 @@
 	<div>
 		<div class="col-sm-6 ">
             <div class="form-group">
-                <label><strong>Taldea:</strong></label>
+                <label><strong>Taldea (*)</strong></label>
                 <?php echo Form::text('grupo_eu', null, array('placeholder' => 'Taldea','class' => 'form-control')); ?>
 
             </div>
@@ -61,15 +61,15 @@
 	<div>
 		 <div class="col-sm-6 ">
             <div class="form-group">
-                <label><strong>Ikerkuntza lerroak :</strong></label>
-                <?php echo Form::textarea('lineasInv_eu', null, array('placeholder' => 'Ikerkuntza lerroak','class' => 'form-control')); ?>
+                <label><strong>Ikerkuntza lerroak (*):</strong></label>
+                <?php echo Form::textarea('lineasInv_eu', null, array('placeholder' => 'Ikerkuntza lerroak','class' => 'form-control summernote')); ?>
 
             </div>
         </div>
         <div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>Líneas de investigación :</strong></label>
-                <?php echo Form::textarea('lineasInv_es', null, array('placeholder' => 'Líneas de investigación','class' => 'form-control')); ?>
+                <?php echo Form::textarea('lineasInv_es', null, array('placeholder' => 'Líneas de investigación','class' => 'form-control summernote')); ?>
 
             </div>
         </div>
@@ -77,7 +77,7 @@
 	<div>
         <div class="col-sm-6 ">
             <div class="form-group">
-                <label><strong><?php echo e(__('Noiztik')); ?> :</strong></label>
+                <label><strong><?php echo e(__('Noiztik')); ?> (*)</strong></label>
                 <?php echo Form::text('desde',  null , array('placeholder' => __('Noiztik') ,'class' => 'date-year form-control')); ?>
 
             </div>
@@ -92,7 +92,7 @@
     </div>
     <div>
     	<div class="col-sm-6 ">
-    		<label><strong><?php echo e(__('Arduraduna(k)')); ?>:</strong></label>
+    		<label><strong><?php echo e(__('Arduraduna(k)')); ?> (*)</strong><span class='autorInfo'></span></label>
     	 	<?php echo e(Form::text('grupoInvestigacionResponsable', '', [
 		        'id'           =>'grupoInvestigacionResponsable',
 		        'placeholder'  =>__('Arduraduna bilatu'),
@@ -118,7 +118,7 @@
 	 		</ul>
 	 	</div>
 	 	<div class="col-sm-6 ">
-    		<label><strong><?php echo e(__('Partaidea(k)')); ?>:</strong></label>
+    		<label><strong><?php echo e(__('Partaidea(k)')); ?> (*)</strong><span class='autorInfo'></span></label>
     	 	<?php echo e(Form::text('grupoInvestigacionParticipante', '', [
 	         'id'           =>'grupoInvestigacionParticipante ',
 	         'placeholder'  =>__('Partaidea bilatu'),

@@ -48,7 +48,7 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Proiektua:</strong></label>
+		                <label><strong>Proiektua (*):</strong></label>
 		                <?php echo Form::text('proyecto_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control')); ?>
 
 		            </div>
@@ -64,7 +64,7 @@
 			<div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Finantziazioa')); ?> :</strong></label>
+		                <label><strong><?php echo e(__('Finantziazioa')); ?> (*):</strong></label>
 		                <?php echo Form::text('financinacion', null, array('placeholder' => __('Finantziazioa') ,'class' => 'form-control')); ?>
 
 		            </div>
@@ -74,7 +74,7 @@
 		    <div class="row" style="margin:1px;">
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Noiztik')); ?> :</strong> ( <?php echo e($periodo); ?> )</label>
+		                <label><strong><?php echo e(__('Noiztik')); ?> (*):</strong> ( <?php echo e($periodo); ?> )</label>
 		                <?php echo Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')); ?>
 
 		            </div>
@@ -89,7 +89,7 @@
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong><?php echo e(__('Ikertzaile nagusia(k)')); ?>:</strong></label>
+		    		<label><strong><?php echo e(__('Ikertzaile nagusia(k)')); ?> (*):</strong></label>
 		    	 	<?php echo e(Form::text('proyectosDirector', '', [
 				        'id'           =>'proyectosDirector',
 				        'placeholder'  =>__('Ikertzaile nagusia bilatu'),
@@ -115,7 +115,7 @@
 			 		</ul>
 			 	</div>
 			 	<div class="col-sm-6 ">
-		    		<label><strong><?php echo e(__('Partaidea(k)')); ?>:</strong></label>
+		    		<label><strong><?php echo e(__('Partaidea(k)')); ?> (*):</strong></label>
 		    	 	<?php echo e(Form::text('proyectosInvestigador', '', [
 			         'id'           =>'proyectosInvestigador',
 			         'placeholder'  =>__('Partaideak bilatu'),

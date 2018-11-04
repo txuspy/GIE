@@ -15,11 +15,22 @@
         <div class="panel-body">
             <div class="col-sm-12 margin-tb">
 		        <div class="pull-left">
-		           	<?php if( $tipo == 'libros' ): ?>
-						<h2><?php echo e(__('Liburuak eta Monografiak')); ?></h2>
-					<?php else: ?>
-						<h2><?php echo e(__('Artikuloak')); ?></h2>
-					<?php endif; ?>
+	           		<h2>
+						<?php if( $tipo == 'PDI' ): ?>
+							<?php echo e(__('IIPko formazioa')); ?>
+
+						<?php else: ?>
+							<?php echo e(__('AZKko formazioa')); ?>
+
+						<?php endif; ?>
+						<?php if( $modo ): ?>
+							- <?php echo e(__('Jasotakoa')); ?>
+
+						<?php else: ?>
+							- <?php echo e(__('Emandakoa')); ?>
+
+						<?php endif; ?>
+					</h2>
 		        </div>
 		        <div class="pull-right">
 		            <a class="btn btn-primary" href="<?php echo e(route('formaciones.index', ['tipo'  => $tipo , 'modo'  => $modo])); ?>"><i class="fa fa-reply" title="<?php echo e(__('Atzera')); ?>"></i></a>
@@ -31,21 +42,31 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group has-error">
-		                <label><strong>Ikastaro (*):</strong></label>
+		                <label><strong><?php echo e(__('Ikastaroa')); ?> (*):</strong></label>
 		                 <?php if($errors->has('titulo_eu')): ?>
 		                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 		                    <?php endif; ?>
-		                <?php echo Form::text('titulo_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)); ?>
+		                <?php echo Form::text('titulo_eu', null, array('placeholder' =>  __('Ikastaroa') ,'class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)); ?>
 
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>Curso :</strong></label>
-		                <?php echo Form::text('titulo_es', null, array('placeholder' => 'Curso','class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)); ?>
+		            <div class="form-group has-error">
+		                <label><strong><?php echo e(__('Hasiera-Data')); ?> (*):</strong></label>
+		                <?php if($errors->has('fecha')): ?>
+	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	                    <?php endif; ?>
+		                <?php echo Form::text('fecha', null , array('placeholder' =>  \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d')  ,'class' => 'datepicker  form-control')); ?>
 
 		            </div>
 		        </div>
+		       <!-- <div class="col-sm-6 ">
+		            <div class="form-group">
+		                <label><strong> :</strong></label>
+		                <?php echo Form::text('titulo_es', null, array('placeholder' => 'Curso','class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)); ?>
+
+		            </div>
+		        </div>-->
 		    </div>
 			<?php if( $modo == 'recibir' ): ?>
 			    <div>
@@ -69,20 +90,11 @@
 			    </div>
 			<?php endif; ?>
 			<div>
-				<div class="col-sm-6 ">
-		            <div class="form-group has-error">
-		                <label><strong><?php echo e(__('Data')); ?> (*):</strong></label>
-		                <?php if($errors->has('fecha')): ?>
-	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
-	                    <?php endif; ?>
-		                <?php echo Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker  form-control')); ?>
 
-		            </div>
-		        </div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong><?php echo e(__('Tokia')); ?> :</strong></label>
-		                <?php echo Form::text('lugar', null, array('placeholder' => __('Tokia') ,'class' => 'form-control ')); ?>
+		                <?php echo Form::text('lugar', null, array('placeholder' => 'University of Cambridge, Cambridge, UK' ,'class' => 'form-control ')); ?>
 
 		            </div>
 		        </div>
@@ -91,8 +103,8 @@
 		    <div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Iraupena')); ?> : </strong></label><small>(<?php echo e(__('orduak')); ?>)</small>
-		                <?php echo Form::text('duracion', null, array('placeholder' => '10' ,'class' => 'form-control ')); ?>
+		                <label><strong><?php echo e(__('Iraupena')); ?> : </strong></label><small>(h)</small>
+		                <?php echo Form::text('duracion', null, array('placeholder' => '10 h' ,'class' => 'form-control ')); ?>
 
 		            </div>
 		        </div>

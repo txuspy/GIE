@@ -33,18 +33,28 @@
 	<div>
 		<div class="col-sm-6 ">
             <div class="form-group has-error">
-                <label><strong>Proiektua (*):</strong></label>
+                <label><strong>Proiektua / Proyecto (*):</strong></label>
                 <?php if($errors->has('proyecto_eu')): ?>
                     <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                 <?php endif; ?>
+
                 <?php echo Form::text('proyecto_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control buscadorProyectos', 'data-tipo'  => $tipo)); ?>
 
             </div>
         </div>
+        <!--
         <div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>Proyecto:</strong></label>
                 <?php echo Form::text('proyecto_es', null, array('placeholder' => 'Proyecto','class' => 'form-control buscadorProyectos', 'data-tipo'  => $tipo)); ?>
+
+            </div>
+        </div>
+        -->
+        <div class="col-sm-6 ">
+            <div class="form-group has-error">
+                <label><strong><?php echo e(__('Finantziazioa')); ?> (*):</strong></label>
+                <?php echo Form::text('financinacion', null, array('placeholder' => __('Finantziazioa') ,'class' => 'form-control')); ?>
 
             </div>
         </div>
@@ -57,26 +67,20 @@
                 <?php if($errors->has('desde')): ?>
                     <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                 <?php endif; ?>
-                <?php echo Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')); ?>
+                <?php echo Form::text('desde',  null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker form-control')); ?>
 
             </div>
         </div>
 		<div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong><?php echo e(__('Arte')); ?> :</strong></label>
-                <?php echo Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')); ?>
+                <?php echo Form::text('hasta', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->addYear('1')->format('Y-m-d') ,'class' => 'datepicker form-control')); ?>
 
             </div>
         </div>
     </div>
     <div>
-        <div class="col-sm-6 ">
-            <div class="form-group">
-                <label><strong><?php echo e(__('Finantziazioa')); ?>:</strong></label>
-                <?php echo Form::text('financinacion', null, array('placeholder' => __('Finantziazioa') ,'class' => 'form-control')); ?>
 
-            </div>
-        </div>
     </div>
     <div>
         <div class="col-sm-12 ">

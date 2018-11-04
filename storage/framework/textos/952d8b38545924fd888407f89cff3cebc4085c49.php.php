@@ -56,11 +56,11 @@
                 </div>
                  <div class="col-sm-6 ">
                      <div class="form-group has-error">
-                        <label><strong><?php echo e(__('Tokia')); ?> (*):</strong></label>
+                        <label><strong>Tokia / Lugar (*):</strong></label>
                          <?php if($errors->has('lugar')): ?>
                             <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                         <?php endif; ?>
-                        <?php echo Form::text('lugar', null, array('placeholder' => __('Viena, Austria'),'class' => 'form-control')); ?>
+                        <?php echo Form::text('lugar', null, array('placeholder' => 'University of Cambridge, Cambridge, UK','class' => 'form-control')); ?>
 
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                         <?php if($errors->has('desde')): ?>
                             <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                         <?php endif; ?>
-                        <?php echo Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')); ?>
+                        <?php echo Form::text('desde',  null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker form-control')); ?>
 
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                         <?php if($errors->has('hasta')): ?>
                             <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                         <?php endif; ?>
-                        <?php echo Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')); ?>
+                        <?php echo Form::text('hasta', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->addYear('1')->format('Y-m-d') ,'class' => 'datepicker form-control')); ?>
 
                     </div>
                 </div>

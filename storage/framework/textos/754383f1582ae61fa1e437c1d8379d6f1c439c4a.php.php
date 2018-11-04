@@ -8,14 +8,30 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use Response;
 use App\Autor;
+use App\Lib\Functions;
 
 class EquipamientoNuevoController extends Controller
 {
     public function index()
     {
+        $data = EquipamientoNuevo:: where(function($query) {
+                $query->where('user_id', \Auth::user()->id);
+
+            })
+            ->orderBy('id','DESC')
+            ->paginate(25);
+       return view('equipamientoNuevo.index',compact('data')) ;
+
+
+    }
+
+     public function indexAll()
+    {
        $data = EquipamientoNuevo::orderBy('id','DESC')->paginate(25);
        return view('equipamientoNuevo.index',compact('data')) ;
     }
+
+
 
     public function create()
     {
@@ -26,18 +42,18 @@ class EquipamientoNuevoController extends Controller
     {
 
         $this->validate($request, [
-            'equipo_eu' => 'required',
+            'hornikuntza' => 'required',
             'departamento' => 'required',
             'institucion' => 'required',
             'data' => 'required',
         ],
         [
-            'equipo_eu.required'        => __('Hornikuntza  beharrezkoa da.'),
+            'hornikuntza.required'        => __('Hornikuntza  beharrezkoa da.'),
             'institucion.required'      => __('Instituzioa   beharrezkoa da.'),
             'data.required'             => __('Data  beharrezkoa da.')
         ]);
         if($request->equipo_es==''){
-             $request['equipo_es'] = $request->equipo_eu;
+             $request['equipo_es'] = $request->hornikuntza;
         }
         $input = $request->all();
         if(!$input['data']){ $input['data'] = null; }
@@ -60,11 +76,11 @@ class EquipamientoNuevoController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'equipo_es' => 'required',
+            'hornikuntza' => 'required',
             'departamento' => 'required'
         ],
         [
-            'equipo_eu.required'        => __('Hornikuntza  beharrezkoa da.'),
+            'hornikuntza.required'        => __('Hornikuntza  beharrezkoa da.'),
             'institucion.required'      => __('Instituzioa   beharrezkoa da.'),
             'data.required'             => __('Data  beharrezkoa da.')
         ]);
@@ -74,6 +90,88 @@ class EquipamientoNuevoController extends Controller
         $equipamientoNuevo->update($input);
         return redirect()->route('equipamientoNuevo.index')
             ->with('success', __('Zuzen aldatatu da'));
+    }
+
+
+
+
+    public function destroy($id)
+    {
+        EquipamientoNuevo::find($id)->delete();
+        return redirect()->route('equipamientoNuevo.index')
+            ->with('success', __('Zuzen ezabatu da'));
+    }
+
+     private function crearSql($q, $request = false)
+	{
+
+
+		if(isset($request['hornikuntza'])) {
+			if($request['hornikuntza'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('hornikuntza', 'like', "%".$request['hornikuntza']."%");
+				});
+			}
+		}
+
+		if(isset($request['ekipamendua'])) {
+			if($request['ekipamendua'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('ekipamendua', 'like', "%".$request['ekipamendua']."%");
+				});
+			}
+		}
+
+		if(isset($request['departamento'])) {
+			if($request['departamento'] != '0') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('departamento',  $request['departamento'] );
+				});
+			}
+		}
+
+		if(isset($request['importe'])) {
+			if($request['importe'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('importe',  $request['importe'] );
+				});
+			}
+		}
+
+		if(isset($request['data'])) {
+			if($request['data'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('data',  $request['data'] );
+				});
+			}
+		}
+
+
+    	if(isset($request['institucion'])) {
+			if($request['institucion'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('institucion', 'like', "%".$request['institucion']."%");
+				});
+			}
+		}
+
+
+
+		return $q;
+	}
+
+    public function search(Request $request)
+    {
+        //dd($request->all());
+        $q    = EquipamientoNuevo::query();
+        $q    = $this->crearSql($q, $request);
+        $data = $q
+                ->orderBy('id','DESC')
+                ->paginate(25);
+        $sql  = Functions::getSql($q, $q->toSql());
+        //dd($sql );
+        $tipo = $request['tipo'];
+        return view('equipamientoNuevo.index',compact('data')) ;
     }
 
     public function equipamientoNuevoAjax($nombre){
@@ -96,13 +194,5 @@ class EquipamientoNuevoController extends Controller
 	    }
 		return Response::json($results);
     }
-
-    public function destroy($id)
-    {
-        EquipamientoNuevo::find($id)->delete();
-        return redirect()->route('equipamientoNuevo.index')
-            ->with('success', __('Zuzen ezabatu da'));
-    }
-
 
 }

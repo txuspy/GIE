@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use Response;
 use Carbon\Carbon;
-
+use App\Lib\Functions;
 
 class PostgradosController extends Controller
 {
@@ -31,7 +31,6 @@ class PostgradosController extends Controller
     public function indexAll($tipo)
     {
        $data = Postgrados::where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
-
        return view('postgrados.index',compact('data', 'tipo')) ;
     }
 
@@ -53,7 +52,7 @@ class PostgradosController extends Controller
         ],
         [
             'titulo_eu.required'    => __('Programa beharrezkoa da.'),
-            'curso_eu.required'     => __('Kurtsoa beharrezkoa da.'),
+            'curso_eu.required'     => __('Ikastaroa beharrezkoa da.'),
             'departamento.required' => __('Saila beharrezkoa da.'),
             'duracion.required'     => __('Iraupena beharrezkoa da.'),
             'lugar.required'        => __('Tokia beharrezkoa da.'),
@@ -118,8 +117,94 @@ class PostgradosController extends Controller
             ->with('success', __('Zuzen ezabatu da'));
     }
 
+    private function crearSql($q, $request = false)
+	{
+
+
+		if(isset($request['titulo_eu'])) {
+			if($request['titulo_eu'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('postgrados.titulo_eu', 'like', "%".$request['titulo_eu']."%");
+				});
+			}
+		}
+
+		if(isset($request['curso_eu'])) {
+			if($request['curso_eu'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('postgrados.curso_eu', 'like', "%".$request['curso_eu']."%");
+				});
+			}
+		}
+
+		if(isset($request['departamento'])) {
+			if($request['departamento'] != '0' ) {
+				$q->where(function ($query) use ($request) {
+					return $query->where('postgrados.departamento', $request['departamento']);
+				});
+			}
+		}
+
+	    if(isset($request['duracion'])) {
+			if($request['duracion'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('postgrados.duracion', $request['duracion'] );
+				});
+			}
+		}
+
+    	if(isset($request['lugar'])) {
+			if($request['lugar'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('postgrados.lugar', 'like', "%".$request['lugar']."%");
+				});
+			}
+		}
+
+
+        if(isset($request['fecha'])) {
+			if($request['fecha'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('postgrados.fecha', $request['fecha'] );
+				});
+			}
+		}
+
+        if(isset($request['tipo'])) {
+			if($request['tipo'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('postgrados.tipo', $request['tipo'] );
+				});
+			}
+		}
+
+        if(isset($request['id_autor'])) {
+			if($request['id_autor'] != '') {
+			    //dd( "Movida esto es una relacion attach: ".$request['id_autor'] );
+			    $q->join('postgradosAutores', 'postgradosAutores.id_postgrado', '=', 'postgrados.id');
+			    $q->where(function ($query) use ($request) {
+					return $query->where('postgradosAutores.id_autor', $request['id_autor'] );
+				});
+			}
+		}
+		return $q;
+	}
+
+    public function search(Request $request)
+    {
+        $q    = Postgrados::query();
+        $q    = $this->crearSql($q, $request);
+        $data = $q->orderBy('postgrados.id','DESC')
+                ->paginate(25);
+        $sql  = Functions::getSql($q, $q->toSql());
+        $tipo = $request['tipo'];
+        return view('postgrados.index' , compact('data', 'tipo')) ;
+    }
+
     public function postgradosAjax($nombre, $tipo){
+
         $term = trim(Input::get('term'));
+
         $terminos = explode(' ', trim($term) );
         $results = array();
         $array=[];
@@ -137,6 +222,7 @@ class PostgradosController extends Controller
     		   }
     		}
 	    }
+
 		return Response::json($results);
     }
 

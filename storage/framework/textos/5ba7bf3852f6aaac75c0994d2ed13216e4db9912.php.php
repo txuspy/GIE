@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use App\TesisDoctoralesDirectores;
 use App\TesisDoctoralesDoctorando;
 use App\Departamentos;
+use App\Lib\Functions;
 
 class TesisDoctoralesController extends Controller
 {
@@ -99,6 +100,94 @@ class TesisDoctoralesController extends Controller
         return redirect()->route('tesisDoctorales.index', compact( 'tipo'))
             ->with('success', __('Zuzen ezabatu da'));
 
+    }
+
+    private function crearSql($q, $request = false)
+	{
+
+
+		if(isset($request['titulo_eu'])) {
+			if($request['titulo_eu'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('titulo_eu', 'like', "%".$request['titulo_eu']."%");
+				});
+			}
+		}
+
+		if(isset($request['departamento'])) {
+			if($request['departamento'] != '0' ) {
+				$q->where(function ($query) use ($request) {
+					return $query->where('departamento', $request['departamento']);
+				});
+			}
+		}
+
+		if(isset($request['euskera'])) {
+			if($request['euskera'] != '0' ) {
+				$q->where(function ($query) use ($request) {
+					return $query->where('euskera', $request['euskera']);
+				});
+			}
+		}
+
+		if(isset($request['internacional'])) {
+			if($request['internacional'] != '0' ) {
+				$q->where(function ($query) use ($request) {
+					return $query->where('internacional', $request['internacional']);
+				});
+			}
+		}
+
+		if(isset($request['fechaLectura'])) {
+			if($request['fechaLectura'] != '' ) {
+				$q->where(function ($query) use ($request) {
+					return $query->where('fechaLectura', $request['fechaLectura']);
+				});
+			}
+		}
+
+        if(isset($request['tipo'])) {
+			if($request['tipo'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('tipo', $request['tipo'] );
+				});
+			}
+		}
+
+        if(isset($request['id_autor'])) {
+			if($request['id_autor'] != '') {
+			    $idAutor = $request['id_autor'];
+			    $q  = $q->whereHas('directores', function ($q) use (  $idAutor ) {
+                    $q->where('id_autor',  $idAutor );
+                });
+			}
+		}
+
+        if(isset($request['id_autor2'])) {
+			if($request['id_autor2'] != '') {
+			    $idAutor = $request['id_autor2'];
+			    $q  = $q->whereHas('doctorandos', function ($q) use (  $idAutor ) {
+                    $q->where('id_autor',  $idAutor );
+                });
+			}
+		}
+		return $q;
+	}
+
+    public function search(Request $request)
+    {
+        // dd($request->all());
+        $q    = TesisDoctorales::query();
+        $q    = $this->crearSql($q, $request);
+        $data = $q->select('*','tesisDoctorales.id as proId')
+                ->orderBy('tesisDoctorales.id','DESC')
+                ->paginate(25);
+        $sql  = Functions::getSql($q, $q->toSql());
+
+        // dd($sql );
+        $tipo = $request['tipo'];
+
+        return view('tesisDoctorales.index',compact('data', 'tipo')) ;
     }
 
     public function tesisDoctoralesAjax($nombre){

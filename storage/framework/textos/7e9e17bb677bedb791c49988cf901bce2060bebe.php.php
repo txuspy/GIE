@@ -54,15 +54,15 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Ikastaro:</strong></label>
+		                <label><strong><?php echo e(__('Ikastaroa')); ?> (*):</strong></label>
 		                <?php echo Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')); ?>
 
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Curso:</strong></label>
-		                <?php echo Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')); ?>
+		                <label><strong><?php echo e(__('Hasiera-Data')); ?> (*) :</strong></label>
+		                <?php echo Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker  form-control')); ?>
 
 		            </div>
 		        </div>
@@ -71,14 +71,14 @@
 			     <div>
 					<div class="col-sm-6 ">
 			            <div class="form-group">
-			                <label><strong>Antolatzailea(k):</strong></label>
+			                <label><strong>Antolatzailea(k) (*):</strong></label>
 			                <?php echo Form::text('organizador_eu', null, array('placeholder' => 'Antolatzailea(k)','class' => 'form-control buscadorformaciones')); ?>
 
 			            </div>
 			        </div>
 			        <div class="col-sm-6 ">
 			            <div class="form-group">
-			                <label><strong>Organizador(es) :</strong></label>
+			                <label><strong>Organizador(es):</strong></label>
 			                <?php echo Form::text('organizador_es', null, array('placeholder' => 'Organizador(es)','class' => 'form-control buscadorformaciones')); ?>
 
 			            </div>
@@ -86,13 +86,7 @@
 			    </div>
 			<?php endif; ?>
 			<div>
-				<div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong><?php echo e(__('Hasiera-Data')); ?> :</strong></label>
-		                <?php echo Form::text('fecha', null , array('placeholder' => __('Data') ,'class' => 'datepicker  form-control')); ?>
 
-		            </div>
-		        </div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong><?php echo e(__('Tokia')); ?> :</strong></label>
@@ -116,13 +110,11 @@
 		    	<div class="col-sm-6">
 		    		<label><strong>
 		    				<?php if( $formacion->modo == 'recibir' ): ?>
-								<?php echo e(__('Parte-hartzailea(k)')); ?>
-
+								<?php echo e(__('Parte-hartzailea(k)')); ?> (*)
 							<?php else: ?>
-								<?php echo e(__('Hizlaria(k)')); ?>
-
+								<?php echo e(__('Hizlaria(k)')); ?> (*)
 							<?php endif; ?>
-						</strong></label>
+						</strong><span class='autorInfo'></span></label>
 		    	 	<?php echo e(Form::text('formacionesAutores', '', [
 				        'id'           =>'formacionesAutores',
 				        'placeholder'  =>__('Egilea bilatu'),

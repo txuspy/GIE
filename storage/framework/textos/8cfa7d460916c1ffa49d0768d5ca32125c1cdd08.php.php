@@ -59,18 +59,21 @@
 		<div>
 		<div class="col-sm-6 ">
             <div class="form-group">
-                <label><strong>Izenburua:</strong></label>
+                <label><strong>Izenburua / Titulo:</strong></label>
                 <?php echo Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control')); ?>
 
             </div>
         </div>
         <div class="col-sm-6 ">
+            <br><br><br><br><br>
+        </div>
+        <!--<div class="col-sm-6 ">
             <div class="form-group">
                 <label><strong>Titulo:</strong></label>
                 <?php echo Form::text('titulo_es', null, array('placeholder' => 'Titulo','class' => 'form-control')); ?>
 
             </div>
-        </div>
+        </div>-->
     </div>
 	<div>
 		<div class="col-sm-6 ">
@@ -125,7 +128,7 @@
 
     <div>
     	<div class="col-sm-6">
-    		<label><strong><?php echo e(__('Zuzendaria(k)')); ?>:</strong></label>
+    		<label><strong><?php echo e(__('Zuzendaria(k)')); ?> (*):</strong></label>
     	 	<?php echo e(Form::text('tesisDoctoralesDirector', '', [
 		        'id'           =>'tesisDoctoralesDirector',
 		        'placeholder'  =>__('Zuzendaria bilatu'),
@@ -151,7 +154,7 @@
 	 		</ul>
 	 	</div>
 	 	<div class="col-sm-6 ">
-    		<label><strong><?php echo e(__('Ikerlaria(k)')); ?>:</strong></label>
+    		<label><strong><?php echo e(__('Ikerlaria(k)')); ?> (*):</strong></label>
     	 	<?php echo e(Form::text('tesisDoctoralesDoctorando', '', [
 	         'id'           =>'tesisDoctoralesDoctorando ',
 	         'placeholder'  =>__('Doktorandoa bilatu'),

@@ -43,7 +43,7 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Izenburua')); ?>:</strong></label>
+		                <label><strong><?php echo e(__('Izenburua')); ?> (*):</strong></label>
 		                <?php echo Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')); ?>
 
 		            </div>
@@ -53,7 +53,7 @@
 		           <?php if( $publicacion->tipo =='libros'): ?>
 			            <div class="form-group">
 			                <label><strong><?php echo e(__('Argitaletxea')); ?> :</strong></label>
-			                <?php echo Form::text('editorialRevisa',  null , array('placeholder' => __('Argitaletxea') ,'class' => 'buscadorAldikariak form-control')); ?>
+			                <?php echo Form::text('editorialRevisa',  null , array('placeholder' => __('Argitaletxea') ,'class' => 'form-control')); ?>
 
 			            </div>
 		            <?php else: ?>
@@ -106,13 +106,13 @@
 		    <div>
 		    	<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Data')); ?> :</strong></label>
+		                <label><strong><?php echo e(__('Data')); ?> (*):</strong></label>
 		                <?php echo Form::text('year', null , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')); ?>
 
 		            </div>
 		        </div>
 		    	<div class="col-sm-6">
-		    		<label><strong><?php echo e(__('Egilea(k)')); ?>:</strong></label>
+		    		<label><strong><?php echo e(__('Egilea(k)')); ?> (*):</strong></label>
 		    	 	<?php echo e(Form::text('publicacionesAutores', '', [
 				        'id'           =>'publicacionesAutores',
 				        'placeholder'  =>__('Egilea bilatu'),

@@ -7,23 +7,18 @@
 						<div class="pull-left">
 							<h2><?php echo e(__('Ikerkuntza taldea')); ?></h2>
 						</div>
-						<div class="pull-left margen-left">
-							<a class="btn btn-info" href="<?php echo e(route('grupoInvestigacion.indexAll')); ?>"><i class="fa fa-eye" title="<?php echo e(__('Ikerkuntza taldea guztiak ikusi')); ?>"></i></a>
-						</div>
-<!--
-                    	<div class="pull-left margen-left">
-							<a class="btn btn-info" href="<?php echo e(url(App\Lib\Functions::parseLang().'/grupoInvestigacion/word')); ?>" >
-							<i class="fa fa-file-word-o" title="<?php echo e(__('Word sortu')); ?>"></i> </a>
-						</div>
 
-						<div class="pull-left margen-left">
-							<a class="btn btn-info" href="<?php echo e(url(App\Lib\Functions::parseLang().'/grupoInvestigacion/envioEmail')); ?>" >
-							<i class="fa fa-envelope"></i> <?php echo e(__('Emaila bidali')); ?></a>
-						</div>
--->
+
 						<div class="pull-right">
+								<a class="btn btn-info" href="<?php echo e(route('grupoInvestigacion.indexAll')); ?>"><i class="fa fa-list" title="<?php echo e(__('Ikerkuntza taldea guztiak ikusi')); ?>"></i></a>
+								&nbsp;
+								&nbsp;
+							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="<?php echo e(__('Bilatu')); ?>" ></i></a>
+								&nbsp;
+								&nbsp;
 							<a class="btn btn-success" href="<?php echo e(route('grupoInvestigacion.create')); ?>"><i class="fa fa-plus" title ="<?php echo e(__('Berria sortu')); ?>"></i> </a>
 						</div>
+
 					</div>
 				</div>
 				<?php if($message = Session::get('success')): ?>
@@ -31,6 +26,8 @@
 						<p><?php echo e($message); ?></p>
 					</div>
 				<?php endif; ?>
+
+					<?php echo $__env->make('grupoInvestigacion.search', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 				<table class="table">
 					<tr>
 						<th><?php echo e(__('Taldea')); ?></th>

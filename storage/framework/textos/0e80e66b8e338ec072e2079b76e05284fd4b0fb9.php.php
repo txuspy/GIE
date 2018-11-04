@@ -33,7 +33,7 @@
         	<div>
         		<div class="col-sm-6 ">
                       <div class="form-group has-error">
-                        <label><strong>Aktibitatea (*):</strong></label>
+                        <label><strong>Aktibitatea(*):</strong></label>
                         <?php if($errors->has('actividad_eu')): ?>
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
@@ -41,6 +41,7 @@
 
                     </div>
                 </div>
+
                 <div class="col-sm-6 ">
                     <div class="form-group">
                         <label><strong>Actividad :</strong></label>
@@ -48,6 +49,8 @@
 
                     </div>
                 </div>
+
+
             </div>
 
             <div>
@@ -57,38 +60,35 @@
                         <?php if($errors->has('desde')): ?>
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
-                        <?php echo Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')); ?>
+                        <?php echo Form::text('desde',  null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker form-control')); ?>
 
                     </div>
                 </div>
         		<div class="col-sm-6 ">
                     <div class="form-group">
-                        <label><strong><?php echo e(__('Arte')); ?> :</strong></label>
-                        <?php echo Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')); ?>
+                        <label><strong><?php echo e(__('Noiz arte')); ?> :</strong></label>
+                        <?php echo Form::text('hasta', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->addMonths(6)->format('Y-m-d') ,'class' => 'datepicker form-control')); ?>
 
                     </div>
                 </div>
             </div>
 
-        		<div class="col-sm-6 ">
+<div class="col-sm-6 ">
                       <div class="form-group has-error">
                         <label><strong><?php echo e(__('Tokia')); ?> (*):</strong></label>
                         <?php if($errors->has('lugar')): ?>
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
-                        <?php echo Form::text('lugar', null, array('placeholder' => 'Aktibitea','class' => 'form-control')); ?>
+                        <?php echo Form::text('lugar', null, array('placeholder' => 'University of Cambridge, Cambridge, UK','class' => 'form-control')); ?>
 
                     </div>
                 </div>
-                     <div>
+                <div>
                     <div class="col-sm-12">
                         <p ><small>(*) <?php echo e(__('Derrigorrezko eremuak')); ?></small></p>
                     </div>
                 </div>
-            </div>
-
-
-            <div>
+                 <div>
                 <div class="col-sm-12 col-sm-12 col-md-12 text-center">
                     <?php echo e(Form::hidden('tipo', $tipo)); ?>
 
@@ -100,6 +100,12 @@
         		    </button>
                 </div>
         	</div>
+            </div>
+
+
+
+
+
         	<?php echo Form::close(); ?>
 
         </div>

@@ -13,12 +13,18 @@
     							<h2><?php echo e(__('Enpresek diru-laguntza emandako Ikerkuntza Proiektuak')); ?></h2>
 							<?php endif; ?>
 						</div>
-						<div class="pull-left margen-left">
-							<a class="btn btn-info" href="<?php echo e(route('proyectos.indexAll', [ 'tipo'=> $tipo ])); ?>"><i class="fa fa-eye" title="<?php echo e(__('Proiektu guztiak ikusi')); ?>"></i></a>
-						</div>
+
 						<div class="pull-right">
+							<a class="btn btn-info" href="<?php echo e(route('proyectos.indexAll', [ 'tipo'=> $tipo ])); ?>"><i class="fa fa-list" title="<?php echo e(__('Proiektu guztiak ikusi')); ?>"></i></a>
+								&nbsp;
+								&nbsp;
+							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="<?php echo e(__('Bilatu')); ?>" ></i></a>
+								&nbsp;
+								&nbsp;
 							<a class="btn btn-success" href="<?php echo e(route('proyectos.create', [ 'tipo'=> $tipo ] )); ?>"><i class="fa fa-plus" title ="<?php echo e(__('Berria sortu')); ?>"></i> </a>
 						</div>
+
+
 					</div>
 				</div>
 
@@ -27,6 +33,9 @@
 					<p><?php echo e($message); ?></p>
 				</div>
 				<?php endif; ?>
+
+				<?php echo $__env->make('proyectos.search', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
 				<table class="table">
 					<tr>
 						<th><?php echo e(__('Proiektua')); ?></th>

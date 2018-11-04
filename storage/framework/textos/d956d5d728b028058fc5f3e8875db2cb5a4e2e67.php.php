@@ -43,31 +43,15 @@
 			<div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Izenburua:</strong></label>
+		                <label><strong><?php echo e(__('Programa')); ?> :</strong></label>
 		                <?php echo Form::text('titulo_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control')); ?>
 
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>Titulo:</strong></label>
-		                <?php echo Form::text('titulo_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')); ?>
-
-		            </div>
-		        </div>
-		    </div>
-		    <div>
-				<div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>Ikastaroa:</strong></label>
+		                <label><strong><?php echo e(__('Ikastaroa')); ?>:</strong></label>
 		                <?php echo Form::text('curso_eu', null, array('placeholder' => 'Ikastaroa','class' => 'form-control')); ?>
-
-		            </div>
-		        </div>
-		        <div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>Curso:</strong></label>
-		                <?php echo Form::text('curso_es', null, array('placeholder' => 'Proyecto','class' => 'form-control')); ?>
 
 		            </div>
 		        </div>
@@ -75,14 +59,14 @@
 			<div>
 		        <div class="col-sm-6 ">
 		           <div class="form-group">
-		                <label><strong>Saila/ Departamento (*):</strong></label>
+		                <label><strong><?php echo e(__('Saila')); ?> (*):</strong></label>
 		                <?php echo Form::select('departamento',  \App\Traits\Listados::listadoDepartamentos( \Session::get('locale') ), $postgrado->departamento , ['id' =>'departamento',   'class' => 'form-control chosen-select']); ?>
 
 		            </div>
 		        </div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Iraupena')); ?> (*):</strong></label>
+		                <label><strong><?php echo e(__('Iraupena')); ?>(*):</strong></label>
 		                <?php echo Form::text('duracion', null, array('placeholder' => '15 ECTS','class' => 'form-control ')); ?>
 
 		            </div>
@@ -99,14 +83,14 @@
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong><?php echo e(__('Hasiera Data')); ?> (*):</strong></label>
-		                <?php echo Form::text('fecha', null, array('placeholder' => __('Data'),'class' => 'datepicker form-control ')); ?>
+		                <?php echo Form::text('fecha', null, array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker form-control ')); ?>
 
 		            </div>
 		        </div>
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong><?php echo e(__('Irakaslea(k)')); ?>:</strong></label>
+		    		<label><strong><?php echo e(__('Irakaslea(k)')); ?> (*): <span class='autorInfo'></span></label>
 		    	 	<?php echo e(Form::text('postgradosAutores', '', [
 				        'id'           =>'postgradosAutores',
 				        'placeholder'  =>__('Irakaslea bilatu'),

@@ -12,6 +12,7 @@ use App\Mail\Welcome as WelcomeEmail;
 use Carbon\Carbon;
 use App\GrupoInvestigacionParticipantes;
 use App\GrupoInvestigacionResponsables;
+use App\Lib\Functions;
 
 class GrupoInvestigacionController extends Controller
 {
@@ -101,6 +102,90 @@ class GrupoInvestigacionController extends Controller
         GrupoInvestigacion::find($id)->delete();
         return redirect()->route('grupoInvestigacion.index')
                         ->with('success', __('Zuzen ezabatu da'));
+    }
+
+private function crearSql($q, $request = false)
+	{
+
+
+		if(isset($request['grupo_eu'])) {
+			if($request['grupo_eu'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('GrupoInvestigacion.grupo_eu', 'like', "%".$request['grupo_eu']."%");
+				});
+			}
+		}
+
+		if(isset($request['grupo_es'])) {
+			if($request['grupo_es'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('GrupoInvestigacion.grupo_es', 'like', "%".$request['grupo_es']."%");
+				});
+			}
+		}
+
+		if(isset($request['lineasInv_eu'])) {
+			if($request['lineasInv_eu'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('GrupoInvestigacion.lineasInv_eu', 'like', "%".$request['lineasInv_eu']."%");
+				});
+			}
+		}
+		if(isset($request['lineasInv_es'])) {
+			if($request['lineasInv_es'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('GrupoInvestigacion.lineasInv_es', 'like', "%".$request['lineasInv_es']."%");
+				});
+			}
+		}
+
+        if(isset($request['desde']) and isset($request['hasta']) ) {
+            if($request['desde'] != '' and $request['hasta'] != '') {
+				$q->where(function ($query) use ($request)  {
+                      $query->where('desde', '>=', $request['desde']);
+                      $query->where('desde', '<=', $request['hasta']);
+                      $query->orWhere('hasta', '>=', $request['desde']);
+                      $query->where('hasta', '<=', $request['hasta']);
+                      return $query;
+				});
+
+			}
+
+		}
+
+
+
+
+
+        if(isset($request['id_autor'])) {
+			if($request['id_autor'] != '') {
+			    $idAutor = $request['id_autor'];
+			    $q  = $q->whereHas('responsables', function ($q) use (  $idAutor ) {
+                    $q->where('id_autor',  $idAutor );
+                });
+			}
+		}
+
+        if(isset($request['id_autor2'])) {
+			if($request['id_autor2'] != '') {
+			    $idAutor = $request['id_autor2'];
+			    $q  = $q->whereHas('participantes', function ($q) use (  $idAutor ) {
+                    $q->where('id_autor',  $idAutor );
+                });
+			}
+		}
+		return $q;
+	}
+
+    public function search(Request $request)
+    {
+        $q    = GrupoInvestigacion::query();
+        $q    = $this->crearSql($q, $request);
+        $data = $q->orderBy('GrupoInvestigacion.id','DESC')
+                ->paginate(25);
+        $sql  = Functions::getSql($q, $q->toSql());
+        $tipo = $request['tipo'];
+        return view('grupoInvestigacion.index',compact('data')) ;
     }
 
     public function enlazarParticipante($id, $id_autor)

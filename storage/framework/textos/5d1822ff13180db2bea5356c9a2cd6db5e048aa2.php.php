@@ -43,13 +43,13 @@
 		         <?php if( $tipo =='libros'): ?>
 			            <div class="form-group">
 			                <label><strong><?php echo e(__('Argitaletxea')); ?> :</strong></label>
-			                <?php echo Form::text('editorialRevisa',  null , array('placeholder' => __('Argitaletxea') ,'class' => ' form-control')); ?>
+			                <?php echo Form::text('editorialRevisa',  null , array('placeholder' =>  __('Argitaletxea') ,'class' => ' form-control')); ?>
 
 			            </div>
 		            <?php else: ?>
 		              	<div class="form-group">
 		                	<label><strong><?php echo e(__('Aldizkaria')); ?> :</strong></label>
-		                	<?php echo Form::text('editorialRevisa',  null , array('placeholder' => __('Aldizkaria') ,'class' => 'form-control buscadorAldikariak')); ?>
+		                	<?php echo Form::text('editorialRevisa',  null , array('placeholder' => __('Autocomplete....') ,'class' => 'form-control buscadorAldikariak')); ?>
 
 		            	</div>
 		            <?php endif; ?>
@@ -65,7 +65,7 @@
 		                <?php if($errors->has('year')): ?>
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
-		                <?php echo Form::text('year', null , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')); ?>
+		                <?php echo Form::text('year', null , array('placeholder' =>  \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker date-year form-control')); ?>
 
 		            </div>
 		        </div>

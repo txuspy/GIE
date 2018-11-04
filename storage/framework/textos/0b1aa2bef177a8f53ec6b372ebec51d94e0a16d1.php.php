@@ -9,6 +9,7 @@ use DB;
 use Response;
 use App\Autor;
 use App\CongresosProfesores;
+use App\Lib\Functions;
 
 class CongresosController extends Controller
 {
@@ -107,6 +108,88 @@ class CongresosController extends Controller
         Congresos::find($id)->delete();
         return redirect()->route('congresos.index')
             ->with('success', __('Zuzen ezabatu da'));
+    }
+
+
+    private function crearSql($q, $request = false)
+	{
+
+
+		if(isset($request['conferenciaPoster'])) {
+			if($request['conferenciaPoster'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('conferenciaPoster', 'like', "%".$request['conferenciaPoster']."%");
+				});
+			}
+		}
+
+		if(isset($request['congreso_eu'])) {
+			if($request['congreso_eu'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('congreso_eu', 'like', "%".$request['congreso_eu']."%");
+				});
+			}
+		}
+
+		if(isset($request['ekarpena'])) {
+			if($request['ekarpena'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('ekarpena',  $request['ekarpena'] );
+				});
+			}
+		}
+
+
+    	if(isset($request['lugar'])) {
+			if($request['lugar'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('lugar', 'like', "%".$request['lugar']."%");
+				});
+			}
+		}
+
+        if(isset($request['desde']) and isset($request['hasta']) ) {
+            if($request['desde'] != '' and $request['hasta'] != '') {
+				$q->where(function ($query) use ($request)  {
+                      $query->where('desde', '>=', $request['desde']);
+                      $query->where('desde', '<=', $request['hasta']);
+                      $query->orWhere('hasta', '>=', $request['desde']);
+                      $query->where('hasta', '<=', $request['hasta']);
+                      return $query;
+				});
+
+			}
+
+		}
+
+
+
+
+        if(isset($request['id_autor'])) {
+			if($request['id_autor'] != '') {
+			    $idAutor = $request['id_autor'];
+			    $q  = $q->whereHas('profesores', function ($q) use (  $idAutor ) {
+                    $q->where('id_autor',  $idAutor );
+                });
+			}
+		}
+
+
+		return $q;
+	}
+
+    public function search(Request $request)
+    {
+        //dd($request->all());
+        $q    = Congresos::query();
+        $q    = $this->crearSql($q, $request);
+        $data = $q
+                ->orderBy('id','DESC')
+                ->paginate(25);
+        $sql  = Functions::getSql($q, $q->toSql());
+        // dd($sql );
+        $tipo = $request['tipo'];
+        return view('congresos.index',compact('data')) ;
     }
 
 

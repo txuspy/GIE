@@ -26,7 +26,7 @@
             	<div>
             	     <div class="col-sm-6 ">
                         <div class="form-group has-error">
-                            <label><strong>Taldea *:</strong></label>
+                            <label><strong>Taldea (*):</strong></label>
                              <?php if($errors->has('grupo_eu')): ?>
     	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
     	                    <?php endif; ?>
@@ -47,18 +47,18 @@
 
                      <div class="col-sm-6 ">
                         <div class="form-group has-error">
-                            <label><strong>Ikerkuntza lerroak *:</strong></label>
+                            <label><strong>Ikerkuntza lerroak (*):</strong></label>
                             <?php if($errors->has('lineasInv_eu')): ?>
     	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
     	                    <?php endif; ?>
-                            <?php echo Form::textarea('lineasInv_eu', null, array('placeholder' => 'Ikerkuntza lerroak','class' => 'form-control')); ?>
+                            <?php echo Form::textarea('lineasInv_eu', null, array('placeholder' => 'Ikerkuntza lerroak','class' => 'form-control summernote')); ?>
 
                         </div>
                     </div>
                     <div class="col-sm-6 ">
                         <div class="form-group">
                             <label><strong>Líneas de investigación :</strong></label>
-                            <?php echo Form::textarea('lineasInv_es', null, array('placeholder' => 'Líneas de investigación','class' => 'form-control')); ?>
+                            <?php echo Form::textarea('lineasInv_es', null, array('placeholder' => 'Líneas de investigación','class' => 'form-control summernote')); ?>
 
                         </div>
                     </div>
@@ -68,18 +68,18 @@
                 <div>
                     <div class="col-sm-6 ">
                         <div class="form-group has-error">
-                            <label><strong><?php echo e(__('Noiztik')); ?> *:</strong></label>
+                            <label><strong><?php echo e(__('Noiztik')); ?> (*):</strong></label>
                             <?php if($errors->has('desde')): ?>
     	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
     	                    <?php endif; ?>
-                            <?php echo Form::text('desde',  null , array('placeholder' => __('Noiztik') ,'class' => 'date-year form-control')); ?>
+                            <?php echo Form::text('desde',  null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d'),'class' => 'date-year form-control')); ?>
 
                         </div>
                     </div>
             		<div class="col-sm-6 ">
-                        <div class="form-group has-error">
-                            <label><strong><?php echo e(__('Arte')); ?> *:</strong></label>
-                            <?php echo Form::text('hasta', null , array('placeholder' => __('Hutsik utzi gaur egun martxan badago') ,'class' => 'date-year form-control')); ?>
+                        <div class="form-group">
+                            <label><strong><?php echo e(__('Arte')); ?> :</strong></label>
+                            <?php echo Form::text('hasta', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->addYear('1')->format('Y-m-d') ,'class' => 'date-year form-control')); ?>
 
                         </div>
                     </div>
