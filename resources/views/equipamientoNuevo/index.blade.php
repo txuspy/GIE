@@ -30,7 +30,7 @@
 				<table class="table">
 					<tr>
 						<th>{{ __('Hornikuntza') }}</th>
-						<th>{{ __('Departamento') }}</th>
+						<th>{{ __('Saila') }}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>
 					@if($data)
