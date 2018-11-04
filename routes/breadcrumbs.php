@@ -2,46 +2,46 @@
 // Home
 Breadcrumbs::register('home', function($breadcrumbs)
 {
-    $breadcrumbs->push('Home', url('/home'));
+    $breadcrumbs->push('Home', url(App\Lib\Functions::parseLang().'/home'));
 });
 
 // Home > Usuarios
 Breadcrumbs::register('usuarios', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Usuarios', url('/users'));
+    $breadcrumbs->push('Usuarios', url(App\Lib\Functions::parseLang().'/users'));
 });
 
 Breadcrumbs::register('usuariosNOAdminVer', function($breadcrumbs, $usuario)
 {
      $breadcrumbs->parent('home');
-    $breadcrumbs->push($usuario->name, url('users/'.$usuario->id));
+    $breadcrumbs->push($usuario->name, url(App\Lib\Functions::parseLang().'/users/'.$usuario->id));
 });
 Breadcrumbs::register('usuariosVer', function($breadcrumbs, $usuario)
 {
     $breadcrumbs->parent('usuarios');
-    $breadcrumbs->push($usuario->name, url('users/'.$usuario->id));
+    $breadcrumbs->push($usuario->name, url(App\Lib\Functions::parseLang().'/users/'.$usuario->id));
 });
 Breadcrumbs::register('usuariosEdit', function($breadcrumbs, $usuario)
 {
     $breadcrumbs->parent('usuarios');
-    $breadcrumbs->push($usuario->name, url('users/'.$usuario->id.'/edit'));
+    $breadcrumbs->push($usuario->name, url(App\Lib\Functions::parseLang().'/users/'.$usuario->id.'/edit'));
 });
 // Home > Role
 Breadcrumbs::register('roles', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Roles', url('/roles'));
+    $breadcrumbs->push('Roles', url(App\Lib\Functions::parseLang().'/roles'));
 });
 Breadcrumbs::register('rolesVer', function($breadcrumbs, $role)
 {
     $breadcrumbs->parent('roles');
-    $breadcrumbs->push($role->name, url('roles/'.$role->id));
+    $breadcrumbs->push($role->name, url(App\Lib\Functions::parseLang().'/roles/'.$role->id));
 });
 Breadcrumbs::register('rolesEdit', function($breadcrumbs, $role)
 {
     $breadcrumbs->parent('roles');
-    $breadcrumbs->push($role->name, url('roles/'.$role->id.'/edit'));
+    $breadcrumbs->push($role->name, url(App\Lib\Functions::parseLang().'/roles/'.$role->id.'/edit'));
 });
 // Home > Permisos
 Breadcrumbs::register('permisos', function($breadcrumbs)
@@ -59,26 +59,26 @@ Breadcrumbs::register('permisosEditar', function($breadcrumbs, $permiso)
 Breadcrumbs::register('autores', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Autores', url('/autor'));
+    $breadcrumbs->push('Autores', url(App\Lib\Functions::parseLang().'/autor'));
 });
 Breadcrumbs::register('autoresEdit', function($breadcrumbs, $autor)
 {
     $breadcrumbs->parent('autores');
-    $breadcrumbs->push($autor->nombre, url('autor/'.$autor->id.'/edit'));
+    $breadcrumbs->push($autor->nombre, url(App\Lib\Functions::parseLang().'/autor/'.$autor->id.'/edit'));
 });
 // Home > Grupo investigacion
 Breadcrumbs::register('grupoInvestigacion', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push(__('Ikerkuntza taldea'), url('/grupoInvestigacion'));
+    $breadcrumbs->push(__('Ikerkuntza taldea'), url(App\Lib\Functions::parseLang().'//grupoInvestigacion'));
 });
 Breadcrumbs::register('grupoInvestigacionEdit', function($breadcrumbs, $grupoInvestigacion)
 {
     $breadcrumbs->parent('grupoInvestigacion');
     if( \Session::get('locale') == 'eu' ){
-        $breadcrumbs->push($grupoInvestigacion->grupo_eu, url('grupoInvestigacion/'.$grupoInvestigacion->id.'/edit'));
+        $breadcrumbs->push($grupoInvestigacion->grupo_eu, url(App\Lib\Functions::parseLang().'/grupoInvestigacion/'.$grupoInvestigacion->id.'/edit'));
     }else{
-        $breadcrumbs->push($grupoInvestigacion->grupo_es, url('grupoInvestigacion/'.$grupoInvestigacion->id.'/edit'));
+        $breadcrumbs->push($grupoInvestigacion->grupo_es, url(App\Lib\Functions::parseLang().'/grupoInvestigacion/'.$grupoInvestigacion->id.'/edit'));
     }
 });
 //Tesis doctorales
@@ -125,30 +125,30 @@ Breadcrumbs::register('proyectosEdit', function($breadcrumbs, $proyecto)
 Breadcrumbs::register('congresos', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push( __('Kongresu zientifikoentan parte-hartzea'), url('/congresos'));
+    $breadcrumbs->push( __('Kongresu zientifikoentan parte-hartzea'), url(App\Lib\Functions::parseLang().'/congresos'));
 });
 Breadcrumbs::register('congresosEdit', function($breadcrumbs, $congresos)
 {
     $breadcrumbs->parent('congresos');
     if( \Session::get('locale') == 'eu' ){
-        $breadcrumbs->push($congresos->congreso_eu, url('congresos/'.$congresos->id.'/edit'));
+        $breadcrumbs->push($congresos->congreso_eu, url(App\Lib\Functions::parseLang().'/congresos/'.$congresos->id.'/edit'));
     }else{
-        $breadcrumbs->push($congresos->congreso_es, url('congresos/'.$congresos->id.'/edit'));
+        $breadcrumbs->push($congresos->congreso_es, url(App\Lib\Functions::parseLang().'/congresos/'.$congresos->id.'/edit'));
     }
 });
 // Home > Equipamiento Nuevo
 Breadcrumbs::register('equipamientoNuevo', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push( __('Hornikuntza Zientifikoa eskuratzea'), url('/equipamientoNuevo'));
+    $breadcrumbs->push( __('Hornikuntza Zientifikoa eskuratzea'), url(App\Lib\Functions::parseLang().'/equipamientoNuevo'));
 });
 Breadcrumbs::register('equipamientoNuevoEdit', function($breadcrumbs, $equipamientoNuevo)
 {
     $breadcrumbs->parent('equipamientoNuevo');
-    if( \Session::get('locale') == 'eu' ){
-        $breadcrumbs->push($equipamientoNuevo->equipo_eu, url('equipamientoNuevo/'.$equipamientoNuevo->id.'/edit'));
+     if( \Session::get('locale') == 'eu' ){
+        $breadcrumbs->push($equipamientoNuevo->equipo_eu, url(App\Lib\Functions::parseLang().'/equipamientoNuevo/'.$equipamientoNuevo->id.'/edit'));
     }else{
-        $breadcrumbs->push($equipamientoNuevo->equipo_es, url('equipamientoNuevo/'.$equipamientoNuevo->id.'/edit'));
+        $breadcrumbs->push($equipamientoNuevo->equipo_es, url(App\Lib\Functions::parseLang().'/equipamientoNuevo/'.$equipamientoNuevo->id.'/edit'));
     }
 });
 //Publicaciones
@@ -245,14 +245,14 @@ Breadcrumbs::register('programasDeIntercambioEdit', function($breadcrumbs, $prog
 Breadcrumbs::register('visitas', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push( __('Bisitak'), url('/visitas'));
+    $breadcrumbs->push( __('Bisitak'), url(App\Lib\Functions::parseLang().'//visitas'));
 });
 Breadcrumbs::register('visitasEdit', function($breadcrumbs, $visita)
 {
     $breadcrumbs->parent('visitas');
     if( \Session::get('locale') == 'eu' ){
-        $breadcrumbs->push($visita->titulo_eu, url('visitas/'.$visita->id.'/edit'));
+        $breadcrumbs->push($visita->titulo_eu, url(App\Lib\Functions::parseLang().'/visitas/'.$visita->id.'/edit'));
     }else{
-        $breadcrumbs->push($visita->titulo_es, url('visitas/'.$visita->id.'/edit'));
+        $breadcrumbs->push($visita->titulo_es, url(App\Lib\Functions::parseLang().'/visitas/'.$visita->id.'/edit'));
     }
 });
