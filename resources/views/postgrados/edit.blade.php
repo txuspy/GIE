@@ -83,7 +83,7 @@
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong>{{ __('Irakaslea(k)')}} (*): <span class='autorInfo'></span></label>
+		    		<label>{{ __('Irakaslea(k)')}} (*): <span class='autorInfo'></span></label>
 		    	 	{{Form::text('postgradosAutores', '', [
 				        'id'           =>'postgradosAutores',
 				        'placeholder'  =>__('Irakaslea bilatu'),
@@ -98,7 +98,7 @@
 			 		<br><ul id="ulPostgradosAutores" class="list-group">
 			 			@foreach( $postgrado->autores as $autor)
 			 				<li class="list-group-item" id="detachAutores{{ $autor->id }}">
-				 				<a data-id='{{$postgrado->id}}' data-idAutor='{{ $autor->id }}' data-carpeta ='autores' data-tipo='postgrado'  class='desenlazar'>
+				 				<a data-id='{{$postgrado->id}}' data-idAutor='{{ $autor->id }}' data-carpeta ='autores' data-tipo='postgrados'  class='desenlazar'>
 				 					<i class="fa fa-trash"></i>
 				 				</a>
 			 				{{$autor->nombre}} {{$autor->apellido}}

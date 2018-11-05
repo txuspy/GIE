@@ -67,12 +67,12 @@ $(document).ready(function () {
                     return false;
                 }
             }
-        }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+        })/*.data( "ui-autocomplete" )._renderItem = function( ul, item ) {
         	return $( "<li></li>" )
         		.data( "item.autocomplete", item )
         		.append( "<i class='fa fa-info-circle' title ='Zerrendan ez baduzu aurkitzen, sakatu \"TAB\" parte-hartzaile berria sortzeko \nPulsa \"TAB\"  para crear registro nuevo.'></i> "+item.label ) //\"ENTER\" edo \"CLICK\" izenaren gainean erlazioa sortzeko / Pulsa \"ENTER\" o \"CLICK\" para crear una nueva relación.\n
         		.appendTo( ul );
-        }
+        }*/
     }
 
     $(".buscadorAutor").focus(function() {
