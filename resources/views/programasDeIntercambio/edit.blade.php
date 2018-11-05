@@ -71,7 +71,7 @@
 		        </div>
 				<div class="col-sm-3">
 		            <div class="form-group">
-		                <label><strong>{{ __('Arte') }} :</strong></label>
+		                <label><strong>{{ __('Noiz arte') }} :</strong></label>
 		                {!! Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')) !!}
 		            </div>
 		        </div>

@@ -20,7 +20,7 @@
 		      	 <div class="form-group has-error">
 		                <label><strong>{{ __('Ekarpen mota') }} (*):</strong></label>
 
-		                {!! Form::select('ekarpena',  \App\Traits\Listados::listadoEkarpena(), '', ['id' =>'ekarpena',   'class' => 'form-control chosen-select'])  !!}
+		                {!! Form::select('ekarpena',  \App\Traits\Listados::listadoEkarpena(), '0', ['id' =>'ekarpena',   'class' => 'form-control chosen-select'])  !!}
 
 		         </div>
 	         </div>
@@ -40,7 +40,7 @@
 	        </div>
 			<div class="col-xs-6 ">
 	            <div class="form-group">
-	                <label><strong>{{ __('Arte') }} :</strong></label>
+	                <label><strong>{{ __('Noiz arte') }} :</strong></label>
 	                {!! Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')) !!}
 	            </div>
 	        </div>

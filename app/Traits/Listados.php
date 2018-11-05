@@ -37,6 +37,7 @@ trait Listados
 
         $miArray =
         [
+        '0' => __('Aukeratu'),
         '1' => __('Hitzaldi gonbidatua'),
         '2' => __('Ahozko aurkezpena'),
         '3' => __('Posterra')

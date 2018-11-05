@@ -41,7 +41,7 @@ class TesisDoctoralesController extends Controller
 
     public function store(Request $request)
     {
-          $this->validate($request, [
+        $this->validate($request, [
             'titulo_eu'    => 'required',
             'departamento' => 'required',
             'fechaLectura' => 'required',
@@ -51,8 +51,13 @@ class TesisDoctoralesController extends Controller
             'titulo_eu.required'           => __('Izenburua  beharrezkoa da.'),
             'fechaLectura.required'        => __('Data beharrezkoa da.')
         ]);
+        if($request->titulo_es==''){
+             $request['titulo_es'] = $request->titulo_eu;
+        }
+
+
         $departamento = Departamentos::find($request->departamento);
-        $request['fechaLectura'] = Carbon::now('Europe/Madrid');
+       // $request['fechaLectura'] = Carbon::now('Europe/Madrid');
 
         if($request->titulo_es==''){
              $request['titulo_es'] = $request->titulo_eu;
@@ -60,6 +65,7 @@ class TesisDoctoralesController extends Controller
         $input = $request->all();
 
         $tesisDoctoral = TesisDoctorales::create($input);
+        //dd($tesisDoctoral );
         return view('tesisDoctorales.edit',compact('tesisDoctoral'))
             ->with('success', __('Zuzen sortu da'));
     }
@@ -78,7 +84,7 @@ class TesisDoctoralesController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'titulo_es' => 'required',
+            'titulo_eu' => 'required',
             'tipo' => 'required',
             'fechaLectura' => 'required'
         ],
@@ -86,6 +92,9 @@ class TesisDoctoralesController extends Controller
             'titulo_eu.required'           => __('Izenburua  beharrezkoa da.'),
             'fechaLectura.required'        => __('Data beharrezkoa da.')
         ]);
+        if($request->titulo_es==''){
+             $request['titulo_es'] = $request->titulo_eu;
+        }
         $input         = $request->all();
         $tesisDoctoral = TesisDoctorales::find($id);
         $tesisDoctoral->update($input);
@@ -179,8 +188,7 @@ class TesisDoctoralesController extends Controller
         // dd($request->all());
         $q    = TesisDoctorales::query();
         $q    = $this->crearSql($q, $request);
-        $data = $q->select('*','tesisDoctorales.id as proId')
-                ->orderBy('tesisDoctorales.id','DESC')
+        $data = $q->orderBy('tesisDoctorales.id','DESC')
                 ->paginate(25);
         $sql  = Functions::getSql($q, $q->toSql());
 

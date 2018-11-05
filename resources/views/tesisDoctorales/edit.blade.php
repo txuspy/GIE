@@ -54,7 +54,8 @@
 		'idForm'=>'formdialogTesisDoctoralesDoctorando',
 		'tituloContenido' => __('Doctorando berria sortu') ,
 	])
-	{!! Form::model($tesisDoctoral, ['method' => 'PUT','route' => ['tesisDoctorales.update', $tesisDoctoral->id]]) !!}
+	{!! Form::model($tesisDoctoral, ['route' => ['tesisDoctorales.update', $tesisDoctoral->id] ]) !!}
+	<input name="_method" type="hidden" value="PUT">
 		<div>
 		<div class="col-sm-6 ">
             <div class="form-group">
@@ -96,7 +97,7 @@
 			    <div>
 			        <div class="col-sm-6 ">
 			            <div class="form-group">
-			                <label><strong>{{ __('Data') }} :</strong></label>
+			                <label><strong>{{ __('Data') }} {{ $tesisDoctoral->fechaLectura }}:</strong></label>
 			                {!! Form::text('fechaLectura', $tesisDoctoral->fechaLectura , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')) !!}
 			            </div>
 			        </div>

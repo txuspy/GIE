@@ -35,8 +35,8 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::resource('autor','AutorController');
 	Route::post('autor/insertAjax','AutorController@storeAjax');
 
-	Route::get('/word', ['as' => 'home', 'uses' => 'WordController@index']);
-	Route::post('/word', ['as' => 'home', 'uses' => 'WordController@create']);
+	Route::get('/word', ['as' => 'word', 'uses' => 'WordController@index']);
+	Route::post('/word', ['as' => 'word.post', 'uses' => 'WordController@create']);
 
 
 	Route::get('grupoInvestigacion/envioEmail', 'GrupoInvestigacionController@email');
@@ -70,9 +70,10 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('tesisDoctorales/showAll/{tipo}', ['as' => 'tesisDoctorales.indexAll', 'uses' => 'TesisDoctoralesController@indexAll'] );
 	Route::get('tesisDoctorales/create/{tipo}', ['as' => 'tesisDoctorales.create', 'uses' => 'TesisDoctoralesController@create']  );
 	Route::get('tesisDoctorales/{id}/edit', ['as' => 'tesisDoctorales.edit', 'uses' => 'TesisDoctoralesController@edit']  );
-	Route::put('tesisDoctorales/{id}',  ['as' => 'tesisDoctorales.update', 'uses' => 'TesisDoctoralesController@update']  );
-	Route::post('tesisDoctorales/',  ['as' => 'tesisDoctorales.store', 'uses' => 'TesisDoctoralesController@store']  );
+
+	Route::post('tesisDoctorales',  ['as' => 'tesisDoctorales.store', 'uses' => 'TesisDoctoralesController@store']  );
 	Route::post('tesisDoctorales/search',  ['as' => 'tesisDoctorales.search', 'uses' => 'TesisDoctoralesController@search']  );
+	Route::put('tesisDoctorales/{id}',  ['as' => 'tesisDoctorales.update', 'uses' => 'TesisDoctoralesController@update']  );
 	Route::delete('tesisDoctorales/{id}/{tipo}', ['as' => 'tesisDoctorales.destroy', 'uses' => 'TesisDoctoralesController@destroy'] );
 	Route::get('tesisDoctorales/{id}/director/{id_autor}','TesisDoctoralesController@enlazarDirector');
 	Route::get('tesisDoctorales/{id}/doctorando/{id_autor}','TesisDoctoralesController@enlazarDoctorando');

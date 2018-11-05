@@ -72,7 +72,7 @@
                     </div>
             		<div class="col-sm-6 ">
                         <div class="form-group">
-                            <label><strong>{{ __('Arte') }} :</strong></label>
+                            <label><strong>{{ __('Noiz arte') }} :</strong></label>
                             {!! Form::text('hasta', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->addYear('1')->format('Y-m-d') ,'class' => 'date-year form-control')) !!}
                         </div>
                     </div>

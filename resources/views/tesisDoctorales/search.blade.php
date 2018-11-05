@@ -77,7 +77,7 @@
     	    <div class="form-group">
         		<label><strong>{{ __('Partaidea(k)')}}  :</strong></label>
         	 	{{Form::text('postgradosAutores', '', [
-    		        'id'           =>'postgradosAutores',
+    		        'id'           =>'postgradosAutores2',
     		        'placeholder'  =>__('Irakaslea bilatu'),
     		        'class'        =>'form-control buscadorDeAutor2',
     		        'data-idDialog'=>'dialogPostgradosAutores',
@@ -99,9 +99,6 @@
             </div>
         </div>
     </div>
-
-
-
 	<script type="text/javascript">
 		$('.date-year').datepicker({
 		    minViewMode: 2,

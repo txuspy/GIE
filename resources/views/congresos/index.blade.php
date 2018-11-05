@@ -49,8 +49,9 @@
 								{{ \App\Traits\Listados::listadoEkarpena(\Session::get('locale'))[$congreso->ekarpena]??'---' }}
 							</td>
 						<td>
+
 								@foreach( $congreso->profesores as $profesor)
-			 					{{$profesor->nombre}} {{$profesor->apellido}}
+			 						 {{$profesor->nombre}} {{$profesor->apellido}}
 			 					@if(!$loop->last)
 			 						,
 			 					@endif

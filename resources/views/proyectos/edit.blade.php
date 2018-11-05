@@ -70,13 +70,13 @@
 		    <div class="row" style="margin:1px;">
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Noiztik') }} (*):</strong> ( {{$periodo}} )</label>
+		                <label><strong>{{ __('Noiztik') }} (*):</strong> {{--( {{$periodo}} )--}}</label>
 		                {!! Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')) !!}
 		            </div>
 		        </div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Arte') }} :</strong></label>
+		                <label><strong>{{ __('Noiz arte') }} :</strong></label>
 		                {!! Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')) !!}
 		            </div>
 		        </div>

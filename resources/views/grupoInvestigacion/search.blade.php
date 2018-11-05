@@ -38,7 +38,7 @@
         </div>
 		<div class="col-sm-6 ">
             <div class="form-group">
-                <label><strong>{{ __('Arte') }} :</strong></label>
+                <label><strong>{{ __('Noiz arte') }} :</strong></label>
                 {!! Form::text('hasta', null , array('placeholder' => __('Hutsik utzi gaur egun martxan badago') ,'class' => 'date-year form-control')) !!}
             </div>
         </div>

@@ -73,7 +73,7 @@
                 </div>
         		<div class="col-sm-6 ">
                      <div class="form-group has-error">
-                        <label><strong>{{ __('Arte') }} (*):</strong></label>
+                        <label><strong>{{ __('Noiz arte') }} (*):</strong></label>
                         @if ($errors->has('hasta'))
                             <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                         @endif

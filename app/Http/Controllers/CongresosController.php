@@ -180,14 +180,13 @@ class CongresosController extends Controller
 
     public function search(Request $request)
     {
-        //dd($request->all());
+        // dd($request->all());
         $q    = Congresos::query();
         $q    = $this->crearSql($q, $request);
-        $data = $q
-                ->orderBy('id','DESC')
+        $data = $q->orderBy('id','DESC')
                 ->paginate(25);
         $sql  = Functions::getSql($q, $q->toSql());
-        // dd($sql );
+        //  dd($sql );
         $tipo = $request['tipo'];
         return view('congresos.index',compact('data')) ;
     }

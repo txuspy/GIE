@@ -12,12 +12,7 @@
     		<strong> {{ __('Lehenbiziko aldia da sartzen zarela, zure datuak ondo bete, eta pasahitza aldatu.') }}</strong>
     	</div>
     @endif
-    <div id="msj-ok" class="alert alert-success alert-dismissible" role="alert" style="display:none">
-		<strong> {{ __('Upload OK.') }}</strong>
-	</div>
-	<div id="msj-error" class="alert alert-danger alert-dismissible" role="alert" style="display:none">
-		<strong> {{ __('Upload ERROR.') }}</strong>
-	</div>
+
 	@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<strong>{{ __('Whoops!') }}</strong> {{ __('There were some problems with your input.') }}<br><br>
@@ -119,8 +114,8 @@
 	<script type="text/javascript" >
 	$( function() {
 	     if ( $( ".alert-danger" )[0] ) {
-
-            $( "#dialog2" ).show();
+	         alert("fff");
+            $("#dialog2").show();
             $("#dialog2").dialog({
 				modal: true,
 				resizable: false,

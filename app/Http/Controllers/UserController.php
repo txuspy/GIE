@@ -126,8 +126,8 @@ class UserController extends Controller
         $userRole = $user->roles->pluck('id','id')->toArray();
         \Session::put('locale', $request->lng);
         \LaravelGettext::setLocale($request->lng) ;
-        return view('users.edit',compact('user','roles','userRole' ));
-        //return redirect()->route('users.index')->with('success', __('Erabiltzailea zuzen aldatatu da'));
+       // return view('users.edit',compact('user','roles','userRole' ));
+        return redirect()->route('home')->with('success', __('Erabiltzailea zuzen aldatatu da'));
     }
 
     public function destroy($id)
