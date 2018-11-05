@@ -178,15 +178,17 @@ class PostgradosController extends Controller
 			}
 		}
 
-        if(isset($request['id_autor'])) {
+
+
+		if(isset($request['id_autor'])) {
 			if($request['id_autor'] != '') {
-			    //dd( "Movida esto es una relacion attach: ".$request['id_autor'] );
-			    $q->join('postgradosAutores', 'postgradosAutores.id_postgrado', '=', 'postgrados.id');
-			    $q->where(function ($query) use ($request) {
-					return $query->where('postgradosAutores.id_autor', $request['id_autor'] );
-				});
+			    $idAutor = $request['id_autor'];
+			    $q  = $q->whereHas('autores', function ($q) use (  $idAutor ) {
+                    $q->where('id_autor',  $idAutor );
+                });
 			}
 		}
+
 		return $q;
 	}
 

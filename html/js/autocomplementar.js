@@ -70,14 +70,14 @@ $(document).ready(function () {
         }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
         	return $( "<li></li>" )
         		.data( "item.autocomplete", item )
-        		.append( "<i class='fa fa-info-circle' title ='Enter edo izenean gainean sakatu erlazioa sortzeko/Pulsa Enter o click para crear una nueva relación.\nTab sakatu datu berria sortzeko/Pulsa Tab para crear registro nuevo.'></i> "+item.label )
+        		.append( "<i class='fa fa-info-circle' title ='\"ENTER\" edo \"CLICK\" izenaren gainean erlazioa sortzeko / Pulsa \"ENTER\" o \"CLICK\" para crear una nueva relación.\nZerrendan ez baduzu aurkitzen, sakatu \"TAB\" parte-hartzaile berria sortzeko / Pulsa \"TAB\"  para crear registro nuevo.'></i> "+item.label )
         		.appendTo( ul );
         }
     }
 
     $(".buscadorAutor").focus(function() {
         $(".autorInfo").html('');
-        $(".autorInfo").append( "<i class='fa fa-info-circle mostrarCursor' title ='Enter edo izenean gainean sakatu erlazioa sortzeko/Pulsa Enter o click para crear una nueva relación.\nTab sakatu datu berria sortzeko/Pulsa Tab para crear registro nuevo.'></i> " );
+        $(".autorInfo").append( "<i class='fa fa-info-circle' title ='\"ENTER\" edo \"CLICK\" izenaren gainean erlazioa sortzeko / Pulsa \"ENTER\" o \"CLICK\" para crear una nueva relación.\nZerrendan ez baduzu aurkitzen, sakatu \"TAB\" parte-hartzaile berria sortzeko / Pulsa \"TAB\"  para crear registro nuevo.'></i>" );
     });
 
     $(".buscadorAutor").keydown(function (e) {
