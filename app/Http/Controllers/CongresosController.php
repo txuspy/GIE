@@ -132,7 +132,7 @@ class CongresosController extends Controller
 		}
 
 		if(isset($request['ekarpena'])) {
-			if($request['ekarpena'] != '') {
+			if($request['ekarpena'] != '0') {
 				$q->where(function ($query) use ($request) {
 					return $query->where('ekarpena',  $request['ekarpena'] );
 				});
