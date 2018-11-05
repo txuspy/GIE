@@ -83,7 +83,7 @@
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong>{{ __('Ikertzaile nagusia(k)')}} (*):</strong></label>
+		    		<label><strong>{{ __('Ikertzaile nagusia(k)')}} (*):</strong><span class='autorInfo'></span></label>
 		    	 	{{Form::text('proyectosDirector', '', [
 				        'id'           =>'proyectosDirector',
 				        'placeholder'  =>__('Ikertzaile nagusia bilatu'),

@@ -81,7 +81,7 @@
 
 	    <div>
 	    	<div class="col-md-6 ">
-	    		<label><strong>{{ __('Irakaslea(k)')}}:</strong></label>
+	    		<label><strong>{{ __('Irakaslea(k)')}}:</strong><span class='autorInfo'></span></label>
 	    	 	{{Form::text('CongresoProfesor', '', [
 			        'id'           =>'CongresoProfesor',
 			        'placeholder'  =>__('Irakaslea bilatu'),

@@ -110,7 +110,7 @@
 		            </div>
 		        </div>
 		    	<div class="col-sm-6">
-		    		<label><strong>{{ __('Egilea(k)')}} (*):</strong></label>
+		    		<label><strong>{{ __('Egilea(k)')}} (*):</strong><span class='autorInfo'></span></label>
 		    	 	{{Form::text('publicacionesAutores', '', [
 				        'id'           =>'publicacionesAutores',
 				        'placeholder'  =>__('Egilea bilatu'),

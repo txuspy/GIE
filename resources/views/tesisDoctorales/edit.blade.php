@@ -121,7 +121,7 @@
 
     <div>
     	<div class="col-sm-6">
-    		<label><strong>{{ __('Zuzendaria(k)')}} (*):</strong></label>
+    		<label><strong>{{ __('Zuzendaria(k)')}} (*):</strong><span class='autorInfo'></span></label>
     	 	{{Form::text('tesisDoctoralesDirector', '', [
 		        'id'           =>'tesisDoctoralesDirector',
 		        'placeholder'  =>__('Zuzendaria bilatu'),
