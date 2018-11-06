@@ -27,7 +27,7 @@ class EquipamientoNuevoController extends Controller
 
      public function indexAll()
     {
-       $data = EquipamientoNuevo::orderBy('id','DESC')->paginate(25);
+       $data = EquipamientoNuevo::where('id', '>', '0')->orderBy('id','DESC')->paginate(25);
        return view('equipamientoNuevo.index',compact('data')) ;
     }
 
