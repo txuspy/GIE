@@ -26,7 +26,7 @@ class CongresosController extends Controller
 
     public function indexAll()
     {
-       $data = Congresos::orderBy('id','DESC')->paginate(25);
+       $data = Congresos::where('id', '>', '0')->orderBy('id','DESC')->paginate(25);
        return view('congresos.index',compact('data')) ;
     }
 

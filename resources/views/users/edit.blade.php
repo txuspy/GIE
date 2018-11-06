@@ -114,7 +114,6 @@
 	<script type="text/javascript" >
 	$( function() {
 	     if ( $( ".alert-danger" )[0] ) {
-	         alert("fff");
             $("#dialog2").show();
             $("#dialog2").dialog({
 				modal: true,
