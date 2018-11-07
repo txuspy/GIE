@@ -70,7 +70,13 @@
 
 <div class="col-sm-6 ">
                       <div class="form-group has-error">
-                        <label><strong>{{ __('Tokia') }} (*):</strong></label>
+                        <label><strong>
+                            @if( $tipo == 'enCasa' )
+								{{ __('Jatorria') }}
+							@else
+								{{ __('Tokia') }}
+							@endif
+                             (*):</strong></label>
                         @if ($errors->has('lugar'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif

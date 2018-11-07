@@ -57,7 +57,13 @@
 			<div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Tokia') }} (*):</strong></label>
+		                <label><strong>
+		                	@if( $programaDeIntercambio->tipo == 'enCasa' )
+								{{ __('Jatorria') }}
+							@else
+								{{ __('Tokia') }}
+							@endif
+							(*):</strong></label>
 		                {!! Form::text('lugar', null, array('placeholder' => __('Tokia') ,'class' => 'form-control')) !!}
 		            </div>
 		        </div>

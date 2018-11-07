@@ -41,7 +41,13 @@
 				<table class="table">
 					<tr>
 						<th>{{ __('Aktibitea') }}</th>
-						<th>{{ __('Tokia') }}</th>
+						<th>
+							@if( $tipo == 'enCasa' )
+								{{ __('Jatorria') }}
+							@else
+								{{ __('Tokia') }}
+							@endif
+						</th>
 						<th>
 							@if( $tipo == 'azp' )
 								{{ __('IIP / AZP') }}
