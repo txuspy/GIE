@@ -128,7 +128,6 @@ class UserController extends Controller
         \LaravelGettext::setLocale($request->lng) ;
         $passwordCambiar =false;
         return redirect()->route('home', $passwordCambiar)->with('success', __('Erabiltzailea zuzen aldatatu da'));
-       // return view('home', compact('passwordCambiar'))->with('success', __('Erabiltzailea zuzen aldatatu da'));
     }
 
     public function destroy($id)
