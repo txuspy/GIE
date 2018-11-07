@@ -201,12 +201,15 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+        //Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         /*
          * Google maps provider
          */
         GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class, // 16/10/2017
         Codedge\Fpdf\FpdfServiceProvider::class,//23/10/2017 FPDF
+
+        \hisorange\BrowserDetect\ServiceProvider::class,
+
     ],
 
     /*
@@ -267,8 +270,9 @@ return [
         'Images'       => Intervention\Image\Facades\Image::class, // 15/03/2017 Intervention imagen
         'Datatables'   => Yajra\Datatables\Facades\Datatables::class, // 20/07/2017 Datatables
         //GOOGLE MAP
-        //'Gmaps'        => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class, // 16/10/2017 Gmaps
+        //'Gmaps'      => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class, // 16/10/2017 Gmaps
         'Fpdf'         => Codedge\Fpdf\Facades\Fpdf::class,//23/10/2017 FPDF
-        'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+        'AdminLTE'     => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+        'Browser'      => \hisorange\BrowserDetect\Facade::class,
     ],
 ];

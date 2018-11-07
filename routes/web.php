@@ -12,8 +12,17 @@
 */
 use App\Mail\Welcome as WelcomeEmail;
 use App\User;
-
+if ( \Browser::isIE() ) {
+	dd( " Debes de cambiar de navegador, IE no esta soportado !" );
+	dd(
+        \Browser::browserName()." <br>"
+        .\Browser::browserFamily()." <br>"
+        .\Browser::browserVersion()." <br>"
+        .\Browser::browserEngine()." <br>"
+    );
+}
 Route::get('/', function () {
+
 	\Session::forget('locale');
     return view('welcome');
     // return view('prueba');
