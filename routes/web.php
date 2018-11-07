@@ -13,7 +13,10 @@
 use App\Mail\Welcome as WelcomeEmail;
 use App\User;
 if ( \Browser::isIE() ) {
-	dd( " Debes de cambiar de navegador, IE no esta soportado !" );
+	echo '<script language="javascript">';
+	echo 'alert("IE ez da onartzen, nabigatzailea aldatu beharra dago. \nDebes de cambiar de navegador, IE no esta soportado.")';
+	echo '</script>';
+	dd( " IE ez da onartzen, nabigatzailea aldatu beharra dago.  --- Debes de cambiar de navegador, IE no esta soportado." );
 	dd(
         \Browser::browserName()." <br>"
         .\Browser::browserFamily()." <br>"
@@ -43,6 +46,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::resource('users','UserController');
 	Route::resource('autor','AutorController');
 	Route::post('autor/insertAjax','AutorController@storeAjax');
+	Route::post('users/search',  ['as' => 'users.search', 'uses' => 'UserController@search']  );
 
 	Route::get('/word', ['as' => 'word', 'uses' => 'WordController@index']);
 	Route::post('/word', ['as' => 'word.post', 'uses' => 'WordController@create']);

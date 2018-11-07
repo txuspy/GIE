@@ -1,28 +1,28 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-    @if(\Auth::user()->hasRole('admin'))
-        {!! Breadcrumbs::render('usuariosEdit', $user) !!}
-    @else
-       {!! Breadcrumbs::render('usuariosNOAdminVer', $user) !!}
-    @endif
-   @include('dialog.upload')
-    @if(session()->has('firstTime'))
-        <div id="msj-ok" class="alert alert-success alert-dismissible" role="alert">
-    		<strong> {{ __('Lehenbiziko aldia da sartzen zarela, zure datuak ondo bete, eta pasahitza aldatu.') }}</strong>
-    	</div>
-    @endif
-
-	@if (count($errors) > 0)
-		<div class="alert alert-danger">
-			<strong>{{ __('Whoops!') }}</strong> {{ __('There were some problems with your input.') }}<br><br>
-			<ul>
-				@foreach ($errors->all() as $error)
-					<li>{{ $error }}</li>
-				@endforeach
-			</ul>
+@if(\Auth::user()->hasRole('admin'))
+    {!! Breadcrumbs::render('usuariosEdit', $user) !!}
+@else
+   {!! Breadcrumbs::render('usuariosNOAdminVer', $user) !!}
+@endif
+<div class="panel panel-default">
+       @if ($message = Session::get('success'))
+		<div class="alert alert-success">
+			<p>{{ $message }}</p>
 		</div>
-	@endif
+    	@endif
+    	@if (count($errors) > 0)
+    		<div class="alert alert-danger">
+    			<strong>{{ __('Whoops!') }}</strong> {{ __('There were some problems with your input.') }}<br><br>
+    			<ul>
+    				@foreach ($errors->all() as $error)
+    					<li>{{ $error }}</li>
+    				@endforeach
+    			</ul>
+    		</div>
+    	@endif
+		<div class="panel-body">
+			<div class="col-sm-12 margin-tb">
 	{!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id]]) !!}
 	<div class="row">
 		<div class="col-xs-10 col-sm-10 col-md-10">

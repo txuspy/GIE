@@ -12,6 +12,7 @@ use App\ImagenesRelacion;
 use DB;
 use Hash;
 use Yajra\Datatables\Datatables;
+use App\Lib\Functions;
 
 class UserController extends Controller
 {
@@ -136,6 +137,60 @@ class UserController extends Controller
         return redirect()->route('users.index')
                         ->with('success', __('Erabiltzailea zuzen ezabatu da'));
     }
+
+    private function crearSql($q, $request = false)
+	{
+
+
+	    if(isset($request['name'])) {
+			if($request['name'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('name', 'like', "%".$request['name']."%");
+				});
+			}
+		}
+
+	    if(isset($request['lname'])) {
+			if($request['lname'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('lname', 'like', "%".$request['lname']."%");
+				});
+			}
+		}
+
+
+        if(isset($request['email'])) {
+			if($request['email'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('email', $request['email'] );
+				});
+			}
+		}
+
+
+
+
+
+		return $q;
+	}
+
+    public function search(Request $request)
+    {
+
+        $q    = User::query();
+        $q    = $this->crearSql($q, $request);
+        $data = $q
+                ->orderBy('id','DESC')
+                ->paginate(25);
+        $sql  = Functions::getSql($q, $q->toSql());
+       // dd($sql );
+        $tipo = $request['tipo'];
+
+
+        return view('users.index',compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
+
     public static function getUserName($user_id)
     {
         $user = User::where('user_id', $user_id)->get();
