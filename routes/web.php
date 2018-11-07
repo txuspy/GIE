@@ -22,7 +22,7 @@ Route::get('/gie', 'HomeController@gie' );
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::auth();
 Route::group(['middleware' => ['auth']], function() {
-	Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index']);
+	Route::get('home/{passwordCambiar?}', ['as' => 'home', 'uses' => 'HomeController@index']);
 	//Route::post('accion/ajaxInput', ['as' => 'ajax', 'uses' => 'ClientesController@ajaxInput']);
 
 	// ARCHIVOS E IMAGENES
