@@ -31,7 +31,7 @@ class ProyectosController extends Controller
 
     public function indexAll($tipo)
     {
-        $data = Proyectos::where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
+        $data = Proyectos::where('id', '>', '0')->where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
         return view('proyectos.index',compact('data', 'tipo')) ;
     }
 

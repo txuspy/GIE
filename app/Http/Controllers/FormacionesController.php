@@ -32,7 +32,7 @@ class FormacionesController extends Controller
 
     public function indexAll($tipo, $modo)
     {
-       $data = Formaciones::where('tipo',$tipo)->where('modo', $modo)->orderBy('id','DESC')->paginate(25);
+       $data = Formaciones::where('id', '>', '0')->where('tipo',$tipo)->where('modo', $modo)->orderBy('id','DESC')->paginate(25);
        return view('formaciones.index',compact('data', 'tipo', 'modo')) ;
     }
 

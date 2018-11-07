@@ -29,7 +29,7 @@ class ProgramasDeIntercambioController extends Controller
 
     public function indexAll($tipo)
     {
-       $data = ProgramasDeIntercambio::where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
+       $data = ProgramasDeIntercambio::where('id', '>', '0')->where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
        return view('programasDeIntercambio.index',compact('data', 'tipo')) ;
     }
 

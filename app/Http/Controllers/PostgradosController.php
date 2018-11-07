@@ -30,7 +30,7 @@ class PostgradosController extends Controller
 
     public function indexAll($tipo)
     {
-       $data = Postgrados::where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
+       $data = Postgrados::where('id', '>', '0')->where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
        return view('postgrados.index',compact('data', 'tipo')) ;
     }
 
