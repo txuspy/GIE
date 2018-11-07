@@ -27,7 +27,7 @@ class VisitasController extends Controller
 
     public function indexAll()
     {
-       $data = Visitas::orderBy('id','DESC')->paginate(25);
+       $data = Visitas::where('id', '>', '0')->orderBy('id','DESC')->paginate(25);
        return view('visitas.index',compact('data')) ;
     }
 

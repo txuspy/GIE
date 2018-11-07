@@ -30,7 +30,7 @@ class TesisDoctoralesController extends Controller
 
     public function indexAll($tipo)
     {
-       $data = TesisDoctorales::where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
+       $data = TesisDoctorales::where('id', '>', '0')->where('tipo',$tipo)->orderBy('id','DESC')->paginate(25);
        return view('tesisDoctorales.index',compact('data', 'tipo')) ;
     }
 
