@@ -84,7 +84,7 @@
         </div>
 		<div class="col-sm-6 ">
             <div class="form-group">
-                <label><strong><?php echo e(__('Arte')); ?> :</strong></label>
+                <label><strong><?php echo e(__('Noiz arte')); ?> :</strong></label>
                 <?php echo Form::text('hasta', null , array('placeholder' => __('Hutsik utzi gaur egun martxan badago') ,'class' => 'date-year form-control')); ?>
 
             </div>

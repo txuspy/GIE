@@ -30,7 +30,7 @@
 				<table class="table">
 					<tr>
 						<th><?php echo e(__('Hornikuntza')); ?></th>
-						<th><?php echo e(__('Departamento')); ?></th>
+						<th><?php echo e(__('Saila')); ?></th>
 						<th><?php echo e(__('Akzioak')); ?></th>
 					</tr>
 					<?php if($data): ?>

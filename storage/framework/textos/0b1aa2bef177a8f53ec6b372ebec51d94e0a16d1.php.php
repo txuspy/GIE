@@ -26,7 +26,7 @@ class CongresosController extends Controller
 
     public function indexAll()
     {
-       $data = Congresos::orderBy('id','DESC')->paginate(25);
+       $data = Congresos::where('id', '>', '0')->orderBy('id','DESC')->paginate(25);
        return view('congresos.index',compact('data')) ;
     }
 
@@ -132,7 +132,7 @@ class CongresosController extends Controller
 		}
 
 		if(isset($request['ekarpena'])) {
-			if($request['ekarpena'] != '') {
+			if($request['ekarpena'] != '0') {
 				$q->where(function ($query) use ($request) {
 					return $query->where('ekarpena',  $request['ekarpena'] );
 				});
@@ -180,14 +180,13 @@ class CongresosController extends Controller
 
     public function search(Request $request)
     {
-        //dd($request->all());
+        // dd($request->all());
         $q    = Congresos::query();
         $q    = $this->crearSql($q, $request);
-        $data = $q
-                ->orderBy('id','DESC')
+        $data = $q->orderBy('id','DESC')
                 ->paginate(25);
         $sql  = Functions::getSql($q, $q->toSql());
-        // dd($sql );
+        //  dd($sql );
         $tipo = $request['tipo'];
         return view('congresos.index',compact('data')) ;
     }

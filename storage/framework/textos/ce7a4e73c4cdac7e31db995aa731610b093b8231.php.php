@@ -41,7 +41,15 @@
 				<table class="table">
 					<tr>
 						<th><?php echo e(__('Aktibitea')); ?></th>
-						<th><?php echo e(__('Tokia')); ?></th>
+						<th>
+							<?php if( $tipo == 'enCasa' ): ?>
+								<?php echo e(__('Jatorria')); ?>
+
+							<?php else: ?>
+								<?php echo e(__('Tokia')); ?>
+
+							<?php endif; ?>
+						</th>
 						<th>
 							<?php if( $tipo == 'azp' ): ?>
 								<?php echo e(__('IIP / AZP')); ?>

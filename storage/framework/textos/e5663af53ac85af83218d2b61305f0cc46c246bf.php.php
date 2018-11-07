@@ -112,7 +112,7 @@
 		            </div>
 		        </div>
 		    	<div class="col-sm-6">
-		    		<label><strong><?php echo e(__('Egilea(k)')); ?> (*):</strong></label>
+		    		<label><strong><?php echo e(__('Egilea(k)')); ?> (*):</strong><span class='autorInfo'></span></label>
 		    	 	<?php echo e(Form::text('publicacionesAutores', '', [
 				        'id'           =>'publicacionesAutores',
 				        'placeholder'  =>__('Egilea bilatu'),

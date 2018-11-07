@@ -60,7 +60,15 @@
 			<div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Tokia')); ?> (*):</strong></label>
+		                <label><strong>
+		                	<?php if( $programaDeIntercambio->tipo == 'enCasa' ): ?>
+								<?php echo e(__('Jatorria')); ?>
+
+							<?php else: ?>
+								<?php echo e(__('Tokia')); ?>
+
+							<?php endif; ?>
+							(*):</strong></label>
 		                <?php echo Form::text('lugar', null, array('placeholder' => __('Tokia') ,'class' => 'form-control')); ?>
 
 		            </div>
@@ -76,7 +84,7 @@
 		        </div>
 				<div class="col-sm-3">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Arte')); ?> :</strong></label>
+		                <label><strong><?php echo e(__('Noiz arte')); ?> :</strong></label>
 		                <?php echo Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')); ?>
 
 		            </div>

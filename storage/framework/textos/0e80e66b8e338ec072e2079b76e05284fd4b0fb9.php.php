@@ -75,7 +75,15 @@
 
 <div class="col-sm-6 ">
                       <div class="form-group has-error">
-                        <label><strong><?php echo e(__('Tokia')); ?> (*):</strong></label>
+                        <label><strong>
+                            <?php if( $tipo == 'enCasa' ): ?>
+								<?php echo e(__('Jatorria')); ?>
+
+							<?php else: ?>
+								<?php echo e(__('Tokia')); ?>
+
+							<?php endif; ?>
+                             (*):</strong></label>
                         <?php if($errors->has('lugar')): ?>
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>

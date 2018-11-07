@@ -6,6 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><strong><?php echo e(__('Ongi etorria Gipuzkoako Ingenieritza Eskolako memoria sortzeko aplikaziora.')); ?></strong></div>
                 <div class="panel-body">
+                    <?php echo $__env->make('layouts.mensages', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                      <?php if($passwordCambiar): ?>
                         <div class="alert alert-danger">
                             <i class="fa fa-exclamation-circle" aria-hidden="true"></i>

@@ -79,7 +79,7 @@
 	        </div>
 			<div class="col-xs-6 ">
 	            <div class="form-group">
-	                <label><strong><?php echo e(__('Arte')); ?> :</strong></label>
+	                <label><strong><?php echo e(__('Noiz arte')); ?> :</strong></label>
 	                <?php echo Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')); ?>
 
 	            </div>
@@ -88,7 +88,7 @@
 
 	    <div>
 	    	<div class="col-md-6 ">
-	    		<label><strong><?php echo e(__('Irakaslea(k)')); ?>:</strong></label>
+	    		<label><strong><?php echo e(__('Irakaslea(k)')); ?>:</strong><span class='autorInfo'></span></label>
 	    	 	<?php echo e(Form::text('CongresoProfesor', '', [
 			        'id'           =>'CongresoProfesor',
 			        'placeholder'  =>__('Irakaslea bilatu'),

@@ -54,8 +54,9 @@
 		'idForm'=>'formdialogTesisDoctoralesDoctorando',
 		'tituloContenido' => __('Doctorando berria sortu') ,
 	], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-	<?php echo Form::model($tesisDoctoral, ['method' => 'PUT','route' => ['tesisDoctorales.update', $tesisDoctoral->id]]); ?>
+	<?php echo Form::model($tesisDoctoral, ['route' => ['tesisDoctorales.update', $tesisDoctoral->id] ]); ?>
 
+	<input name="_method" type="hidden" value="PUT">
 		<div>
 		<div class="col-sm-6 ">
             <div class="form-group">
@@ -102,7 +103,7 @@
 			    <div>
 			        <div class="col-sm-6 ">
 			            <div class="form-group">
-			                <label><strong><?php echo e(__('Data')); ?> :</strong></label>
+			                <label><strong><?php echo e(__('Data')); ?> <?php echo e($tesisDoctoral->fechaLectura); ?>:</strong></label>
 			                <?php echo Form::text('fechaLectura', $tesisDoctoral->fechaLectura , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')); ?>
 
 			            </div>
@@ -128,7 +129,7 @@
 
     <div>
     	<div class="col-sm-6">
-    		<label><strong><?php echo e(__('Zuzendaria(k)')); ?> (*):</strong></label>
+    		<label><strong><?php echo e(__('Zuzendaria(k)')); ?> (*):</strong><span class='autorInfo'></span></label>
     	 	<?php echo e(Form::text('tesisDoctoralesDirector', '', [
 		        'id'           =>'tesisDoctoralesDirector',
 		        'placeholder'  =>__('Zuzendaria bilatu'),

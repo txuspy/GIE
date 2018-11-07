@@ -50,8 +50,9 @@
 
 							</td>
 						<td>
+
 								<?php $__currentLoopData = $congreso->profesores; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $profesor): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
-			 					<?php echo e($profesor->nombre); ?> <?php echo e($profesor->apellido); ?>
+			 						 <?php echo e($profesor->nombre); ?> <?php echo e($profesor->apellido); ?>
 
 			 					<?php if(!$loop->last): ?>
 			 						,

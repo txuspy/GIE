@@ -73,7 +73,7 @@
         </div>
 		<div class="col-sm-6 ">
             <div class="form-group">
-                <label><strong><?php echo e(__('Arte')); ?> :</strong></label>
+                <label><strong><?php echo e(__('Noiz arte')); ?> :</strong></label>
                 <?php echo Form::text('hasta', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->addYear('1')->format('Y-m-d') ,'class' => 'datepicker form-control')); ?>
 
             </div>

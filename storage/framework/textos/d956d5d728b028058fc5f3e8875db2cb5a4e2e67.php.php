@@ -90,7 +90,7 @@
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong><?php echo e(__('Irakaslea(k)')); ?> (*): <span class='autorInfo'></span></label>
+		    		<label><?php echo e(__('Irakaslea(k)')); ?> (*): <span class='autorInfo'></span></label>
 		    	 	<?php echo e(Form::text('postgradosAutores', '', [
 				        'id'           =>'postgradosAutores',
 				        'placeholder'  =>__('Irakaslea bilatu'),
@@ -106,7 +106,7 @@
 			 		<br><ul id="ulPostgradosAutores" class="list-group">
 			 			<?php $__currentLoopData = $postgrado->autores; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $autor): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 			 				<li class="list-group-item" id="detachAutores<?php echo e($autor->id); ?>">
-				 				<a data-id='<?php echo e($postgrado->id); ?>' data-idAutor='<?php echo e($autor->id); ?>' data-carpeta ='autores' data-tipo='postgrado'  class='desenlazar'>
+				 				<a data-id='<?php echo e($postgrado->id); ?>' data-idAutor='<?php echo e($autor->id); ?>' data-carpeta ='autores' data-tipo='postgrados'  class='desenlazar'>
 				 					<i class="fa fa-trash"></i>
 				 				</a>
 			 				<?php echo e($autor->nombre); ?> <?php echo e($autor->apellido); ?>

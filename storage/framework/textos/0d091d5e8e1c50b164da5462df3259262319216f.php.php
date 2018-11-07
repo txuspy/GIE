@@ -74,14 +74,14 @@
 		    <div class="row" style="margin:1px;">
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Noiztik')); ?> (*):</strong> ( <?php echo e($periodo); ?> )</label>
+		                <label><strong><?php echo e(__('Noiztik')); ?> (*):</strong> </label>
 		                <?php echo Form::text('desde',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')); ?>
 
 		            </div>
 		        </div>
 				<div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Arte')); ?> :</strong></label>
+		                <label><strong><?php echo e(__('Noiz arte')); ?> :</strong></label>
 		                <?php echo Form::text('hasta', null , array('placeholder' => __('Hasta') ,'class' => 'datepicker form-control')); ?>
 
 		            </div>
@@ -89,7 +89,7 @@
 		    </div>
 		    <div>
 		    	<div class="col-sm-6">
-		    		<label><strong><?php echo e(__('Ikertzaile nagusia(k)')); ?> (*):</strong></label>
+		    		<label><strong><?php echo e(__('Ikertzaile nagusia(k)')); ?> (*):</strong><span class='autorInfo'></span></label>
 		    	 	<?php echo e(Form::text('proyectosDirector', '', [
 				        'id'           =>'proyectosDirector',
 				        'placeholder'  =>__('Ikertzaile nagusia bilatu'),
