@@ -7,6 +7,7 @@ use  App\Role;
 use  App\GIE01;
 use  App\GIE02;
 use  App\GIEBERRIA;
+use  App\Politekniko3;
 use  App\User;
 use  App\Autor;
 use  Hash;
@@ -52,26 +53,27 @@ class HomeController extends Controller
     public function gie()
     {
         // si pasan una lista se mete en mysql crear el modelo y con este script mira si existe y si no lo mete, CUIDADO: los campos como se llaman
-        // $gies01 = GIE01::orderBy('apellidos','ASC')->get();
-        $gies02 = GIEBERRIA::orderBy('apellidos','ASC')->get();
+        // $gies01 = GIE01::orderBy('lname','ASC')->get();
+        $gies02 = Politekniko3::orderBy('lname','ASC')->get();
         $pos=1;
         $usuario = array();
         foreach ($gies02 as $gie02){
-            echo $pos.") ".str_replace("*", "", ucwords( mb_strtolower(trim($gie02->Nombre)))). ", ".str_replace("*", "", ucwords(strtolower(trim($gie02->Apellidos)))).", ".trim($gie02->Email)."<br>";
-            if($gie02->Email)
+            echo $pos.") ".str_replace("*", "", ucwords( mb_strtolower(trim($gie02->name)))). ", ".str_replace("*", "", ucwords(strtolower(trim($gie02->lname)))).", ".trim($gie02->email)."<br>";
+            if($gie02->email)
             {
+               //dd($gie02);
                 $usuario = false;
-                $usuario = User::where('email', $gie02->Email)->first();
+                $usuario = User::where('email', $gie02->email)->first();
                   if($usuario){
-                      echo "--- Existe ".$gie02->Email."<br>";
+                      echo "--- Existe ".$gie02->email."<br>";
                        $pos++;
                   }else{
                     // Seteo usuario
                     $input['password'] = Hash::make('secret');
                     // $input['id']  = str_replace("*", "", ucwords(mb_strtolower(trim($gie02->id   ))));
-                    $input['name']  = str_replace("*", "", ucwords(mb_strtolower(trim($gie02->Nombre   ))));
-                    $input['lname'] = str_replace("*", "", ucwords(mb_strtolower(trim($gie02->Apellidos))));
-                    $input['email'] = trim($gie02->Email);
+                    $input['name']  = str_replace("*", "", ucwords(mb_strtolower(trim($gie02->name   ))));
+                    $input['lname'] = str_replace("*", "", ucwords(mb_strtolower(trim($gie02->lname))));
+                    $input['email'] = trim($gie02->email);
                     //creo usuario
                     $user = false;
                     $user = User::create($input);
@@ -92,7 +94,7 @@ class HomeController extends Controller
                 }
             }
         }
-        $gies02 = GIE02::orderBy('id','DESC')->get();
+    //   / $gies02 = Politekniko3::orderBy('id','DESC')->get();
 
     }
 }
