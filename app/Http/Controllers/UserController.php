@@ -41,8 +41,9 @@ class UserController extends Controller
         ]);//'ldap'     => 'required|unique:users,ldap',
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
-        $input['name']  = ucfirst(strtolower(trim($input['name'])));
-        $input['lname'] = ucfirst(strtolower(trim($input['lname'])));
+
+        $input['name']  = trim($input['name']);
+        $input['lname'] = trim($input['lname']);
 
         $user = User::create($input);
         foreach ($request->input('roles') as $key => $value) {
@@ -84,8 +85,9 @@ class UserController extends Controller
         ]);// 'ldap'     => 'required',
 
         $input          = $request->all();
-        $input['name']  = ucfirst(strtolower(trim($input['name'])));
-        $input['lname'] = ucfirst(strtolower(trim($input['lname'])));
+        $input['name']  = trim($input['name']);
+        $input['lname'] = trim($input['lname']);
+
         $input['estado'] = '1';
         if(!empty($input['password'])){
             $input['password'] = Hash::make($input['password']);
@@ -103,8 +105,8 @@ class UserController extends Controller
         if ( empty($user->autor) OR ($user->autor == '0') ){
            $valores = [
                 'user_id'   => $id,
-                'nombre'    => ucfirst(strtolower(trim($user->name))),
-                'apellido'  => ucfirst(strtolower(trim($user->lname))),
+                'nombre'    => trim($input['name']),
+                'apellido'  => trim($input['lname']),
                 'tipo'      => 'EHU'
             ];
             $autor = Autor::create($valores);
@@ -113,8 +115,8 @@ class UserController extends Controller
         }else{
             $autor = Autor::find($user->autor->id);
             $valores = [
-               'nombre'  => ucfirst(strtolower(trim($user->name))),
-               'apellido'  => ucfirst(strtolower(trim($user->lname))),
+               'nombre'    => trim($user->name),
+               'apellido'  => trim($user->lname),
 
             ];
             $autor->update($valores);
