@@ -32,7 +32,7 @@
 	<div>
 		<div class="col-sm-6 ">
             <div class="form-group has-error">
-                <label><strong>Proiektua / Proyecto (*):</strong></label>
+                <label><strong>{{ __('Proiektua')  }}  (*):</strong></label>
                 @if ($errors->has('proyecto_eu'))
                     <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                 @endif
