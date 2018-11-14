@@ -37,7 +37,7 @@
                     <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                 @endif
 
-                {!! Form::text('proyecto_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control buscadorProyectos', 'data-tipo'  => $tipo)) !!}
+                {!! Form::text('proyecto_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control ', 'data-tipo'  => $tipo)) !!}
             </div>
         </div>
         <!--

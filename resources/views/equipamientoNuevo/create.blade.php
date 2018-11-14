@@ -29,13 +29,13 @@
                             @if ($errors->has('hornikuntza'))
     	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
     	                    @endif
-                            {!! Form::text('hornikuntza', null, array('placeholder' => __('Hornikuntza')  ,'class' => 'form-control buscadorEquipamientoNuevo')) !!}
+                            {!! Form::text('hornikuntza', null, array('placeholder' => __('Hornikuntza')  ,'class' => 'form-control ')) !!}
                         </div>
                     </div>
                     <div class="col-sm-6 ">
                         <div class="form-group">
                             <label><strong>{{ __('Ekipamendua') }} :</strong></label>
-                            {!! Form::text('ekipamendua', null, array('placeholder' => __('Ekipamendua'),'class' => 'form-control buscadorEquipamientoNuevo')) !!}
+                            {!! Form::text('ekipamendua', null, array('placeholder' => __('Ekipamendua'),'class' => 'form-control ')) !!}
                         </div>
                     </div>
                 </div>

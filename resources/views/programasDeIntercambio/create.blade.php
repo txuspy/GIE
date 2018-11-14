@@ -36,14 +36,14 @@
                         @if ($errors->has('actividad_eu'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
-                        {!! Form::text('actividad_eu', null, array('placeholder' => 'Aktibitea','class' => 'form-control buscadorProgramasDeIntercambio', 'data-tipo'  => $tipo )) !!}
+                        {!! Form::text('actividad_eu', null, array('placeholder' => 'Aktibitea','class' => 'form-control', 'data-tipo'  => $tipo )) !!}
                     </div>
                 </div>
 
                 <div class="col-sm-6 ">
                     <div class="form-group">
                         <label><strong>Actividad :</strong></label>
-                        {!! Form::text('actividad_es', null, array('placeholder' => 'Actividad','class' => 'form-control buscadorProgramasDeIntercambio', 'data-tipo'  => $tipo )) !!}
+                        {!! Form::text('actividad_es', null, array('placeholder' => 'Actividad','class' => 'form-control', 'data-tipo'  => $tipo )) !!}
                     </div>
                 </div>
 

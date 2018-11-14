@@ -35,7 +35,7 @@
                 @if ($errors->has('titulo_eu'))
                     <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                 @endif
-                {!! Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control buscadorTesisDoctorales')) !!}
+                {!! Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control')) !!}
             </div>
 
         </div>

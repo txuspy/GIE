@@ -41,7 +41,7 @@
 		                 @if ($errors->has('titulo_eu'))
 		                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 		                    @endif
-		                {!! Form::text('titulo_eu', null, array('placeholder' =>  __('Ikastaroa') ,'class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
+		                {!! Form::text('titulo_eu', null, array('placeholder' =>  __('Ikastaroa') ,'class' => 'form-control', 'data-tipo'  => $tipo , 'data-modo'  => $modo)) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">

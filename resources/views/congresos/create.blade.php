@@ -30,7 +30,7 @@
                         @if ($errors->has('congreso_eu'))
                             <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                         @endif
-                        {!! Form::text('congreso_eu', null, array('placeholder' => _('Kongresua') ,'class' => 'form-control buscadorCongresos')) !!}
+                        {!! Form::text('congreso_eu', null, array('placeholder' => _('Kongresua') ,'class' => 'form-control')) !!}
                     </div>
                 </div>
                 <div class="col-sm-6 ">
@@ -53,7 +53,7 @@
                 </div>
                  <div class="col-sm-6 ">
                      <div class="form-group has-error">
-                        <label><strong>Tokia / Lugar (*):</strong></label>
+                        <label><strong>{{ __('Tokia') }} (*):</strong></label>
                          @if ($errors->has('lugar'))
                             <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                         @endif

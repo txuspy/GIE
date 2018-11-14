@@ -32,13 +32,13 @@
 		                 @if ($errors->has('titulo_eu'))
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    @endif
-		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Aktibitatea','class' => 'form-control buscadorVisitas')) !!}
+		                {!! Form::text('titulo_eu', null, array('placeholder' => 'Aktibitatea','class' => 'form-control ')) !!}
 		            </div>
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong>Actividad :</strong></label>
-		                {!! Form::text('titulo_es', null, array('placeholder' => 'Actividad','class' => 'form-control buscadorVisitas')) !!}
+		                {!! Form::text('titulo_es', null, array('placeholder' => 'Actividad','class' => 'form-control ')) !!}
 		            </div>
 		        </div>
 		    </div>
