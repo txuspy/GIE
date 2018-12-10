@@ -82,8 +82,8 @@ class AutorController extends Controller
             'apellido' => 'required'
         ]);
         $valores = [
-           'nombre'    => trim($request->nombre)),
-           'aellido'  => trim($request->apellido))
+           'nombre'    => trim($request->nombre),
+           'aellido'  => trim($request->apellido)
         ];
         //$input = $request->all();
         $autor = Autor::find($id);
