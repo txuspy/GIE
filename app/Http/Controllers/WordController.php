@@ -14,6 +14,7 @@ use App\Publicaciones;
 use App\ProgramasDeIntercambio;
 use App\EquipamientoNuevo;
 use Carbon\Carbon;
+use HTMLtoOpenXML;
 
 class WordController extends Controller
 {
@@ -30,6 +31,7 @@ class WordController extends Controller
     private $widthTH ;
     private $widthTD ;
     private $styleH1 ;
+    private $fuente;
 
 
     public function index()
@@ -48,9 +50,28 @@ class WordController extends Controller
         ]);
         $this->formatearYear($request['year'], $request['mes']);
         $this->setStyles();
+        if( \Session::get('locale') =='es'){
+            $this->fuente = "EHU-Sans";
+        }else{
+            $this->fuente = "EHU-Serif";
+        }
+
         // Word sortu
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $phpWord->setDefaultFontName($this->fuente);
+
+
+        $phpWord->setDefaultParagraphStyle(
+            array(
+                'spaceAfter'  => \PhpOffice\PhpWord\Shared\Converter::pointToTwip(0),
+                'spacing'     => 120,
+                'lineHeight'  => 1.2,
+            )
+        );
+        //if(\Session::get())
+
         $section = $this->indiceWord($phpWord,  $phpWord);
+
         // Sekzio guztiak sortu
         $this->wordPostgrados( $section, 'master', $phpWord );
         $this->wordPostgrados( $section, 'doctorando', $phpWord );
@@ -95,7 +116,7 @@ class WordController extends Controller
         /*$fontStyle->setBold(true);
         $fontStyle->setName('Tahoma');
         $fontStyle->setSize(16);*/
-        $section->addText(__('Gipuzkoako Ingeniaritza Eskola'), array('name' => 'Tahoma', 'size' => 20, 'bold' => true) );
+        $section->addText(__('Gipuzkoako Ingeniaritza Eskola'), array('name' => $this->fuente, 'size' => 20, 'bold' => true) );
        // $myTextElement->setFontStyle($fontStyle);
         $phpWord->addNumberingStyle(
             'multilevel',
@@ -108,7 +129,7 @@ class WordController extends Controller
             )
         );
 
-        $section->addText(__('ACTIVIDAD DOCENTE'), array('name' => 'Tahoma', 'size' => 13, 'bold' => true) );
+        $section->addText(__('ACTIVIDAD DOCENTE'), array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
         $section->addListItem( __('Graduondoko programak'), 0, null, 'multilevel');
         $section->addListItem( __('Masterretan parte-hartzea'), 1, null, 'multilevel');
         $section->addListItem( __('Doktoretzan parte-hartzea'), 1, null, 'multilevel');
@@ -122,7 +143,7 @@ class WordController extends Controller
         $section->addListItem( __('IIP /AZP mugikortasuna'), 1, null, 'multilevel');
         $section->addListItem( __('Instalazio bisitak'), 0, null, 'multilevel');
 
-        $section->addText(__('ACTIVIDAD INVESTIGADORA') , array('name' => 'Tahoma', 'size' => 13, 'bold' => true));
+        $section->addText(__('ACTIVIDAD INVESTIGADORA') , array('name' => $this->fuente, 'size' => 13, 'bold' => true));
         $section->addListItem( __('Ikerkuntza taldea'), 0, null, 'multilevel');
         $section->addListItem( __('Tesiak'), 0, null, 'multilevel');
         /*$section->addListItem( __('Uneko Tesiak'), 1, null, 'multilevel');
@@ -168,7 +189,7 @@ class WordController extends Controller
         foreach ($postgrados as $postgrado){
             $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Programa'), $postgrado->$titulo);
             $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Saila'), \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$postgrado->departamento]??'---' );
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Kurtsoa'), $postgrado->$curso);
+            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Ikastaroa'), $postgrado->$curso);
             $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Irakaslea(k)'), $this->listadoAutores($postgrado->autores));
             $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $postgrado->lugar);
             $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Iraupena'), $postgrado->duracion);
@@ -250,7 +271,7 @@ class WordController extends Controller
         foreach ($programasDeIntercambios as $programaDeIntercambio){
             $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Aktibitatea'), $programaDeIntercambio->$actividad);
             $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $programaDeIntercambio->lugar);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, $autores , $this->listadoAutores($programaDeIntercambio->autores));
+            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, $autores , $this->listadoAutores($programaDeIntercambio->profesores));
             $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Data(k)'), $programaDeIntercambio->desde." - ".$programaDeIntercambio->hasta);
         }
         $section->addPageBreak();
@@ -297,11 +318,20 @@ class WordController extends Controller
         // Tabla contenido variable
         $grupo = "grupo_".$lang;
         $lineaInv = "lineasInv_".$lang;
+
+
+
+
         foreach ($gruposInvestigacion as $grupoInvestigacion){
+            $parser = new HTMLtoOpenXML\Parser();
+            $ooXml = $parser->fromHTML($grupoInvestigacion->$lineaInv);
+            $ooXml = "<w:p><w:r><w:rPr><w:strike/></w:rPr><w:t>some texte</w:t></w:r></w:p>";
+
             $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Taldea'), $grupoInvestigacion->$grupo);
             $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $grupoInvestigacion->lugar);
             $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Arduraduna(k)'), $this->listadoAutores($grupoInvestigacion->responsables));
             $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Kidea(k)'), $this->listadoAutores($grupoInvestigacion->participantes ));
+            //$table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Ikerketa Lerroak'), $ooXml );
             $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Ikerketa Lerroak'), $grupoInvestigacion->$lineaInv );
         }
         $section->addPageBreak();
@@ -454,7 +484,7 @@ class WordController extends Controller
         ->orderBy('id','DESC')->get();
 
         $lang = \Session::get('locale');
-        $section->addText( __('Europar Batasuneko Programa Markoa') , array('name' => 'Tahoma', 'size' => 13, 'bold' => true) );
+        $section->addText( __('Europar Batasuneko Programa Markoa') , array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
         // Tabla config
         $tableName     = __('Europar Batasuneko Programa Markoa');
         $this->tableStyle         = array('borderSize' => 6, 'borderColor' => 'CCCCCC', 'cellMargin' => 30, 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER);
@@ -534,7 +564,7 @@ class WordController extends Controller
         ->orderBy('id','DESC')->get();
 
         $lang = \Session::get('locale');
-        $section->addText( __('Erakundeek diru-laguntza emandako Ikerkuntza Proiektuak') , array('name' => 'Tahoma', 'size' => 13, 'bold' => true) );
+        $section->addText( __('Erakundeek diru-laguntza emandako Ikerkuntza Proiektuak') , array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
         // Tabla config
         $tableName     = __('Erakundeek diru-laguntza emandako Ikerkuntza Proiektuak');
         $this->tableStyle         = array('borderSize' => 6, 'borderColor' => 'CCCCCC', 'cellMargin' => 30, 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER);
@@ -614,7 +644,7 @@ class WordController extends Controller
         ->orderBy('id','DESC')->get();
 
         $lang = \Session::get('locale');
-        $section->addText( __('Enpresek diru-laguntza emandako Ikerkuntza Proiektuak') , array('name' => 'Tahoma', 'size' => 13, 'bold' => true) );
+        $section->addText( __('Enpresek diru-laguntza emandako Ikerkuntza Proiektuak') , array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
         // Tabla config
         $tableName     = __('Enpresek diru-laguntza emandako Ikerkuntza Proiektuak');
         $this->tableStyle         = array('borderSize' => 6, 'borderColor' => 'CCCCCC', 'cellMargin' => 30, 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER);
@@ -749,8 +779,8 @@ class WordController extends Controller
             $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, $titArgitaletxea , $publicacion->editorialRevisa);
             $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Kapituloa'), $publicacion->capitulo);
             $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, $tituloISBN , $publicacion->ISBN);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Egilea(k)'), $this->listadoAutores($publicacion->directores));
-            $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Data'), $publicacion->desde." / ".$publicacion->hasta);
+            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Egilea(k)'), $this->listadoAutores($publicacion->autores));
+            $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Data'), $publicacion->year);
 
         }
 
@@ -768,7 +798,7 @@ class WordController extends Controller
             ->orderBy('id','DESC')->get();
 
         $lang = \Session::get('locale');
-        $section->addText( __('Liburuak eta Monografiak') , array('name' => 'Tahoma', 'size' => 13, 'bold' => true) );
+        $section->addText( __('Liburuak eta Monografiak') , array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
         // Tabla config
         $tableName     = __('Liburuak eta Monografiak');
         $this->tableStyle         = array('borderSize' => 6, 'borderColor' => 'CCCCCC', 'cellMargin' => 30, 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER);
@@ -828,7 +858,7 @@ class WordController extends Controller
             ->orderBy('id','DESC')->get();
 
         $lang = \Session::get('locale');
-        $section->addText( __('Artikuloak') , array('name' => 'Tahoma', 'size' => 13, 'bold' => true) );
+        $section->addText( __('Artikuloak') , array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
         // Tabla config
         $tableName     = __('Artikuloak');
         $this->tableStyle         = array('borderSize' => 6, 'borderColor' => 'CCCCCC', 'cellMargin' => 30, 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER);
@@ -888,7 +918,7 @@ class WordController extends Controller
 
         ->orderBy('id','DESC')->get();
         $lang = \Session::get('locale');
-        $section->addText( __('Hornikuntza Zientifikoa eskuratzea') , array('name' => 'Tahoma', 'size' => 13, 'bold' => true) );
+        $section->addText( __('Hornikuntza Zientifikoa eskuratzea') , array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
         // Tabla config
         $tableName     = __('Hornikuntza Zientifikoa eskuratzea');
         $this->tableStyle         = array('borderSize' => 6, 'borderColor' => 'CCCCCC', 'cellMargin' => 30, 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER);
@@ -900,7 +930,7 @@ class WordController extends Controller
         $this->styleLastTDRow  = array( 'bgColor' => 'FFFFFF', 'borderBottomSize' => 12, 'borderBottomColor' => '000000');
         $this->styleTH         = array( 'bgColor' => 'F1F1F1');
         $this->styleTD         = array( 'bgColor' => 'FFFFFF');
-        $this->widthTH         = 3000;
+        $this->widthTH         = 3300;
         $this->widthTD         = 6550;
          // Tabla contenido variable
         $equipo = "equipo_".$lang;
@@ -958,23 +988,34 @@ class WordController extends Controller
     }
 
     private function setStyles(){
-        $this->tableStyle      = array('borderSize' => 6, 'borderColor' => 'CCCCCC', 'cellMargin' => 30, 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER);
+        $this->tableStyle      = array('name' => $this->fuente, 'size' => 12, 'borderSize' => 6, 'borderColor' => 'CCCCCC', 'cellMargin' => 20, 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER);
         $this->styleFirstTHRow = array( 'bgColor' => 'F1F1F1', 'borderTopSize' => 12, 'borderTopColor' => '000000');
         $this->styleFirstTDRow = array( 'bgColor' => 'FFFFFF', 'borderTopSize' => 12, 'borderTopColor' => '000000');
         $this->styleLastTHRow  = array( 'bgColor' => 'F1F1F1', 'borderBottomSize' => 12, 'borderBottomColor' => '000000');
         $this->styleLastTDRow  = array( 'bgColor' => 'FFFFFF', 'borderBottomSize' => 12, 'borderBottomColor' => '000000');
         $this->styleTH         = array( 'bgColor' => 'F1F1F1');
         $this->styleTD         = array( 'bgColor' => 'FFFFFF');
-        $this->widthTH         = 3000;
-        $this->widthTD         = 6550;
-        $this->styleH1         = array('name' => 'Tahoma', 'size' => 13, 'bold' => true);
+        $this->widthTH         = 2300;
+        $this->widthTD         = 7250;
+        $this->styleH1         = array('name' => $this->fuente, 'size' => 13, 'bold' => true);
     }
 
+    private function limpiarHtml($value)
+    {
+       $value = str_replace("<p>","",$value);
+       $value = str_replace("</p>","\r\n",$value);
+       $value = str_replace("<ol>","",$value);
+       $value = str_replace("<li>","  ",$value);
+       $value = str_replace("</li>","",$value);
+       $value = str_replace("</ol>","\r\n",$value);
+       $value = str_replace("<br>","\r\n",$value);
+       return $value;
+    }
     private function pintaLineaTabla($table, $styleTH, $styleTD, $tit, $valor)
     {
         $table->addRow();
-        $table->addCell($this->widthTH , $styleTH)->addText( htmlspecialchars($tit) );
-        $table->addCell($this->widthTD , $styleTD)->addText( htmlspecialchars($valor) );
+        $table->addCell($this->widthTH , $styleTH)->addText( htmlspecialchars( $tit ) );
+        $table->addCell($this->widthTD , $styleTD)->addText( htmlspecialchars( $this->limpiarHtml($valor) ) );
         return $table;
     }
 

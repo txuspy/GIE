@@ -70,7 +70,6 @@
 						</td>
 						<td>{{ $programaDeIntercambio->lugar}}</td>
 						<td>
-
 							@foreach( $programaDeIntercambio->profesores as $profesor)
 			 					{{$profesor->nombre}} {{$profesor->apellido}}
 			 					@if(!$loop->last)
