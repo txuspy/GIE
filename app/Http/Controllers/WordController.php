@@ -14,7 +14,7 @@ use App\Publicaciones;
 use App\ProgramasDeIntercambio;
 use App\EquipamientoNuevo;
 use Carbon\Carbon;
-use HTMLtoOpenXML;
+// use HTMLtoOpenXML;
 
 class WordController extends Controller
 {
@@ -323,9 +323,9 @@ class WordController extends Controller
 
 
         foreach ($gruposInvestigacion as $grupoInvestigacion){
-            $parser = new HTMLtoOpenXML\Parser();
-            $ooXml = $parser->fromHTML($grupoInvestigacion->$lineaInv);
-            $ooXml = "<w:p><w:r><w:rPr><w:strike/></w:rPr><w:t>some texte</w:t></w:r></w:p>";
+           // $parser = new HTMLtoOpenXML\Parser();
+           // $ooXml = $parser->fromHTML($grupoInvestigacion->$lineaInv);
+           // $ooXml = "<w:p><w:r><w:rPr><w:strike/></w:rPr><w:t>some texte</w:t></w:r></w:p>";
 
             $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Taldea'), $grupoInvestigacion->$grupo);
             $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $grupoInvestigacion->lugar);
