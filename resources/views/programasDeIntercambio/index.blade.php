@@ -63,7 +63,7 @@
 						<td>
 							<?php $activ = "actividad_".\Session::get('locale') ;?>
 
-								<a  href="{{ route('programasDeIntercambio.edit',$programaDeIntercambio->proId) }}">
+								<a  href="{{ route('programasDeIntercambio.edit',$programaDeIntercambio->id) }}">
 									{{ $programaDeIntercambio->$activ }}
 									</a>
 							<br> <i>({{ $programaDeIntercambio->usuario?$programaDeIntercambio->usuario->name:'' }} {{ $programaDeIntercambio->usuario?$programaDeIntercambio->usuario->lname:'' }})</i>
@@ -78,9 +78,9 @@
 			 				@endforeach
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{ route('programasDeIntercambio.edit',$programaDeIntercambio->proId) }}"><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
+							<a class="btn btn-primary" href="{{ route('programasDeIntercambio.edit',$programaDeIntercambio->id) }}"><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
 							@if( $programaDeIntercambio->user_id == \Auth::user()->id )
-								{!! Form::open(['method' => 'DELETE','route' => ['programasDeIntercambio.destroy', $programaDeIntercambio->proId, $programaDeIntercambio->tipo],'style'=>'display:inline']) !!}
+								{!! Form::open(['method' => 'DELETE','route' => ['programasDeIntercambio.destroy', $programaDeIntercambio->id, $programaDeIntercambio->tipo],'style'=>'display:inline']) !!}
 								{{ Form::button('<i class="fa fa-trash"  title="'.__('Ezabatu').'"></i> ', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
 								{!! Form::close() !!}
 							@endif
