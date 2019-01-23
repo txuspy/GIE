@@ -12,6 +12,7 @@ use App\ImagenesRelacion;
 use DB;
 use Hash;
 use Yajra\Datatables\Datatables;
+use App\Lib\Functions;
 
 class UserController extends Controller
 {
@@ -40,8 +41,9 @@ class UserController extends Controller
         ]);//'ldap'     => 'required|unique:users,ldap',
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
-        $input['name']  = ucfirst(strtolower(trim($input['name'])));
-        $input['lname'] = ucfirst(strtolower(trim($input['lname'])));
+
+        $input['name']  = trim($input['name']);
+        $input['lname'] = trim($input['lname']);
 
         $user = User::create($input);
         foreach ($request->input('roles') as $key => $value) {
@@ -83,8 +85,9 @@ class UserController extends Controller
         ]);// 'ldap'     => 'required',
 
         $input          = $request->all();
-        $input['name']  = ucfirst(strtolower(trim($input['name'])));
-        $input['lname'] = ucfirst(strtolower(trim($input['lname'])));
+        $input['name']  = trim($input['name']);
+        $input['lname'] = trim($input['lname']);
+
         $input['estado'] = '1';
         if(!empty($input['password'])){
             $input['password'] = Hash::make($input['password']);
@@ -102,8 +105,8 @@ class UserController extends Controller
         if ( empty($user->autor) OR ($user->autor == '0') ){
            $valores = [
                 'user_id'   => $id,
-                'nombre'    => ucfirst(strtolower(trim($user->name))),
-                'apellido'  => ucfirst(strtolower(trim($user->lname))),
+                'nombre'    => trim($input['name']),
+                'apellido'  => trim($input['lname']),
                 'tipo'      => 'EHU'
             ];
             $autor = Autor::create($valores);
@@ -112,8 +115,8 @@ class UserController extends Controller
         }else{
             $autor = Autor::find($user->autor->id);
             $valores = [
-               'nombre'  => ucfirst(strtolower(trim($user->name))),
-               'apellido'  => ucfirst(strtolower(trim($user->lname))),
+               'nombre'    => trim($user->name),
+               'apellido'  => trim($user->lname),
 
             ];
             $autor->update($valores);
@@ -128,7 +131,6 @@ class UserController extends Controller
         \LaravelGettext::setLocale($request->lng) ;
         $passwordCambiar =false;
         return redirect()->route('home', $passwordCambiar)->with('success', __('Erabiltzailea zuzen aldatatu da'));
-       // return view('home', compact('passwordCambiar'))->with('success', __('Erabiltzailea zuzen aldatatu da'));
     }
 
     public function destroy($id)
@@ -137,6 +139,60 @@ class UserController extends Controller
         return redirect()->route('users.index')
                         ->with('success', __('Erabiltzailea zuzen ezabatu da'));
     }
+
+    private function crearSql($q, $request = false)
+	{
+
+
+	    if(isset($request['name'])) {
+			if($request['name'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('name', 'like', "%".$request['name']."%");
+				});
+			}
+		}
+
+	    if(isset($request['lname'])) {
+			if($request['lname'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('lname', 'like', "%".$request['lname']."%");
+				});
+			}
+		}
+
+
+        if(isset($request['email'])) {
+			if($request['email'] != '') {
+				$q->where(function ($query) use ($request) {
+					return $query->where('email', $request['email'] );
+				});
+			}
+		}
+
+
+
+
+
+		return $q;
+	}
+
+    public function search(Request $request)
+    {
+
+        $q    = User::query();
+        $q    = $this->crearSql($q, $request);
+        $data = $q
+                ->orderBy('id','DESC')
+                ->paginate(25);
+        $sql  = Functions::getSql($q, $q->toSql());
+       // dd($sql );
+        $tipo = $request['tipo'];
+
+
+        return view('users.index',compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
+
     public static function getUserName($user_id)
     {
         $user = User::where('user_id', $user_id)->get();

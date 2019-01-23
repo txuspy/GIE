@@ -36,7 +36,7 @@
 				<table class="table">
 					<tr>
 						<th>{{ __('Programa') }}</th>
-						<th>{{ __('Ikastaroa') }}</th>
+						<th>{{ __('Kurtsoa') }}</th>
 						<th>{{ __('Saila') }}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>

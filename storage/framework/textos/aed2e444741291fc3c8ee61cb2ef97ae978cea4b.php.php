@@ -49,8 +49,21 @@
            <br>
         @endrole
         <li  class="side-nav-item has-sub-nav class-toggle-active">
+
             <a href="">
-                <span> <?php echo e(__('IKERKUNTZA JARDUERAK')); ?></span>
+                <span> <?php echo e(__('ACTIVIDADES DEL PAS')); ?></span>
+            </a>
+             <ul class="sub-nav level-2">
+            <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/recibir')); ?>"><i class="fa fa-book" aria-hidden="true"></i> <?php echo e(__('AZPko Formazioa')); ?></a>
+                       <ul>
+                            <li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/recibir')); ?>"><i class="fa fa-address-book" aria-hidden="true"></i> <?php echo e(__('Jasotako formakuntza')); ?></a></li>
+                            <li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/dar')); ?>"><i class="fa fa-address-book-o" aria-hidden="true"></i> <?php echo e(__('Emandako formazioa')); ?></a></li>
+                        </ul>
+                  </li>
+              </ul>
+              <br>
+            <a href="">
+                <span> <?php echo e(__('ACTIVIDADES DEL PDI')); ?></span>
             </a>
             <ul class="sub-nav level-2">
                 @permission('customer-list')@endpermission
@@ -66,16 +79,18 @@
                             <li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/formaciones/show/PDI/dar')); ?>"><i class="fa fa-address-book-o" aria-hidden="true"></i> <?php echo e(__('Emandako formazioa')); ?></a></li>
                         </ul>
                   </li>
-                  <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/recibir')); ?>"><i class="fa fa-book" aria-hidden="true"></i> <?php echo e(__('AZPko Formazioa')); ?></a>
-                       <ul>
-                            <li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/recibir')); ?>"><i class="fa fa-address-book" aria-hidden="true"></i> <?php echo e(__('Jasotako formakuntza')); ?></a></li>
-                            <li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/dar')); ?>"><i class="fa fa-address-book-o" aria-hidden="true"></i> <?php echo e(__('Emandako formazioa')); ?></a></li>
-                        </ul>
-                  </li>
-                  <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera')); ?>"><i class="fa fa-refresh" aria-hidden="true"></i> <?php echo e(__('Elkartrukeko programak')); ?></a>
+
+                  <!--<li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera')); ?>"><i class="fa fa-refresh" aria-hidden="true"></i> <?php echo e(__('Elkartrukeko programak')); ?></a>
                       <ul>
 
                             <li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/azp')); ?>"><i class="fa fa-share" aria-hidden="true"></i> <?php echo e(__('IIP / AZPren mugikortasuna')); ?></a></li>
+                        </ul>
+                  </li>-->
+                  <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera')); ?>"><i class="fa fa-refresh" aria-hidden="true"></i> <?php echo e(__('Elkartrukeko programak / mugikortasuna')); ?></a>
+                      <ul>
+                            <li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera')); ?>"><i class="fa fa-share" aria-hidden="true"></i> <?php echo e(__('Estancias / Visitas en otras universidades')); ?></a></li>
+                            <li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/enCasa')); ?>"><i class="fa fa-reply" aria-hidden="true"></i> <?php echo e(__('Investigadores y visitantes externos')); ?></a></li>
+
                         </ul>
                   </li>
                 <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/visitas/show')); ?>">
@@ -85,6 +100,7 @@
                <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/tesisDoctorales/show/tesisLeidas')); ?>"><i class="fa fa-graduation-cap" aria-hidden="true"></i> <?php echo e(__('Tesiak')); ?></a>
                     
                 </li>
+                <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/equipamientoNuevo')); ?>"><i class="fa fa-user" aria-hidden="true"></i> <?php echo e(__('Hornikuntza Zientifikoa eskuratzea')); ?></a></li>
                <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/proyectos/show/europa')); ?>">
                     <i class="fa fa-flask" aria-hidden="true"></i> <?php echo e(__('Ikerkuntza Proiektuak')); ?></a>
                    <ul>
@@ -100,14 +116,8 @@
                             <li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/publicaciones/show/articulos')); ?>"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?php echo e(__('Artikuloak')); ?></a></li>
                         </ul>
                   </li>
-                  <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera')); ?>"><i class="fa fa-refresh" aria-hidden="true"></i> <?php echo e(__('Elkartrukeko programak')); ?></a>
-                      <ul>
-                            <li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera')); ?>"><i class="fa fa-share" aria-hidden="true"></i> <?php echo e(__('Egonaldi zientifikoak beste Unibertsitateetan')); ?></a></li>
-                            <li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/enCasa')); ?>"><i class="fa fa-reply" aria-hidden="true"></i> <?php echo e(__('Etorritako ikerlariak')); ?></a></li>
 
-                        </ul>
-                  </li>
-                  <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/equipamientoNuevo')); ?>"><i class="fa fa-user" aria-hidden="true"></i> <?php echo e(__('Hornikuntza Zientifikoa eskuratzea')); ?></a></li>
+
             </ul>
         </li>
     </ul>

@@ -25,8 +25,8 @@ class AutorController extends Controller
     public function store(Request $request)
     {
         $valores = [
-           'nombre'    => ucfirst(strtolower(trim($request->nombreDialog))),
-           'apellido'  => ucfirst(strtolower(trim($request->apellidoDialog))),
+           'nombre'    => trim($request->nombreDialog),
+           'apellido'  => trim($request->apellidoDialog),
         ];
         $autor = Autor::create($valores);
         return redirect()->back()->with('success', __('Zuzen sortu da'));
@@ -35,8 +35,8 @@ class AutorController extends Controller
     public function storeAjax(Request $request)
     {
         $valores = [
-           'nombre'    => ucfirst(strtolower(trim($request->nombreDialog))),
-           'apellido'  => ucfirst(strtolower(trim($request->apellidoDialog))),
+           'nombre'    => trim($request->nombreDialog),
+           'apellido'  => trim($request->apellidoDialog),
         ];
         $autor = Autor::create($valores);
         return $autor;
@@ -82,8 +82,8 @@ class AutorController extends Controller
             'apellido' => 'required'
         ]);
         $valores = [
-           'nombre'    => ucfirst(strtolower(trim($request->nombre))),
-           'apellido'  => ucfirst(strtolower(trim($request->apellido)))
+           'nombre'    => trim($request->nombre),
+           'aellido'  => trim($request->apellido)
         ];
         //$input = $request->all();
         $autor = Autor::find($id);

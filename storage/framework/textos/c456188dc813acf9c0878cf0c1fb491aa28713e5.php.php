@@ -48,7 +48,22 @@
             </div>
         </div>
     </div>
-
+    <div class="row">
+		<div class="col-xs-2 ">
+            <div class="form-group">
+                <label><strong><?php echo e(__('Erabiltzaileak')); ?> :</strong></label>
+				<p>Admin todos o seleccion  y profesor solo su usuario</p>
+            </div>
+        </div>
+    </div>
+ 	<div class="row">
+		<div class="col-xs-2 ">
+            <div class="form-group">
+                <label><strong><?php echo e(__('Sekzio')); ?> :</strong></label>
+				<p>Multiselect con cada tipo</p>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div>
 			<button type="submit" class="btn btn-primary"><i class="fa fa-plus" title ="<?php echo e(__('Word sortu')); ?>"></i> <?php echo e(__('Word sortu')); ?></button>

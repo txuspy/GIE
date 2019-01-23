@@ -35,7 +35,7 @@
 		                <?php if($errors->has('titulo_eu')): ?>
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
-		                <?php echo Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control buscadorPublicaciones', 'data-tipo'  => $tipo)); ?>
+		                <?php echo Form::text('titulo_eu', null, array('placeholder' => 'Izenburua','class' => 'form-control', 'data-tipo'  => $tipo)); ?>
 
 		            </div>
 		        </div>
@@ -55,7 +55,7 @@
 		            <?php endif; ?>
 		    	</div>
 
-		        
+
 
 		    </div>
 			<div>

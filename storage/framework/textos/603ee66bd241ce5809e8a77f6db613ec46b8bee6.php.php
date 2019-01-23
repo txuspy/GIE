@@ -36,7 +36,7 @@
 				<table class="table">
 					<tr>
 						<th><?php echo e(__('Programa')); ?></th>
-						<th><?php echo e(__('Ikastaroa')); ?></th>
+						<th><?php echo e(__('Kurtsoa')); ?></th>
 						<th><?php echo e(__('Saila')); ?></th>
 						<th><?php echo e(__('Akzioak')); ?></th>
 					</tr>

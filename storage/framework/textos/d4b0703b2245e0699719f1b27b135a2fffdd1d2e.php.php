@@ -30,7 +30,7 @@ class GrupoInvestigacionController extends Controller
 
     public function indexAll()
     {
-       $data = GrupoInvestigacion::orderBy('id','DESC')->paginate(25);
+       $data = GrupoInvestigacion::where('id', '>', '0')->orderBy('id','DESC')->paginate(25);
        return view('grupoInvestigacion.index',compact('data')) ;
     }
 

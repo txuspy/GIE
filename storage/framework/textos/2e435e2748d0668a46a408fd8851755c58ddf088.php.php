@@ -30,14 +30,14 @@
                              <?php if($errors->has('grupo_eu')): ?>
     	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
     	                    <?php endif; ?>
-                            <?php echo Form::text('grupo_eu', null, array('placeholder' => 'Taldea','class' => 'form-control buscadorGrupoInvestigacion')); ?>
+                            <?php echo Form::text('grupo_eu', null, array('placeholder' => 'Taldea','class' => 'form-control')); ?>
 
                         </div>
                     </div>
             		<div class="col-sm-6 ">
                         <div class="form-group">
                             <label><strong>Grupo:</strong></label>
-                            <?php echo Form::text('grupo_es', null, array('placeholder' => 'Grupo','class' => 'form-control buscadorGrupoInvestigacion')); ?>
+                            <?php echo Form::text('grupo_es', null, array('placeholder' => 'Grupo','class' => 'form-control')); ?>
 
                         </div>
                     </div>

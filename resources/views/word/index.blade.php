@@ -47,7 +47,22 @@
             </div>
         </div>
     </div>
-
+    <div class="row">
+		<div class="col-xs-2 ">
+            <div class="form-group">
+                <label><strong>{{ __('Erabiltzaileak') }} :</strong></label>
+				<p>Admin todos o seleccion  y profesor solo su usuario</p>
+            </div>
+        </div>
+    </div>
+ 	<div class="row">
+		<div class="col-xs-2 ">
+            <div class="form-group">
+                <label><strong>{{ __('Sekzio') }} :</strong></label>
+				<p>Multiselect con cada tipo</p>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div>
 			<button type="submit" class="btn btn-primary"><i class="fa fa-plus" title ="{{ __('Word sortu') }}"></i> {{ __('Word sortu') }}</button>

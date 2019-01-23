@@ -30,7 +30,7 @@
                         <?php if($errors->has('congreso_eu')): ?>
                             <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                         <?php endif; ?>
-                        <?php echo Form::text('congreso_eu', null, array('placeholder' => _('Kongresua') ,'class' => 'form-control buscadorCongresos')); ?>
+                        <?php echo Form::text('congreso_eu', null, array('placeholder' => _('Kongresua') ,'class' => 'form-control')); ?>
 
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 </div>
                  <div class="col-sm-6 ">
                      <div class="form-group has-error">
-                        <label><strong>Tokia / Lugar (*):</strong></label>
+                        <label><strong><?php echo e(__('Tokia')); ?> (*):</strong></label>
                          <?php if($errors->has('lugar')): ?>
                             <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                         <?php endif; ?>

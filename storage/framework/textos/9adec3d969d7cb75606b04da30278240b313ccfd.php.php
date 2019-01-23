@@ -1,29 +1,29 @@
 <?php $__env->startSection('content'); ?>
-<div class="container">
-    <?php if(\Auth::user()->hasRole('admin')): ?>
-        <?php echo Breadcrumbs::render('usuariosEdit', $user); ?>
+<?php if(\Auth::user()->hasRole('admin')): ?>
+    <?php echo Breadcrumbs::render('usuariosEdit', $user); ?>
 
-    <?php else: ?>
-       <?php echo Breadcrumbs::render('usuariosNOAdminVer', $user); ?>
+<?php else: ?>
+   <?php echo Breadcrumbs::render('usuariosNOAdminVer', $user); ?>
 
-    <?php endif; ?>
-   <?php echo $__env->make('dialog.upload', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <?php if(session()->has('firstTime')): ?>
-        <div id="msj-ok" class="alert alert-success alert-dismissible" role="alert">
-    		<strong> <?php echo e(__('Lehenbiziko aldia da sartzen zarela, zure datuak ondo bete, eta pasahitza aldatu.')); ?></strong>
-    	</div>
-    <?php endif; ?>
-
-	<?php if(count($errors) > 0): ?>
-		<div class="alert alert-danger">
-			<strong><?php echo e(__('Whoops!')); ?></strong> <?php echo e(__('There were some problems with your input.')); ?><br><br>
-			<ul>
-				<?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
-					<li><?php echo e($error); ?></li>
-				<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-			</ul>
+<?php endif; ?>
+<div class="panel panel-default">
+       <?php if($message = Session::get('success')): ?>
+		<div class="alert alert-success">
+			<p><?php echo e($message); ?></p>
 		</div>
-	<?php endif; ?>
+    	<?php endif; ?>
+    	<?php if(count($errors) > 0): ?>
+    		<div class="alert alert-danger">
+    			<strong><?php echo e(__('Whoops!')); ?></strong> <?php echo e(__('There were some problems with your input.')); ?><br><br>
+    			<ul>
+    				<?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+    					<li><?php echo e($error); ?></li>
+    				<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+    			</ul>
+    		</div>
+    	<?php endif; ?>
+		<div class="panel-body">
+			<div class="col-sm-12 margin-tb">
 	<?php echo Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id]]); ?>
 
 	<div class="row">

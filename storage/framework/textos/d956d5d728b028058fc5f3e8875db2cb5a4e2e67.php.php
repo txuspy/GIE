@@ -50,8 +50,8 @@
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong><?php echo e(__('Ikastaroa')); ?>:</strong></label>
-		                <?php echo Form::text('curso_eu', null, array('placeholder' => 'Ikastaroa','class' => 'form-control')); ?>
+		                <label><strong><?php echo e(__('Kurtsoa')); ?>:</strong></label>
+		                <?php echo Form::text('curso_eu', null, array('placeholder' => __('Kurtsoa') ,'class' => 'form-control')); ?>
 
 		            </div>
 		        </div>

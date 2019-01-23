@@ -67,7 +67,7 @@
 						<td>
 							<?php $activ = "actividad_".\Session::get('locale') ;?>
 
-								<a  href="<?php echo e(route('programasDeIntercambio.edit',$programaDeIntercambio->proId)); ?>">
+								<a  href="<?php echo e(route('programasDeIntercambio.edit',$programaDeIntercambio->id)); ?>">
 									<?php echo e($programaDeIntercambio->$activ); ?>
 
 									</a>
@@ -75,7 +75,6 @@
 						</td>
 						<td><?php echo e($programaDeIntercambio->lugar); ?></td>
 						<td>
-
 							<?php $__currentLoopData = $programaDeIntercambio->profesores; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $profesor): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 			 					<?php echo e($profesor->nombre); ?> <?php echo e($profesor->apellido); ?>
 
@@ -85,9 +84,9 @@
 			 				<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 						</td>
 						<td>
-							<a class="btn btn-primary" href="<?php echo e(route('programasDeIntercambio.edit',$programaDeIntercambio->proId)); ?>"><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
+							<a class="btn btn-primary" href="<?php echo e(route('programasDeIntercambio.edit',$programaDeIntercambio->id)); ?>"><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
 							<?php if( $programaDeIntercambio->user_id == \Auth::user()->id ): ?>
-								<?php echo Form::open(['method' => 'DELETE','route' => ['programasDeIntercambio.destroy', $programaDeIntercambio->proId, $programaDeIntercambio->tipo],'style'=>'display:inline']); ?>
+								<?php echo Form::open(['method' => 'DELETE','route' => ['programasDeIntercambio.destroy', $programaDeIntercambio->id, $programaDeIntercambio->tipo],'style'=>'display:inline']); ?>
 
 								<?php echo e(Form::button('<i class="fa fa-trash"  title="'.__('Ezabatu').'"></i> ', ['type' => 'submit', 'class' => 'btn btn-danger'] )); ?>
 

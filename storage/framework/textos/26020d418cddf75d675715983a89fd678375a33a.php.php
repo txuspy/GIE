@@ -67,7 +67,7 @@
 					<tr>
 						<td>
 							<?php $titulo = "titulo_".\Session::get('locale') ;?>
-							<a  href="<?php echo e(route('formaciones.edit',$formacion->forId)); ?>"><?php echo e($formacion->$titulo); ?></a>
+							<a  href="<?php echo e(route('formaciones.edit',$formacion->id)); ?>"><?php echo e($formacion->$titulo); ?></a>
 							<br> <i>(<?php echo e($formacion->usuario?$formacion->usuario->name:''); ?> <?php echo e($formacion->usuario?$formacion->usuario->lname:''); ?>)</i>
 						</td>
 						<td>
@@ -86,9 +86,9 @@
 
 						</td>
 						<td>
-							<a class="btn btn-primary" href="<?php echo e(route('formaciones.edit', $formacion->forId)); ?>"><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
+							<a class="btn btn-primary" href="<?php echo e(route('formaciones.edit', $formacion->id)); ?>"><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
 							<?php if( $formacion->user_id == \Auth::user()->id ): ?>
-								<?php echo Form::open(['method' => 'DELETE','route' => ['formaciones.destroy', $formacion->forId , $formacion->tipo , $formacion->modo ],'style'=>'display:inline']); ?>
+								<?php echo Form::open(['method' => 'DELETE','route' => ['formaciones.destroy', $formacion->id , $formacion->tipo , $formacion->modo ],'style'=>'display:inline']); ?>
 
 								<?php echo e(Form::button('<i class="fa fa-trash"  title="'.__('Ezabatu').'"></i> ', ['type' => 'submit', 'class' => 'btn btn-danger'] )); ?>
 

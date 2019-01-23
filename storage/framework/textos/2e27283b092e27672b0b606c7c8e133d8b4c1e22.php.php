@@ -46,7 +46,7 @@
 		                 <?php if($errors->has('titulo_eu')): ?>
 		                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 		                    <?php endif; ?>
-		                <?php echo Form::text('titulo_eu', null, array('placeholder' =>  __('Ikastaroa') ,'class' => 'form-control buscadorFormaciones', 'data-tipo'  => $tipo , 'data-modo'  => $modo)); ?>
+		                <?php echo Form::text('titulo_eu', null, array('placeholder' =>  __('Ikastaroa') ,'class' => 'form-control', 'data-tipo'  => $tipo , 'data-modo'  => $modo)); ?>
 
 		            </div>
 		        </div>
@@ -94,11 +94,20 @@
 				<div class="col-sm-6 ">
 		            <div class="form-group">
 		                <label><strong><?php echo e(__('Tokia')); ?> :</strong></label>
-		                <?php echo Form::text('lugar', null, array('placeholder' => 'University of Cambridge, Cambridge, UK' ,'class' => 'form-control ')); ?>
+		                <?php echo Form::text('lugar', null, array('id' =>'lugar', 'placeholder' => 'University of Cambridge, Cambridge, UK' ,'class' => 'form-control ')); ?>
 
 		            </div>
+		            <p><a class='btn btn-info lugar' data-valor="UPV/EHU, Gipuzkoako Ingenieritza Eskola">UPV/EHU, Gipuzkoako Ingenieritza Eskola</a>
+		            <a class='btn btn-info lugar' data-valor="GIE-Donostia">GIE-Donostia</a>
+		            <a class='btn btn-info lugar' data-valor="GIE-Eibar">GIE-Eibar</a>
+		            <a class='btn btn-info lugar' data-valor="SAE/HELAZ ( UPV/EHU )">SAE/HELAZ ( UPV/EHU )</a>
+		            <a class='btn btn-info lugar' data-valor="Gipuzkoako Campusa ( UPV/EHU )">Gipuzkoako Campusa ( UPV/EHU )</a></p>
 		        </div>
-
+				<script>
+					$(".lugar").click(function() {
+						$("#lugar").val( $(this).attr('data-valor') );
+					});
+				</script>
 		    </div>
 		    <div>
 				<div class="col-sm-6 ">

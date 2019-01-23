@@ -48,8 +48,8 @@
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group">
-		                <label><strong>{{ __('Ikastaroa') }}:</strong></label>
-		                {!! Form::text('curso_eu', null, array('placeholder' => 'Ikastaroa','class' => 'form-control')) !!}
+		                <label><strong>{{ __('Kurtsoa') }}:</strong></label>
+		                {!! Form::text('curso_eu', null, array('placeholder' => __('Kurtsoa') ,'class' => 'form-control')) !!}
 		            </div>
 		        </div>
 		    </div>

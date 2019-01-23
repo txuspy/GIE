@@ -33,12 +33,12 @@
 	<div>
 		<div class="col-sm-6 ">
             <div class="form-group has-error">
-                <label><strong>Proiektua / Proyecto (*):</strong></label>
+                <label><strong><?php echo e(__('Proiektua')); ?>  (*):</strong></label>
                 <?php if($errors->has('proyecto_eu')): ?>
                     <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                 <?php endif; ?>
 
-                <?php echo Form::text('proyecto_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control buscadorProyectos', 'data-tipo'  => $tipo)); ?>
+                <?php echo Form::text('proyecto_eu', null, array('placeholder' => 'Proiektua','class' => 'form-control ', 'data-tipo'  => $tipo)); ?>
 
             </div>
         </div>

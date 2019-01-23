@@ -13,10 +13,11 @@
 					</div>
 				</div>
 				<?php if($message = Session::get('success')): ?>
-				<div class="alert alert-success">
-					<p><?php echo e($message); ?></p>
-				</div>
+					<div class="alert alert-success">
+						<p><?php echo e($message); ?></p>
+					</div>
 				<?php endif; ?>
+				<?php echo $__env->make('users.search', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 				<table class="table">
 					<tr>
 						<th><?php echo e(__('N.')); ?></th>

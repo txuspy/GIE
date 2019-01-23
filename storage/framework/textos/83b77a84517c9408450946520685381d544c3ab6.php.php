@@ -36,19 +36,19 @@
 		                <?php if($errors->has('titulo_eu')): ?>
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
-		                <?php echo Form::text('titulo_eu', null, array('placeholder' => 'Programa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)); ?>
+		                <?php echo Form::text('titulo_eu', null, array('placeholder' => 'Programa','class' => 'form-control', 'data-tipo'  => $tipo)); ?>
 
 		            </div>
 
 		        </div>
 		        <div class="col-sm-6 ">
 		            <div class="form-group  has-error">
-		                <label><strong><?php echo e(__('Ikastaroa')); ?> (*):</strong></label>
+		                <label><strong><?php echo e(__('Kurtsoa')); ?> (*):</strong></label>
 		                <?php if($errors->has('curso_eu')): ?>
 	                       <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
 
-		                <?php echo Form::text('curso_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control buscadorPostgrados', 'data-tipo'  => $tipo)); ?>
+		                <?php echo Form::text('curso_eu', null, array('placeholder' => 'Kurtsoa','class' => 'form-control', 'data-tipo'  => $tipo)); ?>
 
 		            </div>
 		        </div>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-sm-6 ">
 		            <div class="form-group  has-error">
-		                <label><strong><?php echo e(__('Iraupena')); ?> (*):</strong></label>
+		                <label><strong><?php echo e(__('Iraupena')); ?> (*):</strong><small>(ETCS)</small></label>
 		                <?php if($errors->has('duracion')): ?>
 	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
 	                    <?php endif; ?>
