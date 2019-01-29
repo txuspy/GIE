@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ERP Forest Pioneer SL\n"
-"POT-Creation-Date: 2019-01-23 14:33+0000\n"
-"PO-Revision-Date: 2019-01-23 14:33+0000\n"
+"POT-Creation-Date: 2019-01-23 14:41+0000\n"
+"PO-Revision-Date: 2019-01-23 14:41+0000\n"
 "Last-Translator: Unai Susperregi <sistemas@forestpioneer.com>\n"
 "Language-Team: Unai Susperregi <sistemas@forestpioneer.com>\n"
 "Language: eu\n"
@@ -957,13 +957,13 @@ msgstr "Irakaslea bilatu"
 #: ../storage/framework/textos/2e27283b092e27672b0b606c7c8e133d8b4c1e22.php.php:20
 #: ../storage/framework/textos/7e9e17bb677bedb791c49988cf901bce2060bebe.php.php:26
 msgid "IIPko formazioa"
-msgstr "IIPen formakuntza-jarduerak "
+msgstr "IIPren formakuntza-jarduerak "
 
 #: ../storage/framework/textos/26020d418cddf75d675715983a89fd678375a33a.php.php:14
 #: ../storage/framework/textos/2e27283b092e27672b0b606c7c8e133d8b4c1e22.php.php:23
 #: ../storage/framework/textos/7e9e17bb677bedb791c49988cf901bce2060bebe.php.php:29
 msgid "AZKko formazioa"
-msgstr "AZPen formakuntza-jarduerak "
+msgstr "AZPren formakuntza-jarduerak "
 
 #: ../storage/framework/textos/26020d418cddf75d675715983a89fd678375a33a.php.php:18
 #: ../storage/framework/textos/2e27283b092e27672b0b606c7c8e133d8b4c1e22.php.php:27
@@ -1060,7 +1060,7 @@ msgstr "Iraupena"
 #: Http/Controllers/WordController.php:292
 #: Http/Controllers/WordController.php:293
 msgid "Ikerkuntza taldea"
-msgstr "Ikerkuntza-taldea"
+msgstr "Ikerkuntza-taldeak"
 
 #: ../storage/framework/textos/33ce951c7f2f5efa88be6963310b1763fa7eb80f.php.php:33
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:251
@@ -1413,7 +1413,7 @@ msgstr "Doktoretzako parte-hartzea"
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:115
 #: Http/Controllers/WordController.php:115
 msgid "IIPko Formazioa Jarduerak"
-msgstr "IIPen formakuntza-jarduerak"
+msgstr "IIPren formakuntza-jarduerak"
 
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:116
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:119
@@ -1434,7 +1434,7 @@ msgstr "Emandako formakuntza"
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:118
 #: Http/Controllers/WordController.php:118
 msgid "AZPko Formazioa Jarduerak"
-msgstr "AZPen formakuntza-jarduerak"
+msgstr "AZPren formakuntza-jarduerak"
 
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:121
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:138
@@ -1498,12 +1498,12 @@ msgstr "Ikasturtea"
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:187
 #: Http/Controllers/WordController.php:187
 msgid "AZKko formazioa "
-msgstr "AZPen formakuntza-jarduerak "
+msgstr "AZPren formakuntza-jarduerak "
 
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:189
 #: Http/Controllers/WordController.php:189
 msgid "IIPko formazioa "
-msgstr "IIPen formakuntza-jarduerak "
+msgstr "IIPren formakuntza-jarduerak "
 
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:192
 #: Http/Controllers/WordController.php:192
@@ -1767,7 +1767,7 @@ msgstr "Doktoretza-programa"
 
 #: ../storage/framework/textos/aed2e444741291fc3c8ee61cb2ef97ae978cea4b.php.php:63
 msgid "IIPko Formazioa"
-msgstr "IIPen formakuntza-jarduerak"
+msgstr "IIPren formakuntza-jarduerak"
 
 #: ../storage/framework/textos/aed2e444741291fc3c8ee61cb2ef97ae978cea4b.php.php:65
 #: ../storage/framework/textos/aed2e444741291fc3c8ee61cb2ef97ae978cea4b.php.php:71
@@ -1776,7 +1776,7 @@ msgstr "Jasotako formakuntza"
 
 #: ../storage/framework/textos/aed2e444741291fc3c8ee61cb2ef97ae978cea4b.php.php:69
 msgid "AZPko Formazioa"
-msgstr "AZPen formakuntza-jarduerak"
+msgstr "AZPren formakuntza-jarduerak"
 
 #: ../storage/framework/textos/aed2e444741291fc3c8ee61cb2ef97ae978cea4b.php.php:84
 msgid "Ikerkuntza taldeak"

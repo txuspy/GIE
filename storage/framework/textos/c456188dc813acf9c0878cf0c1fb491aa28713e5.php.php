@@ -29,25 +29,31 @@
 	<?php echo Form::open(array('url' => App\Lib\Functions::parseLang().'/word' , 'method' => 'post', 'class' =>'form-horizontal')); ?>
 
 <div style="margin:45px;">
+
+
 	<div class="row" >
         <div class="col-xs-2">
-            <div class="form-group">
-                <label><strong><?php echo e(__('Aukeratu urtea')); ?> :</strong></label>
-                <?php echo Form::text('year',  null , array('placeholder' => __('Aukeratu urtea') ,'class' => 'date-year form-control')); ?>
+             <div class="form-group  has-error">
+	            <label><strong><?php echo e(__('Hasiera Data')); ?> (*):</strong></label>
+	            <?php if($errors->has('desde')): ?>
+	                <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	            <?php endif; ?>
+	            <?php echo Form::text('desde', null, array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->subYears(1)->format('Y-m-d') ,'class' => 'datepicker form-control ')); ?>
 
-            </div>
+	        </div>
+        </div>
+        <div class="col-xs-2">
+             <div class="form-group  has-error">
+	            <label><strong><?php echo e(__('Bukatze Data')); ?> (*):</strong></label>
+	            <?php if($errors->has('hasta')): ?>
+	                <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	            <?php endif; ?>
+	            <?php echo Form::text('hasta', null, array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y-m-d') ,'class' => 'datepicker form-control ')); ?>
+
+	        </div>
         </div>
     </div>
 
-    <div class="row">
-		<div class="col-xs-2 ">
-            <div class="form-group">
-                <label><strong><?php echo e(__('Aukeratu hilabetea')); ?> :</strong></label>
-                <?php echo Form::text('mes',  null , array('placeholder' => __('Aukeratu hilabetea') ,'class' => 'date-mes form-control')); ?>
-
-            </div>
-        </div>
-    </div>
     <div class="row">
 		<div class="col-xs-2 ">
             <div class="form-group">

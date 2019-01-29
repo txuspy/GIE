@@ -19,6 +19,8 @@ class Postgrados extends Model
         return $this->belongsToMany(Autor::class, 'postgradosAutores', 'id_postgrado', 'id_autor');
     }
 
+
+
     public function usuario()
     {
         return $this->hasOne(User::class, 'id','user_id' );
