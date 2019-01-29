@@ -4,15 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\GrupoInvestigacion;
+use App\GrupoInvestigacionParticipantes;
+use App\GrupoInvestigacionResponsables;
 use App\TesisDoctorales;
+use App\TesisDoctoralesDirectores;
+use App\TesisDoctoralesDoctorando;
 use App\Formaciones;
+use App\FormacionesAutores;
 use App\Proyectos;
+use App\ProyectosInvestigadores;
+use App\ProyectosDirectores;
 use App\Congresos;
+use App\CongresosProfesores;
 use App\Postgrados;
+use App\PostgradosAutores;
 use App\Visitas;
+use App\VisitasAutores;
 use App\Autor;
 use App\Publicaciones;
+use App\PublicacionesAutores;
 use App\ProgramasDeIntercambio;
+use App\ProgramasDeIntercambioProfesores;
 use App\EquipamientoNuevo;
 use Carbon\Carbon;
 use App\Lib\Functions;
@@ -57,7 +69,7 @@ class WordController extends Controller
         $this->formatearYear($request['year'], $request['mes']);
         */
 
-        if(\Auth::user()->hasRole('owner')){
+        if(\Auth::user()->hasRole('owner') OR \Auth::user()->hasRole('admin') ){
             if (in_array("unico", $request['usuarios'])) {
                 $this->userId = \Auth::user()->id;
                 $this->unico  = true;
@@ -266,30 +278,33 @@ class WordController extends Controller
                 ->get();
         }
 
-        if( $tipo == 'master' ){
-            $tituloH1 = __('Masterretan parte-hartzea') ;
-        }else{
-            $tituloH1 = __('Doktoretza-programetan parte-hartzea');
+        if(count($postgrados)){
+            if( $tipo == 'master' ){
+                $tituloH1 = __('Masterretan parte-hartzea') ;
+            }else{
+                $tituloH1 = __('Doktoretza-programetan parte-hartzea');
+            }
+            $lang      = \Session::get('locale');
+            $tableName = $tituloH1;
+
+            $section->addText( __('Graduondoko Programa - ').$tituloH1 , $this->styleH1  );
+            $phpWord->addTableStyle($tableName, $this->tableStyle);
+
+            $table     = $section->addTable($tableName);
+            $titulo    = "titulo_".$lang;
+            $curso     = "curso_".$lang;
+
+
+            foreach ($postgrados as $postgrado){
+                $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Programa'), $postgrado->$titulo);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Saila'), \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$postgrado->departamento]??'---' );
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Ikastaroa'), $postgrado->$curso);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Irakaslea(k)'), $this->listadoAutores($postgrado->autores));
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $postgrado->lugar);
+                $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Iraupena'), $postgrado->duracion);
+            }
+            $section->addPageBreak();
         }
-        $lang      = \Session::get('locale');
-        $tableName = $tituloH1;
-
-        $section->addText( __('Graduondoko Programa - ').$tituloH1 , $this->styleH1  );
-        $phpWord->addTableStyle($tableName, $this->tableStyle);
-
-        $table     = $section->addTable($tableName);
-        $titulo    = "titulo_".$lang;
-        $curso     = "curso_".$lang;
-
-        foreach ($postgrados as $postgrado){
-            $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Programa'), $postgrado->$titulo);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Saila'), \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$postgrado->departamento]??'---' );
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Ikastaroa'), $postgrado->$curso);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Irakaslea(k)'), $this->listadoAutores($postgrado->autores));
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $postgrado->lugar);
-            $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Iraupena'), $postgrado->duracion);
-        }
-        $section->addPageBreak();
     }
 
     public function Formaciones( $section, $tipo, $modo, $phpWord)
@@ -311,38 +326,41 @@ class WordController extends Controller
             ->orderBy('fecha','DESC')
             ->get();
         }
-        if( $tipo == 'PAS' ){
-            $tituloH1 = __('AZKko formazioa ') ;
-        }else{
-            $tituloH1 = __('IIPko formazioa ');
-        }
-        if( $modo == 'recibir' ){
-            $tituloH2 = __('Hartutakoa') ;
-            $titAutor = __('Parte-hartzailea(k)');
-        }else{
-            $tituloH2 = __('Emandakoa');
-            $titAutor = __('Hizlaria(k)');
-        }
-        $lang      = \Session::get('locale');
-        $tableName = $tituloH1;
-
-        $section->addText( $tituloH1. " - ".$tituloH2 , $this->styleH1  );
-        $phpWord->addTableStyle($tableName, $this->tableStyle);
-
-        $table          = $section->addTable($tableName);
-        $titulo         = "titulo_".$lang;
-        $organizador    = "organizador_".$lang;
-
-        foreach ($formaciones as $formacion){
-            $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Ikastaro'), $formacion->$titulo);
-            if( $modo == 'recibir' ){
-                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Antolatzailea(k)'), $formacion->$organizador);
+        if(count($formaciones)){
+            if( $tipo == 'PAS' ){
+                $tituloH1 = __('AZKko formazioa ') ;
+            }else{
+                $tituloH1 = __('IIPko formazioa ');
             }
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $formacion->lugar);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Iraupena'), $formacion->duracion);
-            $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, $titAutor , $this->listadoAutores($formacion->autores));
+            if( $modo == 'recibir' ){
+                $tituloH2 = __('Hartutakoa') ;
+                $titAutor = __('Parte-hartzailea(k)');
+            }else{
+                $tituloH2 = __('Emandakoa');
+                $titAutor = __('Hizlaria(k)');
+            }
+            $lang      = \Session::get('locale');
+            $tableName = $tituloH1;
+
+            $section->addText( $tituloH1. " - ".$tituloH2 , $this->styleH1  );
+            $phpWord->addTableStyle($tableName, $this->tableStyle);
+
+            $table          = $section->addTable($tableName);
+            $titulo         = "titulo_".$lang;
+            $organizador    = "organizador_".$lang;
+
+
+            foreach ($formaciones as $formacion){
+                $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Ikastaro'), $formacion->$titulo);
+                if( $modo == 'recibir' ){
+                    $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Antolatzailea(k)'), $formacion->$organizador);
+                }
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $formacion->lugar);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Iraupena'), $formacion->duracion);
+                $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, $titAutor , $this->listadoAutores($formacion->autores));
+            }
+            $section->addPageBreak();
         }
-        $section->addPageBreak();
     }
 
 
@@ -372,32 +390,35 @@ class WordController extends Controller
               })
             ->orderBy('id','DESC')->get();
         }
-        if( $tipo == 'azp' ){
-            $tituloH1 = __('IIP / AZPren mugikortasuna') ;
-            $autores =  __('IIP / AZP');
-        }elseif( $tipo == 'fuera' ){
-            $tituloH1 = __('Egonaldi zientifikoak beste Unibertsitateetan');
-            $autores =  __('Ikerlaria(k)');
-        }else{
-            //enCasa
-            $tituloH1 = __('Etorritako ikerlariak');
-            $autores =  __('Ikerlaria(k)');
-        }
+        if(count($programasDeIntercambios)){
+            if( $tipo == 'azp' ){
+                $tituloH1 = __('IIP / AZPren mugikortasuna') ;
+                $autores =  __('IIP / AZP');
+            }elseif( $tipo == 'fuera' ){
+                $tituloH1 = __('Egonaldi zientifikoak beste Unibertsitateetan');
+                $autores =  __('Ikerlaria(k)');
+            }else{
+                //enCasa
+                $tituloH1 = __('Etorritako ikerlariak');
+                $autores =  __('Ikerlaria(k)');
+            }
 
-        $lang = \Session::get('locale');
-        $section->addText( $tituloH1 , $this->styleH1  );
-        $tableName     = $tituloH1;
-        $phpWord->addTableStyle($tableName, $this->tableStyle);
-        $table           = $section->addTable($tableName);
+            $lang = \Session::get('locale');
+            $section->addText( $tituloH1 , $this->styleH1  );
+            $tableName     = $tituloH1;
+            $phpWord->addTableStyle($tableName, $this->tableStyle);
+            $table           = $section->addTable($tableName);
 
-        $actividad = "actividad_".$lang;
-        foreach ($programasDeIntercambios as $programaDeIntercambio){
-            $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Aktibitatea'), $programaDeIntercambio->$actividad);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $programaDeIntercambio->lugar);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, $autores , $this->listadoAutores($programaDeIntercambio->profesores));
-            $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Data(k)'), $programaDeIntercambio->desde." - ".$programaDeIntercambio->hasta);
+            $actividad = "actividad_".$lang;
+
+            foreach ($programasDeIntercambios as $programaDeIntercambio){
+                $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Aktibitatea'), $programaDeIntercambio->$actividad);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $programaDeIntercambio->lugar);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, $autores , $this->listadoAutores($programaDeIntercambio->profesores));
+                $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Data(k)'), $programaDeIntercambio->desde." - ".$programaDeIntercambio->hasta);
+            }
+            $section->addPageBreak();
         }
-        $section->addPageBreak();
     }
 
 
@@ -418,23 +439,25 @@ class WordController extends Controller
                 ->orderBy('fecha','DESC')
                 ->get();
         }
-        $tituloH1 = __('Bisitak') ;
+        if(count($visitas)){
+            $tituloH1 = __('Bisitak') ;
 
-        $lang      = \Session::get('locale');
-        $tableName = $tituloH1;
+            $lang      = \Session::get('locale');
+            $tableName = $tituloH1;
 
-        $section->addText( $tituloH1 , $this->styleH1  );
-        $phpWord->addTableStyle($tableName, $this->tableStyle);
+            $section->addText( $tituloH1 , $this->styleH1  );
+            $phpWord->addTableStyle($tableName, $this->tableStyle);
 
-        $table     = $section->addTable($tableName);
-        $titulo    = "titulo_".$lang;
+            $table     = $section->addTable($tableName);
+            $titulo    = "titulo_".$lang;
 
-        foreach ($visitas as $postgrado){
-            $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Aktibitatea'), $postgrado->$titulo);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $postgrado->lugar);
-            $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Irakaslea(k)'), $this->listadoAutores($postgrado->autores));
+            foreach ($visitas as $postgrado){
+                $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Aktibitatea'), $postgrado->$titulo);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $postgrado->lugar);
+                $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Irakaslea(k)'), $this->listadoAutores($postgrado->autores));
+            }
+            $section->addPageBreak();
         }
-        $section->addPageBreak();
     }
 
     public function wordGrupoInvestigacion( $section, $phpWord)
@@ -455,6 +478,8 @@ class WordController extends Controller
             $gruposInvestigacion = GrupoInvestigacion::where('desde', '<=',  $fechaDesde->format('Y'))
             ->where('hasta','>=',  $fechaHasta->format('Y'))
             ->orderBy('id','DESC')->get();
+        }
+        if(count($gruposInvestigacion)){
             $lang = \Session::get('locale');
             $section->addText( __('Ikerkuntza taldea') , $this->styleH1 );
             $tableName     = __('Ikerkuntza taldea');
@@ -464,24 +489,25 @@ class WordController extends Controller
             // Tabla contenido variable
             $grupo = "grupo_".$lang;
             $lineaInv = "lineasInv_".$lang;
+
+
+
+
+            foreach ($gruposInvestigacion as $grupoInvestigacion){
+               // $parser = new HTMLtoOpenXML\Parser();
+               // $ooXml = $parser->fromHTML($grupoInvestigacion->$lineaInv);
+               // $ooXml = "<w:p><w:r><w:rPr><w:strike/></w:rPr><w:t>some texte</w:t></w:r></w:p>";
+                $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Taldea'), $grupoInvestigacion->$grupo);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $grupoInvestigacion->lugar);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Arduraduna(k)'), $this->listadoAutores($grupoInvestigacion->responsables));
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Kidea(k)'), $this->listadoAutores($grupoInvestigacion->participantes ));
+                //$table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Ikerketa Lerroak'), $ooXml );
+                $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Ikerketa Lerroak'), $grupoInvestigacion->$lineaInv );
+            }
+            $section->addPageBreak();
         }
-
-
-
-        foreach ($gruposInvestigacion as $grupoInvestigacion){
-           // $parser = new HTMLtoOpenXML\Parser();
-           // $ooXml = $parser->fromHTML($grupoInvestigacion->$lineaInv);
-           // $ooXml = "<w:p><w:r><w:rPr><w:strike/></w:rPr><w:t>some texte</w:t></w:r></w:p>";
-
-            $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Taldea'), $grupoInvestigacion->$grupo);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $grupoInvestigacion->lugar);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Arduraduna(k)'), $this->listadoAutores($grupoInvestigacion->responsables));
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Kidea(k)'), $this->listadoAutores($grupoInvestigacion->participantes ));
-            //$table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Ikerketa Lerroak'), $ooXml );
-            $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Ikerketa Lerroak'), $grupoInvestigacion->$lineaInv );
-        }
-        $section->addPageBreak();
     }
+
 
 	public function wordTesis( $section, $tipo,  $phpWord)
     {
@@ -490,7 +516,6 @@ class WordController extends Controller
             $tesisLeidas = TesisDoctorales::where('tipo','tesisLeidas')
                 ->whereBetween('fechaLectura', [ $this->fechaDesde,  $this->fechaHasta ])
                 ->where(function($query) {
-
                     $query->where('user_id', \Auth::user()->id);
                     $query->orWhereIN('id', TesisDoctoralesDirectores::where('id_autor', \Auth::user()->id_autor)->pluck('id_tesisDoctoral'));
                     $query->orWhereIN('id', TesisDoctoralesDoctorando::where('id_autor', \Auth::user()->id_autor)->pluck('id_tesisDoctoral'));
@@ -501,28 +526,30 @@ class WordController extends Controller
             ->whereBetween('fechaLectura', [ $this->fechaDesde,  $this->fechaHasta ])
             ->orderBy('id','DESC')->get();
         }
-        if( $tipo == 'tesisLeidas' ){
-            $tituloH1 = __('Tesiak') ;
-        }else{
-            $tituloH1 = __('Tesiak');
+        if(count($tesisLeidas)){
+            if( $tipo == 'tesisLeidas' ){
+                $tituloH1 = __('Tesiak') ;
+            }else{
+                $tituloH1 = __('Tesiak');
+            }
+            $lang      = \Session::get('locale');
+            $tableName = $tituloH1;
+
+            $section->addText( $tituloH1 , $this->styleH1  );
+            $phpWord->addTableStyle($tableName, $this->tableStyle);
+            $table     = $section->addTable($tableName);
+            // Tabla contenido variable
+            $titulo = "titulo_".$lang;
+
+            foreach ($tesisLeidas as $tesis){
+                $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Izenbururua'), $tesis->$titulo);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Zuzendaria(k)'), $this->listadoAutores($tesis->directores));
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Doktorando(k)'), $this->listadoAutores($tesis->doctorandos ));
+                $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Saila'), \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$tesis->departamento]??'---' );
+
+            }
+            $section->addPageBreak();
         }
-        $lang      = \Session::get('locale');
-        $tableName = $tituloH1;
-
-        $section->addText( $tituloH1 , $this->styleH1  );
-        $phpWord->addTableStyle($tableName, $this->tableStyle);
-        $table     = $section->addTable($tableName);
-        // Tabla contenido variable
-        $titulo = "titulo_".$lang;
-
-        foreach ($tesisLeidas as $tesis){
-            $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Izenbururua'), $tesis->$titulo);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Zuzendaria(k)'), $this->listadoAutores($tesis->directores));
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Doktorando(k)'), $this->listadoAutores($tesis->doctorandos ));
-            $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Saila'), \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$tesis->departamento]??'---' );
-
-        }
-        $section->addPageBreak();
     }
 
     public function wordProyectos( $section, $tipo, $phpWord)
@@ -551,30 +578,33 @@ class WordController extends Controller
               })
             ->orderBy('id','DESC')->get();
         }
-        if( $tipo == 'europa' ){
-            $tituloH1 = __('Europar Batasuneko Programa Markoa') ;
-        }elseif( $tipo == 'erakundeak' ){
-            $tituloH1 = __('Erakundeek diru-laguntza emandako Ikerkuntza Proiektuak');
-        }else{
-            //empresa
-            $tituloH1 = __('Enpresek diru-laguntza emandako Ikerkuntza Proiektuak');
-        }
+        if(count($proyectos)){
+            if( $tipo == 'europa' ){
+                $tituloH1 = __('Europar Batasuneko Programa Markoa') ;
+            }elseif( $tipo == 'erakundeak' ){
+                $tituloH1 = __('Erakundeek diru-laguntza emandako Ikerkuntza Proiektuak');
+            }else{
+                //empresa
+                $tituloH1 = __('Enpresek diru-laguntza emandako Ikerkuntza Proiektuak');
+            }
 
-        $lang = \Session::get('locale');
-        $section->addText( $tituloH1 , $this->styleH1  );
-        $tableName     = $tituloH1;
-        $phpWord->addTableStyle($tableName, $this->tableStyle);
-        $table           = $section->addTable($tableName);
+            $lang = \Session::get('locale');
+            $section->addText( $tituloH1 , $this->styleH1  );
+            $tableName     = $tituloH1;
+            $phpWord->addTableStyle($tableName, $this->tableStyle);
+            $table           = $section->addTable($tableName);
 
-        $actividad = "proyecto_".$lang;
-        foreach ($proyectos as $proyecto){
-            $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Proiektua'), $proyecto->$actividad);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Finantziazioa'), $proyecto->financinacion);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Ikertzaile nagusia(k)') , $this->listadoAutores($proyecto->directores));
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Partaidea(k)') , $this->listadoAutores($proyecto->investigadores));
-            $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Data(k)'), $proyecto->desde." - ".$proyecto->hasta);
+            $actividad = "proyecto_".$lang;
+
+            foreach ($proyectos as $proyecto){
+                $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Proiektua'), $proyecto->$actividad);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Finantziazioa'), $proyecto->financinacion);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Ikertzaile nagusia(k)') , $this->listadoAutores($proyecto->directores));
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Partaidea(k)') , $this->listadoAutores($proyecto->investigadores));
+                $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Data(k)'), $proyecto->desde." - ".$proyecto->hasta);
+            }
+            $section->addPageBreak();
         }
-        $section->addPageBreak();
     }
 
 
@@ -602,24 +632,28 @@ class WordController extends Controller
               })
             ->orderBy('id','DESC')->get();
         }
-        $lang = \Session::get('locale');
-        $section->addText( __('Kongresu zientifikoentan parte-hartzea') , $this->styleH1  );
-        // Tabla config
-        $tableName     = __('Kongresu zientifikoentan parte-hartzea');
-        $phpWord->addTableStyle($tableName, $this->tableStyle);
-        $table           = $section->addTable($tableName);
+        if(count($congresos)){
 
-        // Tabla contenido variable
-        $titCongreso = "congreso_".$lang;
-        foreach ($congresos as $congreso){
-            $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Kongresu'), $congreso->$titCongreso);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Ekarpena'), \App\Traits\Listados::listadoEkarpena(\Session::get('locale'))[$congreso->ekarpena]??'---');
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'),  $congreso->lugar );
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Konferentzi/Posterra'), $congreso->conferenciaPoster);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Irakaslea(k)'), $this->listadoAutores( $congreso->profesores ));
-            $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Data'), $congreso->desde." / ".$congreso->hasta );
+            $lang = \Session::get('locale');
+            $section->addText( __('Kongresu zientifikoentan parte-hartzea') , $this->styleH1  );
+            // Tabla config
+            $tableName     = __('Kongresu zientifikoentan parte-hartzea');
+            $phpWord->addTableStyle($tableName, $this->tableStyle);
+            $table           = $section->addTable($tableName);
+
+            // Tabla contenido variable
+            $titCongreso = "congreso_".$lang;
+
+            foreach ($congresos as $congreso){
+                $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Kongresu'), $congreso->$titCongreso);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Ekarpena'), \App\Traits\Listados::listadoEkarpena(\Session::get('locale'))[$congreso->ekarpena]??'---');
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'),  $congreso->lugar );
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Konferentzi/Posterra'), $congreso->conferenciaPoster);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Irakaslea(k)'), $this->listadoAutores( $congreso->profesores ));
+                $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Data'), $congreso->desde." / ".$congreso->hasta );
+            }
+            $section->addPageBreak();
         }
-        $section->addPageBreak();
     }
 
 	public function wordPublicacion( $section, $tipo,  $phpWord)
@@ -639,41 +673,37 @@ class WordController extends Controller
                 ->whereBetween('year', [ $this->fechaDesde,  $this->fechaHasta ])
                 ->orderBy('id','DESC')->get();
         }
-        if( $tipo == 'libros' ){
-            $tituloH1 = __('Liburuak eta Monografiak') ;
-            $titArgitaletxea= __('Argitaletxea');
-            $tituloISBN = "ISBN";
-        }else{
-            $tituloH1 = __('Artikuloak');
-            $titArgitaletxea= __('Aldizkariak');
-            $tituloISBN = "ISSN";
+        if(count($publicaciones)){
+            if( $tipo == 'libros' ){
+                $tituloH1 = __('Liburuak eta Monografiak') ;
+                $titArgitaletxea= __('Argitaletxea');
+                $tituloISBN = "ISBN";
+            }else{
+                $tituloH1 = __('Artikuloak');
+                $titArgitaletxea= __('Aldizkariak');
+                $tituloISBN = "ISSN";
+            }
+
+            $lang      = \Session::get('locale');
+            $tableName = $tituloH1;
+
+            $section->addText( $tituloH1 , $this->styleH1  );
+            $phpWord->addTableStyle($tableName, $this->tableStyle);
+            $table     = $section->addTable($tableName);
+            // Tabla contenido variable
+            $titulo = "titulo_".$lang;
+
+            foreach ($publicaciones as $publicacion){
+                $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Izenbururua'), $publicacion->$titulo);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, $titArgitaletxea , $publicacion->editorialRevisa);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Kapituloa'), $publicacion->capitulo);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, $tituloISBN , $publicacion->ISBN);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Egilea(k)'), $this->listadoAutores($publicacion->autores));
+                $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Data'), $publicacion->year);
+
+            }
+            $section->addPageBreak();
         }
-
-
-
-        $lang      = \Session::get('locale');
-        $tableName = $tituloH1;
-
-        $section->addText( $tituloH1 , $this->styleH1  );
-        $phpWord->addTableStyle($tableName, $this->tableStyle);
-        $table     = $section->addTable($tableName);
-        // Tabla contenido variable
-        $titulo = "titulo_".$lang;
-
-        foreach ($publicaciones as $publicacion){
-            $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Izenbururua'), $publicacion->$titulo);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, $titArgitaletxea , $publicacion->editorialRevisa);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Kapituloa'), $publicacion->capitulo);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, $tituloISBN , $publicacion->ISBN);
-            $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Egilea(k)'), $this->listadoAutores($publicacion->autores));
-            $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Data'), $publicacion->year);
-
-        }
-
-
-        $section->addPageBreak();
-
-
     }
 
     public function wordEquipoNuevo( $section, $phpWord)
@@ -689,43 +719,47 @@ class WordController extends Controller
             $equiposNuevos = EquipamientoNuevo::where('data', '=',  $this->year)
             ->orderBy('id','DESC')->get();
         }
-        $lang = \Session::get('locale');
-        $section->addText( __('Hornikuntza Zientifikoa eskuratzea') , array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
-        // Tabla config
-        $tableName     = __('Hornikuntza Zientifikoa eskuratzea');
-        $this->tableStyle         = array('borderSize' => 6, 'borderColor' => 'CCCCCC', 'cellMargin' => 30, 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER);
-        $phpWord->addTableStyle($tableName, $this->tableStyle);
-        $table           = $section->addTable($tableName);
-        $this->styleFirstTHRow = array( 'bgColor' => 'F1F1F1', 'borderTopSize' => 12, 'borderTopColor' => '000000');
-        $this->styleFirstTDRow = array( 'bgColor' => 'FFFFFF', 'borderTopSize' => 12, 'borderTopColor' => '000000');
-        $this->styleLastTHRow  = array( 'bgColor' => 'F1F1F1', 'borderBottomSize' => 12, 'borderBottomColor' => '000000');
-        $this->styleLastTDRow  = array( 'bgColor' => 'FFFFFF', 'borderBottomSize' => 12, 'borderBottomColor' => '000000');
-        $this->styleTH         = array( 'bgColor' => 'F1F1F1');
-        $this->styleTD         = array( 'bgColor' => 'FFFFFF');
-        $this->widthTH         = 3300;
-        $this->widthTD         = 6550;
-         // Tabla contenido variable
-        $equipo = "equipo_".$lang;
-        $departamento = "departamento_".$lang;
-        foreach ($equiposNuevos as $equipoNuevo){
+        if(count($equiposNuevos)){
 
-            $table->addRow();
-            $table->addCell($this->widthTH , $this->styleFirstTHRow)->addText( __('Taldea') );
-            $table->addCell($this->widthTD , $this->styleFirstTDRow)->addText($equipoNuevo->$departamento);
-            $table->addRow();
-            $table->addCell($this->widthTH , $this->styleTH)->addText(__('Arduraduna') );
-            $table->addCell($this->widthTD , $this->styleTD)->addText( $equipoNuevo->$equipo );
-            $table->addRow();
-            $table->addCell($this->widthTH , $this->styleTH)->addText(__('Instituzioa') );
-            $table->addCell($this->widthTD , $this->styleTD)->addText($equipoNuevo->institucion);
-             $table->addRow();
-            $table->addCell($this->widthTH , $this->styleTH)->addText(__('Zenbateko') );
-            $table->addCell($this->widthTD , $this->styleTD)->addText($equipoNuevo->importe." €" );
-            $table->addRow();
-            $table->addCell($this->widthTH , $this->styleLastTHRow)->addText(__('Data') );
-            $table->addCell($this->widthTD , $this->styleLastTDRow)->addText($equipoNuevo->data);
+            $lang = \Session::get('locale');
+            $section->addText( __('Hornikuntza Zientifikoa eskuratzea') , array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
+            // Tabla config
+            $tableName     = __('Hornikuntza Zientifikoa eskuratzea');
+            $this->tableStyle         = array('borderSize' => 6, 'borderColor' => 'CCCCCC', 'cellMargin' => 30, 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER);
+            $phpWord->addTableStyle($tableName, $this->tableStyle);
+            $table           = $section->addTable($tableName);
+            $this->styleFirstTHRow = array( 'bgColor' => 'F1F1F1', 'borderTopSize' => 12, 'borderTopColor' => '000000');
+            $this->styleFirstTDRow = array( 'bgColor' => 'FFFFFF', 'borderTopSize' => 12, 'borderTopColor' => '000000');
+            $this->styleLastTHRow  = array( 'bgColor' => 'F1F1F1', 'borderBottomSize' => 12, 'borderBottomColor' => '000000');
+            $this->styleLastTDRow  = array( 'bgColor' => 'FFFFFF', 'borderBottomSize' => 12, 'borderBottomColor' => '000000');
+            $this->styleTH         = array( 'bgColor' => 'F1F1F1');
+            $this->styleTD         = array( 'bgColor' => 'FFFFFF');
+            $this->widthTH         = 3300;
+            $this->widthTD         = 6550;
+             // Tabla contenido variable
+            $equipo = "equipo_".$lang;
+            $departamento = "departamento_".$lang;
+
+            foreach ($equiposNuevos as $equipoNuevo){
+
+                $table->addRow();
+                $table->addCell($this->widthTH , $this->styleFirstTHRow)->addText( __('Taldea') );
+                $table->addCell($this->widthTD , $this->styleFirstTDRow)->addText($equipoNuevo->$departamento);
+                $table->addRow();
+                $table->addCell($this->widthTH , $this->styleTH)->addText(__('Arduraduna') );
+                $table->addCell($this->widthTD , $this->styleTD)->addText( $equipoNuevo->$equipo );
+                $table->addRow();
+                $table->addCell($this->widthTH , $this->styleTH)->addText(__('Instituzioa') );
+                $table->addCell($this->widthTD , $this->styleTD)->addText($equipoNuevo->institucion);
+                 $table->addRow();
+                $table->addCell($this->widthTH , $this->styleTH)->addText(__('Zenbateko') );
+                $table->addCell($this->widthTD , $this->styleTD)->addText($equipoNuevo->importe." €" );
+                $table->addRow();
+                $table->addCell($this->widthTH , $this->styleLastTHRow)->addText(__('Data') );
+                $table->addCell($this->widthTD , $this->styleLastTDRow)->addText($equipoNuevo->data);
+            }
+            $section->addPageBreak();
         }
-        $section->addPageBreak();
     }
 
      private function formatearYear( $year , $mes){

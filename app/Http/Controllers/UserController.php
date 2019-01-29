@@ -18,9 +18,14 @@ class UserController extends Controller
 {
     public  $user;
     public function index(Request $request){
-        $data = User::orderBy('lname','ASC')->paginate(25);
-        return view('users.index',compact('data'))
+        if(\Auth::user()->hasRole('owner') OR \Auth::user()->hasRole('admin')){
+            $data = User::orderBy('lname','ASC')->paginate(25);
+            return view('users.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
+        }else{
+            $passwordCambiar = false;
+            return view('home', compact('passwordCambiar'))->withErrors(__('Ez dituzu permisorik'));
+        }
     }
 
     public function create()
@@ -68,15 +73,23 @@ class UserController extends Controller
     }
     public function edit($id)
     {
-        $user = User::find($id);
-        $roles = Role::pluck('display_name','id');
-        $userRole = $user->roles->pluck('id','id')->toArray();
 
-        return view('users.edit',compact('user','roles','userRole' ));
+            $user = User::find($id);
+            $roles = Role::pluck('display_name','id');
+            $userRole = $user->roles->pluck('id','id')->toArray();
+
+            return view('users.edit',compact('user','roles','userRole' ));
+
     }
 
     public function update(Request $request, $id)
     {
+        if(\Auth::user()->hasRole('owner') OR \Auth::user()->hasRole('admin')){
+
+        }else{
+            $passwordCambiar = false;
+            return view('home', compact('passwordCambiar'))->withErrors(__('Ez dituzu permisorik'));
+        }
         $this->validate($request, [
             'name'     => 'required',
             'lname'    => 'required',

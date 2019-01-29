@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    @if(\Auth::user()->hasRole('owner'))
+    @if(\Auth::user()->hasRole('owner') OR \Auth::user()->hasRole('admin'))
     	<div class="row">
 			<div class="col-xs-4 ">
 	            <div class="form-group">
