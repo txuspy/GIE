@@ -23,17 +23,17 @@
 			</ul>
 		</div>
 	<?php endif; ?>
-		<div class="alert alert-success">
+		<!--<div class="alert alert-success">
 			<p><?php echo e(__('Urte oso bat, aukeratzen den urtetik aurrera izango da')); ?></p>
-		</div>
+		</div>-->
 	<?php echo Form::open(array('url' => App\Lib\Functions::parseLang().'/word' , 'method' => 'post', 'class' =>'form-horizontal')); ?>
 
 <div style="margin:45px;">
 
 
 	<div class="row" >
-        <div class="col-xs-2">
-             <div class="form-group  has-error">
+        <div class="col-xs-4">
+             <div class="form-group">
 	            <label><strong><?php echo e(__('Hasiera Data')); ?> (*):</strong></label>
 	            <?php if($errors->has('desde')): ?>
 	                <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
@@ -42,8 +42,10 @@
 
 	        </div>
         </div>
-        <div class="col-xs-2">
-             <div class="form-group  has-error">
+    </div>
+     <div class="row" >
+        <div class="col-xs-4">
+             <div class="form-group">
 	            <label><strong><?php echo e(__('Bukatze Data')); ?> (*):</strong></label>
 	            <?php if($errors->has('hasta')): ?>
 	                <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
@@ -53,23 +55,58 @@
 	        </div>
         </div>
     </div>
-
-    <div class="row">
-		<div class="col-xs-2 ">
-            <div class="form-group">
-                <label><strong><?php echo e(__('Erabiltzaileak')); ?> :</strong></label>
-				<p>Admin todos o seleccion  y profesor solo su usuario</p>
-            </div>
-        </div>
-    </div>
  	<div class="row">
-		<div class="col-xs-2 ">
+		<div class="col-xs-4 ">
             <div class="form-group">
-                <label><strong><?php echo e(__('Sekzio')); ?> :</strong></label>
-				<p>Multiselect con cada tipo</p>
+                <label><strong><?php echo e(__('Atal')); ?> :</strong></label>
+                <i class="fa fa-info-circle mostarSelect" title="<?php echo e(__('Atal ezberdinak nahi badituzu, sakatu')); ?>"></i>
+                <?php echo Form::select('secciones[]',
+                [
+	                '2' => __('Postgrados'),
+	                '3' => __('Formaciones'),
+	                '4' => __('Programas de intercambio'),
+	                '5' => __('Visitas'),
+	                '6' => __('Grupo de investigacion'),
+	                '7' => __('Tesis'),
+	                '9' => __('Equipamiento Nuevo'),
+	                '10' => __('Proyectos'),
+	                '11' => __('Congresos'),
+	                '12' => __('Publicaciones')
+                ] , [2,3,4,5,6,7,9,10,11,12], ['multiple'=>'multiple', 'id' =>'secciones', 'class' => 'form-control chosen-type ocultar']); ?>
+
+
             </div>
+            <script>
+				$(".mostarSelect").click(function() {
+					$("#secciones").toggle();
+				});
+			</script>
         </div>
     </div>
+
+    <?php if(\Auth::user()->hasRole('owner') OR \Auth::user()->hasRole('admin')): ?>
+    	<div class="row">
+			<div class="col-xs-4 ">
+	            <div class="form-group">
+	                <label><strong><?php echo e(__('Erabiltzaileak')); ?> :</strong></label>
+	                <i class="fa fa-info-circle mostarSelect" title="<?php echo e(__('Erabiltzaile ezberdinak nahi badituzu, sakatu')); ?>"></i>
+	                <?php echo Form::select('usuarios[]',
+	                [
+		                'todos' => __('denak'),
+		                'unico' =>  __('zu')." ( ".Auth::user()->name." )"
+
+	                ] , ['todos'], ['multiple'=>'multiple', 'id' =>'usuarios', 'class' => 'form-control chosen-type ocultar']); ?>
+
+	            </div>
+	            <script>
+					$(".mostarSelect").click(function() {
+						$("#usuarios").toggle();
+					});
+				</script>
+	        </div>
+	    </div>
+    <?php endif; ?>
+
     <div class="row">
         <div>
 			<button type="submit" class="btn btn-primary"><i class="fa fa-plus" title ="<?php echo e(__('Word sortu')); ?>"></i> <?php echo e(__('Word sortu')); ?></button>

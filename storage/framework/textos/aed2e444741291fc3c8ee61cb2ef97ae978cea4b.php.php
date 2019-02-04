@@ -17,7 +17,8 @@
     </ul>
     <br>
     <ul class="class-toggle-active level-1" role="menubar">
-        @role('owner')
+
+        @role('admin')
             <li class="side-nav-item">
                 <a href="/home">
                     <span><?php echo e(__('Administratzailea')); ?></span>
@@ -35,19 +36,17 @@
            <br>
         @endrole
         @role('admin')
+        @endrole
             <li class="side-nav-item">
                 <a href="/home">
                     <span><?php echo e(__('Txostenak')); ?></span>
                 </a>
                 <ul class="sub-nav level-2">
-                    @permission('user-list')
                     <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/word')); ?>"><i class="fa fa-file-word-o" aria-hidden="true"></i> <?php echo e(__('Word')); ?></a></li>
-                    @endpermission
-
                 </ul>
             </li>
            <br>
-        @endrole
+
         <li  class="side-nav-item has-sub-nav class-toggle-active">
 
             <a href="">

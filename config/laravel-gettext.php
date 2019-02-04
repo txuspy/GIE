@@ -70,6 +70,7 @@ return [
      */
     'source-paths' => [
         'Http',
+        'Traits',
         '../resources/views',
         'Console',
     ],

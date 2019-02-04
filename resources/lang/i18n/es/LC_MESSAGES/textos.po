@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ERP Forest Pioneer SL\n"
-"POT-Creation-Date: 2019-01-23 14:41+0000\n"
-"PO-Revision-Date: 2019-01-23 14:41+0000\n"
+"POT-Creation-Date: 2019-02-04 12:19+0000\n"
+"PO-Revision-Date: 2019-02-04 12:19+0000\n"
 "Last-Translator: Unai Susperregi <sistemas@forestpioneer.com>\n"
 "Language-Team: Unai Susperregi <sistemas@forestpioneer.com>\n"
 "Language: es\n"
@@ -731,7 +731,7 @@ msgstr "Movilidad PDI/PAS "
 #: Http/Controllers/WordController.php:140
 #: Http/Controllers/WordController.php:239
 msgid "Etorritako ikerlariak"
-msgstr "Investigadores visitantes"
+msgstr "Visitantes externos/as"
 
 #: ../storage/framework/textos/0e80e66b8e338ec072e2079b76e05284fd4b0fb9.php.php:80
 #: ../storage/framework/textos/2c3ca664f4cb416ded6ebf6086cad3b416772ef4.php.php:65

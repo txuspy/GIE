@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ERP Forest Pioneer SL\n"
-"POT-Creation-Date: 2019-01-23 14:41+0000\n"
-"PO-Revision-Date: 2019-01-23 14:41+0000\n"
+"POT-Creation-Date: 2019-02-04 12:19+0000\n"
+"PO-Revision-Date: 2019-02-04 12:19+0000\n"
 "Last-Translator: Unai Susperregi <sistemas@forestpioneer.com>\n"
 "Language-Team: Unai Susperregi <sistemas@forestpioneer.com>\n"
 "Language: eu\n"
@@ -1413,7 +1413,7 @@ msgstr "Doktoretzako parte-hartzea"
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:115
 #: Http/Controllers/WordController.php:115
 msgid "IIPko Formazioa Jarduerak"
-msgstr "IIPren formakuntza-jarduerak"
+msgstr "IIPen formakuntza-jarduerak"
 
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:116
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:119
@@ -1434,7 +1434,7 @@ msgstr "Emandako formakuntza"
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:118
 #: Http/Controllers/WordController.php:118
 msgid "AZPko Formazioa Jarduerak"
-msgstr "AZPren formakuntza-jarduerak"
+msgstr "AZPen Formakuntza"
 
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:121
 #: ../storage/framework/textos/819e77db4c30f892866c18f6e7cf2a521b0de02a.php.php:138

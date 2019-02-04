@@ -210,11 +210,11 @@ class WordController extends Controller
         if (in_array("3", $secciones)) {
             $section->addListItem( __('IIPko Formazioa Jarduerak'), 0, null, 'multilevel');
             $section->addListItem( __('Hartutako formazioa'), 1, null, 'multilevel');
-            $section->addListItem( __('EmORako formazioa'), 1, null, 'multilevel');
+            $section->addListItem( __('Emandako formazioa'), 1, null, 'multilevel');
 
             $section->addListItem( __('AZPko Formazioa Jarduerak'), 0, null, 'multilevel');
             $section->addListItem( __('Hartutako formazioa'), 1, null, 'multilevel');
-            $section->addListItem( __('EmORako formazioa'), 1, null, 'multilevel');
+            $section->addListItem( __('Emandako formazioa'), 1, null, 'multilevel');
 
         }
         if (in_array("4", $secciones)) {
@@ -234,7 +234,7 @@ class WordController extends Controller
             $section->addListItem( __('Ikerkuntza taldea'), 0, null, 'multilevel');
         }
         if (in_array("7", $secciones)) {
-            $section->addListItem( __('Tesiak'), 0, null, 'multilevel');
+            $section->addListItem( __('Tesiak')." ".$this->fechaDesde."-".$this->fechaHasta, 0, null, 'multilevel');
             /*$section->addListItem( __('Uneko Tesiak'), 1, null, 'multilevel');
             $section->addListItem( __('Burutu diren Tesiak'), 1, null, 'multilevel');*/
         }
@@ -298,7 +298,7 @@ class WordController extends Controller
             foreach ($postgrados as $postgrado){
                 $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Programa'), $postgrado->$titulo);
                 $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Saila'), \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$postgrado->departamento]??'---' );
-                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Ikastaroa'), $postgrado->$curso);
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Kurtsoa'), $postgrado->$curso);
                 $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Irakaslea(k)'), $this->listadoAutores($postgrado->autores));
                 $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $postgrado->lugar);
                 $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Iraupena'), $postgrado->duracion);
@@ -351,7 +351,7 @@ class WordController extends Controller
 
 
             foreach ($formaciones as $formacion){
-                $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Ikastaro'), $formacion->$titulo);
+                $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Kurtsoa'), $formacion->$titulo);
                 if( $modo == 'recibir' ){
                     $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Antolatzailea(k)'), $formacion->$organizador);
                 }
@@ -633,6 +633,11 @@ class WordController extends Controller
             ->orderBy('id','DESC')->get();
         }
         if(count($congresos)){
+            //Txapuza pq gettex no saca de traits
+            /*$tit1 = __('Aukeratu');
+            $tit2 = __('Hitzaldi gonbidatua');
+            $tit3 = __('Ahozko aurkezpena');
+            $tit4 = __('Posterra');*/
 
             $lang = \Session::get('locale');
             $section->addText( __('Kongresu zientifikoentan parte-hartzea') , $this->styleH1  );
