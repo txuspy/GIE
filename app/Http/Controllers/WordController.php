@@ -175,6 +175,8 @@ class WordController extends Controller
         $fontStyle->setName('Tahoma');
         $fontStyle->setSize(16);*/
         $section->addText(__('Gipuzkoako Ingeniaritza Eskola'), array('name' => $this->fuente, 'size' => 20, 'bold' => true) );
+        $section->addText("( ".$this->fechaDesde." / ".$this->fechaHasta." )", array('name' => $this->fuente, 'size' => 12, 'bold' => false) );
+        $section->addText(" ", array('name' => $this->fuente, 'size' => 12, 'bold' => false) );
        // $myTextElement->setFontStyle($fontStyle);
         $phpWord->addNumberingStyle(
             'multilevel',
@@ -209,11 +211,11 @@ class WordController extends Controller
         }
         if (in_array("3", $secciones)) {
             $section->addListItem( __('IIPko Formazioa Jarduerak'), 0, null, 'multilevel');
-            $section->addListItem( __('Hartutako formazioa'), 1, null, 'multilevel');
+            $section->addListItem( __('Jasotako formakuntza'), 1, null, 'multilevel');
             $section->addListItem( __('Emandako formazioa'), 1, null, 'multilevel');
 
             $section->addListItem( __('AZPko Formazioa Jarduerak'), 0, null, 'multilevel');
-            $section->addListItem( __('Hartutako formazioa'), 1, null, 'multilevel');
+            $section->addListItem( __('Jasotako formakuntza'), 1, null, 'multilevel');
             $section->addListItem( __('Emandako formazioa'), 1, null, 'multilevel');
 
         }
@@ -234,7 +236,7 @@ class WordController extends Controller
             $section->addListItem( __('Ikerkuntza taldea'), 0, null, 'multilevel');
         }
         if (in_array("7", $secciones)) {
-            $section->addListItem( __('Tesiak')." ".$this->fechaDesde."-".$this->fechaHasta, 0, null, 'multilevel');
+            $section->addListItem( __('Tesiak') , 0, null, 'multilevel');
             /*$section->addListItem( __('Uneko Tesiak'), 1, null, 'multilevel');
             $section->addListItem( __('Burutu diren Tesiak'), 1, null, 'multilevel');*/
         }
