@@ -34,3 +34,14 @@ $factory->define(App\Clientes::class, function (Faker\Generator $faker) {
         'nota_cliente' => $faker->paragraph,
     ];
 });
+
+$factory->define(App\Formaciones::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->unique()->randomNumber,
+        'user_id' => $faker->unique()->randomNumber,
+        'tipo'=> 'PAS',
+        'modo'=> 'recibir',
+        'titulo_eu'=> $faker->name,
+        'titulo_es'=> $faker->name
+    ];
+});

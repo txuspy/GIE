@@ -78,7 +78,7 @@
                 @if ($errors->has('fechaLectura'))
                     <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
                 @endif
-                {!! Form::text('fechaLectura', date('Y') , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y') ,'class' => 'datepicker date-year form-control')) !!}
+                {!! Form::text('fechaLectura', date('Y') , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y') ,'class' => 'datepicker form-control')) !!}
             </div>
         </div>
 

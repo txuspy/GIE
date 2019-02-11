@@ -14,7 +14,7 @@
 
 								&nbsp;
 								&nbsp;
-							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="{{ __('Bilatu') }}" ></i></a>
+							<a class="btn btn-info mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="{{ __('Bilatu') }}" ></i></a>
 								&nbsp;
 								&nbsp;
 							<a class="btn btn-success" href="{{ route('equipamientoNuevo.create') }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i></a>
@@ -31,7 +31,9 @@
 					<tr>
 						<th>{{ __('Hornikuntza') }}</th>
 						<th>{{ __('Saila') }}</th>
-						<th>{{ __('Akzioak') }}</th>
+						<th>{{ __('Akzioak') }}
+
+						</th>
 					</tr>
 					@if($data)
 						@foreach ($data as $key => $equipamientoNuevo)
@@ -41,13 +43,21 @@
 								$equipo = "hornikuntza" ;
 								$departamento = "departamento" ;
 								?>
-								<a href="{{ route('equipamientoNuevo.edit',$equipamientoNuevo->id) }}">{{ $equipamientoNuevo->$equipo }}, ( {{ $equipamientoNuevo->data }} )</a>
+								<a href="{{ route('equipamientoNuevo.edit',$equipamientoNuevo->id) }}"
+								@if(Session::get('search')=='1')
+									target="_blank"
+								@endif
+								>{{ $equipamientoNuevo->$equipo }}, ( {{ $equipamientoNuevo->data }} )</a>
 								<br> <i>({{ $equipamientoNuevo->usuario?$equipamientoNuevo->usuario->name:'' }} {{ $equipamientoNuevo->usuario?$equipamientoNuevo->usuario->lname:'' }})</i>
 							</td>
 							<td>
 								{{ \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$equipamientoNuevo->departamento]??'---' }}</td>
 							<td>
-								<a class="btn btn-primary" href="{{ route('equipamientoNuevo.edit',$equipamientoNuevo->id) }}"><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
+								<a class="btn btn-primary" href="{{ route('equipamientoNuevo.edit',$equipamientoNuevo->id) }}"
+								@if(Session::get('search')=='1')
+									target="_blank"
+								@endif
+								><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
 								@if( $equipamientoNuevo->user_id == \Auth::user()->id )
 									{!! Form::open(['method' => 'DELETE','route' => ['equipamientoNuevo.destroy', $equipamientoNuevo->id],'style'=>'display:inline']) !!}
 									{{ Form::button('<i class="fa fa-trash"  title="'.__('Ezabatu').'"></i> ', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
@@ -65,3 +75,4 @@
 				</table>
 			</div>
 @endsection
+{{ \Session::put('search', '0') }}

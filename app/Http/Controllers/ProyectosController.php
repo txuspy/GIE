@@ -129,7 +129,7 @@ class ProyectosController extends Controller
 		if(isset($request['proyecto_eu'])) {
 			if($request['proyecto_eu'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('proyecto_eu', 'like', "%".$request['proyecto_eu']."%");
+					return $query->where('proyecto_eu', 'like', "%".trim( $request['proyecto_eu'] )."%");
 				});
 			}
 		}
@@ -139,7 +139,7 @@ class ProyectosController extends Controller
     	if(isset($request['financinacion'])) {
 			if($request['financinacion'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('financinacion', 'like', "%".$request['financinacion']."%");
+					return $query->where('financinacion', 'like', "%".trim( $request['financinacion'] )."%");
 				});
 			}
 		}
@@ -196,6 +196,7 @@ class ProyectosController extends Controller
                 ->paginate(25);
         $sql  = Functions::getSql($q, $q->toSql());
         $tipo = $request['tipo'];
+        \Session::put('search', '1');
         return view('proyectos.index',compact('data', 'tipo')) ;
     }
 

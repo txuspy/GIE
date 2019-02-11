@@ -109,7 +109,7 @@ class EquipamientoNuevoController extends Controller
 		if(isset($request['hornikuntza'])) {
 			if($request['hornikuntza'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('hornikuntza', 'like', "%".$request['hornikuntza']."%");
+					return $query->where('hornikuntza', 'like', "%".trim( $request['hornikuntza'] )."%");
 				});
 			}
 		}
@@ -117,7 +117,7 @@ class EquipamientoNuevoController extends Controller
 		if(isset($request['ekipamendua'])) {
 			if($request['ekipamendua'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('ekipamendua', 'like', "%".$request['ekipamendua']."%");
+					return $query->where('ekipamendua', 'like', "%".trim( $request['ekipamendua'] )."%");
 				});
 			}
 		}
@@ -150,7 +150,7 @@ class EquipamientoNuevoController extends Controller
     	if(isset($request['institucion'])) {
 			if($request['institucion'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('institucion', 'like', "%".$request['institucion']."%");
+					return $query->where('institucion', 'like', "%".trim( $request['institucion'])."%");
 				});
 			}
 		}
@@ -170,6 +170,8 @@ class EquipamientoNuevoController extends Controller
                 ->paginate(25);
         $sql  = Functions::getSql($q, $q->toSql());
         //dd($sql );
+        \Session::put('search', '1');
+
         $tipo = $request['tipo'];
         return view('equipamientoNuevo.index',compact('data')) ;
     }

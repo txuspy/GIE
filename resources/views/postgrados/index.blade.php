@@ -38,6 +38,7 @@
 						<th>{{ __('Programa') }}</th>
 						<th>{{ __('Kurtsoa') }}</th>
 						<th>{{ __('Saila') }}</th>
+						<th>{{ __('Data') }}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>
 					@foreach ($data as $key => $postgrado)
@@ -55,6 +56,9 @@
 							{{ \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$postgrado->departamento]??'---' }}
 						</td>
 						<td>
+							{{ $postgrado->fecha }}
+						</td>
+						<td>
 							<a class="btn btn-primary" href="{{ route('postgrados.edit',$postgrado->id) }}"><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
 							@if( $postgrado->user_id == \Auth::user()->id )
 								{!! Form::open(['method' => 'DELETE','route' => ['postgrados.destroy', $postgrado->id, $postgrado->tipo],'style'=>'display:inline']) !!}
@@ -64,7 +68,7 @@
 						</td>
 					</tr>
 					@endforeach
-					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td class='text-center'>{{ $data->links() }}</td><td></td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
+					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td colspan ='3' class='text-center'>{{ $data->links() }}</td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
 				</table>
 			</div>
 @endsection

@@ -118,7 +118,7 @@ class ProgramasDeIntercambioController extends Controller
 		if(isset($request['actividad_eu'])) {
 			if($request['actividad_eu'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('programasDeIntercambio.actividad_eu', 'like', "%".$request['actividad_eu']."%");
+					return $query->where('programasDeIntercambio.actividad_eu', 'like', "%".trim($request['actividad_eu'])."%");
 				});
 			}
 		}
@@ -126,7 +126,7 @@ class ProgramasDeIntercambioController extends Controller
 		if(isset($request['actividad_es'])) {
 			if($request['actividad_es'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('programasDeIntercambio.actividad_es', 'like', "%".$request['actividad_es']."%");
+					return $query->where('programasDeIntercambio.actividad_es', 'like', "%".trim($request['actividad_es'])."%");
 				});
 			}
 		}
@@ -135,7 +135,7 @@ class ProgramasDeIntercambioController extends Controller
     	if(isset($request['lugar'])) {
 			if($request['lugar'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('programasDeIntercambio.lugar', 'like', "%".$request['lugar']."%");
+					return $query->where('programasDeIntercambio.lugar', 'like', "%".trim($request['lugar'])."%");
 				});
 			}
 		}
@@ -187,7 +187,7 @@ class ProgramasDeIntercambioController extends Controller
         $sql  = Functions::getSql($q, $q->toSql());
         // dd($sql );
         $tipo = $request['tipo'];
-
+        \Session::put('search', '1');
         return view('programasDeIntercambio.index',compact('data', 'tipo')) ;
     }
 

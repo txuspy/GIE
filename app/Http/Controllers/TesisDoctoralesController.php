@@ -118,7 +118,7 @@ class TesisDoctoralesController extends Controller
 		if(isset($request['titulo_eu'])) {
 			if($request['titulo_eu'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('titulo_eu', 'like', "%".$request['titulo_eu']."%");
+					return $query->where('titulo_eu', 'like', "%".trim($request['titulo_eu'])."%");
 				});
 			}
 		}
@@ -185,16 +185,14 @@ class TesisDoctoralesController extends Controller
 
     public function search(Request $request)
     {
-        // dd($request->all());
         $q    = TesisDoctorales::query();
         $q    = $this->crearSql($q, $request);
         $data = $q->orderBy('tesisDoctorales.id','DESC')
                 ->paginate(25);
         $sql  = Functions::getSql($q, $q->toSql());
-
         // dd($sql );
         $tipo = $request['tipo'];
-
+        \Session::put('search', '1');
         return view('tesisDoctorales.index',compact('data', 'tipo')) ;
     }
 

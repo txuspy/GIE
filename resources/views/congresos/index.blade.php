@@ -13,7 +13,7 @@
 
 								&nbsp;
 								&nbsp;
-							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="{{ __('Bilatu') }}" ></i></a>
+							<a class="btn btn-info mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="{{ __('Bilatu') }}" ></i></a>
 								&nbsp;
 								&nbsp;
 							<a class="btn btn-success" href="{{ route('congresos.create') }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i></a>
@@ -40,7 +40,11 @@
 					<tr>
 						<td>
 							<?php $congre = "congreso_".\Session::get('locale') ;?>
-								<a href="{{ route('congresos.edit',$congreso->id) }}">
+								<a href="{{ route('congresos.edit',$congreso->id) }}"
+								@if(Session::get('search')=='1')
+									target="_blank"
+								@endif
+								>
 									{{ $congreso->$congre }}, ( {{ $congreso->desde }} - {{ $congreso->hasta }} )
 									</a>
 							<br> <i>({{ $congreso->usuario?$congreso->usuario->name:'' }} {{ $congreso->usuario?$congreso->usuario->lname:'' }})</i>
@@ -58,7 +62,11 @@
 			 				@endforeach
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{ route('congresos.edit',$congreso->id) }}"><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
+							<a class="btn btn-primary" href="{{ route('congresos.edit',$congreso->id) }}"
+								@if(Session::get('search')=='1')
+									target="_blank"
+								@endif
+							><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
 							@if( $congreso->user_id == \Auth::user()->id )
 								{!! Form::open(['method' => 'DELETE','route' => ['congresos.destroy', $congreso->id],'style'=>'display:inline']) !!}
 								{{ Form::button('<i class="fa fa-trash"  title="'.__('Ezabatu').'"></i> ', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
@@ -71,3 +79,4 @@
 				</table>
 			</div>
 @endsection
+{{ \Session::put('search', '0') }}

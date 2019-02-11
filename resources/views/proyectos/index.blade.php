@@ -48,7 +48,11 @@
 					<tr>
 						<td>
 							<?php $proiekto = "proyecto_".\Session::get('locale') ;?>
-							<a href="{{ route('proyectos.edit',$proyecto->id) }}">{{ $proyecto->$proiekto }}</a>
+							<a href="{{ route('proyectos.edit',$proyecto->id) }}"
+							@if(Session::get('search')=='1')
+								target="_blank"
+							@endif
+							>{{ $proyecto->$proiekto }}</a>
 							<br> ( {{ $proyecto->desde }} - {{ $proyecto->hasta }} )
 							<br> <i>({{ $proyecto->usuario?$proyecto->usuario->name:'' }} {{ $proyecto->usuario?$proyecto->usuario->lname:'' }})</i>
 
@@ -66,7 +70,12 @@
 			 				@endforeach
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{ route('proyectos.edit',$proyecto->id) }}"><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
+							<a class="btn btn-primary" href="{{ route('proyectos.edit',$proyecto->id) }}"
+							@if(Session::get('search')=='1')
+								target="_blank"
+							@endif
+							>
+								<i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
 							@if( $proyecto->user_id == \Auth::user()->id )
 								{!! Form::open(['method' => 'DELETE','route' => ['proyectos.destroy', $proyecto->id, $proyecto->tipo],'style'=>'display:inline']) !!}
 								{{ Form::button('<i class="fa fa-trash"  title="'.__('Ezabatu').'"></i> ', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
@@ -79,3 +88,4 @@
 				</table>
 			</div>
 @endsection
+{{ \Session::put('search', '0') }}

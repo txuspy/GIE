@@ -39,13 +39,18 @@
 						<th>{{ __('Izenburua') }}</th>
 						<th>{{ __('Saila') }}</th>
 						<th>{{ __('Ikerlaria(k)')}}</th>
+						<th>{{ __('Data') }}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>
 					@foreach ($data as $key => $tesis)
 					<tr>
 						<td>
 							<?php $titulo = "titulo_".\Session::get('locale') ;?>
-							<a href="{{ route('tesisDoctorales.edit',$tesis->id) }}">{{ $tesis->$titulo }}</a>
+							<a href="{{ route('tesisDoctorales.edit',$tesis->id) }}"
+							@if(Session::get('search')=='1')
+								target="_blank"
+							@endif
+							>{{ $tesis->$titulo }}</a>
 							<br> <i>({{ $tesis->usuario?$tesis->usuario->name:'' }} {{ $tesis->usuario?$tesis->usuario->lname:'' }})</i>
 						</td>
 						<td>
@@ -59,8 +64,13 @@
 			 					@endif
 			 				@endforeach
 						</td>
+						<td>{{ $tesis->fechaLectura }}</td>
 						<td>
-							<a class="btn btn-primary" href="{{ route('tesisDoctorales.edit',$tesis->id) }}"><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
+							<a class="btn btn-primary" href="{{ route('tesisDoctorales.edit',$tesis->id) }}"
+							@if(Session::get('search')=='1')
+								target="_blank"
+							@endif
+							><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
 							@if( $tesis->user_id == \Auth::user()->id )
 								{!! Form::open(['method' => 'DELETE','route' => ['tesisDoctorales.destroy', $tesis->id, $tesis->tipo],'style'=>'display:inline']) !!}
 								{{ Form::button('<i class="fa fa-trash"  title="'.__('Ezabatu').'"></i> ', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
@@ -69,7 +79,8 @@
 						</td>
 					</tr>
 					@endforeach
-					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td  class='text-center'>{{ $data->links() }}</td><td></td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
+					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td colspan ='3' class='text-center'>{{ $data->links() }}</td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
 				</table>
 			</div>
 @endsection
+{{ \Session::put('search', '0') }}

@@ -42,7 +42,11 @@
 					<tr>
 						<td>
 							<?php $titulo = "titulo_".\Session::get('locale') ;?>
-							<a  href="{{ route('publicaciones.edit',$publicacion->id) }}">{{ $publicacion->$titulo }}</a>
+							<a  href="{{ route('publicaciones.edit',$publicacion->id) }}"
+							@if(Session::get('search')=='1')
+									target="_blank"
+								@endif
+							>{{ $publicacion->$titulo }}</a>
 							<br> <i>({{ $publicacion->usuario?$publicacion->usuario->name:'' }} {{ $publicacion->usuario?$publicacion->usuario->lname:'' }})</i>
 						</td>
 						<td>
@@ -54,7 +58,11 @@
 			 				@endforeach
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{ route('publicaciones.edit',$publicacion->id) }}"><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
+							<a class="btn btn-primary" href="{{ route('publicaciones.edit',$publicacion->id) }}"
+							@if(Session::get('search')=='1')
+									target="_blank"
+								@endif
+							><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
 							@if( $publicacion->user_id == \Auth::user()->id )
 								{!! Form::open(['method' => 'DELETE','route' => ['publicaciones.destroy', $publicacion->id, $publicacion->tipo],'style'=>'display:inline']) !!}
 								{{ Form::button('<i class="fa fa-trash"  title="'.__('Ezabatu').'"></i> ', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
@@ -67,3 +75,4 @@
 				</table>
 			</div>
 @endsection
+{{ \Session::put('search', '0') }}

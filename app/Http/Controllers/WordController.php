@@ -634,10 +634,10 @@ class WordController extends Controller
         }
         if(count($congresos)){
             //Txapuza pq gettex no saca de traits
-            /*$tit1 = __('Aukeratu');
+            $tit1 = __('Aukeratu');
             $tit2 = __('Hitzaldi gonbidatua');
             $tit3 = __('Ahozko aurkezpena');
-            $tit4 = __('Posterra');*/
+            $tit4 = __('Posterra');
 
             $lang = \Session::get('locale');
             $section->addText( __('Kongresu zientifikoentan parte-hartzea') , $this->styleH1  );
@@ -714,7 +714,7 @@ class WordController extends Controller
     public function wordEquipoNuevo( $section, $phpWord)
     {
         if(  $this->unico  ){
-            $equiposNuevos = EquipamientoNuevo::where('data', '=',  $this->year)
+            $equiposNuevos = EquipamientoNuevo::whereBetween('data', [ $this->fechaDesde,  $this->fechaHasta ])
                 ->where(function($query) {
                     $query->where('user_id', \Auth::user()->id);
 

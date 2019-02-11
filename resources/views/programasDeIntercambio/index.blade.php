@@ -56,6 +56,7 @@
 							@endif
 
 						</th>
+						<th>{{ __('Data') }}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>
 					@foreach ($data as $key => $programaDeIntercambio)
@@ -63,7 +64,11 @@
 						<td>
 							<?php $activ = "actividad_".\Session::get('locale') ;?>
 
-								<a  href="{{ route('programasDeIntercambio.edit',$programaDeIntercambio->id) }}">
+								<a  href="{{ route('programasDeIntercambio.edit',$programaDeIntercambio->id) }}"
+								@if(Session::get('search')=='1')
+									target="_blank"
+								@endif
+								>
 									{{ $programaDeIntercambio->$activ }}
 									</a>
 							<br> <i>({{ $programaDeIntercambio->usuario?$programaDeIntercambio->usuario->name:'' }} {{ $programaDeIntercambio->usuario?$programaDeIntercambio->usuario->lname:'' }})</i>
@@ -77,8 +82,13 @@
 			 					@endif
 			 				@endforeach
 						</td>
+						<td>{{ $programaDeIntercambio->desde}} / {{ $programaDeIntercambio->hasta}}</td>
 						<td>
-							<a class="btn btn-primary" href="{{ route('programasDeIntercambio.edit',$programaDeIntercambio->id) }}"><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
+							<a class="btn btn-primary" href="{{ route('programasDeIntercambio.edit',$programaDeIntercambio->id) }}"
+							@if(Session::get('search')=='1')
+								target="_blank"
+							@endif
+							><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
 							@if( $programaDeIntercambio->user_id == \Auth::user()->id )
 								{!! Form::open(['method' => 'DELETE','route' => ['programasDeIntercambio.destroy', $programaDeIntercambio->id, $programaDeIntercambio->tipo],'style'=>'display:inline']) !!}
 								{{ Form::button('<i class="fa fa-trash"  title="'.__('Ezabatu').'"></i> ', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
@@ -87,7 +97,8 @@
 						</td>
 					</tr>
 					@endforeach
-					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td colspan ='2' class='text-center'>{{ $data->links() }}</td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
+					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td colspan ='3' class='text-center'>{{ $data->links() }}</td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
 				</table>
 			</div>
 @endsection
+{{ \Session::put('search', '0') }}

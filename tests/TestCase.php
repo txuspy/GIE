@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use \App\User;
+
 abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
     /**
@@ -22,4 +25,11 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         return $app;
     }
+
+	public function iniciarSuperUsuario(){
+		$user = \Auth::loginUsingId('1');
+    	\Session::put('locale', $user->lng );
+    	\Session::put('locale_key', array_search( $user->lng, config('app.supported-locales3') ));
+	}
+
 }

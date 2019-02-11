@@ -4,6 +4,7 @@
 	{!! Breadcrumbs::render('formaciones', $tipo, $modo) !!}
 			<div class="panel panel-default">
 				<div class="panel-body">
+
 					<div class="col-sm-12 margin-tb">
 						<div class="pull-left">
 							<h2>
@@ -34,6 +35,8 @@
 					</div>
 				</div>
 
+
+
 				@if ($message = Session::get('success'))
 					<div class="alert alert-success">
 						<p>{{ $message }}</p>
@@ -55,13 +58,18 @@
 
 
 						</th>
+						<th>{{ __('Data') }}</th>
 						<th>{{ __('Akzioak') }}</th>
 					</tr>
 					@foreach ($data as $key => $formacion)
 					<tr>
 						<td>
 							<?php $titulo = "titulo_".\Session::get('locale') ;?>
-							<a  href="{{ route('formaciones.edit',$formacion->id) }}">{{ $formacion->$titulo }}</a>
+							<a  href="{{ route('formaciones.edit',$formacion->id) }}"
+							@if(Session::get('search')=='1')
+								target="_blank"
+							@endif
+							>{{ $formacion->$titulo }}</a>
 							<br> <i>({{ $formacion->usuario?$formacion->usuario->name:'' }} {{ $formacion->usuario?$formacion->usuario->lname:'' }})</i>
 						</td>
 						<td>
@@ -77,8 +85,13 @@
 			 				@endforeach
 
 						</td>
+						<td>{{ $formacion->fecha }}</td>
 						<td>
-							<a class="btn btn-primary" href="{{ route('formaciones.edit', $formacion->id) }}"><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
+							<a class="btn btn-primary" href="{{ route('formaciones.edit', $formacion->id) }}"
+							@if(Session::get('search')=='1')
+								target="_blank"
+							@endif
+							><i class="fa fa-pencil" title="{{ __('Aldadtu') }}"></i></a>
 							@if( $formacion->user_id == \Auth::user()->id )
 								{!! Form::open(['method' => 'DELETE','route' => ['formaciones.destroy', $formacion->id , $formacion->tipo , $formacion->modo ],'style'=>'display:inline']) !!}
 								{{ Form::button('<i class="fa fa-trash"  title="'.__('Ezabatu').'"></i> ', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
@@ -87,7 +100,8 @@
 						</td>
 					</tr>
 					@endforeach
-					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td class='text-center' colspan ='2'>{{ $data->links() }}</td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
+					<tr><td>{{ __('Guztira:' )}} {{ $data->total() }}</td><td class='text-center' colspan ='3'>{{ $data->links() }}</td><td>{{ __('Oraingo orria:' )}} {{ $data->currentPage() }}</td></tr>
 				</table>
 			</div>
 @endsection
+{{ \Session::put('search', '0') }}

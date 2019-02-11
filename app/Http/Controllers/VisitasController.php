@@ -101,12 +101,10 @@ class VisitasController extends Controller
 
  private function crearSql($q, $request = false)
 	{
-
-
 		if(isset($request['actividad_eu'])) {
 			if($request['actividad_eu'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('visitas.actividad_eu', 'like', "%".$request['actividad_eu']."%");
+					return $query->where('visitas.actividad_eu', 'like', "%".trim($request['actividad_eu'])."%");
 				});
 			}
 		}
@@ -114,7 +112,7 @@ class VisitasController extends Controller
 		if(isset($request['actividad_es'])) {
 			if($request['actividad_es'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('visitas.actividad_es', 'like', "%".$request['actividad_es']."%");
+					return $query->where('visitas.actividad_es', 'like', "%".trim($request['actividad_es'])."%");
 				});
 			}
 		}
@@ -123,7 +121,7 @@ class VisitasController extends Controller
     	if(isset($request['lugar'])) {
 			if($request['lugar'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('visitas.lugar', 'like', "%".$request['lugar']."%");
+					return $query->where('visitas.lugar', 'like', "%".trim($request['lugar'])."%");
 				});
 			}
 		}
@@ -167,9 +165,9 @@ class VisitasController extends Controller
                 ->orderBy('visitas.id','DESC')
                 ->paginate(25);
         $sql  = Functions::getSql($q, $q->toSql());
-       // dd($sql );
+        // dd($sql );
         $tipo = $request['tipo'];
-
+        \Session::put('search', '1');
          return view('visitas.index',compact('data')) ;
     }
 

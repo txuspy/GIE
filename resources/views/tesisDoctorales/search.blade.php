@@ -37,7 +37,7 @@
 			        <div class="col-sm-6 ">
 			            <div class="form-group">
 			                <label><strong>{{ __('Data') }} :</strong></label>
-			                {!! Form::text('fechaLectura', '' , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')) !!}
+			                {!! Form::text('fechaLectura', '' , array('placeholder' => __('Data') ,'class' => 'datepicker form-control')) !!}
 			            </div>
 			        </div>
 			    </div>

@@ -64,7 +64,7 @@
                             @if ($errors->has('data'))
     	                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
     	                    @endif
-                            {!! Form::text('data',  null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y') ,'class' => 'datepicker date-year form-control')) !!}
+                            {!! Form::text('data',  null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->format('Y') ,'class' => 'datepicker form-control')) !!}
                         </div>
                     </div>
                     <div class="col-sm-6 ">

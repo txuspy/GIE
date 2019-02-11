@@ -98,7 +98,7 @@
 			        <div class="col-sm-6 ">
 			            <div class="form-group">
 			                <label><strong>{{ __('Data') }} {{ $tesisDoctoral->fechaLectura }}:</strong></label>
-			                {!! Form::text('fechaLectura', $tesisDoctoral->fechaLectura , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')) !!}
+			                {!! Form::text('fechaLectura', $tesisDoctoral->fechaLectura , array('placeholder' => __('Data') ,'class' => 'datepicker form-control')) !!}
 			            </div>
 			        </div>
 			    </div>
@@ -110,7 +110,7 @@
 			            <div class="form-group">
 			                <label><strong>{{ __('Kurtsoa') }} :</strong></label>
 			                <span><i>( {{ $tesisDoctoral->curso }} - {{ $tesisDoctoral->curso +1 }} )</i></span>
-			                {!! Form::text('curso', $tesisDoctoral->curso , array('placeholder' => __('Kurtsoa') ,'class' => 'date-year form-control')) !!}
+			                {!! Form::text('curso', $tesisDoctoral->curso , array('placeholder' => __('Kurtsoa') ,'class' => 'form-control')) !!}
 			            </div>
 			        </div>
 			    </div><div class="col-sm-6 "> </div>

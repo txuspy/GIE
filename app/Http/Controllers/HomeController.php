@@ -35,16 +35,11 @@ class HomeController extends Controller
         $hasher = app('hash');
         $passwordCambiar = false;
         if ($hasher->check('secret', \Auth::user()->password)) {
-
-            $user = User::find(\Auth::user()->id);
-            $roles = Role::pluck('display_name','id');
+            $user     = User::find(\Auth::user()->id);
+            $roles    = Role::pluck('display_name','id');
             $userRole = $user->roles->pluck('id','id')->toArray();
-
             return view('users.edit',compact('user','roles','userRole' ))->withErrors( 'Aurretik zehaztutako pasahitza aldatu beharra dago<br>Deberías cambiar la contraseña predefinida');
-            //return redirect(\Auth::user()->lng.'/users/'.$user->id.'/edit')->withErrors( 'Aurretik zehaztutako pasahitza aldatu beharra dago<br>FDeberías cambiar la contraseña predefinida');
-
             $passwordCambiar = true ;
-
         }
 
         return view('home', compact('passwordCambiar'));
