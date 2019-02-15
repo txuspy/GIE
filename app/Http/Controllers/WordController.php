@@ -203,7 +203,7 @@ class WordController extends Controller
         */
         ;
         if ( in_array("2", $secciones) OR in_array("3", $secciones) OR in_array("4", $secciones) OR in_array("5", $secciones)) {
-            $section->addText( __('ACTIadfaVIDAD DOCENTE'), array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
+            $section->addText( __('IRAKASKUNTZA-JARDUERA'), array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
         }
         if (in_array("2", $secciones)) {
             $section->addListItem( __('Graduondoko programak'), 0, null, 'multilevel');
@@ -231,7 +231,7 @@ class WordController extends Controller
             $section->addListItem( __('Instalazio bisitak'), 0, null, 'multilevel');
         }
         if ( in_array("6", $secciones) OR in_array("7", $secciones) OR in_array("9", $secciones) OR in_array("10", $secciones) OR in_array("11", $secciones) OR in_array("12", $secciones)) {
-            $section->addText( __('ACTIVIDAdfadfD INVESTIGADORA'), array('name' => $this->fuente, 'size' => 13, 'bold' => true));
+            $section->addText( __('IKERKUNTZA-JARDUERA'), array('name' => $this->fuente, 'size' => 13, 'bold' => true));
         }
         if (in_array("6", $secciones)) {
             $section->addListItem( __('Ikerkuntza taldea'), 0, null, 'multilevel');

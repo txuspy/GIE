@@ -50,7 +50,7 @@
         <li  class="side-nav-item has-sub-nav class-toggle-active">
 
             <a href="">
-                <span> {{ __('ACTIVIDADES DEL PAS') }}</span>
+                <span> {{ __('IRAKASKUNTZA-JARDUERA') }}</span>
             </a>
              <ul class="sub-nav level-2">
             <li><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/recibir') }}"><i class="fa fa-book" aria-hidden="true"></i> {{ __('AZPko Formazioa') }}</a>
@@ -62,7 +62,7 @@
               </ul>
               <br>
             <a href="">
-                <span> {{ __('ACTIVIDADES DEL PDI') }}</span>
+                <span> {{ __('IRAKASKUNTZA-JARDUERA') }}</span>
             </a>
             <ul class="sub-nav level-2">
                 @permission('customer-list')@endpermission

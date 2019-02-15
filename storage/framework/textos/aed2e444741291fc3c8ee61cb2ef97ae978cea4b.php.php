@@ -50,7 +50,7 @@
         <li  class="side-nav-item has-sub-nav class-toggle-active">
 
             <a href="">
-                <span> <?php echo e(__('ACTIVIDADES DEL PAS')); ?></span>
+                <span> <?php echo e(__('IRAKASKUNTZA-JARDUERA')); ?></span>
             </a>
              <ul class="sub-nav level-2">
             <li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/recibir')); ?>"><i class="fa fa-book" aria-hidden="true"></i> <?php echo e(__('AZPko Formazioa')); ?></a>
@@ -62,7 +62,7 @@
               </ul>
               <br>
             <a href="">
-                <span> <?php echo e(__('ACTIVIDADES DEL PDI')); ?></span>
+                <span> <?php echo e(__('IRAKASKUNTZA-JARDUERA')); ?></span>
             </a>
             <ul class="sub-nav level-2">
                 @permission('customer-list')@endpermission
