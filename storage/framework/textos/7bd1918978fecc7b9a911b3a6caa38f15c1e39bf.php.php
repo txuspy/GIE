@@ -47,7 +47,11 @@
 					<tr>
 						<td>
 							<?php $proiekto = "proyecto_".\Session::get('locale') ;?>
-							<a href="<?php echo e(route('proyectos.edit',$proyecto->id)); ?>"><?php echo e($proyecto->$proiekto); ?></a>
+							<a href="<?php echo e(route('proyectos.edit',$proyecto->id)); ?>"
+							<?php if(Session::get('search')=='1'): ?>
+								target="_blank"
+							<?php endif; ?>
+							><?php echo e($proyecto->$proiekto); ?></a>
 							<br> ( <?php echo e($proyecto->desde); ?> - <?php echo e($proyecto->hasta); ?> )
 							<br> <i>(<?php echo e($proyecto->usuario?$proyecto->usuario->name:''); ?> <?php echo e($proyecto->usuario?$proyecto->usuario->lname:''); ?>)</i>
 
@@ -66,7 +70,12 @@
 			 				<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 						</td>
 						<td>
-							<a class="btn btn-primary" href="<?php echo e(route('proyectos.edit',$proyecto->id)); ?>"><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
+							<a class="btn btn-primary" href="<?php echo e(route('proyectos.edit',$proyecto->id)); ?>"
+							<?php if(Session::get('search')=='1'): ?>
+								target="_blank"
+							<?php endif; ?>
+							>
+								<i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
 							<?php if( $proyecto->user_id == \Auth::user()->id ): ?>
 								<?php echo Form::open(['method' => 'DELETE','route' => ['proyectos.destroy', $proyecto->id, $proyecto->tipo],'style'=>'display:inline']); ?>
 
@@ -82,5 +91,5 @@
 				</table>
 			</div>
 <?php $__env->stopSection(); ?>
-
+<?php echo e(\Session::put('search', '0')); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

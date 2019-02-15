@@ -129,17 +129,15 @@ class PublicacionesController extends Controller
 		if(isset($request['titulo_eu'])) {
 			if($request['titulo_eu'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('titulo_eu', 'like', "%".$request['titulo_eu']."%");
+					return $query->where('titulo_eu', 'like', "%".trim($request['titulo_eu'])."%");
 				});
 			}
 		}
 
-
-
     	if(isset($request['editorialRevisa'])) {
 			if($request['editorialRevisa'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('editorialRevisa', 'like', "%".$request['editorialRevisa']."%");
+					return $query->where('editorialRevisa', 'like', "%".trim($request['editorialRevisa'])."%");
 				});
 			}
 		}
@@ -147,7 +145,7 @@ class PublicacionesController extends Controller
     	if(isset($request['capitulo'])) {
 			if($request['capitulo'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('capitulo', 'like', "%".$request['capitulo']."%");
+					return $query->where('capitulo', 'like', "%".trim($request['capitulo'])."%");
 				});
 			}
 		}
@@ -155,7 +153,7 @@ class PublicacionesController extends Controller
     	if(isset($request['ISBN'])) {
 			if($request['ISBN'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('ISBN', 'like', "%".$request['ISBN']."%");
+					return $query->where('ISBN', 'like', "%".trim($request['ISBN'])."%");
 				});
 			}
 		}
@@ -200,7 +198,8 @@ class PublicacionesController extends Controller
                 ->paginate(25);
         $sql  = Functions::getSql($q, $q->toSql());
         $tipo = $request['tipo'];
-         return view('publicaciones.index',compact('data', 'tipo')) ;
+        \Session::put('search', '1');
+        return view('publicaciones.index',compact('data', 'tipo')) ;
     }
 
 

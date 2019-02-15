@@ -13,7 +13,7 @@
 
 								&nbsp;
 								&nbsp;
-							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="<?php echo e(__('Bilatu')); ?>" ></i></a>
+							<a class="btn btn-info mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="<?php echo e(__('Bilatu')); ?>" ></i></a>
 								&nbsp;
 								&nbsp;
 							<a class="btn btn-success" href="<?php echo e(route('congresos.create')); ?>"><i class="fa fa-plus" title ="<?php echo e(__('Berria sortu')); ?>"></i></a>
@@ -40,7 +40,11 @@
 					<tr>
 						<td>
 							<?php $congre = "congreso_".\Session::get('locale') ;?>
-								<a href="<?php echo e(route('congresos.edit',$congreso->id)); ?>">
+								<a href="<?php echo e(route('congresos.edit',$congreso->id)); ?>"
+								<?php if(Session::get('search')=='1'): ?>
+									target="_blank"
+								<?php endif; ?>
+								>
 									<?php echo e($congreso->$congre); ?>, ( <?php echo e($congreso->desde); ?> - <?php echo e($congreso->hasta); ?> )
 									</a>
 							<br> <i>(<?php echo e($congreso->usuario?$congreso->usuario->name:''); ?> <?php echo e($congreso->usuario?$congreso->usuario->lname:''); ?>)</i>
@@ -60,7 +64,11 @@
 			 				<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 						</td>
 						<td>
-							<a class="btn btn-primary" href="<?php echo e(route('congresos.edit',$congreso->id)); ?>"><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
+							<a class="btn btn-primary" href="<?php echo e(route('congresos.edit',$congreso->id)); ?>"
+								<?php if(Session::get('search')=='1'): ?>
+									target="_blank"
+								<?php endif; ?>
+							><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
 							<?php if( $congreso->user_id == \Auth::user()->id ): ?>
 								<?php echo Form::open(['method' => 'DELETE','route' => ['congresos.destroy', $congreso->id],'style'=>'display:inline']); ?>
 
@@ -76,5 +84,5 @@
 				</table>
 			</div>
 <?php $__env->stopSection(); ?>
-
+<?php echo e(\Session::put('search', '0')); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -78,7 +78,7 @@ class WordController extends Controller
             $this->userId = \Auth::user()->id;
             $this->unico  = true;
         }
-
+        \LaravelGettext::setLocale($request->lng);
         $this->fechaDesde = $request['desde'];
         $this->fechaHasta = $request['hasta'];
 
@@ -106,7 +106,6 @@ class WordController extends Controller
         $section = $this->indiceWord($phpWord, $request['secciones'] );
 
 	    if (in_array("2", $request['secciones'])) {
-
             $this->wordPostgrados( $section, 'master', $phpWord );
             $this->wordPostgrados( $section, 'doctorando', $phpWord );
 	    }
@@ -163,6 +162,7 @@ class WordController extends Controller
         header('Content-Length: '.filesize( $docName ));
         readfile($docName );
         unlink($docName );
+        \LaravelGettext::setLocale(Session::get('locale'));
         return back()->with('success', __('Word zuzen sortu da'));
     }
 
@@ -175,6 +175,8 @@ class WordController extends Controller
         $fontStyle->setName('Tahoma');
         $fontStyle->setSize(16);*/
         $section->addText(__('Gipuzkoako Ingeniaritza Eskola'), array('name' => $this->fuente, 'size' => 20, 'bold' => true) );
+        $section->addText("( ".$this->fechaDesde." / ".$this->fechaHasta." )", array('name' => $this->fuente, 'size' => 12, 'bold' => false) );
+        $section->addText(" ", array('name' => $this->fuente, 'size' => 12, 'bold' => false) );
        // $myTextElement->setFontStyle($fontStyle);
         $phpWord->addNumberingStyle(
             'multilevel',
@@ -199,8 +201,9 @@ class WordController extends Controller
         if (in_array("11", $secciones)) {echo "Congresos<br>";  }
         if (in_array("12", $secciones)) {echo "Publicaciones<br>";  }
         */
+        ;
         if ( in_array("2", $secciones) OR in_array("3", $secciones) OR in_array("4", $secciones) OR in_array("5", $secciones)) {
-            $section->addText(__('ACTIVIDAD DOCENTE'), array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
+            $section->addText( __('ACTIadfaVIDAD DOCENTE'), array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
         }
         if (in_array("2", $secciones)) {
             $section->addListItem( __('Graduondoko programak'), 0, null, 'multilevel');
@@ -209,11 +212,11 @@ class WordController extends Controller
         }
         if (in_array("3", $secciones)) {
             $section->addListItem( __('IIPko Formazioa Jarduerak'), 0, null, 'multilevel');
-            $section->addListItem( __('Hartutako formazioa'), 1, null, 'multilevel');
+            $section->addListItem( __('Jasotako formakuntza'), 1, null, 'multilevel');
             $section->addListItem( __('Emandako formazioa'), 1, null, 'multilevel');
 
             $section->addListItem( __('AZPko Formazioa Jarduerak'), 0, null, 'multilevel');
-            $section->addListItem( __('Hartutako formazioa'), 1, null, 'multilevel');
+            $section->addListItem( __('Jasotako formakuntza'), 1, null, 'multilevel');
             $section->addListItem( __('Emandako formazioa'), 1, null, 'multilevel');
 
         }
@@ -228,13 +231,13 @@ class WordController extends Controller
             $section->addListItem( __('Instalazio bisitak'), 0, null, 'multilevel');
         }
         if ( in_array("6", $secciones) OR in_array("7", $secciones) OR in_array("9", $secciones) OR in_array("10", $secciones) OR in_array("11", $secciones) OR in_array("12", $secciones)) {
-            $section->addText(__('ACTIVIDAD INVESTIGADORA') , array('name' => $this->fuente, 'size' => 13, 'bold' => true));
+            $section->addText( __('ACTIVIDAdfadfD INVESTIGADORA'), array('name' => $this->fuente, 'size' => 13, 'bold' => true));
         }
         if (in_array("6", $secciones)) {
             $section->addListItem( __('Ikerkuntza taldea'), 0, null, 'multilevel');
         }
         if (in_array("7", $secciones)) {
-            $section->addListItem( __('Tesiak')." ".$this->fechaDesde."-".$this->fechaHasta, 0, null, 'multilevel');
+            $section->addListItem( __('Tesiak') , 0, null, 'multilevel');
             /*$section->addListItem( __('Uneko Tesiak'), 1, null, 'multilevel');
             $section->addListItem( __('Burutu diren Tesiak'), 1, null, 'multilevel');*/
         }
@@ -634,10 +637,10 @@ class WordController extends Controller
         }
         if(count($congresos)){
             //Txapuza pq gettex no saca de traits
-            /*$tit1 = __('Aukeratu');
+            $tit1 = __('Aukeratu');
             $tit2 = __('Hitzaldi gonbidatua');
             $tit3 = __('Ahozko aurkezpena');
-            $tit4 = __('Posterra');*/
+            $tit4 = __('Posterra');
 
             $lang = \Session::get('locale');
             $section->addText( __('Kongresu zientifikoentan parte-hartzea') , $this->styleH1  );
@@ -714,7 +717,7 @@ class WordController extends Controller
     public function wordEquipoNuevo( $section, $phpWord)
     {
         if(  $this->unico  ){
-            $equiposNuevos = EquipamientoNuevo::where('data', '=',  $this->year)
+            $equiposNuevos = EquipamientoNuevo::whereBetween('data', [ $this->fechaDesde,  $this->fechaHasta ])
                 ->where(function($query) {
                     $query->where('user_id', \Auth::user()->id);
 

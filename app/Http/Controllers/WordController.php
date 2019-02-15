@@ -78,7 +78,7 @@ class WordController extends Controller
             $this->userId = \Auth::user()->id;
             $this->unico  = true;
         }
-
+        \LaravelGettext::setLocale($request->lng);
         $this->fechaDesde = $request['desde'];
         $this->fechaHasta = $request['hasta'];
 
@@ -106,7 +106,6 @@ class WordController extends Controller
         $section = $this->indiceWord($phpWord, $request['secciones'] );
 
 	    if (in_array("2", $request['secciones'])) {
-
             $this->wordPostgrados( $section, 'master', $phpWord );
             $this->wordPostgrados( $section, 'doctorando', $phpWord );
 	    }
@@ -163,6 +162,7 @@ class WordController extends Controller
         header('Content-Length: '.filesize( $docName ));
         readfile($docName );
         unlink($docName );
+        \LaravelGettext::setLocale(Session::get('locale'));
         return back()->with('success', __('Word zuzen sortu da'));
     }
 
@@ -201,8 +201,9 @@ class WordController extends Controller
         if (in_array("11", $secciones)) {echo "Congresos<br>";  }
         if (in_array("12", $secciones)) {echo "Publicaciones<br>";  }
         */
+        ;
         if ( in_array("2", $secciones) OR in_array("3", $secciones) OR in_array("4", $secciones) OR in_array("5", $secciones)) {
-            $section->addText(__('ACTIVIDAD DOCENTE'), array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
+            $section->addText( __('ACTIadfaVIDAD DOCENTE'), array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
         }
         if (in_array("2", $secciones)) {
             $section->addListItem( __('Graduondoko programak'), 0, null, 'multilevel');
@@ -230,7 +231,7 @@ class WordController extends Controller
             $section->addListItem( __('Instalazio bisitak'), 0, null, 'multilevel');
         }
         if ( in_array("6", $secciones) OR in_array("7", $secciones) OR in_array("9", $secciones) OR in_array("10", $secciones) OR in_array("11", $secciones) OR in_array("12", $secciones)) {
-            $section->addText(__('ACTIVIDAD INVESTIGADORA') , array('name' => $this->fuente, 'size' => 13, 'bold' => true));
+            $section->addText( __('ACTIVIDAdfadfD INVESTIGADORA'), array('name' => $this->fuente, 'size' => 13, 'bold' => true));
         }
         if (in_array("6", $secciones)) {
             $section->addListItem( __('Ikerkuntza taldea'), 0, null, 'multilevel');

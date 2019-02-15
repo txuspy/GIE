@@ -42,7 +42,7 @@
 			        <div class="col-sm-6 ">
 			            <div class="form-group">
 			                <label><strong><?php echo e(__('Data')); ?> :</strong></label>
-			                <?php echo Form::text('fechaLectura', '' , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')); ?>
+			                <?php echo Form::text('fechaLectura', '' , array('placeholder' => __('Data') ,'class' => 'datepicker form-control')); ?>
 
 			            </div>
 			        </div>

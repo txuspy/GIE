@@ -42,7 +42,11 @@
 					<tr>
 						<td>
 							<?php $titulo = "titulo_".\Session::get('locale') ;?>
-							<a  href="<?php echo e(route('publicaciones.edit',$publicacion->id)); ?>"><?php echo e($publicacion->$titulo); ?></a>
+							<a  href="<?php echo e(route('publicaciones.edit',$publicacion->id)); ?>"
+							<?php if(Session::get('search')=='1'): ?>
+									target="_blank"
+								<?php endif; ?>
+							><?php echo e($publicacion->$titulo); ?></a>
 							<br> <i>(<?php echo e($publicacion->usuario?$publicacion->usuario->name:''); ?> <?php echo e($publicacion->usuario?$publicacion->usuario->lname:''); ?>)</i>
 						</td>
 						<td>
@@ -55,7 +59,11 @@
 			 				<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 						</td>
 						<td>
-							<a class="btn btn-primary" href="<?php echo e(route('publicaciones.edit',$publicacion->id)); ?>"><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
+							<a class="btn btn-primary" href="<?php echo e(route('publicaciones.edit',$publicacion->id)); ?>"
+							<?php if(Session::get('search')=='1'): ?>
+									target="_blank"
+								<?php endif; ?>
+							><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
 							<?php if( $publicacion->user_id == \Auth::user()->id ): ?>
 								<?php echo Form::open(['method' => 'DELETE','route' => ['publicaciones.destroy', $publicacion->id, $publicacion->tipo],'style'=>'display:inline']); ?>
 
@@ -71,4 +79,5 @@
 				</table>
 			</div>
 <?php $__env->stopSection(); ?>
+<?php echo e(\Session::put('search', '0')); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

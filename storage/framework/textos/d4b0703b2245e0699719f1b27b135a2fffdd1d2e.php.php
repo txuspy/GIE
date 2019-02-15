@@ -111,7 +111,7 @@ private function crearSql($q, $request = false)
 		if(isset($request['grupo_eu'])) {
 			if($request['grupo_eu'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('GrupoInvestigacion.grupo_eu', 'like', "%".$request['grupo_eu']."%");
+					return $query->where('GrupoInvestigacion.grupo_eu', 'like', "%".trim($request['grupo_eu'])."%");
 				});
 			}
 		}
@@ -119,7 +119,7 @@ private function crearSql($q, $request = false)
 		if(isset($request['grupo_es'])) {
 			if($request['grupo_es'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('GrupoInvestigacion.grupo_es', 'like', "%".$request['grupo_es']."%");
+					return $query->where('GrupoInvestigacion.grupo_es', 'like', "%".trim($request['grupo_es'])."%");
 				});
 			}
 		}
@@ -134,7 +134,7 @@ private function crearSql($q, $request = false)
 		if(isset($request['lineasInv_es'])) {
 			if($request['lineasInv_es'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('GrupoInvestigacion.lineasInv_es', 'like', "%".$request['lineasInv_es']."%");
+					return $query->where('GrupoInvestigacion.lineasInv_es', 'like', "%".trim($request['lineasInv_es'])."%");
 				});
 			}
 		}
@@ -152,10 +152,6 @@ private function crearSql($q, $request = false)
 			}
 
 		}
-
-
-
-
 
         if(isset($request['id_autor'])) {
 			if($request['id_autor'] != '') {
@@ -185,6 +181,7 @@ private function crearSql($q, $request = false)
                 ->paginate(25);
         $sql  = Functions::getSql($q, $q->toSql());
         $tipo = $request['tipo'];
+        \Session::put('search', '1');
         return view('grupoInvestigacion.index',compact('data')) ;
     }
 

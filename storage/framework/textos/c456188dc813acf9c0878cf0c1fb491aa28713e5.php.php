@@ -34,6 +34,18 @@
 	<div class="row" >
         <div class="col-xs-4">
              <div class="form-group">
+	            <label><strong><?php echo e(__('Hizkuntza')); ?> (*):</strong></label>
+	            <?php if($errors->has('lng')): ?>
+	                <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+	            <?php endif; ?>
+	            <?php echo Form::select('lng', ['eu' => 'Euskara', 'es' => 'Castellano' ], Session::get('locale') , ['class' => 'form-control chosen-type']); ?>
+
+	        </div>
+        </div>
+    </div>
+    	<div class="row" >
+        <div class="col-xs-4">
+             <div class="form-group">
 	            <label><strong><?php echo e(__('Hasiera Data')); ?> (*):</strong></label>
 	            <?php if($errors->has('desde')): ?>
 	                <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
@@ -55,6 +67,9 @@
 	        </div>
         </div>
     </div>
+
+
+
  	<div class="row">
 		<div class="col-xs-4 ">
             <div class="form-group">

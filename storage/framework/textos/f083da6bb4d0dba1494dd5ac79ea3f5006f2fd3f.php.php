@@ -32,7 +32,11 @@ class FormacionesController extends Controller
 
     public function indexAll($tipo, $modo)
     {
-       $data = Formaciones::where('id', '>', '0')->where('tipo',$tipo)->where('modo', $modo)->orderBy('id','DESC')->paginate(25);
+       $data = Formaciones::where('id', '>', '0')
+       ->where('tipo',$tipo)
+       ->where('modo', $modo)
+       ->orderBy('id','DESC')->paginate(25);
+
        return view('formaciones.index',compact('data', 'tipo', 'modo')) ;
     }
 
@@ -135,7 +139,7 @@ class FormacionesController extends Controller
 		if(isset($request['titulo_eu'])) {
 			if($request['titulo_eu'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('formaciones.titulo_eu', 'like', "%".$request['titulo_eu']."%");
+					return $query->where('formaciones.titulo_eu', 'like', "%".trim( $request['titulo_eu'])."%");
 				});
 			}
 		}
@@ -143,7 +147,7 @@ class FormacionesController extends Controller
 		if(isset($request['organizador_eu'])) {
 			if($request['organizador_eu'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('formaciones.organizador_eu', 'like', "%".$request['organizador_eu']."%");
+					return $query->where('formaciones.organizador_eu', 'like', "%".trim( $request['organizador_eu'])."%");
 				});
 			}
 		}
@@ -151,7 +155,7 @@ class FormacionesController extends Controller
 		if(isset($request['organizador_es'])) {
 			if($request['organizador_es'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('formaciones.organizador_es', 'like', "%".$request['organizador_es']."%");
+					return $query->where('formaciones.organizador_es', 'like', "%".trim( $request['organizador_es'])."%");
 				});
 			}
 		}
@@ -215,15 +219,14 @@ class FormacionesController extends Controller
 
         $q    = Formaciones::query();
         $q    = $this->crearSql($q, $request);
-
-
         $data = $q->select('*','formaciones.id as forId')
                 ->orderBy('formaciones.id','DESC')
                 ->paginate(25);
         $sql  = Functions::getSql($q, $q->toSql());
-        //dd($sql );
+        //dd($sql);
         $tipo = $request['tipo'];
         $modo = $request['modo'];
+        \Session::put('search', '1');
         return view('formaciones.index',compact('data', 'tipo', 'modo')) ;
     }
 

@@ -38,6 +38,7 @@
 						<th><?php echo e(__('Programa')); ?></th>
 						<th><?php echo e(__('Kurtsoa')); ?></th>
 						<th><?php echo e(__('Saila')); ?></th>
+						<th><?php echo e(__('Data')); ?></th>
 						<th><?php echo e(__('Akzioak')); ?></th>
 					</tr>
 					<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $postgrado): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
@@ -56,6 +57,10 @@
 
 						</td>
 						<td>
+							<?php echo e($postgrado->fecha); ?>
+
+						</td>
+						<td>
 							<a class="btn btn-primary" href="<?php echo e(route('postgrados.edit',$postgrado->id)); ?>"><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
 							<?php if( $postgrado->user_id == \Auth::user()->id ): ?>
 								<?php echo Form::open(['method' => 'DELETE','route' => ['postgrados.destroy', $postgrado->id, $postgrado->tipo],'style'=>'display:inline']); ?>
@@ -68,7 +73,7 @@
 						</td>
 					</tr>
 					<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-					<tr><td><?php echo e(__('Guztira:' )); ?> <?php echo e($data->total()); ?></td><td class='text-center'><?php echo e($data->links()); ?></td><td></td><td><?php echo e(__('Oraingo orria:' )); ?> <?php echo e($data->currentPage()); ?></td></tr>
+					<tr><td><?php echo e(__('Guztira:' )); ?> <?php echo e($data->total()); ?></td><td colspan ='3' class='text-center'><?php echo e($data->links()); ?></td><td><?php echo e(__('Oraingo orria:' )); ?> <?php echo e($data->currentPage()); ?></td></tr>
 				</table>
 			</div>
 <?php $__env->stopSection(); ?>

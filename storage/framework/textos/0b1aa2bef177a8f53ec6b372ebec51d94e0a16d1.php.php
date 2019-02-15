@@ -118,7 +118,7 @@ class CongresosController extends Controller
 		if(isset($request['conferenciaPoster'])) {
 			if($request['conferenciaPoster'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('conferenciaPoster', 'like', "%".$request['conferenciaPoster']."%");
+					return $query->where('conferenciaPoster', 'like', "%".trim($request['conferenciaPoster'])."%");
 				});
 			}
 		}
@@ -126,7 +126,7 @@ class CongresosController extends Controller
 		if(isset($request['congreso_eu'])) {
 			if($request['congreso_eu'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('congreso_eu', 'like', "%".$request['congreso_eu']."%");
+					return $query->where('congreso_eu', 'like', "%".trim($request['congreso_eu'])."%");
 				});
 			}
 		}
@@ -143,7 +143,7 @@ class CongresosController extends Controller
     	if(isset($request['lugar'])) {
 			if($request['lugar'] != '') {
 				$q->where(function ($query) use ($request) {
-					return $query->where('lugar', 'like', "%".$request['lugar']."%");
+					return $query->where('lugar', 'like', "%".trim($request['lugar'])."%");
 				});
 			}
 		}
@@ -161,9 +161,6 @@ class CongresosController extends Controller
 			}
 
 		}
-
-
-
 
         if(isset($request['id_autor'])) {
 			if($request['id_autor'] != '') {
@@ -188,6 +185,7 @@ class CongresosController extends Controller
         $sql  = Functions::getSql($q, $q->toSql());
         //  dd($sql );
         $tipo = $request['tipo'];
+        \Session::put('search', '1');
         return view('congresos.index',compact('data')) ;
     }
 

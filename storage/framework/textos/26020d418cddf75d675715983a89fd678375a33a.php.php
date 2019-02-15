@@ -4,6 +4,7 @@
 
 			<div class="panel panel-default">
 				<div class="panel-body">
+
 					<div class="col-sm-12 margin-tb">
 						<div class="pull-left">
 							<h2>
@@ -38,6 +39,8 @@
 					</div>
 				</div>
 
+
+
 				<?php if($message = Session::get('success')): ?>
 					<div class="alert alert-success">
 						<p><?php echo e($message); ?></p>
@@ -61,13 +64,18 @@
 
 
 						</th>
+						<th><?php echo e(__('Data')); ?></th>
 						<th><?php echo e(__('Akzioak')); ?></th>
 					</tr>
 					<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $formacion): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 					<tr>
 						<td>
 							<?php $titulo = "titulo_".\Session::get('locale') ;?>
-							<a  href="<?php echo e(route('formaciones.edit',$formacion->id)); ?>"><?php echo e($formacion->$titulo); ?></a>
+							<a  href="<?php echo e(route('formaciones.edit',$formacion->id)); ?>"
+							<?php if(Session::get('search')=='1'): ?>
+								target="_blank"
+							<?php endif; ?>
+							><?php echo e($formacion->$titulo); ?></a>
 							<br> <i>(<?php echo e($formacion->usuario?$formacion->usuario->name:''); ?> <?php echo e($formacion->usuario?$formacion->usuario->lname:''); ?>)</i>
 						</td>
 						<td>
@@ -85,8 +93,13 @@
 			 				<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 
 						</td>
+						<td><?php echo e($formacion->fecha); ?></td>
 						<td>
-							<a class="btn btn-primary" href="<?php echo e(route('formaciones.edit', $formacion->id)); ?>"><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
+							<a class="btn btn-primary" href="<?php echo e(route('formaciones.edit', $formacion->id)); ?>"
+							<?php if(Session::get('search')=='1'): ?>
+								target="_blank"
+							<?php endif; ?>
+							><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
 							<?php if( $formacion->user_id == \Auth::user()->id ): ?>
 								<?php echo Form::open(['method' => 'DELETE','route' => ['formaciones.destroy', $formacion->id , $formacion->tipo , $formacion->modo ],'style'=>'display:inline']); ?>
 
@@ -98,8 +111,9 @@
 						</td>
 					</tr>
 					<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-					<tr><td><?php echo e(__('Guztira:' )); ?> <?php echo e($data->total()); ?></td><td class='text-center' colspan ='2'><?php echo e($data->links()); ?></td><td><?php echo e(__('Oraingo orria:' )); ?> <?php echo e($data->currentPage()); ?></td></tr>
+					<tr><td><?php echo e(__('Guztira:' )); ?> <?php echo e($data->total()); ?></td><td class='text-center' colspan ='3'><?php echo e($data->links()); ?></td><td><?php echo e(__('Oraingo orria:' )); ?> <?php echo e($data->currentPage()); ?></td></tr>
 				</table>
 			</div>
 <?php $__env->stopSection(); ?>
+<?php echo e(\Session::put('search', '0')); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -38,13 +38,18 @@
 						<th><?php echo e(__('Izenburua')); ?></th>
 						<th><?php echo e(__('Saila')); ?></th>
 						<th><?php echo e(__('Ikerlaria(k)')); ?></th>
+						<th><?php echo e(__('Data')); ?></th>
 						<th><?php echo e(__('Akzioak')); ?></th>
 					</tr>
 					<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $tesis): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 					<tr>
 						<td>
 							<?php $titulo = "titulo_".\Session::get('locale') ;?>
-							<a href="<?php echo e(route('tesisDoctorales.edit',$tesis->id)); ?>"><?php echo e($tesis->$titulo); ?></a>
+							<a href="<?php echo e(route('tesisDoctorales.edit',$tesis->id)); ?>"
+							<?php if(Session::get('search')=='1'): ?>
+								target="_blank"
+							<?php endif; ?>
+							><?php echo e($tesis->$titulo); ?></a>
 							<br> <i>(<?php echo e($tesis->usuario?$tesis->usuario->name:''); ?> <?php echo e($tesis->usuario?$tesis->usuario->lname:''); ?>)</i>
 						</td>
 						<td>
@@ -60,8 +65,13 @@
 			 					<?php endif; ?>
 			 				<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 						</td>
+						<td><?php echo e($tesis->fechaLectura); ?></td>
 						<td>
-							<a class="btn btn-primary" href="<?php echo e(route('tesisDoctorales.edit',$tesis->id)); ?>"><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
+							<a class="btn btn-primary" href="<?php echo e(route('tesisDoctorales.edit',$tesis->id)); ?>"
+							<?php if(Session::get('search')=='1'): ?>
+								target="_blank"
+							<?php endif; ?>
+							><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
 							<?php if( $tesis->user_id == \Auth::user()->id ): ?>
 								<?php echo Form::open(['method' => 'DELETE','route' => ['tesisDoctorales.destroy', $tesis->id, $tesis->tipo],'style'=>'display:inline']); ?>
 
@@ -73,9 +83,9 @@
 						</td>
 					</tr>
 					<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-					<tr><td><?php echo e(__('Guztira:' )); ?> <?php echo e($data->total()); ?></td><td  class='text-center'><?php echo e($data->links()); ?></td><td></td><td><?php echo e(__('Oraingo orria:' )); ?> <?php echo e($data->currentPage()); ?></td></tr>
+					<tr><td><?php echo e(__('Guztira:' )); ?> <?php echo e($data->total()); ?></td><td colspan ='3' class='text-center'><?php echo e($data->links()); ?></td><td><?php echo e(__('Oraingo orria:' )); ?> <?php echo e($data->currentPage()); ?></td></tr>
 				</table>
 			</div>
 <?php $__env->stopSection(); ?>
-
+<?php echo e(\Session::put('search', '0')); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

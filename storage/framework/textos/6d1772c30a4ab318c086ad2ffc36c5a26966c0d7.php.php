@@ -14,7 +14,7 @@
 
 								&nbsp;
 								&nbsp;
-							<a class="btn btn-info" href='' mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="<?php echo e(__('Bilatu')); ?>" ></i></a>
+							<a class="btn btn-info mostrarOcultar" onClick="$('#seccionSearch').toggle();return false;"  data-nomDiv="seccionSearch"><i class="fa fa-search" title ="<?php echo e(__('Bilatu')); ?>" ></i></a>
 								&nbsp;
 								&nbsp;
 							<a class="btn btn-success" href="<?php echo e(route('equipamientoNuevo.create')); ?>"><i class="fa fa-plus" title ="<?php echo e(__('Berria sortu')); ?>"></i></a>
@@ -31,7 +31,10 @@
 					<tr>
 						<th><?php echo e(__('Hornikuntza')); ?></th>
 						<th><?php echo e(__('Saila')); ?></th>
-						<th><?php echo e(__('Akzioak')); ?></th>
+						<th><?php echo e(__('Akzioak')); ?>
+
+
+						</th>
 					</tr>
 					<?php if($data): ?>
 						<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $equipamientoNuevo): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
@@ -41,13 +44,21 @@
 								$equipo = "hornikuntza" ;
 								$departamento = "departamento" ;
 								?>
-								<a href="<?php echo e(route('equipamientoNuevo.edit',$equipamientoNuevo->id)); ?>"><?php echo e($equipamientoNuevo->$equipo); ?>, ( <?php echo e($equipamientoNuevo->data); ?> )</a>
+								<a href="<?php echo e(route('equipamientoNuevo.edit',$equipamientoNuevo->id)); ?>"
+								<?php if(Session::get('search')=='1'): ?>
+									target="_blank"
+								<?php endif; ?>
+								><?php echo e($equipamientoNuevo->$equipo); ?>, ( <?php echo e($equipamientoNuevo->data); ?> )</a>
 								<br> <i>(<?php echo e($equipamientoNuevo->usuario?$equipamientoNuevo->usuario->name:''); ?> <?php echo e($equipamientoNuevo->usuario?$equipamientoNuevo->usuario->lname:''); ?>)</i>
 							</td>
 							<td>
 								<?php echo e(\App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$equipamientoNuevo->departamento]??'---'); ?></td>
 							<td>
-								<a class="btn btn-primary" href="<?php echo e(route('equipamientoNuevo.edit',$equipamientoNuevo->id)); ?>"><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
+								<a class="btn btn-primary" href="<?php echo e(route('equipamientoNuevo.edit',$equipamientoNuevo->id)); ?>"
+								<?php if(Session::get('search')=='1'): ?>
+									target="_blank"
+								<?php endif; ?>
+								><i class="fa fa-pencil" title="<?php echo e(__('Aldadtu')); ?>"></i></a>
 								<?php if( $equipamientoNuevo->user_id == \Auth::user()->id ): ?>
 									<?php echo Form::open(['method' => 'DELETE','route' => ['equipamientoNuevo.destroy', $equipamientoNuevo->id],'style'=>'display:inline']); ?>
 
@@ -68,5 +79,5 @@
 				</table>
 			</div>
 <?php $__env->stopSection(); ?>
-
+<?php echo e(\Session::put('search', '0')); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

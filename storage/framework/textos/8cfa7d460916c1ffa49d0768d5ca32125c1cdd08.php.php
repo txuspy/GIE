@@ -104,7 +104,7 @@
 			        <div class="col-sm-6 ">
 			            <div class="form-group">
 			                <label><strong><?php echo e(__('Data')); ?> <?php echo e($tesisDoctoral->fechaLectura); ?>:</strong></label>
-			                <?php echo Form::text('fechaLectura', $tesisDoctoral->fechaLectura , array('placeholder' => __('Data') ,'class' => 'datepicker date-year form-control')); ?>
+			                <?php echo Form::text('fechaLectura', $tesisDoctoral->fechaLectura , array('placeholder' => __('Data') ,'class' => 'datepicker form-control')); ?>
 
 			            </div>
 			        </div>
@@ -117,7 +117,7 @@
 			            <div class="form-group">
 			                <label><strong><?php echo e(__('Kurtsoa')); ?> :</strong></label>
 			                <span><i>( <?php echo e($tesisDoctoral->curso); ?> - <?php echo e($tesisDoctoral->curso +1); ?> )</i></span>
-			                <?php echo Form::text('curso', $tesisDoctoral->curso , array('placeholder' => __('Kurtsoa') ,'class' => 'date-year form-control')); ?>
+			                <?php echo Form::text('curso', $tesisDoctoral->curso , array('placeholder' => __('Kurtsoa') ,'class' => 'form-control')); ?>
 
 			            </div>
 			        </div>
