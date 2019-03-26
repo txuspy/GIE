@@ -103,49 +103,49 @@ class WordController extends Controller
         );
 
 
-        $section = $this->indiceWord($phpWord, $request['secciones'] );
+        $section = $this->indiceWord($phpWord, $request );
 
 	    if (in_array("2", $request['secciones'])) {
-            $this->wordPostgrados( $section, 'master', $phpWord );
-            $this->wordPostgrados( $section, 'doctorando', $phpWord );
+            $this->wordPostgrados( $section, $request, 'master', $phpWord );
+            $this->wordPostgrados( $section, $request, 'doctorando', $phpWord );
 	    }
 
 	    if (in_array("3", $request['secciones'])) {
-            $this->Formaciones( $section,  'PDI', 'recibir', $phpWord);
-            $this->Formaciones( $section,  'PDI', 'dar', $phpWord);
-            $this->Formaciones( $section,  'PAS', 'recibir', $phpWord);
-            $this->Formaciones( $section,  'PAS', 'dar', $phpWord);
+            $this->Formaciones( $section, $request,  'PDI', 'recibir', $phpWord);
+            $this->Formaciones( $section, $request,  'PDI', 'dar', $phpWord);
+            $this->Formaciones( $section, $request,  'PAS', 'recibir', $phpWord);
+            $this->Formaciones( $section, $request,  'PAS', 'dar', $phpWord);
 	    }
 	    if (in_array("4", $request['secciones'])) {
-            //$this->wordProgramaDeIntercambio( $section, 'azp', $phpWord);
+            //$this->wordProgramaDeIntercambio( $section, $request, 'azp', $phpWord);
 	    }
 	    if (in_array("4", $request['secciones'])) {
-            $this->wordProgramaDeIntercambio( $section, 'fuera', $phpWord);
-            $this->wordProgramaDeIntercambio( $section, 'enCasa', $phpWord);
+            $this->wordProgramaDeIntercambio( $section, $request, 'fuera', $phpWord);
+            $this->wordProgramaDeIntercambio( $section, $request, 'enCasa', $phpWord);
 		}
 	    if (in_array("5", $request['secciones'])) {
-            $this->wordVisitas( $section,  $phpWord);
+            $this->wordVisitas( $section, $request,  $phpWord);
 	    }
 	    if (in_array("6", $request['secciones'])) {
-            $this->wordGrupoInvestigacion( $section, $phpWord);
+            $this->wordGrupoInvestigacion( $section, $request, $phpWord);
 	    }
 	    if (in_array("7", $request['secciones'])) {
-            $this->wordTesis( $section, 'tesisLeidas', $phpWord);
+            $this->wordTesis( $section, $request, 'tesisLeidas', $phpWord);
 	    }
 	    if (in_array("9", $request['secciones'])) {
-            $this->wordEquipoNuevo( $section, $phpWord);
+            $this->wordEquipoNuevo( $section, $request, $phpWord);
 		}
 	    if (in_array("10", $request['secciones'])) {
-            $this->wordProyectos( $section,  'europa',  $phpWord);
-            $this->wordProyectos( $section,  'erakundeak',  $phpWord);
-            $this->wordProyectos( $section,  'empresa',  $phpWord);
+            $this->wordProyectos( $section, $request,  'europa',  $phpWord);
+            $this->wordProyectos( $section, $request,  'erakundeak',  $phpWord);
+            $this->wordProyectos( $section, $request,  'empresa',  $phpWord);
 	    }
 	    if (in_array("11", $request['secciones'])) {
-            $this->wordCongreso( $section, $phpWord);
+            $this->wordCongreso( $section, $request, $phpWord);
 	    }
 	    if (in_array("12", $request['secciones'])) {
-    		$this->wordPublicacion( $section, 'libros', $phpWord);
-    		$this->wordPublicacion( $section, 'articulos', $phpWord);
+    		$this->wordPublicacion( $section, $request, 'libros', $phpWord);
+    		$this->wordPublicacion( $section, $request, 'articulos', $phpWord);
 	    }
 
 
@@ -167,15 +167,22 @@ class WordController extends Controller
     }
 
 
-    public function indiceWord($phpWord, $secciones)
+    public function indiceWord($phpWord, $request )
     {
         $section = $phpWord->addSection();
+        $secciones = $request['secciones'];
         $fontStyle = new \PhpOffice\PhpWord\Style\Font();
         /*$fontStyle->setBold(true);
         $fontStyle->setName('Tahoma');
         $fontStyle->setSize(16);*/
         $section->addText(__('Gipuzkoako Ingeniaritza Eskola'), array('name' => $this->fuente, 'size' => 20, 'bold' => true) );
+        if( $request->lng == 'es' ){
+            $desde = Carbon::parse($request->desde)->format('d-m-Y');
+            $hasta = Carbon::parse($request->hasta)->format('d-m-Y');
+            $section->addText("( ".$desde." / ".$hasta." )", array('name' => $this->fuente, 'size' => 12, 'bold' => false) );
+        }else{
         $section->addText("( ".$this->fechaDesde." / ".$this->fechaHasta." )", array('name' => $this->fuente, 'size' => 12, 'bold' => false) );
+        }
         $section->addText(" ", array('name' => $this->fuente, 'size' => 12, 'bold' => false) );
        // $myTextElement->setFontStyle($fontStyle);
         $phpWord->addNumberingStyle(
@@ -262,7 +269,7 @@ class WordController extends Controller
         return $section;
     }
 
-    public function wordPostgrados( $section, $tipo, $phpWord)
+    public function wordPostgrados( $section, $request, $tipo, $phpWord)
     {
 
         if(  $this->unico  ){
@@ -288,6 +295,8 @@ class WordController extends Controller
                 $tituloH1 = __('Doktoretza-programetan parte-hartzea');
             }
             $lang      = \Session::get('locale');
+            $lang      = $request->lng ;
+
             $tableName = $tituloH1;
 
             $section->addText( __('Graduondoko Programa - ').$tituloH1 , $this->styleH1  );
@@ -300,7 +309,7 @@ class WordController extends Controller
 
             foreach ($postgrados as $postgrado){
                 $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Programa'), $postgrado->$titulo);
-                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Saila'), \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$postgrado->departamento]??'---' );
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Saila'), \App\Traits\Listados::listadoDepartamentos( $lang )[$postgrado->departamento]??'---' );
                 $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Kurtsoa'), $postgrado->$curso);
                 $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Irakaslea(k)'), $this->listadoAutores($postgrado->autores));
                 $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $postgrado->lugar);
@@ -310,7 +319,7 @@ class WordController extends Controller
         }
     }
 
-    public function Formaciones( $section, $tipo, $modo, $phpWord)
+    public function Formaciones( $section, $request, $tipo, $modo, $phpWord)
     {
         if(  $this->unico  ){
             $formaciones = Formaciones::whereBetween('fecha', array($this->fechaDesde, $this->fechaHasta))
@@ -343,6 +352,7 @@ class WordController extends Controller
                 $titAutor = __('Hizlaria(k)');
             }
             $lang      = \Session::get('locale');
+            $lang      = $request->lng ;
             $tableName = $tituloH1;
 
             $section->addText( $tituloH1. " - ".$tituloH2 , $this->styleH1  );
@@ -367,7 +377,7 @@ class WordController extends Controller
     }
 
 
-    public function wordProgramaDeIntercambio( $section, $tipo, $phpWord)
+    public function wordProgramaDeIntercambio( $section, $request, $tipo, $phpWord)
     {
         if(  $this->unico  ){
              $programasDeIntercambios = ProgramasDeIntercambio::where('tipo', $tipo)
@@ -407,6 +417,8 @@ class WordController extends Controller
             }
 
             $lang = \Session::get('locale');
+            $lang      = $request->lng ;
+
             $section->addText( $tituloH1 , $this->styleH1  );
             $tableName     = $tituloH1;
             $phpWord->addTableStyle($tableName, $this->tableStyle);
@@ -427,7 +439,7 @@ class WordController extends Controller
 
 
 
-    public function wordVisitas( $section,  $phpWord)
+    public function wordVisitas( $section,  $request, $phpWord)
     {
         if(  $this->unico  ){
             $visitas = Visitas::whereBetween('fecha', array($this->fechaDesde, $this->fechaHasta))
@@ -446,6 +458,7 @@ class WordController extends Controller
             $tituloH1 = __('Bisitak') ;
 
             $lang      = \Session::get('locale');
+            $lang      = $request->lng ;
             $tableName = $tituloH1;
 
             $section->addText( $tituloH1 , $this->styleH1  );
@@ -463,7 +476,7 @@ class WordController extends Controller
         }
     }
 
-    public function wordGrupoInvestigacion( $section, $phpWord)
+    public function wordGrupoInvestigacion( $section, $request, $phpWord)
     {
 
         $fechaDesde = Carbon::parse($this->fechaDesde);
@@ -483,18 +496,18 @@ class WordController extends Controller
             ->orderBy('id','DESC')->get();
         }
         if(count($gruposInvestigacion)){
-            $lang = \Session::get('locale');
+            $lang      = \Session::get('locale');
+            $lang      = $request->lng ;
             $section->addText( __('Ikerkuntza taldea') , $this->styleH1 );
-            $tableName     = __('Ikerkuntza taldea');
+            $tableName = __('Ikerkuntza taldea');
             $phpWord->addTableStyle($tableName, $this->tableStyle);
-            $table           = $section->addTable($tableName);
+            $table     = $section->addTable($tableName);
 
             // Tabla contenido variable
-            $grupo = "grupo_".$lang;
+            $grupo    = "grupo_".$lang;
             $lineaInv = "lineasInv_".$lang;
 
-
-
+//die( $lineaInv );
 
             foreach ($gruposInvestigacion as $grupoInvestigacion){
                // $parser = new HTMLtoOpenXML\Parser();
@@ -512,7 +525,7 @@ class WordController extends Controller
     }
 
 
-	public function wordTesis( $section, $tipo,  $phpWord)
+	public function wordTesis( $section, $request, $tipo,  $phpWord)
     {
         //Esta montado porsi con tipo pq hay dos leidas por leer pero ahora voy a poner siempre leida
         if(  $this->unico  ){
@@ -536,6 +549,7 @@ class WordController extends Controller
                 $tituloH1 = __('Tesiak');
             }
             $lang      = \Session::get('locale');
+            $lang      = $request->lng ;
             $tableName = $tituloH1;
 
             $section->addText( $tituloH1 , $this->styleH1  );
@@ -548,14 +562,14 @@ class WordController extends Controller
                 $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Izenbururua'), $tesis->$titulo);
                 $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Zuzendaria(k)'), $this->listadoAutores($tesis->directores));
                 $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Doktorando(k)'), $this->listadoAutores($tesis->doctorandos ));
-                $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Saila'), \App\Traits\Listados::listadoDepartamentos(\Session::get('locale'))[$tesis->departamento]??'---' );
+                $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Saila'), \App\Traits\Listados::listadoDepartamentos($lang )[$tesis->departamento]??'---' );
 
             }
             $section->addPageBreak();
         }
     }
 
-    public function wordProyectos( $section, $tipo, $phpWord)
+    public function wordProyectos( $section, $request, $tipo, $phpWord)
     {
         if(  $this->unico  ){
             $proyectos = Proyectos::where('tipo',$tipo)
@@ -592,6 +606,7 @@ class WordController extends Controller
             }
 
             $lang = \Session::get('locale');
+            $lang = $request->lng ;
             $section->addText( $tituloH1 , $this->styleH1  );
             $tableName     = $tituloH1;
             $phpWord->addTableStyle($tableName, $this->tableStyle);
@@ -611,7 +626,7 @@ class WordController extends Controller
     }
 
 
-	 public function wordCongreso( $section, $phpWord)
+	 public function wordCongreso( $section, $request, $phpWord)
     {
         if(  $this->unico  ){
             $congresos = Congresos::where(function ($query)  {
@@ -643,6 +658,7 @@ class WordController extends Controller
             $tit4 = __('Posterra');
 
             $lang = \Session::get('locale');
+            $lang = $request->lng ;
             $section->addText( __('Kongresu zientifikoentan parte-hartzea') , $this->styleH1  );
             // Tabla config
             $tableName     = __('Kongresu zientifikoentan parte-hartzea');
@@ -664,7 +680,7 @@ class WordController extends Controller
         }
     }
 
-	public function wordPublicacion( $section, $tipo,  $phpWord)
+	public function wordPublicacion( $section, $request, $tipo,  $phpWord)
     {
 
         if(  $this->unico  ){
@@ -693,6 +709,8 @@ class WordController extends Controller
             }
 
             $lang      = \Session::get('locale');
+            $lang      = $request->lng ;
+
             $tableName = $tituloH1;
 
             $section->addText( $tituloH1 , $this->styleH1  );
@@ -714,7 +732,7 @@ class WordController extends Controller
         }
     }
 
-    public function wordEquipoNuevo( $section, $phpWord)
+    public function wordEquipoNuevo( $section, $request, $phpWord)
     {
         if(  $this->unico  ){
             $equiposNuevos = EquipamientoNuevo::whereBetween('data', [ $this->fechaDesde,  $this->fechaHasta ])
@@ -730,6 +748,7 @@ class WordController extends Controller
         if(count($equiposNuevos)){
 
             $lang = \Session::get('locale');
+            $lang = $request->lng ;
             $section->addText( __('Hornikuntza Zientifikoa eskuratzea') , array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
             // Tabla config
             $tableName     = __('Hornikuntza Zientifikoa eskuratzea');
