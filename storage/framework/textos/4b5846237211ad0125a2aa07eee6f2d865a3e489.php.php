@@ -22,7 +22,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       // $this->middleware('auth');
+        //die("homeControler");
     }
 
     /**
@@ -47,6 +48,7 @@ class HomeController extends Controller
 
     public function gie()
     {
+        die("gie gie");
         // si pasan una lista se mete en mysql crear el modelo y con este script mira si existe y si no lo mete, CUIDADO: los campos como se llaman
         // $gies01 = GIE01::orderBy('lname','ASC')->get();
         $gies02 = Politekniko3::orderBy('lname','ASC')->get();

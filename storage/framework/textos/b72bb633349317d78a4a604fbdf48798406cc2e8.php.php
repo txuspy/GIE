@@ -39,7 +39,8 @@ class LoginController extends Controller
     {
 
         // $this->redirectTo = \App\Lib\Functions::parseLang().'/home';
-        $this->middleware('guest', ['except' => 'logout']);
+        //$this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => ['logout', 'authenticate']]);
 
     }
     /**/public function username()
@@ -47,6 +48,7 @@ class LoginController extends Controller
         //return 'ldap';
         return 'email';
     }
+   
     public function logout(\Request $request)
     {
          $this->redirectAfterLogout = \App\Lib\Functions::parseLang().'/';

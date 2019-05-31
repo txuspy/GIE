@@ -78,6 +78,7 @@
                 <div class="title m-b-md">
                     <?php echo e(config('app.name', 'GIE')); ?>
 
+                    
                 </div>
             </div>
         </div>

@@ -45,6 +45,7 @@ class WordController extends Controller
     private $widthTH ;
     private $widthTD ;
     private $styleH1 ;
+    private $styleH2 ;
     private $fuente;
     private $unico = false;
 
@@ -104,37 +105,41 @@ class WordController extends Controller
 
 
         $section = $this->indiceWord($phpWord, $request );
-
+        $this->crearTitulo($section, $phpWord, $request, __('IRAKASKUNTZA-JARDUERA'));
 	    if (in_array("2", $request['secciones'])) {
             $this->wordPostgrados( $section, $request, 'master', $phpWord );
-            $this->wordPostgrados( $section, $request, 'doctorando', $phpWord );
+            // $this->wordPostgrados( $section, $request, 'doctorando', $phpWord );
 	    }
 
 	    if (in_array("3", $request['secciones'])) {
             $this->Formaciones( $section, $request,  'PDI', 'recibir', $phpWord);
             $this->Formaciones( $section, $request,  'PDI', 'dar', $phpWord);
-            $this->Formaciones( $section, $request,  'PAS', 'recibir', $phpWord);
-            $this->Formaciones( $section, $request,  'PAS', 'dar', $phpWord);
 	    }
 	    if (in_array("4", $request['secciones'])) {
-            //$this->wordProgramaDeIntercambio( $section, $request, 'azp', $phpWord);
+            $this->wordProgramaDeIntercambio( $section, $request, 'internacional', $phpWord);
+            $this->wordProgramaDeIntercambio( $section, $request, 'azp', $phpWord);
 	    }
-	    if (in_array("4", $request['secciones'])) {
-            $this->wordProgramaDeIntercambio( $section, $request, 'fuera', $phpWord);
-            $this->wordProgramaDeIntercambio( $section, $request, 'enCasa', $phpWord);
-		}
+	    
 	    if (in_array("5", $request['secciones'])) {
             $this->wordVisitas( $section, $request,  $phpWord);
 	    }
+	    $this->crearTitulo($section, $phpWord, $request, mb_strtoupper(__('AZPko Formazioa')));
+	    
+	    if (in_array("3", $request['secciones'])) {
+            $this->Formaciones( $section, $request,  'PAS', 'recibir', $phpWord);
+            $this->Formaciones( $section, $request,  'PAS', 'dar', $phpWord);
+	    }
+	    
+	    $this->crearTitulo($section, $phpWord, $request, __('IKERKUNTZA-JARDUERA'));
 	    if (in_array("6", $request['secciones'])) {
             $this->wordGrupoInvestigacion( $section, $request, $phpWord);
 	    }
+	    
+//dd($request->all());
 	    if (in_array("7", $request['secciones'])) {
             $this->wordTesis( $section, $request, 'tesisLeidas', $phpWord);
 	    }
-	    if (in_array("9", $request['secciones'])) {
-            $this->wordEquipoNuevo( $section, $request, $phpWord);
-		}
+	    
 	    if (in_array("10", $request['secciones'])) {
             $this->wordProyectos( $section, $request,  'europa',  $phpWord);
             $this->wordProyectos( $section, $request,  'erakundeak',  $phpWord);
@@ -147,7 +152,13 @@ class WordController extends Controller
     		$this->wordPublicacion( $section, $request, 'libros', $phpWord);
     		$this->wordPublicacion( $section, $request, 'articulos', $phpWord);
 	    }
-
+	    if (in_array("4", $request['secciones'])) {
+            $this->wordProgramaDeIntercambio( $section, $request, 'fuera', $phpWord);
+            // $this->wordProgramaDeIntercambio( $section, $request, 'enCasa', $phpWord);
+		}
+        if (in_array("9", $request['secciones'])) {
+            $this->wordEquipoNuevo( $section, $request, $phpWord);
+		}
 
         // Doc itxi
         $docName = Carbon::now()."-GIE.docx";
@@ -165,8 +176,7 @@ class WordController extends Controller
         \LaravelGettext::setLocale(Session::get('locale'));
         return back()->with('success', __('Word zuzen sortu da'));
     }
-
-
+    
     public function indiceWord($phpWord, $request )
     {
         $section = $phpWord->addSection();
@@ -195,78 +205,91 @@ class WordController extends Controller
                 )
             )
         );
-        /*
-        if (in_array("2", $secciones)) {echo "Postgrados<br>";  }
-        if (in_array("3", $secciones)) {echo "Formaciones<br>";  }
-        if (in_array("4", $secciones)) {echo "Programas de intercambio<br>";
-        if (in_array("5", $secciones)) {echo "Visitas<br>";  }
-        if (in_array("6", $secciones)) {echo "Grupo de investigacion<br>";  }
-        if (in_array("7", $secciones)) {echo "Tesis<br>";  }
-        if (in_array("8", $secciones)) {echo "Grupo de investigacion<br>";  }
-        if (in_array("9", $secciones)) {echo "Equipamiento Nuevo<br>";  }
-        if (in_array("10", $secciones)) {echo "Proyectos<br>";  }
-        if (in_array("11", $secciones)) {echo "Congresos<br>";  }
-        if (in_array("12", $secciones)) {echo "Publicaciones<br>";  }
-        */
-        ;
         if ( in_array("2", $secciones) OR in_array("3", $secciones) OR in_array("4", $secciones) OR in_array("5", $secciones)) {
             $section->addText( __('IRAKASKUNTZA-JARDUERA'), array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
         }
         if (in_array("2", $secciones)) {
             $section->addListItem( __('Graduondoko programak'), 0, null, 'multilevel');
             $section->addListItem( __('Masterretan parte-hartzea'), 1, null, 'multilevel');
-            $section->addListItem( __('Doktoretzan parte-hartzea'), 1, null, 'multilevel');
+            // $section->addListItem( __('Doktoretzan parte-hartzea'), 1, null, 'multilevel');
         }
+ 
         if (in_array("3", $secciones)) {
             $section->addListItem( __('IIPko Formazioa Jarduerak'), 0, null, 'multilevel');
             $section->addListItem( __('Jasotako formakuntza'), 1, null, 'multilevel');
             $section->addListItem( __('Emandako formazioa'), 1, null, 'multilevel');
-
-            $section->addListItem( __('AZPko Formazioa Jarduerak'), 0, null, 'multilevel');
-            $section->addListItem( __('Jasotako formakuntza'), 1, null, 'multilevel');
-            $section->addListItem( __('Emandako formazioa'), 1, null, 'multilevel');
-
         }
+        
+        
         if (in_array("4", $secciones)) {
-            //$section->addListItem( __('Elkartrukeko programak'), 0, null, 'multilevel');
-            //$section->addListItem( __('IIP /AZP mugikortasuna'), 1, null, 'multilevel');
             $section->addListItem( __('Elkartrukeko programak'), 0, null, 'multilevel');
-            $section->addListItem( __('Egonaldi zientifikoak beste unibertsitateetan'), 1, null, 'multilevel');
-            $section->addListItem( __('Etorritako ikerlariak'), 1, null, 'multilevel');
+            $section->addListItem( __('Programas de intercambio internacionales'), 1, null, 'multilevel');
+            $section->addListItem( __('IIP / AZPren mugikortasuna'), 1, null, 'multilevel');
         }
+
         if (in_array("5", $secciones)) {
             $section->addListItem( __('Instalazio bisitak'), 0, null, 'multilevel');
         }
-        if ( in_array("6", $secciones) OR in_array("7", $secciones) OR in_array("9", $secciones) OR in_array("10", $secciones) OR in_array("11", $secciones) OR in_array("12", $secciones)) {
+        
+        if (in_array("3", $secciones)) {
+            
+            $section->addText( mb_strtoupper( __('AZPko Formazioa') ), array('name' => $this->fuente,'size' => 13, 'bold' => true) );
+            $section->addListItem( __('Jasotako formakuntza'), 0, null, 'multilevel');
+            $section->addListItem( __('Emandako formazioa'), 0, null, 'multilevel');
+        }
+        
+        if ( in_array("6", $secciones) OR in_array("7", $secciones) OR in_array("9", $secciones) OR in_array("10", $secciones) OR in_array("11", $secciones) OR in_array("12", $secciones) OR in_array("4", $secciones)) {
             $section->addText( __('IKERKUNTZA-JARDUERA'), array('name' => $this->fuente, 'size' => 13, 'bold' => true));
         }
+        
         if (in_array("6", $secciones)) {
             $section->addListItem( __('Ikerkuntza taldea'), 0, null, 'multilevel');
         }
+        
         if (in_array("7", $secciones)) {
             $section->addListItem( __('Tesiak') , 0, null, 'multilevel');
             /*$section->addListItem( __('Uneko Tesiak'), 1, null, 'multilevel');
             $section->addListItem( __('Burutu diren Tesiak'), 1, null, 'multilevel');*/
         }
-        if (in_array("9", $secciones)) {
-            $section->addListItem( __('Hornikuntza Zientifikoa eskuratzea'), 0, null, 'multilevel');
-        }
+        
         if (in_array("10", $secciones)) {
             $section->addListItem( __('Ikerkuntza Proiektuak'), 0, null, 'multilevel');
             $section->addListItem( __('Europar Batasuneko Programa Markoa'), 1, null, 'multilevel');
             $section->addListItem( __('Erakundeek diru-laguntza emandako Ikerkuntza Proiektuak'), 1, null, 'multilevel');
             $section->addListItem( __('Enpresek diru-laguntza emandako Ikerkuntza Proiektuak'), 1, null, 'multilevel');
+        
         }
+        
         if (in_array("11", $secciones)) {
             $section->addListItem( __('Kongresu Zientifikoetan parte-hartzea'), 0, null, 'multilevel');
         }
+        
         if (in_array("12", $secciones)) {
             $section->addListItem( __('Argitalpenak'), 0, null, 'multilevel');
             $section->addListItem( __('Liburuak eta Monografiak'), 1, null, 'multilevel');
-            $section->addListItem( __('Artikuloak'), 0, null, 'multilevel');
+            $section->addListItem( __('Artikuloak'), 1, null, 'multilevel');
         }
+        
+        if (in_array("4", $secciones)) {
+            $section->addListItem( __('Elkartrukeko programak'), 0, null, 'multilevel');
+            $section->addListItem( __('Estancias / Visitas en otras universidades'), 1, null, 'multilevel');
+        }
+        
+        
+        
+        
+        if (in_array("9", $secciones)) {
+            $section->addListItem( __('Hornikuntza Zientifikoa eskuratzea'), 0, null, 'multilevel');
+        }
+        
+        
+        
         $section->addPageBreak();
         return $section;
+    }
+    public function crearTitulo($section, $phpWord, $request, $titulo)
+    {
+         $section->addText( $titulo , array('name' => $this->fuente, 'size' => 20, 'bold' => true) );
     }
 
     public function wordPostgrados( $section, $request, $tipo, $phpWord)
@@ -299,7 +322,8 @@ class WordController extends Controller
 
             $tableName = $tituloH1;
 
-            $section->addText( __('Graduondoko Programa - ').$tituloH1 , $this->styleH1  );
+            $section->addText( __('Graduondoko Programak') , $this->styleH1  );
+            $section->addText(  $tituloH1 , $this->styleH2  );
             $phpWord->addTableStyle($tableName, $this->tableStyle);
 
             $table     = $section->addTable($tableName);
@@ -355,7 +379,10 @@ class WordController extends Controller
             $lang      = $request->lng ;
             $tableName = $tituloH1;
 
-            $section->addText( $tituloH1. " - ".$tituloH2 , $this->styleH1  );
+            // $section->addText( $tituloH1. " - ".$tituloH2 , $this->styleH1  );
+            $section->addText( $tituloH1, $this->styleH1  );
+            $section->addText( $tituloH2 , $this->styleH2  );
+            
             $phpWord->addTableStyle($tableName, $this->tableStyle);
 
             $table          = $section->addTable($tableName);
@@ -410,16 +437,22 @@ class WordController extends Controller
             }elseif( $tipo == 'fuera' ){
                 $tituloH1 = __('Egonaldi zientifikoak beste Unibertsitateetan');
                 $autores =  __('Ikerlaria(k)');
+            }elseif( $tipo == 'internacional' ){
+                $tituloH1 = __('Programas de intercambio internacionales');
+                $autores =  __('Ikerlaria(k)');
             }else{
                 //enCasa
                 $tituloH1 = __('Etorritako ikerlariak');
                 $autores =  __('Ikerlaria(k)');
             }
+          
 
             $lang = \Session::get('locale');
             $lang      = $request->lng ;
 
-            $section->addText( $tituloH1 , $this->styleH1  );
+            $section->addText( __('Elkartrukeko programak'), $this->styleH1  );
+            $section->addText( $tituloH1, $this->styleH2  );
+            
             $tableName     = $tituloH1;
             $phpWord->addTableStyle($tableName, $this->tableStyle);
             $table           = $section->addTable($tableName);
@@ -482,8 +515,9 @@ class WordController extends Controller
         $fechaDesde = Carbon::parse($this->fechaDesde);
         $fechaHasta = Carbon::parse($this->fechaHasta);
         if(  $this->unico  ){
-            $gruposInvestigacion = GrupoInvestigacion::where('desde', '<=',  $fechaDesde->format('Y'))
-                ->where('hasta','>=',  $fechaHasta->format('Y'))
+            $gruposInvestigacion = GrupoInvestigacion::where('desde', '>=',  $fechaDesde->format('Y'))
+                ->where('hasta','<=',  $fechaHasta->format('Y'))
+                ->orWhereNull('hasta')
                 ->where(function($query) {
                     $query->where('user_id', \Auth::user()->id);
                     $query->orWhereIN('id', GrupoInvestigacionParticipantes::where('id_autor', \Auth::user()->id_autor)->pluck('id_grupoInvestigacion'));
@@ -491,8 +525,10 @@ class WordController extends Controller
                 })
                 ->orderBy('id','DESC')->get();
         }else{
-            $gruposInvestigacion = GrupoInvestigacion::where('desde', '<=',  $fechaDesde->format('Y'))
-            ->where('hasta','>=',  $fechaHasta->format('Y'))
+            // dd( "hasta".$fechaHasta->format('Y')." / desde".$fechaDesde->format('Y') ); 
+            $gruposInvestigacion = GrupoInvestigacion::where('desde', '>=',  $fechaDesde->format('Y'))
+            ->where('hasta','<=',  $fechaHasta->format('Y'))
+            ->orWhereNull('hasta')
             ->orderBy('id','DESC')->get();
         }
         if(count($gruposInvestigacion)){
@@ -506,18 +542,14 @@ class WordController extends Controller
             // Tabla contenido variable
             $grupo    = "grupo_".$lang;
             $lineaInv = "lineasInv_".$lang;
-
+//dd($gruposInvestigacion);
 //die( $lineaInv );
 
             foreach ($gruposInvestigacion as $grupoInvestigacion){
-               // $parser = new HTMLtoOpenXML\Parser();
-               // $ooXml = $parser->fromHTML($grupoInvestigacion->$lineaInv);
-               // $ooXml = "<w:p><w:r><w:rPr><w:strike/></w:rPr><w:t>some texte</w:t></w:r></w:p>";
                 $table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Taldea'), $grupoInvestigacion->$grupo);
-                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Tokia'), $grupoInvestigacion->lugar);
+                 $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Datak'), $grupoInvestigacion->desde??''.'-'.$grupoInvestigacion->hasta??'...' );
                 $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Arduraduna(k)'), $this->listadoAutores($grupoInvestigacion->responsables));
-                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Kidea(k)'), $this->listadoAutores($grupoInvestigacion->participantes ));
-                //$table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Ikerketa Lerroak'), $ooXml );
+                $table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Ikerlaria(k)'), $this->listadoAutores($grupoInvestigacion->participantes ));
                 $table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Ikerketa Lerroak'), $grupoInvestigacion->$lineaInv );
             }
             $section->addPageBreak();
@@ -607,7 +639,8 @@ class WordController extends Controller
 
             $lang = \Session::get('locale');
             $lang = $request->lng ;
-            $section->addText( $tituloH1 , $this->styleH1  );
+            $section->addText( __('Programas de intercambio internacionales') , $this->styleH1  );
+            $section->addText( $tituloH1 , $this->styleH2  );
             $tableName     = $tituloH1;
             $phpWord->addTableStyle($tableName, $this->tableStyle);
             $table           = $section->addTable($tableName);
@@ -713,7 +746,8 @@ class WordController extends Controller
 
             $tableName = $tituloH1;
 
-            $section->addText( $tituloH1 , $this->styleH1  );
+            $section->addText( __('Argitalpenak') , $this->styleH1  );
+            $section->addText( $tituloH1 , $this->styleH2  );
             $phpWord->addTableStyle($tableName, $this->tableStyle);
             $table     = $section->addTable($tableName);
             // Tabla contenido variable
@@ -749,7 +783,7 @@ class WordController extends Controller
 
             $lang = \Session::get('locale');
             $lang = $request->lng ;
-            $section->addText( __('Hornikuntza Zientifikoa eskuratzea') , array('name' => $this->fuente, 'size' => 13, 'bold' => true) );
+             $section->addText( __('Hornikuntza Zientifikoa eskuratzea') , $this->styleH1  );
             // Tabla config
             $tableName     = __('Hornikuntza Zientifikoa eskuratzea');
             $this->tableStyle         = array('borderSize' => 6, 'borderColor' => 'CCCCCC', 'cellMargin' => 30, 'alignment' => \PhpOffice\PhpWord\SimpleType\JcTable::CENTER);
@@ -830,7 +864,8 @@ class WordController extends Controller
         $this->styleTD         = array( 'bgColor' => 'FFFFFF');
         $this->widthTH         = 2300;
         $this->widthTD         = 7250;
-        $this->styleH1         = array('name' => $this->fuente, 'size' => 13, 'bold' => true);
+        $this->styleH1         = array('name' => $this->fuente, 'size' => 18, 'bold' => true);
+        $this->styleH2         = array('name' => $this->fuente, 'size' => 13, 'bold' => true);
     }
 
     private function limpiarHtml($value)

@@ -25,18 +25,28 @@ if ( \Browser::isIE() ) {
     );
 }
 Route::get('/', function () {
-
+	
 	\Session::forget('locale');
+	/*try {
+        DB::connection()->getPdo();
+        if(DB::connection()->getDatabaseName()){
+            die( "Yes! Successfully connected to the DB: " . DB::connection()->getDatabaseName());
+        }else{
+            die("Could not find the database. Please check your configuration.");
+        }
+    } catch (\Exception $e) {
+        die("Could not open connection to database server.  Please check your configuration.");
+    }*/
     return view('welcome');
     // return view('prueba');
 });
 Route::get('/gie', 'HomeController@gie' );
+Route::get('/unai', 'UnaiController@index' );
+
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::auth();
 Route::group(['middleware' => ['auth']], function() {
 	Route::get('home/{passwordCambiar?}', ['as' => 'home', 'uses' => 'HomeController@index']);
-	//Route::post('accion/ajaxInput', ['as' => 'ajax', 'uses' => 'ClientesController@ajaxInput']);
-
 	// ARCHIVOS E IMAGENES
 	Route::get('file-upload','ImageController@imageUpload');
 	Route::post('file-upload','ArchivosController@uploadFile');
