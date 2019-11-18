@@ -27,12 +27,12 @@
                      <h2>Funtzionamenduda</h2>
                      <p>
                         
-                        Laravel PHP framework bat da, PHP klase talde batzuk dira funtsean. MVC arquitectura erabiltzen duena, oso komunitate zabala eta aktiboa dauka, Eloquetn ORM erabiltzen du datu baseko datuak objetuak bihurtzeko, ruteo oso errez , Blade plantilla sistemarekin lan egiten dut, eta segurtasun aldetik lan egiten duen frameworka da Token, Auth eta Middelwarekin.<br>
+                        Laravel PHP framework bat da, funtsean , PHP klase talde batzuk dira. MVC arquitectura erabiltzen du eta oso komunitate zabala eta aktiboa dauka. Eloquent ORM erabiltzen du, datu baseko datuak objetuak bihurtzuaz. Routeo oso simplea erabiltzen du. Blade plantilla sistemarekin lan egiten dut eta segurtasun alda ere lantzen du framework honek, Token, Auth eta Middelwarekin.<br><br>
                         Oso gainetik aplikazioak nola lan egiten duen azaltzen sahiatuko naiz.<br>
                         1- Gure aplikazioak, url baten bitartez petizio bat jasotzen du.<br>
-                        2- Url hauek, route artxibo batetik pasatu eta ze kontroladoreak zer behar duen ikusten du.<br>
-                        3- Kontroladoreak zein funtzio ejekutatu behar duen jakiten du. <br>
-                        4- Kontroladorean kalkulo logikoak egiten dira eta behar duen modeloak erabiltzen ditu datu basetik informazioa ateratzeko.<br>
+                        2- Url hauek, route artxibo batetik pasatu eta ze kontroladoreak behar duen ikusten du.<br>
+                        3- Kontroladoreak zein funtzio ejekutatu behar duen jakiten du . <br>
+                        4- Kontroladorean kalkulo logikoak egiten dira eta behar dituen modeloak erabiltzen ditu datu basetik informazioa ateratzeko.<br>
                         5- Azkenik funtzioak bista itzuli eta nabigatzailean erakusten du erakutsi beharreko informazioa.<br>
                          
                      </p>

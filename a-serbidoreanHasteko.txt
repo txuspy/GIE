@@ -1,0 +1,9 @@
+1- Cloud9-tik proiektua jeitsi
+2- Filezzila-rekin igo GIE-ra, ez ahaztu .envGIE horko .env dela
+3- cd /var/www/
+4- sudo chmod 777 -R storage
+5- sudo chmod 777 -R html
+6- php artisan cache:clear
+7- php artisan config:cache
+8- php artisan optimize
+9- php artisan view:clear
