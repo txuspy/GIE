@@ -1,0 +1,265 @@
+LARAVEL
+
+MYSQL       Para importar base de datos
+            mysql -u usuario -p nombre-bd < backup.sql
+
+            para exportar
+            mysqldump -u usuario -p nombre-bd > backup.sql
+            $ mysqldump -u txuspy -p c9 > backup.sql
+            para exportar tabla
+            mysqldump -u usuario -p nombre-bd nombre-tabla > backup.sql
+            $ mysqldump -u txuspy -p c9 users > users.sql
+
+
+
+2017/11/30  session / cookie
+            https://laravel.com/docs/5.5/session
+            https://desarrolloweb.com/articulos/trabajo-cookies-laravel.html
+            https://coderwall.com/p/3etfgw/deleting-cookies-in-laravel
+            para cookie Symfony\Component\HttpFoundation\Cookie
+
+            guardar en session / cookie
+                Session::put('nombre_variable', $contenido_a_guardar);
+                5.5
+                session(['nombre_variable' => 'value']);
+                    añadir a array de la sesion
+                $request->session()->push('user.teams', 'developers');
+                    sesion existe durante una sola peticion
+                $request->session()->flash('status', 'Task was successful!');
+
+                duracion limitada
+                $nueva_cookie = cookie('nombre', 'valor', $minutos);
+                duracion ilimitada
+                $nueva_cookie = cookie()->forever('micookie', 'mivalor');
+
+                enviar una cookie
+                $response = response("Voy a enviarte una cookie");
+                $response->withCookie($nueva_cookie);
+
+            leer la session / cookie
+                Session::get('nombre_variable');
+                5.5
+                $value = session('nombre_variable', 'default');
+                    toda la sesion
+                $data = $request->session()->all();
+
+
+
+            borrar session / cookkie
+                Session::forget('nombre_variable');
+                5.5
+                $request->session()->forget('key');
+                $request->session()->flush();
+
+                $cookie = \Cookie::forget('myCookie');
+                \Cookie::forget('myCookie');
+
+2017/11/28  testing
+            migraciones a testing
+            comando de consola * php artisan migrate --database=sqlite_testing *
+            configuracion en config/database.php
+                    y en phpunit.xml linea * <env name="DB_CONNECTION" value="testing"/> o <env name="DB_CONNECTION" value="mysql_tests"/> *
+            * factory(\App\User::class)->make()        *   crear objeto
+            * factory(\App\User::class, 200)->create() * crear objeto en bd / 200 es la cantidad
+
+            ejecucion de pruebas
+            comando de consola todas las pruebas          * vendor/bin/phpunit *
+            comando de consola una prueba en especifico   * vendor/bin/phpunit tests/BasicTest *
+            crear alias para acortar comando              * alias t=vendor/bin/phpunit *
+            ejecucion de una sola prueba linea de comando * vendor/bin/phpunit --filter pagina_principal * pagina_principal es el nombre de la funcion
+
+            ejecucion de grupos de pruebas
+            en el comentario superior de cada prueba asignar grupo lineas
+            * ejemplo
+                    /**
+                     * @test
+                     * @group clientes
+                    */
+            * ejemplo
+            comando de consola * vendor/bin/phpunit --group clientes * * vendor/bin/phpunit tests/BasicTest --group clientes *
+
+            Laravel-snappy
+            cargar vista, despues, añadir header y footer
+
+2017/10/17  GoogleMaps
+            En el controlador de clientes se han creado varias funciones
+            googleMapcliente($id) googleMapClientes() gmapConfig($centro) generarMarkers($clientes) mostraGmap($markers)
+            Desde la vista se lanzan las funciones googleMapcliente($id) googleMapClientes() que buscan los clientes se configura el mapa con gmapConfig($centro)
+            y se le mandan olos clientes a la funcion generarMarkers($clientes) que genera los marcadores
+            Los marcadores se pasan a la funcion mostraGmap($markers) que genera el map y pinta los puntos
+
+2017/10/09  PROGRESS BAR
+            La clase .botondescarga inicia la funcion $(".botonCrearDescarga").click(function (event) {
+            el boton tiene un atributo url que devolvera la informacion que se descarga
+            El dialog esta en una vista con plantilla dialog.descargas extiende dialog.dialog y se incluye en clientes.index
+
+2017/10/01  EXCELL
+            Los excel normalmente funcionan desde el controlador que estemos trabajando.
+            Obtiene el mismo SQL que la busqueda aprovencado una session clientesCriterioSql con los campos de busqueda y se vuelven a crear a partir de ellos otra vez
+            El excel lo creamos en una variable para luego pasarla en json con attributos name y file y return response()->json($response);
+            Se hace asi pq se quiere hacer un progress bar para ver la descarga en porcentaje segun se hace, ahora no funciona.
+            Tb se puede hacer directamente ->download(); para ejecutarlo automaticamente
+
+2017/09/25  REPETIR SQL BUSQUEDAS
+            Para poder crear Excel, PDf o lo que sea necesitamos duplicar el resultado de la busqueda
+            Para ello guardamos en una session los campos de busqueda para luego en el controlador ser capaces de volver a crear la misma busqueda
+            La session es clientesCriterioSql.
+            Las funciones son , crearInnerJoinDesdeInput y crearInnerJoinDuplicado estas funciones crean los campos de busqueda
+            Y las funciones crearInnerJoin y crearSql crean el SQL para conseguir el modelo
+
+2017/08/30  Ajax para modificar datos sin tener que actualizar pagina
+            1- On change, click o  lo que sea .guardarBdChecbox , .guardarBdInput , .guardarBdSelect
+            2- tener datos con funcion getDataInput()
+            3- funcion guardarBd()ajax para guardar en BD finalmente
+
+2017/08/29  NO se usa Datatables en server side pq hay problemas para crear la tabla deseada, solo muestra datos brutos de la tabla sin poder retocar las celdas.
+
+2017/08/20  Datatables Ejemplos de 2 tablas diferentes
+            1- desde server para agilizar datos ( clientes )
+            2- desde HTML para poner tabla  mas amigables y estandarizar (detalle de cliente)
+
+2017/07/27  Datatables con datagrid en marcha
+            https://github.com/yajra/laravel-datatables
+            https://datatables.net/
+            http://laravel-virgen.app/users-tabla
+            Funcionamiento es basico:
+            2 Rutas : una para ver el html y el otro para el ajax y asi cargar en background
+            En el controlador 2 metodos uno para la vista blade y el otro para ajax
+            En la vista hay que añadir un css y un js y luego por jquery aplicar la funcion DataTable() js
+2017/07/19  Tema migracion de una base existente
+            https://www.uno-de-piera.com/migraciones-en-laravel-5-partir-de-una-base-de-datos/
+            NO esta en esta version de laravel instalado.
+2017/07/19  ERROR de getext en version laravel 5.4
+            Cambiar en Vendor/Xinax/laravel-gettext/src/LaravelGettext/LaravelGettextServiceProvider.php  linea 51
+            $this->app->singleton('laravel-gettext',function ($app) use ($configuration)
+2017/04/21  Arreglos de imagenes y adjunto
+            Borrado y insertardo en la bd
+2017/03/24  Modelo Imagenes y ImagenesRelacion
+            Guardar datos
+            Mostrar...
+2017/03/23  Volcado de adjunto adjunto relacion imagenes y imagenes rel
+            Mod 2 tablas, para que eloquent ponga esto guay, luego habria que borrar datos que sobran titulo, alt, posicion y fecha
+            ALTER TABLE `imagenes`
+            ADD COLUMN `created_at`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP AFTER `fecha_imagenes`,
+            ADD COLUMN `updated_at`  timestamp NULL AFTER `created_at`;
+            ALTER TABLE  `adjunto` ADD  `title_adjunto` VARCHAR( 255 ) NOT NULL AFTER  `nom_adjunto` ;
+            ALTER TABLE `adjunto`
+            ADD COLUMN `created_at`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP AFTER `fecha_adjunto`,
+            ADD COLUMN `updated_at`  timestamp NULL AFTER `created_at`;
+
+2017/03/23  Puesta en marcha del UPLOAD de IMG y FILES
+2017/03/22  Funcionamiento:
+2017/03/21  En cualquier vista se incluye la vista upload @include('files.upload')
+            Se pasan atributos mediante el boton de la vista  tipoArchivo='archivo' (imagen)tipo='usuarios' attrId='{{ $user->id }}' mediante script.js que esta en la plantilla app.blade.php
+            Desde ArchivosControlles, mando a ImageController.php o StorageController.php dependiendo del tipoArchivo
+            Con Lib/Functions.php workFiles() obtengo sus configuraciones, rutas , cuantas img, datos bd
+            En el @include('files.upload'), se pueden crear tantos input como se deseen y luego se visualizan todo en "#msj-ok" o "#msj-error".
+2017/03/20  Poner en marcha el homestead en local
+            El truco era la version de virtualBox era mu moderna  5.0.32 funciona
+            YAML en drive no funciona ,  lo tengo en local y punto.
+2017/03/17  Trabajando con el archivo config de img y documentos
+2017/03/16  Se ha creado un controlador para manipular todos los archivos
+            ArchivosController , por tipo archivo y usar config de todo eso
+            tipoArchivo='imagen'  o 'archivo'
+            tipo='usuarios', 'productos', 'expedientes' .... como antes
+            attrId='{{ $user->id }}' , id de lo que estemos intentando subir
+
+2017/03/16  Intervention image INSTALDO
+            http://image.intervention.io/getting_started/installation
+            problemas en el vendor   ç
+            esto antes de hacer el vendor: php artisan cache:clear
+            php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravel5"
+            Requisitos,
+            GD 2.0 el el apache
+            sudo add-apt-repository ppa:ondrej/php
+            sudo apt-get update
+            sudo apt-get install php7.0-gd
+            reiniciar apache
+
+2017/03/15  Insertar imagen estandarizar
+            -todas las vistas en las que pida el boton upload imagen hay que crear 2 div
+              <div id="msj-ok"><div id="msj-error"> para mostrar mensajes
+2017/03/14  Insertar imagen con ajax
+            OK
+2017/03/13  FILES Y ARCHIVOS EN AJAX
+            primeros pasos
+2017/03/10  VOLCADO PROYECTO a CLOUD9
+            Arreglar la maquina, he copiado las carpetas y la bd a un proyecto nuevo
+            Cambiar datos env
+            cambiar config/app.php  'url' => env('APP_URL', 'http://laravelforest-txuspy.c9users.io'),
+            chmod 755 -R vendor/
+            php artisan config:clear
+            php artisan cache:clear
+
+2017/03/09  Breadcrumbs , listo solucionado funciona
+2017/03/09  Carbon configurado correctamente en menu
+2017/03/08  Breadcrumbs
+            https://laravel-breadcrumbs.readthedocs.io/en/latest/
+2017/03/18  Carbon fecha y tal y cual
+            http://carbon.nesbot.com/docs/
+2017/03/08  Mostar errores de ins en ajax en pantalla.
+2017/03/07  cd ~
+            cd Homestead
+            vagrant up ( encender maquina virtual)
+            vagrant reload --provision ( para reiniciar maquina)
+            vagrant ssh ( entrar en la maquina)
+            cd /home/projects/laravel-virgen (entrar en el proyecto)
+            composer , php artisan
+            http://laravel-virgen.app
+2017/03/06 Configurar paginas de error 500
+          app/Exceptions/handler.php
+2017/03/03 PDF Vuelta version snappy
+            En marcha con pagina externa
+2017/03/02 Faltaba hacer los idiomas con prefix a futuro y los .po creo q no va
+2017/03/02 Imagenex y excel falla no lo consigo
+2017/03/01 Imagenes
+            Instalar GD libray en php 7
+            http://itsolutionstuff.com/post/laravel-5-image-upload-and-resize-example-using-intervention-image-packageexample.html
+            http://image.intervention.io/getting_started/installation
+            FALLA
+2017/02/28 Menu diferente layout
+2017/02/27 EXCELL no
+            http://www.maatwebsite.nl/laravel-excel/docs
+2017/02/27 PDF no
+            https://github.com/barryvdh/laravel-dompdf
+            https://styde.net/generar-pdf-en-laravel-5-1-con-dompdf/
+2017/02/27 PDF no
+            https://github.com/barryvdh/laravel-snappy
+            https://styde.net/generar-pdfs-en-laravel-5-1-con-snappy/
+            ANULADO
+2017/02/27 Permission editar
+            Mediante
+2017/02/24 Añadir estilo de Font Awesome
+           Descomprimir y meter en public el css y font
+2017/02/24 Permission  Delete
+            Usando Ajax
+2017/02/23 Permission crear Insert
+            Usando Ajax
+2017/02/22 Crear modelo, Controlador para permisos
+            Ajax()
+2017/02/22 Tabla dataGrid
+            https://github.com/zofe/rapyd-laravel
+            Para borrar, quitar provider, quitar del composer   "zofe/rapyd": "2.2.*", de app/Http/rapyd.php , config rapyd.php y vendor zoze
+            https://github.com/Nayjest/Grids
+            Duda de cual usar.
+2017/02/21 Permisos Roles
+            https://github.com/Zizaco/entrust
+            http://itsolutionstuff.com/post/laravel-52-user-acl-roles-and-permissions-with-middleware-using-entrust-from-scratch-tutorialexample.html
+            Problemas con un metodo pluck() en vez de lists()
+2017/02/21 Instalar formulario y HTML
+            https://laravelcollective.com/docs/5.3/html
+2017/02/21 Traducciones
+            sudo apt-get install language-pack-es
+            sudo dpkg-reconfigure locales
+2017/02/20 Traducciones
+            https://github.com/xinax/laravel-gettext
+            Cambiar en laravel-gettext.php la variable de locale y añadir idiomas soportados supported-locales
+            {{__('texto de ejemplo')}}
+            php artisan gettext:update
+            Poedit para pode editar lo que hemos creado
+2017/02/20 Debuger instalar
+            https://github.com/barryvdh/laravel-debugbar
+2017/02/20 Instalar PHP7 y laravel 5.3
+           https://community.c9.io/t/laravel-5-3-installation-on-cloud9/9038
+                composer create-project --prefer-dist laravel/laravel blog "5.3.*"
+LARAVEL FOREST V 0.1

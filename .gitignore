@@ -1,0 +1,16 @@
+/storage/*.key
+/vendor
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+.c9/
+.ssh/
+a-git-instrukzioak.txt
+a-idiomas.txt
+a-intruzioak-AWS.txt
+a-Intruzioak
+a_homestead
+Gie.sql
+GieSQL.sql

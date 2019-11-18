@@ -1,0 +1,11 @@
+1-abrir terminal
+2-~/Homestead
+3-vagrant init
+3-vagrant up
+4-vagrant ssh
+5-cd Projects/GIE
+
+Ya estamos para php artisan
+
+exit; para salir del ssh
+vagrant halt para cerrar maquina virtual

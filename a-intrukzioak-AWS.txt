@@ -1,0 +1,83 @@
+PASO 0 
+-------------------------------------------------------------------------------------------------
+Antes de migrar en Cloud 9 
+
+Para obtener base de datos la primera en origen
+mysqldump -u txuspy -p erpForest > backup.sql
+
+Migar el proyecto desde terminal con el script q da el cloud 9
+Composer instalar
+sudo apt install composer
+composer update
+php artisan config:cache
+php artisan view:clear
+php artisan optimize
+cd chmod -r 777 environment/ #es muy bestia pero luego ya dejaran o pondran en 755
+
+PRIMER PASO
+-------------------------------------------------------------------------------------------------
+########## Configurar puerto 8080 ########
+https://www.lucidar.me/en/aws-cloud9/how-to-run-apache-on-aws-ec2-cloud9-server/
+
+sudo service apache2 status // Solo para ver q esta activo
+sudo vim /etc/apache2/ports.conf // cambiar puerto 80 a 8080 
+En VIM pulsar i para insertar texto, ESC  luego :w guardar :q para salir
+sudo vim /etc/apache2/sites-enabled/000-default.conf // cambiar 80  a 8080
+sudo service apache2 restart
+
+########## Cambiar el document root ######## 
+A <Directory /home/ubuntu/environment/html/> 
+sudo vim /etc/apache2/apache2.conf 
+sudo vim /etc/apache2/sites-enabled/000-default.conf
+sudo service apache2 restart
+
+######### Cambio Apache ####################
+sudo vim /etc/apache2/apache2.conf
+<Directory /home/ubuntu/environment/html/>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+sudo a2enmod rewrite
+sudo service apache2 restart
+
+SEGUNDO PASO
+-------------------------------------------------------------------------------------------------
+############# MYSQL NEW USER ##############
+https://www.lucidar.me/en/aws-cloud9/install-mysql-and-phpmyadmin-on-aws-cloud9/
+sudo service mysql status // Para ver que esta en marcha
+sudo mysql -u root // entro en mysql
+CREATE USER 'txuspy'@'localhost' IDENTIFIED BY 'toor';
+GRANT ALL PRIVILEGES ON *.* TO 'txuspy'@'localhost' WITH GRANT OPTION;
+exit;
+
+Crear database
+
+mysql -u txuspy -p
+CREATE DATABASE erpForest;
+use erpForest;
+show databases;
+show tables;
+exit;
+mysql -u txuspy -p erpForest < backup.sql;
+
+.env Modificar
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=erpForest
+DB_USERNAME=txuspy
+DB_PASSWORD=toor
+
+############# PHPMYADMIN ##############
+sudo apt install phpmyadmin php-mbstring php-gettext
+sudo phpenmod mcrypt
+sudo vim /etc/apache2/sites-enabled/000-default.conf
+Añadir al principio en la primera linea
+Include /etc/phpmyadmin/apache.conf
+sudo service apache2 restart
+
+//https://github.com/andrewpuch/phpmyadmin_connect_to_rds
+
+INSTALCION VIERGEN LARAVEL EN AWS C2 
+https://medium.com/@mahmoud_62270/setting-up-laravel-project-on-aws-cloud-9-61370dc55a5d
