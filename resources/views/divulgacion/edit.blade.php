@@ -23,7 +23,7 @@
 		        	@if( $divulgacion->tipo == 'prensa' )
 						<h2>{{ __('Prentsa') }}</h2>
 					@else
-						<h2>{{ __('Hedakuntza') }}</h2>
+						<h2>{{ __('Ekitaldiak') }}</h2>
 					@endif
 		        </div>
 			<div class="pull-right">

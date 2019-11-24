@@ -23,7 +23,7 @@
 		        <div class="pull-left">
 		           	<h2>
 						@if( $formacion->tipo == 'PDI' )
-							{{  __('IIPko formazioa') }}
+							{{  __('IRIen formakuntza-jarduerak') }}
 						@else
 							{{  __('AZKko formazioa') }}
 						@endif

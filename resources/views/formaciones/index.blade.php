@@ -9,7 +9,7 @@
 						<div class="pull-left">
 							<h2>
 								@if( $tipo == 'PDI' )
-									{{  __('IIPko formazioa') }}
+									{{  __('IRIen formakuntza-jarduerak') }}
 								@else
 									{{  __('AZKko formazioa') }}
 								@endif
@@ -30,12 +30,8 @@
 								&nbsp;
 							<a class="btn btn-success" href="{{ route('formaciones.create', [ 'tipo'=> $tipo, 'modo'=> $modo ] ) }}"><i class="fa fa-plus" title ="{{ __('Berria sortu') }}"></i></a>
 						</div>
-
-
 					</div>
 				</div>
-
-
 
 				@if ($message = Session::get('success'))
 					<div class="alert alert-success">
@@ -49,14 +45,11 @@
 						<th>{{ __('Ikastaro') }}</th>
 						<th>{{ __('Tokia') }}</th>
 						<th>
-
 							@if( $modo == 'recibir' )
 								{{ __('Parte-hartzailea(k)') }}
 							@else
 								{{ __('Hizlaria(k)') }}
 							@endif
-
-
 						</th>
 						<th>{{ __('Data') }}</th>
 						<th>{{ __('Akzioak') }}</th>

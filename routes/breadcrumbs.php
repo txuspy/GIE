@@ -134,7 +134,7 @@ Breadcrumbs::register('divulgacion', function($breadcrumbs, $tipo)
     if( $tipo == 'prensa' ){
         $breadcrumbs->push( __('Prentsa'), url(App\Lib\Functions::parseLang().'/divulgacion/show/'.$tipo));
     }else{
-        $breadcrumbs->push( __('Hedakuntza'), url(App\Lib\Functions::parseLang().'/divulgacion/show/'.$tipo));
+        $breadcrumbs->push( __('Ekitaldiak'), url(App\Lib\Functions::parseLang().'/divulgacion/show/'.$tipo));
     }
 });
 Breadcrumbs::register('divulgacionEdit', function($breadcrumbs, $divulgacion)
@@ -283,7 +283,7 @@ Breadcrumbs::register('formaciones', function($breadcrumbs, $tipo, $modo)
 
     $breadcrumbs->parent('home');
     if( $tipo == 'PDI' ){
-         $tipoTxt =  __('IRIko formakuntza') ;
+         $tipoTxt =  __('IRIen formakuntza-jarduerak') ;
     }else{
         $tipoTxt =  __('AZKko formakuntza') ;
     }
@@ -307,17 +307,22 @@ Breadcrumbs::register('formacionesEdit', function($breadcrumbs, $formacion )
 Breadcrumbs::register('programasDeIntercambio', function($breadcrumbs, $tipo)
 {
     $breadcrumbs->parent('home');
-
-
-
-    if( $tipo == 'fuera' ){
-        $breadcrumbs->push( __('Egonaldiak / Beste Unibertsitateetan bisita'), url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/'.$tipo));
-    }elseif($tipo == 'azp'){
-        $breadcrumbs->push( __('IIP / AZPren mugikortasuna'), url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/'.$tipo));
+    if( $tipo == 'PIfuera' ){
+        $titu   = __('Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility)');
+        $titulo = __('Beste unibertsitateetan');
+    }elseif($tipo == 'PIvisita'){
+        $titu   = __('Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility)');
+        $titulo = __('Bisitariak');
+    }elseif($tipo == 'CEfuera'){
+        $titu   = __('Egonaldi zientifikoak'); 
+        $titulo = __('Beste unibertsitateetan ');
     }else{
-        $breadcrumbs->push( __('Elkartrukeko programak / mugikortasuna'), url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/'.$tipo));
+        $titu   = __('Egonaldi zientifikoak'); 
+        $titulo = __('Bisitariak');
     }
-
+    
+    $breadcrumbs->push( $titu , url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/'.$tipo));
+    $breadcrumbs->push( $titulo , url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/'.$tipo));
 
 });
 Breadcrumbs::register('programasDeIntercambioEdit', function($breadcrumbs, $programaDeIntercambio)

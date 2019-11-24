@@ -5,16 +5,30 @@
 				<div class="panel-body">
 					<div class="col-sm-12 margin-tb">
 						<div class="pull-left">
-							@if( $tipo == 'fuera' )
-								<h2>{{ __('Egonaldiak / Beste Unibertsitateetan bisita') }}</h2>
-							@elseif( $tipo == 'azp' )
-								<h2>{{ __('IIP / AZPren mugikortasuna') }}</h2>
+							@if( $tipo == 'PIfuera' )
+								<h2>{{ __('Beste unibertsitateetan') }}</h2>
+							@elseif( $tipo == 'PIvisita' )
+								<h2>{{ __('Bisitariak') }}</h2>
+							@elseif( $tipo == 'CEfuera' )
+								<h2>{{ __('Beste unibertsitateetan ') }}</h2>
     						@else
-    							<h2>{{ __('Elkartrukeko programak / mugikortasuna') }}</h2>
+    							<h2>{{ __('Bisitariak') }}</h2>
 							@endif
+<!--						
+if( $tipo == 'PIfuera' ){
+    $titu   = __('Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility)');
+    $titulo = __('Beste unibertsitateetan');
+}elseif($tipo == 'PIvisita'){
+    $titu   = __('Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility)');
+    $titulo = __('Bisitariak');
+}elseif($tipo == 'CEfuera'){
+    $titu   = __('Egonaldi zientifikoak'); 
+    $titulo = __('Beste unibertsitateetan ');
+}else{
+    $titu   = __('Egonaldi zientifikoak'); 
+    $titulo = __('Bisitariak');
+} -->
 						</div>
-
-
 						<div class="pull-right">
 							<a class="btn btn-info" href="{{ route('programasDeIntercambio.indexAll', [ 'tipo'=> $tipo  ]) }}"><i class="fa fa-list" title="{{ __('Guztiak ikusi') }}"></i></a>
 								&nbsp;

@@ -15,13 +15,15 @@
         <div class="panel-body">
             <div class="col-sm-12 margin-tb">
     	        <div class="pull-left">
-    	           	@if( $tipo == 'fuera' )
-    					<h2>{{ __('Egonaldiak / Beste Unibertsitateetan bisita') }}</h2>
-    				@elseif( $tipo == 'azp' )
-    					<h2>{{ __('IIP / AZPren mugikortasuna') }}</h2>
-    				@else
-    					<h2>{{ __('Elkartrukeko programak / mugikortasuna') }}</h2>
-    				@endif
+    	           	@if( $tipo == 'PIfuera' )
+						<h2>{{ __('Beste unibertsitateetan') }}</h2>
+					@elseif( $tipo == 'PIvisita' )
+						<h2>{{ __('Bisitariak') }}</h2>
+					@elseif( $tipo == 'CEfuera' )
+						<h2>{{ __('Beste unibertsitateetan ') }}</h2>
+					@else
+						<h2>{{ __('Bisitariak') }}</h2>
+					@endif
     	        </div>
     	        <div class="pull-right">
     	            <a class="btn btn-primary" href="{{ route('programasDeIntercambio.index', ['tipo'  => $tipo ]) }}"><i class="fa fa-reply" title="{{ __('Atzera') }}"></i></a>

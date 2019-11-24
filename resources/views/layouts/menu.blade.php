@@ -51,7 +51,7 @@
 		<li  class="side-nav-item has-sub-nav class-toggle-active">
 
 			<a href="">
-				<span> {{ __('IRAKASKUNTZA-JARDUERA') }}</span>
+				<span> {{ __('IRAKASKUNTZA-JARDUERAK') }}</span>
 			</a>
 			<ul class="sub-nav level-2">
 				@role('admin')
@@ -70,22 +70,24 @@
 						</ul>
 					</li>
 					@endrole
-				<li><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera') }}"><i class="fa fa-refresh" aria-hidden="true"></i> {{ __('Elkartrukeko programak') }}</a>
+				<li><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PDI/recibir') }}"><i class="fa fa-book" aria-hidden="true"></i> {{ __('IRIen formakuntza-jarduerak') }}</a>
 					<ul>
-						<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/internacional') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Elkartrukeko programak / mugikortasuna')}}</a></li>
-						{{--<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/azp') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('IRI / AZPren mugikortasuna')}}</a></li>--}}
+						<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PDI/recibir') }}"><i class="fa fa-address-book" aria-hidden="true"></i> {{__('Jasotakoa')}}</a></li>
+						<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PDI/dar') }}"><i class="fa fa-address-book-o" aria-hidden="true"></i> {{ __('Emandakoa')}}</a></li>
 					</ul>
 				</li>
+				<li><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/PIfuera') }}"><i class="fa fa-refresh" aria-hidden="true"></i> {{ __('Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility)') }}</a>
+					<ul>
+						<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/PIfuera') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Beste unibertsitateetan ')}}</a></li>
+						<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/PIvisita') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Bisitariak')}}</a></li>
+					</ul>
+				</li>
+				<!--
 				<li><a href="{{ url(App\Lib\Functions::parseLang().'/visitas/show')  }}">
 					<i class="fa fa-car" aria-hidden="true"></i> {{ __('Instalazio bisitak') }}</a>
 				</li>
-				
-				<li><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PDI/recibir') }}"><i class="fa fa-book" aria-hidden="true"></i> {{ __('IIPko Formazioa Jarduerak') }}</a>
-					<ul>
-						<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PDI/recibir') }}"><i class="fa fa-address-book" aria-hidden="true"></i> {{__('Jasotako formakuntza')}}</a></li>
-						<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PDI/dar') }}"><i class="fa fa-address-book-o" aria-hidden="true"></i> {{ __('Emandako formazioa')}}</a></li>
-					</ul>
-				</li>
+				-->
+			
 				
 			<!--	<li><a href="{{ url(App\Lib\Functions::parseLang().'/postgrados/show/master') }}"><i class="fa fa-id-card" aria-hidden="true"></i> {{ __('Graduondoko programa') }}</a>
 					<ul>
@@ -97,27 +99,22 @@
 					</ul>
 				</li>
 			-->
-				<li><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera') }}"><i class="fa fa-refresh" aria-hidden="true"></i> {{ __('Elkartrukeko programak') }}</a>
-					<ul>
-					<!--	<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/internacional') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Elkartrukeko programak / mugikortasuna')}}</a></li>-->
-						<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/azp') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('IRI / AZPren mugikortasuna')}}</a></li>
-					</ul>
-				</li>
+				
 				
 			</ul>
 		</li>
 		<li  class="side-nav-item has-sub-nav class-toggle-active">
 			<a href="">
-				<span>  {{  mb_strtoupper(  __('AZPko Formazioa') ) }}</span>
+				<span>  {{  mb_strtoupper(  __('AZP-EN FORMAKUNTZA-JARDUERAK') ) }}</span>
 			</a>
 			<ul class="sub-nav level-2">
-				<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/recibir') }}"><i class="fa fa-address-book" aria-hidden="true"></i> {{__('Jasotako formakuntza')}}</a></li>
-				<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/dar') }}"><i class="fa fa-address-book-o" aria-hidden="true"></i> {{__('Emandako formazioa')}}</a></li>
+				<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/recibir') }}"><i class="fa fa-address-book" aria-hidden="true"></i> {{__('Jasotakoa')}}</a></li>
+				<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/formaciones/show/PAS/dar') }}"><i class="fa fa-address-book-o" aria-hidden="true"></i> {{__('Emandakoa')}}</a></li>
 			</ul>
 		</li>
 		<li  class="side-nav-item has-sub-nav class-toggle-active">
 			<a href="">
-				<span> {{ __('IKERKUNTZA-JARDUERA') }}</span>
+				<span> {{ __('IKERKUNTZA-JARDUERAK') }}</span>
 			</a>
 
 			
@@ -127,51 +124,54 @@
 				<li><a href="{{ url(App\Lib\Functions::parseLang().'/grupoInvestigacion')  }}">
 					<i class="fa fa-users" aria-hidden="true"></i> {{ __('Ikerkuntza taldeak') }}</a></li>
 					<li><a href="{{ url(App\Lib\Functions::parseLang().'/tesisDoctorales/show/tesisLeidas') }}"><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ __('Tesiak') }}</a>
-						{{--
-						<ul>
-							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/tesisDoctorales/show/proximaLectura') }}"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> {{__('Uneko Tesiak')}}</a></li>
-							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/tesisDoctorales/show/tesisLeidas') }}"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{__('Burutu diren Tesiak')}}</a></li>
-						</ul>
-						--}}
 					</li>
 					<li><a href="{{ url(App\Lib\Functions::parseLang().'/proyectos/show/europa') }}">
-						<i class="fa fa-flask" aria-hidden="true"></i> {{ __('Ikerkuntza Proiektuak') }}</a>
+						<i class="fa fa-flask" aria-hidden="true"></i> {{ __('Ikerkuntza-proiektuak') }}</a>
 						<ul>
 							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/proyectos/show/europa') }}"><i class="fa fa-eur" aria-hidden="true"></i> {{__('Europar Batasuneko Programa Markoa')}}</a></li>
-							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/proyectos/show/erakundeak') }}"><i class="fa fa-building-o" aria-hidden="true"></i> {{__('Erakundeek diruz lagundutako ikerkuntza Proiektuak')}}</a></li>
-							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/proyectos/show/empresa') }}"><i class="fa fa-industry" aria-hidden="true"></i> {{__('Enpresek diruz lagundutako ikerkuntza Proiektuak')}}</a></li>
+							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/proyectos/show/erakundeak') }}"><i class="fa fa-building-o" aria-hidden="true"></i> {{__('Erakundeek diruz lagundutako ikerkuntza-proiektuak')}}</a></li>
+							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/proyectos/show/empresa') }}"><i class="fa fa-industry" aria-hidden="true"></i> {{__('Enpresek diruz lagundutako ikerkuntza-proiektuak')}}</a></li>
 						</ul>
 					</li>
 					<li><a href="{{ url(App\Lib\Functions::parseLang().'/congresos')   }}"><i class="fa fa-briefcase" aria-hidden="true"></i> {{ __('Kongresu Zientifikoetan parte-hartzea') }}</a></li>
 					<li><a href="{{ url(App\Lib\Functions::parseLang().'/publicaciones/show/libros') }}"><i class="fa fa-archive" aria-hidden="true"></i> {{ __('Argitalpenak') }}</a>
 						<ul>
 							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/publicaciones/show/libros') }}"><i class="fa fa-book" aria-hidden="true"></i> {{__('Liburuak eta Monografiak')}}</a></li>
-							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/publicaciones/show/articulos') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> {{__('Artikuloak')}}</a></li>
+							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/publicaciones/show/articulos') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> {{__('Artikuluak')}}</a></li>
 						</ul>
 					</li>
-					<li><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera') }}"><i class="fa fa-refresh" aria-hidden="true"></i> {{ __('Elkartrukeko programak') }}</a>
+					<li><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera') }}"><i class="fa fa-refresh" aria-hidden="true"></i> {{ __('Egonaldi zientifikoak') }}</a>
 						<ul>
-							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Egonaldiak / Beste Unibertsitateetan bisita')}}</a></li>
+							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/CEfuera') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Beste Unibertsitateetan')}}</a></li>
+							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/CEvisita') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Bisitariak')}}</a></li>
 						</ul>
 					</li>
-					<li><a href="{{ url(App\Lib\Functions::parseLang().'/equipamientoNuevo')   }}"><i class="fa fa-user" aria-hidden="true"></i> {{ __('Hornikuntza Zientifikoa eskuratzea') }}</a></li>
-					@role('admin')
-						<li><a href="{{ url(App\Lib\Functions::parseLang().'/ekintzakGizartea/show/gizartea') }}">
-							<i class="fa fa-users" aria-hidden="true"></i> {{ __('Gizarte-erantzukizuneko ekintzak') }}</a>
-							{{--<ul>
-								<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/ekintzakGizartea/show/gizartea') }}"><i class="fa fa-eur" aria-hidden="true"></i> {{__('Gizarte-erantzukizuneko ekintzak')}}</a></li>
-							</ul>--}}
-						</li>
-						<li><a href="{{ url(App\Lib\Functions::parseLang().'/divulgacion/show/hedakuntza') }}">
-							<i class="fa fa-television" aria-hidden="true"></i> {{ __('Eskolaren hedakuntza') }}</a>
-							<ul>
-								<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/divulgacion/show/hedakuntza') }}"><i class="fa fa-television" aria-hidden="true"></i> {{__('Eskolaren hedakuntza')}}</a></li>
-								<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/divulgacion/show/prensa') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> {{__('Prentsa')}}</a></li>
-							</ul>
-						</li>
-					@endrole
-				</ul>
+					<li><a href="{{ url(App\Lib\Functions::parseLang().'/equipamientoNuevo')   }}"><i class="fa fa-user" aria-hidden="true"></i> {{ __('Hornikuntza zientifikoaren eskurapena') }}</a></li>
 				
+					</ul>
 			</li>
+			@role('admin')
+				<li  class="side-nav-item has-sub-nav class-toggle-active">
+					<a href="">
+						<span> {{ mb_strtoupper ( __('Gizarte-erantzukizuneko ekintzak') ) }}</span>
+					</a>
+					<ul class="sub-nav level-2">
+							<li><a href="{{ url(App\Lib\Functions::parseLang().'/ekintzakGizartea/show/gizartea') }}">
+								<i class="fa fa-retweet" aria-hidden="true"></i> {{ __('Gizarte-erantzukizuneko ekintzak') }}</a>
+							</li>
+					</ul>
+				</li>
+				<li  class="side-nav-item has-sub-nav class-toggle-active">
+					<a href="">
+						<span> {{ mb_strtoupper ( __('Eskolaren hedakuntza') ) }}</span>
+					</a>
+						<ul class="sub-nav level-2">
+				
+							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/divulgacion/show/hedakuntza') }}"><i class="fa fa-television" aria-hidden="true"></i> {{__('Ekitaldiak')}}</a></li>
+							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/divulgacion/show/prensa') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> {{__('Prentsa')}}</a></li>
+						</ul>
+					</ul>
+				</li>
+			@endrole
 		</ul>
 	</nav>
