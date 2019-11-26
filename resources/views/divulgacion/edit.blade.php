@@ -47,42 +47,46 @@
 		            </div>
 		        </div>
 		    </div>
-			<div>
-				<div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>Deskripzioa (*):</strong></label>
-		                {!! Form::textarea('desc_eu', null, array('placeholder' => 'Deskripzioa','class' => 'form-control summernote')) !!}
-		            </div>
-		        </div>
-		        <div class="col-sm-6 ">
-		            <div class="form-group">
-		                <label><strong>Descripción:</strong></label>
-		                {!! Form::textarea('desc_es', null, array('placeholder' => 'Descripción','class' => 'form-control summernote')) !!}
-		            </div>
-		          
-		        </div>
+			@if( $divulgacion->tipo == 'hedakuntza' )
+    			<div>
+    				<div class="col-sm-6 ">
+    		            <div class="form-group">
+    		                <label><strong>Deskripzioa (*):</strong></label>
+    		                {!! Form::textarea('desc_eu', null, array('placeholder' => 'Deskripzioa','class' => 'form-control summernote')) !!}
+    		            </div>
+    		        </div>
+    		        <div class="col-sm-6 ">
+    		            <div class="form-group">
+    		                <label><strong>Descripción:</strong></label>
+    		                {!! Form::textarea('desc_es', null, array('placeholder' => 'Descripción','class' => 'form-control summernote')) !!}
+    		            </div>
+    		          
+    		        </div>
 		    </div>
+		    @endif
 		    <div class="row" style="margin:1px;">
                 <div class="col-sm-6 ">
-                     <div class="form-group has-error">
+                     <div class="form-group">
                         <label><strong>{{ __('Data') }} (*):</strong>  </label>
 		                {!! Form::text('fecha',  null , array('placeholder' => __('Desde') ,'class' => 'datepicker form-control')) !!}
                     </div>
                 </div>
                 @if( $divulgacion->tipo == 'prensa' )
+            		<!--
             		<div class="col-sm-6 ">
                         <label><strong>{{ __('Noiz arte') }} :</strong></label>
 				            {!! Form::text('hasta', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->addWeek('1')->format('Y-m-d') ,'class' => 'datepicker form-control')) !!}
                 	
                     </div>
+                    -->
                 @endif
             </div>
             
 		     @if( $divulgacion->tipo == 'prensa' )
-            
+            <!--
                  <div>
                     <div class="col-sm-6 ">
-                         <div class="form-group has-error">
+                         <div class="form-group">
                             <label><strong>{{ __('Ekitaldiaren webgunea') }} :</strong></label>
                             @if ($errors->has('web'))
                                 <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
@@ -94,9 +98,10 @@
             	
                 </div>
             <div class="row"></div>
+            
                 <div>
                     <div class="col-sm-6 ">
-                         <div class="form-group has-error">
+                         <div class="form-group">
                             <label><strong>{{ __('Komunikabidean agertu da') }} :</strong></label>
                             @if ($errors->has('komunikabideetanPublikatua'))
                                 <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
@@ -106,10 +111,11 @@
                     </div>
             	
                 </div>
+            -->
                 <div class="row"></div>
                 <div>
                     <div class="col-sm-6 ">
-                         <div class="form-group has-error">
+                         <div class="form-group">
                             <label><strong>{{ __('Komunikabidea') }} :</strong></label>
                             @if ($errors->has('komunikabidea'))
                                 <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
@@ -118,7 +124,7 @@
                         </div>
                     </div>
             		<div class="col-sm-6 ">
-                         <div class="form-group has-error">
+                         <div class="form-group">
                             <label><strong>{{ __('Komunikabidearen esteka') }} :</strong></label>
                            @if ($errors->has('komunikabideWeb'))
                                 <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>

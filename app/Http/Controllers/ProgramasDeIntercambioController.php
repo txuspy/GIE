@@ -11,6 +11,7 @@ use Response;
 use Carbon\Carbon;
 use App\Mail\Welcome as WelcomeEmail;
 use App\Lib\Functions;
+use Session;
 
 class ProgramasDeIntercambioController extends Controller
 {

@@ -10,6 +10,7 @@ use Response;
 use Carbon\Carbon;
 use App\Lib\Functions;
 use App\Traits\Listados;
+use Session;
 
 
 class EkintzakController extends Controller

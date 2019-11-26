@@ -10,6 +10,7 @@ use DB;
 use Response;
 use Carbon\Carbon;
 use App\Lib\Functions;
+use Session;
 
 class VisitasController extends Controller
 {

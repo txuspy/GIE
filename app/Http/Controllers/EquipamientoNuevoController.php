@@ -9,6 +9,7 @@ use DB;
 use Response;
 use App\Autor;
 use App\Lib\Functions;
+use Session;
 
 class EquipamientoNuevoController extends Controller
 {

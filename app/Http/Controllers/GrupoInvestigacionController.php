@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use App\GrupoInvestigacionParticipantes;
 use App\GrupoInvestigacionResponsables;
 use App\Lib\Functions;
+use Session;
 
 class GrupoInvestigacionController extends Controller
 {

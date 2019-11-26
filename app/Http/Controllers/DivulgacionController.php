@@ -9,6 +9,7 @@ use DB;
 use Response;
 use Carbon\Carbon;
 use App\Lib\Functions;
+use Session;
 
 
 class DivulgacionController extends Controller
@@ -39,21 +40,31 @@ class DivulgacionController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        $this->validate($request, [
-            'tipo'        => 'required',
-            'titulo_eu'   => 'required',
-            'desc_eu'     => 'required'      
-        ],
-        [
-            'titulo_eu.required'      => __('Izenburua  beharrezkoa da.'),
-            'desc_eu.required'        => __('Deskripzioa beharrezkoa da.')
-        ]);
+        if( $request->tipo == "hedakuntza") {
+            $this->validate($request, [
+                'tipo'        => 'required',
+                'titulo_eu'   => 'required',
+                'desc_eu'     => 'required'      
+            ],
+            [
+                'titulo_eu.required'      => __('Izenburua  beharrezkoa da.'),
+                'desc_eu.required'        => __('Deskripzioa beharrezkoa da.')
+            ]);
+        }else{
+             $this->validate($request, [
+                'tipo'        => 'required',
+                'titulo_eu'   => 'required'
+            ],
+            [
+                'titulo_eu.required'      => __('Izenburua  beharrezkoa da.'),
+            ]);
+        }
     	if($request->titulo_es==''){
 			$request['titulo_es'] = $request->titulo_eu;
 		}
 		$request['desc_eu'] = \App\Traits\Listados::limpiarAtributosHtml($request->desc_eu);
 		if($request->desc_es==''){
-			$request['desc_es'] = $request['desc_eu'];
+			$request['desc_es'] = $request['desc_eu']??'';
 		}else{
 			$request['desc_es'] = \App\Traits\Listados::limpiarAtributosHtml($request->desc_es);
 		}

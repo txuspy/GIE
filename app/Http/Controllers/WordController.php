@@ -33,6 +33,7 @@ use App\EkintzakGizartea;
 use Carbon\Carbon;
 use App\Lib\Functions;
 use App\Traits\Listados;
+use Session;
 // use HTMLtoOpenXML;
 
 class WordController extends Controller
@@ -227,7 +228,7 @@ class WordController extends Controller
 		if (in_array("16", $request['secciones'])) {
 			$this->crearTitulo($section,  "9-". mb_strtoupper ( __('Eskolaren hedakuntza') ), $this->styleH);
 			$this->wordDivulgacion( $section, $request, 'hedakuntza', $phpWord );
-			$this->wordDivulgacion( $section, $request, 'prentsa', $phpWord );
+			$this->wordDivulgacion( $section, $request, 'prensa', $phpWord );
 		}
 		
 		
@@ -479,6 +480,7 @@ if (in_array("5", $secciones)) {
 			
 			foreach ($ekintzakAurretik as $ekintzaAurretik){
 				$this->crearTitulo($section, "5-2-".$cont."-".$ekintzaAurretik->$titulo , $this->styleH2);
+				$section->addText(  __('Data').": ".$ekintzaAurretik->fecha , $this->styleP  );
 				\PhpOffice\PhpWord\Shared\Html::addHtml($section, \App\Traits\Listados::limpiarAtributosHtml( ($ekintzaAurretik->$desc) ) );
 				$cont = $cont + 1 ;
 			}
@@ -525,6 +527,7 @@ if (in_array("5", $secciones)) {
 		    $cont   = 1;
 			foreach ($ekintzak as $ekintza){
 				$this->crearTitulo($section,  $titCont.$cont."-".$ekintza->$titulo , $this->styleH3);
+				$section->addText(  __('Data').": ".$ekintza->fecha , $this->styleP  );
 				\PhpOffice\PhpWord\Shared\Html::addHtml($section, \App\Traits\Listados::limpiarAtributosHtml(($ekintza->$desc)) );
 				$cont = $cont + 1;
 			}
@@ -1097,6 +1100,7 @@ if (in_array("5", $secciones)) {
 			$cont      = 1 ;
 			foreach ($ekintzakGizartea as $ekintzaGizartea){
 				$section->addText(  $titCont.$cont."-".$ekintzaGizartea->$titulo , $this->styleH1  );
+				$section->addText(  __('Data').": ".$ekintzaGizartea->fecha , $this->styleP  );
 				\PhpOffice\PhpWord\Shared\Html::addHtml($section, \App\Traits\Listados::limpiarAtributosHtml( ($ekintzaGizartea->$desc) ) );
 				$cont =$cont + 1;
 			}
@@ -1134,15 +1138,35 @@ if (in_array("5", $secciones)) {
 			}
 			$lang      = \Session::get('locale');
 			$lang      = $request->lng ;
-			$titCont   = "9.";
+		
 			$cont      = 1 ;
 			$titulo    = "titulo_".$lang;
-			$desc     = "desc_".$lang;
+			$desc      = "desc_".$lang;
+		
 			foreach ($divulgaciones as $divulgacion){
-				$section->addText(  $titCont.$cont."-".$divulgacion->$titulo , $this->styleH1  );
-				\PhpOffice\PhpWord\Shared\Html::addHtml($section, \App\Traits\Listados::limpiarAtributosHtml(($divulgacion->$desc) ) );
+				if( $tipo == 'hedakuntza' ){
+					$titCont   = "9.1";
+					if($cont=='1'){
+						$section->addText(  $titCont."-".__('Ekitaldiak') , $this->styleH1  );
+					}
+					$section->addText(  $titCont.".".$cont."-".$divulgacion->$titulo , $this->styleH2  );
+					$section->addText(  __('Data').": ".$divulgacion->fecha , $this->styleP  );
+					\PhpOffice\PhpWord\Shared\Html::addHtml($section, \App\Traits\Listados::limpiarAtributosHtml(($divulgacion->$desc) ) );
+					$cont =$cont + 1;
+				}else{
+					$titCont   = "9.2";
+						if($cont=='1'){
+					$section->addText(  $titCont."-".__('Prentsa') , $this->styleH1  );
+					}
+					$section->addText(  $titCont.".".$cont."-".$divulgacion->$titulo , $this->styleH2  );
+					$section->addText(  __('Data').": ".$divulgacion->fecha , $this->styleP  );
+					$section->addText(  __('Komunikabidea').": ".$divulgacion->fecha , $this->styleP  );
+					$section->addText(  __('komunikabideWeb').": ".$divulgacion->fecha , $this->styleP  );
+					$cont =$cont + 1;
+				}
 			}
 		}
+		
 	}
 	private function formatearYear( $year , $mes){
 		//$dt = Carbon::create($year, $mes, 1);

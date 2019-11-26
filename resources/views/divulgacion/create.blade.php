@@ -46,26 +46,27 @@
                 {!! Form::text('titulo_es', null, array('placeholder' => 'Izenburua','class' => 'form-control ', 'data-tipo'  => $tipo)) !!}
             </div>
         </div>
-       <div class="col-sm-6 ">
-            <div class="form-group has-error">
-                <label><strong>Deskripzioa (*):</strong></label>
-                @if ($errors->has('desc_eu'))
-                    <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
-                @endif
-                {!! Form::textarea('desc_eu', null, array('placeholder' => 'Deskripzioa','class' => 'form-control summernote', 'data-tipo'  => $tipo)) !!}
-                
+    	@if( $tipo == 'hedakuntza' )
+           <div class="col-sm-6 ">
+                <div class="form-group has-error">
+                    <label><strong>Deskripzioa (*):</strong></label>
+                    @if ($errors->has('desc_eu'))
+                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                    @endif
+                    {!! Form::textarea('desc_eu', null, array('placeholder' => 'Deskripzioa','class' => 'form-control summernote', 'data-tipo'  => $tipo)) !!}
+                    
+                </div>
             </div>
-        </div>
-        <div class="col-sm-6 ">
-            <div class="form-group has-error">
-                <label><strong>Descripción (*):</strong></label>
-                @if ($errors->has('desc_es'))
-                    <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
-                @endif
-                {!! Form::textarea('desc_es', null, array('placeholder' => 'Deskripzioa','class' => 'form-control summernote', 'data-tipo'  => $tipo)) !!}
+            <div class="col-sm-6 ">
+                <div class="form-group has-error">
+                    <label><strong>Descripción (*):</strong></label>
+                    @if ($errors->has('desc_es'))
+                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                    @endif
+                    {!! Form::textarea('desc_es', null, array('placeholder' => 'Deskripzioa','class' => 'form-control summernote', 'data-tipo'  => $tipo)) !!}
+                </div>
             </div>
-        </div>
-        
+        @endif
         
     </div>
 
@@ -81,6 +82,7 @@
                     </div>
                 </div>
                 @if( $tipo == 'prensa' )
+            		<!--
             		<div class="col-sm-6 ">
                          <div class="form-group has-error">
                             <label><strong>{{ __('Noiz arte') }} :</strong></label>
@@ -90,10 +92,11 @@
                             {!! Form::text('hasta', null , array('placeholder' => \Carbon\Carbon::now('Europe/Madrid')->addWeek('1')->format('Y-m-d') ,'class' => 'datepicker form-control')) !!}
                         </div>
                     </div>
+                   -->
                 @endif
             </div>
             @if( $tipo == 'prensa' )
-            
+            <!--
                  <div>
                     <div class="col-sm-6 ">
                          <div class="form-group has-error">
@@ -120,6 +123,7 @@
                     </div>
             	
                 </div>
+            -->
                 <div class="row"></div>
                 <div>
                     <div class="col-sm-6 ">

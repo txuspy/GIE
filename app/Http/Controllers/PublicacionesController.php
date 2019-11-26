@@ -11,6 +11,7 @@ use DB;
 use Response;
 use Carbon\Carbon;
 use App\Lib\Functions;
+use Session;
 
 class PublicacionesController extends Controller
 {

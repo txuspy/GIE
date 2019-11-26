@@ -10,6 +10,7 @@ use Response;
 use App\Autor;
 use App\CongresosProfesores;
 use App\Lib\Functions;
+use Session;
 
 class CongresosController extends Controller
 {
