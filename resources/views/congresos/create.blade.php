@@ -16,7 +16,7 @@
         <div class="panel-body">
             <div class="col-sm-12 margin-tb">
     	        <div class="pull-left">
-    	            <h2>{{ __('Kongresu Zientifikoetan parte-hartzea')}}</h2>
+    	            <h2>{{ __('Kongresu zientifikoetan parte-hartzea')}}</h2>
     	        </div>
     	        <div class="pull-right">
     	            <a class="btn btn-primary" href="{{ route('congresos.index') }}"><i class="fa fa-reply" title="{{ __('Atzera') }}"></i></a>

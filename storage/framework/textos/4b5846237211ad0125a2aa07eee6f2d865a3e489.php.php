@@ -11,6 +11,7 @@ use  App\Politekniko3;
 use  App\User;
 use  App\Autor;
 use  Hash;
+use Session;
 use App\Traits\LimpiarCache;
 
 class HomeController extends Controller

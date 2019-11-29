@@ -284,9 +284,9 @@ private function crearSql($q, $request = false)
         $section->addListItem( __('Europar Batasuneko Programa Markoa'), 1, null, 'multilevel');
         $section->addListItem( __('Erakundeek diru-laguntza emandako Ikerkuntza Proiektuak'), 1, null, 'multilevel');
         $section->addListItem( __('Enpresek diru-laguntza emandako Ikerkuntza Proiektuak'), 1, null, 'multilevel');
-        $section->addListItem( __('Kongresu Zientifikoetan parte-hartzea'), 1, null, 'multilevel');
+        $section->addListItem( __('Kongresu zientifikoetan parte-hartzea'), 1, null, 'multilevel');
         $section->addListItem( __('Argitalpenak'), 1, null, 'multilevel');
-        $section->addListItem( __('Liburuak eta Monografiak'), 1, null, 'multilevel');
+        $section->addListItem( __('Liburuak eta monografiak'), 1, null, 'multilevel');
         $section->addListItem( __('Artikuloak'), 0, null, 'multilevel');
         $section->addListItem( __('Elkartrukeko programak'), 1, null, 'multilevel');
         $section->addListItem( __('Etorritako ikerlariak'), 1, null, 'multilevel');

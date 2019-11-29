@@ -90,7 +90,7 @@
 	                '13' => __('Unibertsitate aurreko ikasleei bideratutako ekintzak'),
 	                '14' => __('Eskolako ikasleei bideratutako ekintzak'),
 	                '15' => __('Eskolaren hedakuntza'),
-	                '16' => __('Prentsa')
+	                '16' => __('Hedabideak')
 	                
                 ] , [2,3,4,5,6,7,9,10,11,12,13,14,15,16], ['multiple'=>'multiple', 'id' =>'secciones', 'class' => 'form-control chosen-type ocultar']); ?>
 

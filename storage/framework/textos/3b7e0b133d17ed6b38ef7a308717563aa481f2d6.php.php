@@ -12,6 +12,7 @@ use App\TesisDoctoralesDirectores;
 use App\TesisDoctoralesDoctorando;
 use App\Departamentos;
 use App\Lib\Functions;
+use Session;
 
 class TesisDoctoralesController extends Controller
 {

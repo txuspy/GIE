@@ -23,7 +23,7 @@
 		        	<?php if( $ekintza->tipo == 'laguntza' ): ?>
 						<h2><?php echo e(__('Bidelaguntza')); ?></h2>
 					<?php else: ?>
-						<h2><?php echo e(__('Formakuntza Osagarriak')); ?></h2>
+						<h2><?php echo e(__('Formakuntza osagarriak')); ?></h2>
 					<?php endif; ?>
 		        </div>
 			<div class="pull-right">

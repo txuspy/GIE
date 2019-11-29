@@ -16,7 +16,7 @@
             <div class="col-sm-12 margin-tb">
     	        <div class="pull-left">
     	            <?php if( $tipo == 'prensa' ): ?>
-                        <h2><?php echo e(__('Prentsa')); ?></h2>
+                        <h2><?php echo e(__('Hedabideak')); ?></h2>
                     <?php else: ?>
                         <h2><?php echo e(__('Ekitaldiak')); ?></h2>
                     <?php endif; ?>
@@ -49,28 +49,29 @@
 
             </div>
         </div>
-       <div class="col-sm-6 ">
-            <div class="form-group has-error">
-                <label><strong>Deskripzioa (*):</strong></label>
-                <?php if($errors->has('desc_eu')): ?>
-                    <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
-                <?php endif; ?>
-                <?php echo Form::textarea('desc_eu', null, array('placeholder' => 'Deskripzioa','class' => 'form-control summernote', 'data-tipo'  => $tipo)); ?>
+    	<?php if( $tipo == 'hedakuntza' ): ?>
+           <div class="col-sm-6 ">
+                <div class="form-group has-error">
+                    <label><strong>Deskripzioa (*):</strong></label>
+                    <?php if($errors->has('desc_eu')): ?>
+                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                    <?php endif; ?>
+                    <?php echo Form::textarea('desc_eu', null, array('placeholder' => 'Deskripzioa','class' => 'form-control summernote', 'data-tipo'  => $tipo)); ?>
 
-                
+                    
+                </div>
             </div>
-        </div>
-        <div class="col-sm-6 ">
-            <div class="form-group has-error">
-                <label><strong>Descripción (*):</strong></label>
-                <?php if($errors->has('desc_es')): ?>
-                    <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
-                <?php endif; ?>
-                <?php echo Form::textarea('desc_es', null, array('placeholder' => 'Deskripzioa','class' => 'form-control summernote', 'data-tipo'  => $tipo)); ?>
+            <div class="col-sm-6 ">
+                <div class="form-group has-error">
+                    <label><strong>Descripción (*):</strong></label>
+                    <?php if($errors->has('desc_es')): ?>
+                        <i class="fa fa-times alert alert-danger" style='padding:2px; margin:0;' aria-hidden="true"></i>
+                    <?php endif; ?>
+                    <?php echo Form::textarea('desc_es', null, array('placeholder' => 'Deskripzioa','class' => 'form-control summernote', 'data-tipo'  => $tipo)); ?>
 
+                </div>
             </div>
-        </div>
-        
+        <?php endif; ?>
         
     </div>
 
@@ -87,6 +88,7 @@
                     </div>
                 </div>
                 <?php if( $tipo == 'prensa' ): ?>
+            		<!--
             		<div class="col-sm-6 ">
                          <div class="form-group has-error">
                             <label><strong><?php echo e(__('Noiz arte')); ?> :</strong></label>
@@ -97,10 +99,11 @@
 
                         </div>
                     </div>
+                   -->
                 <?php endif; ?>
             </div>
             <?php if( $tipo == 'prensa' ): ?>
-            
+            <!--
                  <div>
                     <div class="col-sm-6 ">
                          <div class="form-group has-error">
@@ -129,6 +132,7 @@
                     </div>
             	
                 </div>
+            -->
                 <div class="row"></div>
                 <div>
                     <div class="col-sm-6 ">

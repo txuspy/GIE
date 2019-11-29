@@ -22,7 +22,7 @@
 			<div class="col-sm-12 margin-tb">
 		        <div class="pull-left">
 		           	<?php if( $publicacion->tipo == 'libros' ): ?>
-						<h2><?php echo e(__('Liburuak eta Monografiak')); ?></h2>
+						<h2><?php echo e(__('Liburuak eta monografiak')); ?></h2>
 					<?php else: ?>
 						<h2><?php echo e(__('Artikuloak')); ?></h2>
 					<?php endif; ?>

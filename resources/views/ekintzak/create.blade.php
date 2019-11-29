@@ -18,7 +18,7 @@
 					@if( $tipo == 'laguntza' )
 						<h2>{{ __('Bidelaguntza') }}</h2>
 					@else
-						<h2>{{ __('Formakuntza Osagarriak') }}</h2>
+						<h2>{{ __('Formakuntza osagarriak') }}</h2>
 					@endif
 				</div>
 				<div class="pull-right">

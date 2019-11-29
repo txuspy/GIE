@@ -13,6 +13,7 @@ use DB;
 use Hash;
 use Yajra\Datatables\Datatables;
 use App\Lib\Functions;
+use Session;
 
 class UserController extends Controller
 {

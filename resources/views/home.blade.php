@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 
-                <div class="panel-heading"><strong>{{ __('Ongi etorria Gipuzkoako Ingenieritza Eskolako memoria sortzeko aplikaziora.') }}</strong></div>
+                <div class="panel-heading"><strong>{{ __('Ongi etorria Gipuzkoako Ingeniaritza Eskolako oroitidazkia sortzeko aplikaziora.') }}</strong></div>
                 <div>
                         <img src="/images/Gipuzkoako_Ingeniaritza_Eskol.png" width="100%"></img>
                     </div>
@@ -28,7 +28,7 @@
                     
                     <div>
                         <div class="col-md-6">
-                            <p><stong>{{ __('Erabiltzailearen honespenak') }}:</stong> </p>
+                            <p><stong>{{ __('Erabiltzailearen onespenak') }}:</stong> </p>
                             <p><small>{{ __('Pasahitza aldatzeko, hizkuntza ...')}}</small></p>
 
                             <video controls height="170" width="auto">
@@ -37,7 +37,7 @@
                             </video>
                         </div>
                         <div class="col-md-6">
-                            <p><stong>{{ __('Ezagutza basikoa') }}:</stong> </p>
+                            <p><stong>{{ __('Oinarrizko ezagutza') }}:</stong> </p>
                             <p><small>{{ __('Erregistro bat sortu')}}</small></p>
                              <video controls height="170" width="auto">
                             <source src="/videos/basicos.mp4" type="video/mp4" />

@@ -7,7 +7,7 @@
 					<div class="col-sm-12 margin-tb">
 						<div class="pull-left">
 							@if( $tipo == 'prensa' )
-								<h2>{{ __('Prentsa') }}</h2>
+								<h2>{{ __('Hedabideak') }}</h2>
     						@else
     							<h2>{{ __('Ekitaldiak') }}</h2>
 							@endif

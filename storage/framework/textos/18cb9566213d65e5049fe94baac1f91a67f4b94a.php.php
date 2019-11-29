@@ -6,7 +6,7 @@
 					<div class="col-sm-12 margin-tb">
 						<div class="pull-left">
 							<?php if( $tipo == 'prensa' ): ?>
-								<h2><?php echo e(__('Prentsa')); ?></h2>
+								<h2><?php echo e(__('Hedabideak')); ?></h2>
     						<?php else: ?>
     							<h2><?php echo e(__('Ekitaldiak')); ?></h2>
 							<?php endif; ?>

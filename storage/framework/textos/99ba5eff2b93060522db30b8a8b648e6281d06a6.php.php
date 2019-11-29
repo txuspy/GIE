@@ -64,7 +64,7 @@
 						<i class="fa fa-user-circle-o" aria-hidden="true"></i> <?php echo e(__('Eskolako ikasleei bideratutako ekintzak')); ?></a>
 						<ul>
 							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/ekintzak/show/laguntza')); ?>"><i class="fa fa-handshake-o" aria-hidden="true"></i> <?php echo e(__('Bidelaguntza')); ?></a></li>
-							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/ekintzak/show/formakuntzaOsagarriak')); ?>"><i class="fa fa-address-card" aria-hidden="true"></i> <?php echo e(__('Formakuntza Osagarriak')); ?></a></li>
+							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/ekintzak/show/formakuntzaOsagarriak')); ?>"><i class="fa fa-address-card" aria-hidden="true"></i> <?php echo e(__('Formakuntza osagarriak')); ?></a></li>
 						</ul>
 					</li>
 					@endrole
@@ -131,16 +131,16 @@
 							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/proyectos/show/empresa')); ?>"><i class="fa fa-industry" aria-hidden="true"></i> <?php echo e(__('Enpresek diruz lagundutako ikerkuntza-proiektuak')); ?></a></li>
 						</ul>
 					</li>
-					<li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/congresos')); ?>"><i class="fa fa-briefcase" aria-hidden="true"></i> <?php echo e(__('Kongresu Zientifikoetan parte-hartzea')); ?></a></li>
+					<li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/congresos')); ?>"><i class="fa fa-briefcase" aria-hidden="true"></i> <?php echo e(__('Kongresu zientifikoetan parte-hartzea')); ?></a></li>
 					<li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/publicaciones/show/libros')); ?>"><i class="fa fa-archive" aria-hidden="true"></i> <?php echo e(__('Argitalpenak')); ?></a>
 						<ul>
-							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/publicaciones/show/libros')); ?>"><i class="fa fa-book" aria-hidden="true"></i> <?php echo e(__('Liburuak eta Monografiak')); ?></a></li>
+							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/publicaciones/show/libros')); ?>"><i class="fa fa-book" aria-hidden="true"></i> <?php echo e(__('Liburuak eta monografiak')); ?></a></li>
 							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/publicaciones/show/articulos')); ?>"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?php echo e(__('Artikuluak')); ?></a></li>
 						</ul>
 					</li>
 					<li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera')); ?>"><i class="fa fa-refresh" aria-hidden="true"></i> <?php echo e(__('Egonaldi zientifikoak')); ?></a>
 						<ul>
-							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/CEfuera')); ?>"><i class="fa fa-share" aria-hidden="true"></i> <?php echo e(__('Beste Unibertsitateetan')); ?></a></li>
+							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/CEfuera')); ?>"><i class="fa fa-share" aria-hidden="true"></i> <?php echo e(__('Beste unibertsitateetan')); ?></a></li>
 							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/CEvisita')); ?>"><i class="fa fa-share" aria-hidden="true"></i> <?php echo e(__('Bisitariak')); ?></a></li>
 						</ul>
 					</li>
@@ -166,7 +166,7 @@
 						<ul class="sub-nav level-2">
 				
 							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/divulgacion/show/hedakuntza')); ?>"><i class="fa fa-television" aria-hidden="true"></i> <?php echo e(__('Ekitaldiak')); ?></a></li>
-							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/divulgacion/show/prensa')); ?>"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?php echo e(__('Prentsa')); ?></a></li>
+							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/divulgacion/show/prensa')); ?>"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?php echo e(__('Hedabideak')); ?></a></li>
 						</ul>
 					</ul>
 				</li>

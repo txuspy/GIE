@@ -132,7 +132,7 @@ Breadcrumbs::register('divulgacion', function($breadcrumbs, $tipo)
 {
     $breadcrumbs->parent('divulgacionTit', $tipo);
     if( $tipo == 'prensa' ){
-        $breadcrumbs->push( __('Prentsa'), url(App\Lib\Functions::parseLang().'/divulgacion/show/'.$tipo));
+        $breadcrumbs->push( __('Hedabideak'), url(App\Lib\Functions::parseLang().'/divulgacion/show/'.$tipo));
     }else{
         $breadcrumbs->push( __('Ekitaldiak'), url(App\Lib\Functions::parseLang().'/divulgacion/show/'.$tipo));
     }

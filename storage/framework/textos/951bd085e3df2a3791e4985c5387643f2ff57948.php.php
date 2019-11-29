@@ -33,6 +33,7 @@ use App\EkintzakGizartea;
 use Carbon\Carbon;
 use App\Lib\Functions;
 use App\Traits\Listados;
+use Session;
 // use HTMLtoOpenXML;
 
 class WordController extends Controller
@@ -227,7 +228,7 @@ class WordController extends Controller
 		if (in_array("16", $request['secciones'])) {
 			$this->crearTitulo($section,  "9-". mb_strtoupper ( __('Eskolaren hedakuntza') ), $this->styleH);
 			$this->wordDivulgacion( $section, $request, 'hedakuntza', $phpWord );
-			$this->wordDivulgacion( $section, $request, 'prentsa', $phpWord );
+			$this->wordDivulgacion( $section, $request, 'prensa', $phpWord );
 		}
 		
 		
@@ -371,17 +372,17 @@ class WordController extends Controller
 				}
 		
 				if (in_array("11", $secciones)) {
-					$section->addListItem( __('Kongresu Zientifikoetan parte-hartzea'), 1, null, 'multilevel');
+					$section->addListItem( __('Kongresu zientifikoetan parte-hartzea'), 1, null, 'multilevel');
 				}
 		
 				if (in_array("12", $secciones)) {
 					$section->addListItem( __('Argitalpenak'), 1, null, 'multilevel');
-					$section->addListItem( __('Liburuak eta Monografiak'), 2, null, 'multilevel');
+					$section->addListItem( __('Liburuak eta monografiak'), 2, null, 'multilevel');
 					$section->addListItem( __('Artikuluak'), 2, null, 'multilevel');
 				}
 				if (in_array("4", $secciones)) {
 					$section->addListItem( __('Egonaldi zientifikoak'), 1, null, 'multilevel');
-					$section->addListItem( __('Beste Unibertsitateetan'), 2, null, 'multilevel');//ECFuera --> fuera
+					$section->addListItem( __('Beste unibertsitateetan'), 2, null, 'multilevel');//ECFuera --> fuera
 					$section->addListItem( __('Bisitariak'), 2, null, 'multilevel');//ECVisita --> No habia
 				}
 				if (in_array("9", $secciones)) {
@@ -479,6 +480,7 @@ if (in_array("5", $secciones)) {
 			
 			foreach ($ekintzakAurretik as $ekintzaAurretik){
 				$this->crearTitulo($section, "5-2-".$cont."-".$ekintzaAurretik->$titulo , $this->styleH2);
+				$section->addText(  __('Data').": ".$ekintzaAurretik->fecha , $this->styleP  );
 				\PhpOffice\PhpWord\Shared\Html::addHtml($section, \App\Traits\Listados::limpiarAtributosHtml( ($ekintzaAurretik->$desc) ) );
 				$cont = $cont + 1 ;
 			}
@@ -516,7 +518,7 @@ if (in_array("5", $secciones)) {
 				$tituloH1 = $titCont.__('Bidelaguntza') ;
 			}else{
 				$titCont = "5-3-2-";
-				$tituloH1 = $titCont.__('Formakuntza Osagarriak');
+				$tituloH1 = $titCont.__('Formakuntza osagarriak');
 			}
 			$section->addText( $tituloH1 , $this->styleH2  );
 		    $lang   = $request->lng ;
@@ -525,6 +527,7 @@ if (in_array("5", $secciones)) {
 		    $cont   = 1;
 			foreach ($ekintzak as $ekintza){
 				$this->crearTitulo($section,  $titCont.$cont."-".$ekintza->$titulo , $this->styleH3);
+				$section->addText(  __('Data').": ".$ekintza->fecha , $this->styleP  );
 				\PhpOffice\PhpWord\Shared\Html::addHtml($section, \App\Traits\Listados::limpiarAtributosHtml(($ekintza->$desc)) );
 				$cont = $cont + 1;
 			}
@@ -978,7 +981,7 @@ if (in_array("5", $secciones)) {
 		}
 		if( !$publicaciones->isEmpty() ){
 			if( $tipo == 'libros' ){
-				$tituloH1 = "7.5.1-".__('Liburuak eta Monografiak') ;
+				$tituloH1 = "7.5.1-".__('Liburuak eta monografiak') ;
 				$titArgitaletxea= __('Argitaletxea');
 				$tituloISBN = "ISBN";
 			}else{
@@ -1097,6 +1100,7 @@ if (in_array("5", $secciones)) {
 			$cont      = 1 ;
 			foreach ($ekintzakGizartea as $ekintzaGizartea){
 				$section->addText(  $titCont.$cont."-".$ekintzaGizartea->$titulo , $this->styleH1  );
+				$section->addText(  __('Data').": ".$ekintzaGizartea->fecha , $this->styleP  );
 				\PhpOffice\PhpWord\Shared\Html::addHtml($section, \App\Traits\Listados::limpiarAtributosHtml( ($ekintzaGizartea->$desc) ) );
 				$cont =$cont + 1;
 			}
@@ -1130,19 +1134,39 @@ if (in_array("5", $secciones)) {
 			if( $tipo == 'hedakuntza' ){
 				$tituloH1 = __('Ekitaldiak') ;
 			}else{
-				$tituloH1 = __('Prentsa');
+				$tituloH1 = __('Hedabideak');
 			}
 			$lang      = \Session::get('locale');
 			$lang      = $request->lng ;
-			$titCont   = "9.";
+		
 			$cont      = 1 ;
 			$titulo    = "titulo_".$lang;
-			$desc     = "desc_".$lang;
+			$desc      = "desc_".$lang;
+		
 			foreach ($divulgaciones as $divulgacion){
-				$section->addText(  $titCont.$cont."-".$divulgacion->$titulo , $this->styleH1  );
-				\PhpOffice\PhpWord\Shared\Html::addHtml($section, \App\Traits\Listados::limpiarAtributosHtml(($divulgacion->$desc) ) );
+				if( $tipo == 'hedakuntza' ){
+					$titCont   = "9.1";
+					if($cont=='1'){
+						$section->addText(  $titCont."-".__('Ekitaldiak') , $this->styleH1  );
+					}
+					$section->addText(  $titCont.".".$cont."-".$divulgacion->$titulo , $this->styleH2  );
+					$section->addText(  __('Data').": ".$divulgacion->fecha , $this->styleP  );
+					\PhpOffice\PhpWord\Shared\Html::addHtml($section, \App\Traits\Listados::limpiarAtributosHtml(($divulgacion->$desc) ) );
+					$cont =$cont + 1;
+				}else{
+					$titCont   = "9.2";
+						if($cont=='1'){
+					$section->addText(  $titCont."-".__('Hedabideak') , $this->styleH1  );
+					}
+					$section->addText(  $titCont.".".$cont."-".$divulgacion->$titulo , $this->styleH2  );
+					$section->addText(  __('Data').": ".$divulgacion->fecha , $this->styleP  );
+					$section->addText(  __('Komunikabidea').": ".$divulgacion->fecha , $this->styleP  );
+					$section->addText(  __('komunikabideWeb').": ".$divulgacion->fecha , $this->styleP  );
+					$cont =$cont + 1;
+				}
 			}
 		}
+		
 	}
 	private function formatearYear( $year , $mes){
 		//$dt = Carbon::create($year, $mes, 1);

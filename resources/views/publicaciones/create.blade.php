@@ -16,7 +16,7 @@
             <div class="col-sm-12 margin-tb">
 		        <div class="pull-left">
 		           	@if( $tipo == 'libros' )
-						<h2>{{ __('Liburuak eta Monografiak') }}</h2>
+						<h2>{{ __('Liburuak eta monografiak') }}</h2>
 					@else
 						<h2>{{ __('Artikuloak') }}</h2>
 					@endif

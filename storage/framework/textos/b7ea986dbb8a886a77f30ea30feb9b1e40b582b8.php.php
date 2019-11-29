@@ -12,6 +12,7 @@ use App\Autor;
 use App\ProyectosInvestigadores;
 use App\ProyectosDirectores;
 use App\Lib\Functions;
+use Session;
 
 
 class ProyectosController extends Controller
