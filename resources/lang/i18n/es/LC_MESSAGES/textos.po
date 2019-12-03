@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GIE\n"
-"POT-Creation-Date: 2019-11-29 13:23+0000\n"
-"PO-Revision-Date: 2019-11-29 13:23+0000\n"
+"POT-Creation-Date: 2019-12-03 20:25+0100\n"
+"PO-Revision-Date: 2019-12-03 20:36+0100\n"
 "Last-Translator: Unai Susperregi <unai@irunweb.com>\n"
 "Language-Team: Unai Susperregi <unai@irunweb.com>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-KeywordsList: _;__;gettext;_n:1,2;ngettext:1,2;dgettext:2\n"
 "X-Poedit-Basepath: ../../../../../app\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-1: Traits\n"
 "X-Poedit-SearchPath-2: ../resources/views\n"
 "X-Poedit-SearchPath-3: Console\n"
-"X-Poedit-SearchPath-4: ../storage/framework/textos/\n"
+"X-Poedit-SearchPath-4: ../storage/framework/textos\n"
 
 #: ../storage/framework/textos/04672f82f85fb46fd231e0436ff47314c9f44b28.php.php:12
 #: ../storage/framework/textos/2107b49d17f87905486728d404325e37bba2c13a.php.php:13
@@ -62,15 +62,15 @@ msgid "There were some problems with your input."
 msgstr "Hay algún problema con tu input."
 
 #: ../storage/framework/textos/04672f82f85fb46fd231e0436ff47314c9f44b28.php.php:24
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:283
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:284
 #: ../storage/framework/textos/7dbfedfe0e39c6945e34390bd7bd4756f5d13dad.php.php:19
 #: ../storage/framework/textos/8ef5c19ed4c9513815c236ffd8d6eef5cc030738.php.php:9
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:367
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:881
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:368
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:884
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:129
-#: Http/Controllers/GrupoInvestigacionController.php:283
-#: Http/Controllers/WordController.php:367
-#: Http/Controllers/WordController.php:881
+#: Http/Controllers/GrupoInvestigacionController.php:284
+#: Http/Controllers/WordController.php:368
+#: Http/Controllers/WordController.php:884
 msgid "Europar Batasuneko Programa Markoa"
 msgstr "Programa Marco de la Unión Europea"
 
@@ -133,10 +133,10 @@ msgstr "Crear nuevo/nueva doctorando/doctoranda"
 #: ../storage/framework/textos/7dbfedfe0e39c6945e34390bd7bd4756f5d13dad.php.php:56
 #: ../storage/framework/textos/7dbfedfe0e39c6945e34390bd7bd4756f5d13dad.php.php:57
 #: ../storage/framework/textos/8ef5c19ed4c9513815c236ffd8d6eef5cc030738.php.php:42
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:900
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:903
 #: ../storage/framework/textos/ba087f33a7baae4929184761ecd690c7b15d343f.php.php:19
 #: ../storage/framework/textos/ba087f33a7baae4929184761ecd690c7b15d343f.php.php:20
-#: Http/Controllers/WordController.php:900
+#: Http/Controllers/WordController.php:903
 msgid "Finantziazioa"
 msgstr "Financiación"
 
@@ -162,7 +162,7 @@ msgstr "Desde"
 #: ../storage/framework/textos/633a4b3655a3e6c8de683efa48f1592a5d2b0922.php.php:75
 #: ../storage/framework/textos/71e203ef2dd67fdc69e2dd259da3e6b958d50fa9.php.php:73
 #: ../storage/framework/textos/7664810ad35ca287efcc58d51b4d34b54322b4c2.php.php:75
-#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:74
+#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:76
 #: ../storage/framework/textos/79482ddb3d4b8dc488fb0a1f4e682c1d5b8e1df7.php.php:76
 #: ../storage/framework/textos/9ddaead1f09f5c76ae0b888b2029e7848dbf5b6f.php.php:83
 msgid "Desde"
@@ -175,12 +175,12 @@ msgstr "Desde"
 #: ../storage/framework/textos/2143af0ca59c100ba39f70efc51f153cb8ae6937.php.php:36
 #: ../storage/framework/textos/336ea874ff3c270897b50b9cf28b2dac9b5be34f.php.php:81
 #: ../storage/framework/textos/5cb274980282130df4b81cb301c62381a31bd946.php.php:87
-#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:80
+#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:83
 #: ../storage/framework/textos/79482ddb3d4b8dc488fb0a1f4e682c1d5b8e1df7.php.php:82
 #: ../storage/framework/textos/7dbfedfe0e39c6945e34390bd7bd4756f5d13dad.php.php:76
 #: ../storage/framework/textos/99a9076e8256f3bb0956b25a3a3e17ad28d505d5.php.php:47
 #: ../storage/framework/textos/9ddaead1f09f5c76ae0b888b2029e7848dbf5b6f.php.php:89
-#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:92
+#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:94
 #: ../storage/framework/textos/ba087f33a7baae4929184761ecd690c7b15d343f.php.php:39
 msgid "Noiz arte"
 msgstr "Hasta"
@@ -194,9 +194,9 @@ msgstr "Hasta"
 
 #: ../storage/framework/textos/04672f82f85fb46fd231e0436ff47314c9f44b28.php.php:92
 #: ../storage/framework/textos/8ef5c19ed4c9513815c236ffd8d6eef5cc030738.php.php:43
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:901
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:904
 #: ../storage/framework/textos/ba087f33a7baae4929184761ecd690c7b15d343f.php.php:49
-#: Http/Controllers/WordController.php:901
+#: Http/Controllers/WordController.php:904
 msgid "Ikertzaile nagusia(k)"
 msgstr "Investigadora(s)/Investigador(es) principal(es)"
 
@@ -207,10 +207,10 @@ msgstr "Buscar nvestigadora/investigador principal"
 #: ../storage/framework/textos/04672f82f85fb46fd231e0436ff47314c9f44b28.php.php:118
 #: ../storage/framework/textos/3e80dfd514344ba4cc3d9cb2a4350552a173e432.php.php:87
 #: ../storage/framework/textos/5cb274980282130df4b81cb301c62381a31bd946.php.php:121
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:902
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:905
 #: ../storage/framework/textos/99a9076e8256f3bb0956b25a3a3e17ad28d505d5.php.php:74
 #: ../storage/framework/textos/ba087f33a7baae4929184761ecd690c7b15d343f.php.php:67
-#: Http/Controllers/WordController.php:902
+#: Http/Controllers/WordController.php:905
 msgid "Partaidea(k)"
 msgstr "Investigadores/Investigadoras"
 
@@ -226,7 +226,7 @@ msgstr "Buscar investigadora/investigador"
 #: ../storage/framework/textos/6df73112eeed01f488786d6a3ce3dddaa8fa8bf8.php.php:145
 #: ../storage/framework/textos/71e203ef2dd67fdc69e2dd259da3e6b958d50fa9.php.php:82
 #: ../storage/framework/textos/7664810ad35ca287efcc58d51b4d34b54322b4c2.php.php:84
-#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:145
+#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:151
 #: ../storage/framework/textos/79482ddb3d4b8dc488fb0a1f4e682c1d5b8e1df7.php.php:119
 #: ../storage/framework/textos/98d032f1ca6d0de3279f7358ca4257355c4b40b0.php.php:102
 #: ../storage/framework/textos/9ddaead1f09f5c76ae0b888b2029e7848dbf5b6f.php.php:132
@@ -291,13 +291,13 @@ msgstr "Hay algunos errores "
 
 #: ../storage/framework/textos/09ba0e6294a5955482d9a482c598976be8efe293.php.php:18
 #: ../storage/framework/textos/490722f23ad2ef6eac6e129a0c94f3e5a745fe1d.php.php:8
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:286
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:287
 #: ../storage/framework/textos/79482ddb3d4b8dc488fb0a1f4e682c1d5b8e1df7.php.php:24
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:374
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:375
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:134
-#: Http/Controllers/GrupoInvestigacionController.php:286
-#: Http/Controllers/WordController.php:374
-msgid "Kongresu Zientifikoetan parte-hartzea"
+#: Http/Controllers/GrupoInvestigacionController.php:287
+#: Http/Controllers/WordController.php:375
+msgid "Kongresu zientifikoetan parte-hartzea"
 msgstr "Participación en congresos científicos"
 
 #: ../storage/framework/textos/09ba0e6294a5955482d9a482c598976be8efe293.php.php:29
@@ -351,11 +351,11 @@ msgstr "Tipo de contribución"
 #: ../storage/framework/textos/673980d5255e1a5843b45cb3b59fec5dfbaf9af9.php.php:43
 #: ../storage/framework/textos/79482ddb3d4b8dc488fb0a1f4e682c1d5b8e1df7.php.php:66
 #: ../storage/framework/textos/93aceba9e22b529275f0bfcea16781f7681cc033.php.php:51
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:591
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:658
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:713
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:757
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:954
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:594
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:661
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:716
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:760
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:957
 #: ../storage/framework/textos/98d032f1ca6d0de3279f7358ca4257355c4b40b0.php.php:58
 #: ../storage/framework/textos/98d032f1ca6d0de3279f7358ca4257355c4b40b0.php.php:59
 #: ../storage/framework/textos/9ddaead1f09f5c76ae0b888b2029e7848dbf5b6f.php.php:70
@@ -365,11 +365,11 @@ msgstr "Tipo de contribución"
 #: ../storage/framework/textos/cb9d9d61232485b82a1729fe67a8eba08df6a60e.php.php:93
 #: ../storage/framework/textos/e9d8f8c73d439e6a568a836e98b62d220c4edeae.php.php:24
 #: ../storage/framework/textos/fd826f296fc53c678f1fcd21254fbb2d5c1009e4.php.php:63
-#: Http/Controllers/WordController.php:591
-#: Http/Controllers/WordController.php:658
-#: Http/Controllers/WordController.php:713
-#: Http/Controllers/WordController.php:757
-#: Http/Controllers/WordController.php:954
+#: Http/Controllers/WordController.php:594
+#: Http/Controllers/WordController.php:661
+#: Http/Controllers/WordController.php:716
+#: Http/Controllers/WordController.php:760
+#: Http/Controllers/WordController.php:957
 msgid "Tokia"
 msgstr "Lugar"
 
@@ -385,7 +385,7 @@ msgstr "Lugar"
 #: ../storage/framework/textos/9cb96722e3c07824f8ed1f8a5e65d27904fcac57.php.php:92
 #: ../storage/framework/textos/9dc07e7ea5d192af37715c604b49d26dfb711fa1.php.php:90
 #: ../storage/framework/textos/a73638c7c6c5d2f1f0c8f841f23d80f75c2317f4.php.php:90
-#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:158
+#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:162
 #: ../storage/framework/textos/d5a6ff62d2f52f12331fe3a45e5f90a3802c80d5.php.php:90
 msgid "Derrigorrezko eremuak"
 msgstr "Campos obligatorios"
@@ -402,53 +402,56 @@ msgstr "Campos obligatorios"
 #: ../storage/framework/textos/9cb96722e3c07824f8ed1f8a5e65d27904fcac57.php.php:101
 #: ../storage/framework/textos/9dc07e7ea5d192af37715c604b49d26dfb711fa1.php.php:100
 #: ../storage/framework/textos/a73638c7c6c5d2f1f0c8f841f23d80f75c2317f4.php.php:100
-#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:168
+#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:172
 #: ../storage/framework/textos/d5a6ff62d2f52f12331fe3a45e5f90a3802c80d5.php.php:100
 msgid "Jarraitu"
 msgstr "Continuar"
 
-#: ../storage/framework/textos/1053cdcf9b328c56e97b4df032e443d47304f2f6.php.php:27
-#: ../storage/framework/textos/1053cdcf9b328c56e97b4df032e443d47304f2f6.php.php:91
-#: Http/Controllers/UserController.php:27
-#: Http/Controllers/UserController.php:91
+#: ../storage/framework/textos/1053cdcf9b328c56e97b4df032e443d47304f2f6.php.php:28
+#: ../storage/framework/textos/1053cdcf9b328c56e97b4df032e443d47304f2f6.php.php:92
+#: Http/Controllers/UserController.php:28
+#: Http/Controllers/UserController.php:92
 msgid "Ez dituzu permisorik"
 msgstr "No tienes permisos"
 
-#: ../storage/framework/textos/1053cdcf9b328c56e97b4df032e443d47304f2f6.php.php:66
-#: Http/Controllers/UserController.php:66
+#: ../storage/framework/textos/1053cdcf9b328c56e97b4df032e443d47304f2f6.php.php:67
+#: Http/Controllers/UserController.php:67
 msgid "Erabiltzailea zuzen sortu da"
 msgstr "Usuario correctamente creado"
 
-#: ../storage/framework/textos/1053cdcf9b328c56e97b4df032e443d47304f2f6.php.php:145
-#: Http/Controllers/UserController.php:145
+#: ../storage/framework/textos/1053cdcf9b328c56e97b4df032e443d47304f2f6.php.php:146
+#: Http/Controllers/UserController.php:146
 msgid "Erabiltzailea zuzen aldatatu da"
 msgstr "Usuario correctamente modificado"
 
-#: ../storage/framework/textos/1053cdcf9b328c56e97b4df032e443d47304f2f6.php.php:152
-#: Http/Controllers/UserController.php:152
+#: ../storage/framework/textos/1053cdcf9b328c56e97b4df032e443d47304f2f6.php.php:153
+#: Http/Controllers/UserController.php:153
 msgid "Erabiltzailea zuzen ezabatu da"
 msgstr "Usuario correctamente borrado"
 
 #: ../storage/framework/textos/1495dad99d29101df8541dc8fba3dc921c579c06.php.php:19
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:343
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:344
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:385
+#: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:143
 #: ../storage/framework/textos/9ddaead1f09f5c76ae0b888b2029e7848dbf5b6f.php.php:24
 #: ../storage/framework/textos/fd826f296fc53c678f1fcd21254fbb2d5c1009e4.php.php:9
-#: Http/Controllers/WordController.php:343
+#: Http/Controllers/WordController.php:344
+#: Http/Controllers/WordController.php:385
 msgid "Beste unibertsitateetan"
 msgstr "En otras universidades"
 
 #: ../storage/framework/textos/1495dad99d29101df8541dc8fba3dc921c579c06.php.php:21
 #: ../storage/framework/textos/1495dad99d29101df8541dc8fba3dc921c579c06.php.php:25
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:344
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:385
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:345
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:386
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:80
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:144
 #: ../storage/framework/textos/9ddaead1f09f5c76ae0b888b2029e7848dbf5b6f.php.php:26
 #: ../storage/framework/textos/9ddaead1f09f5c76ae0b888b2029e7848dbf5b6f.php.php:30
 #: ../storage/framework/textos/fd826f296fc53c678f1fcd21254fbb2d5c1009e4.php.php:11
 #: ../storage/framework/textos/fd826f296fc53c678f1fcd21254fbb2d5c1009e4.php.php:15
-#: Http/Controllers/WordController.php:344
-#: Http/Controllers/WordController.php:385
+#: Http/Controllers/WordController.php:345
+#: Http/Controllers/WordController.php:386
 msgid "Bisitariak"
 msgstr "Visitas"
 
@@ -522,23 +525,25 @@ msgid "Pasahitza berridatzi"
 msgstr "Repetir contraseña"
 
 #: ../storage/framework/textos/15847720733d1d7497661a98d067b50b4f6e8619.php.php:19
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:288
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:289
 #: ../storage/framework/textos/6df73112eeed01f488786d6a3ce3dddaa8fa8bf8.php.php:25
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:379
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:981
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:380
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:984
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:137
 #: ../storage/framework/textos/d803ccd2991ae1226de945059abf5c15f99f96a8.php.php:9
-#: Http/Controllers/GrupoInvestigacionController.php:288
-#: Http/Controllers/WordController.php:379
-#: Http/Controllers/WordController.php:981
-msgid "Liburuak eta Monografiak"
+#: Http/Controllers/GrupoInvestigacionController.php:289
+#: Http/Controllers/WordController.php:380
+#: Http/Controllers/WordController.php:984
+#, fuzzy
+#| msgid "Liburuak eta Monografiak"
+msgid "Liburuak eta monografiak"
 msgstr "Libros y monografías"
 
 #: ../storage/framework/textos/15847720733d1d7497661a98d067b50b4f6e8619.php.php:21
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:289
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:290
 #: ../storage/framework/textos/6df73112eeed01f488786d6a3ce3dddaa8fa8bf8.php.php:27
 #: ../storage/framework/textos/d803ccd2991ae1226de945059abf5c15f99f96a8.php.php:11
-#: Http/Controllers/GrupoInvestigacionController.php:289
+#: Http/Controllers/GrupoInvestigacionController.php:290
 msgid "Artikuloak"
 msgstr "Artículos"
 
@@ -548,8 +553,8 @@ msgstr "Artículos"
 #: ../storage/framework/textos/35cf6b4c475dee03a6ccc0b6664876f3c653bba4.php.php:17
 #: ../storage/framework/textos/6df73112eeed01f488786d6a3ce3dddaa8fa8bf8.php.php:55
 #: ../storage/framework/textos/6df73112eeed01f488786d6a3ce3dddaa8fa8bf8.php.php:56
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:982
-#: Http/Controllers/WordController.php:982
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:985
+#: Http/Controllers/WordController.php:985
 msgid "Argitaletxea"
 msgstr "Editorial"
 
@@ -583,18 +588,23 @@ msgstr "Autocomplete...."
 #: ../storage/framework/textos/6df73112eeed01f488786d6a3ce3dddaa8fa8bf8.php.php:110
 #: ../storage/framework/textos/71e203ef2dd67fdc69e2dd259da3e6b958d50fa9.php.php:72
 #: ../storage/framework/textos/7664810ad35ca287efcc58d51b4d34b54322b4c2.php.php:74
-#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:73
+#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:75
 #: ../storage/framework/textos/88451bdbea04a6eb5e8358594c78c98b0d58f451.php.php:32
 #: ../storage/framework/textos/93aceba9e22b529275f0bfcea16781f7681cc033.php.php:61
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:957
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1008
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1065
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:483
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:530
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:960
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1011
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1068
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1103
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1153
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1162
 #: ../storage/framework/textos/98d032f1ca6d0de3279f7358ca4257355c4b40b0.php.php:65
 #: ../storage/framework/textos/98d032f1ca6d0de3279f7358ca4257355c4b40b0.php.php:66
 #: ../storage/framework/textos/9cb96722e3c07824f8ed1f8a5e65d27904fcac57.php.php:83
 #: ../storage/framework/textos/9dc07e7ea5d192af37715c604b49d26dfb711fa1.php.php:78
 #: ../storage/framework/textos/a73638c7c6c5d2f1f0c8f841f23d80f75c2317f4.php.php:78
-#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:81
+#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:82
 #: ../storage/framework/textos/c131345fb402b84e85b1a9c744c29add3c72c97f.php.php:32
 #: ../storage/framework/textos/c7db1d45428ada8083c85c591d809b651c13c38e.php.php:41
 #: ../storage/framework/textos/c89a1db248118d8278f1591887c1fe4ee95fa79d.php.php:32
@@ -605,30 +615,41 @@ msgstr "Autocomplete...."
 #: ../storage/framework/textos/e0da34979ea2ad5f00b74d6e8bb3a7f1dbfaced6.php.php:107
 #: ../storage/framework/textos/e9d8f8c73d439e6a568a836e98b62d220c4edeae.php.php:31
 #: ../storage/framework/textos/fd826f296fc53c678f1fcd21254fbb2d5c1009e4.php.php:77
-#: Http/Controllers/WordController.php:957
-#: Http/Controllers/WordController.php:1008
-#: Http/Controllers/WordController.php:1065
+#: Http/Controllers/WordController.php:483
+#: Http/Controllers/WordController.php:530
+#: Http/Controllers/WordController.php:960
+#: Http/Controllers/WordController.php:1011
+#: Http/Controllers/WordController.php:1068
+#: Http/Controllers/WordController.php:1103
+#: Http/Controllers/WordController.php:1153
+#: Http/Controllers/WordController.php:1162
 msgid "Data"
 msgstr "Fecha"
 
 #: ../storage/framework/textos/18cb9566213d65e5049fe94baac1f91a67f4b94a.php.php:9
 #: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:24
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1133
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:418
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1137
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1159
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:169
 #: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:19
 #: ../storage/framework/textos/d9d6c2c270c32d2ee432567dce98bd96723da462.php.php:93
-#: Http/Controllers/WordController.php:1133
-msgid "Prentsa"
-msgstr "Prensa"
+#: Http/Controllers/WordController.php:418
+#: Http/Controllers/WordController.php:1137
+#: Http/Controllers/WordController.php:1159
+msgid "Hedabideak"
+msgstr "Medios de comunicación"
 
 #: ../storage/framework/textos/18cb9566213d65e5049fe94baac1f91a67f4b94a.php.php:11
 #: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:26
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:408
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1131
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:409
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1135
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1150
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:168
 #: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:21
-#: Http/Controllers/WordController.php:408
-#: Http/Controllers/WordController.php:1131
+#: Http/Controllers/WordController.php:409
+#: Http/Controllers/WordController.php:1135
+#: Http/Controllers/WordController.php:1150
 msgid "Ekitaldiak"
 msgstr "Actos"
 
@@ -793,17 +814,17 @@ msgstr "Viena, Austria"
 #: ../storage/framework/textos/490722f23ad2ef6eac6e129a0c94f3e5a745fe1d.php.php:36
 #: ../storage/framework/textos/5c749c254a2c35125200341b637a2ab13de0fc43.php.php:34
 #: ../storage/framework/textos/79482ddb3d4b8dc488fb0a1f4e682c1d5b8e1df7.php.php:91
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:712
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:758
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:956
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:715
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:761
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:959
 #: ../storage/framework/textos/98d032f1ca6d0de3279f7358ca4257355c4b40b0.php.php:74
 #: ../storage/framework/textos/9ddaead1f09f5c76ae0b888b2029e7848dbf5b6f.php.php:101
 #: ../storage/framework/textos/9e6a0f9ee52a50ab7ae304c3fee36e23017456ff.php.php:55
 #: ../storage/framework/textos/e9d8f8c73d439e6a568a836e98b62d220c4edeae.php.php:43
 #: ../storage/framework/textos/fd826f296fc53c678f1fcd21254fbb2d5c1009e4.php.php:72
-#: Http/Controllers/WordController.php:712
-#: Http/Controllers/WordController.php:758
-#: Http/Controllers/WordController.php:956
+#: Http/Controllers/WordController.php:715
+#: Http/Controllers/WordController.php:761
+#: Http/Controllers/WordController.php:959
 msgid "Irakaslea(k)"
 msgstr "Profesora(s)/Profesor(es)"
 
@@ -820,17 +841,17 @@ msgstr "Buscar autor/autora"
 
 #: ../storage/framework/textos/2107b49d17f87905486728d404325e37bba2c13a.php.php:25
 #: ../storage/framework/textos/29aaa87ae96c51d71ff426578f86bb3d9ce95baa.php.php:19
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:690
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:693
 #: ../storage/framework/textos/c7db1d45428ada8083c85c591d809b651c13c38e.php.php:9
-#: Http/Controllers/WordController.php:690
+#: Http/Controllers/WordController.php:693
 msgid "Masterretan parte-hartzea"
 msgstr "Participación en másteres"
 
 #: ../storage/framework/textos/2107b49d17f87905486728d404325e37bba2c13a.php.php:27
 #: ../storage/framework/textos/29aaa87ae96c51d71ff426578f86bb3d9ce95baa.php.php:21
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:692
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:695
 #: ../storage/framework/textos/c7db1d45428ada8083c85c591d809b651c13c38e.php.php:11
-#: Http/Controllers/WordController.php:692
+#: Http/Controllers/WordController.php:695
 msgid "Doktoretza-programetan parte-hartzea"
 msgstr "Participación en programas de doctorado"
 
@@ -843,10 +864,10 @@ msgstr "Crear nuevo/nueva autor/autora"
 
 #: ../storage/framework/textos/2107b49d17f87905486728d404325e37bba2c13a.php.php:46
 #: ../storage/framework/textos/29aaa87ae96c51d71ff426578f86bb3d9ce95baa.php.php:35
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:709
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:712
 #: ../storage/framework/textos/9e6a0f9ee52a50ab7ae304c3fee36e23017456ff.php.php:7
 #: ../storage/framework/textos/c7db1d45428ada8083c85c591d809b651c13c38e.php.php:38
-#: Http/Controllers/WordController.php:709
+#: Http/Controllers/WordController.php:712
 msgid "Programa"
 msgstr "Programa"
 
@@ -855,13 +876,13 @@ msgstr "Programa"
 #: ../storage/framework/textos/29aaa87ae96c51d71ff426578f86bb3d9ce95baa.php.php:46
 #: ../storage/framework/textos/3e80dfd514344ba4cc3d9cb2a4350552a173e432.php.php:56
 #: ../storage/framework/textos/3e80dfd514344ba4cc3d9cb2a4350552a173e432.php.php:58
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:587
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:711
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:590
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:714
 #: ../storage/framework/textos/c7db1d45428ada8083c85c591d809b651c13c38e.php.php:39
 #: ../storage/framework/textos/e0da34979ea2ad5f00b74d6e8bb3a7f1dbfaced6.php.php:118
 #: ../storage/framework/textos/e0da34979ea2ad5f00b74d6e8bb3a7f1dbfaced6.php.php:120
-#: Http/Controllers/WordController.php:587
-#: Http/Controllers/WordController.php:711
+#: Http/Controllers/WordController.php:590
+#: Http/Controllers/WordController.php:714
 msgid "Kurtsoa"
 msgstr "Curso"
 
@@ -872,15 +893,15 @@ msgstr "Curso"
 #: ../storage/framework/textos/4e9610f379f33044ef99d6cbfdf4452047c17689.php.php:39
 #: ../storage/framework/textos/50fc8e2cad525b17bb1a1fdcad39c14a497607b3.php.php:27
 #: ../storage/framework/textos/536f6e553292277ece158e60129bdeb8ded05e00.php.php:55
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:710
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:847
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:713
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:850
 #: ../storage/framework/textos/9cb96722e3c07824f8ed1f8a5e65d27904fcac57.php.php:60
 #: ../storage/framework/textos/9e6a0f9ee52a50ab7ae304c3fee36e23017456ff.php.php:23
 #: ../storage/framework/textos/c7db1d45428ada8083c85c591d809b651c13c38e.php.php:40
 #: ../storage/framework/textos/e0da34979ea2ad5f00b74d6e8bb3a7f1dbfaced6.php.php:82
 #: ../storage/framework/textos/e376489c530f4511bffe890397f50ca5ce46d94c.php.php:33
-#: Http/Controllers/WordController.php:710
-#: Http/Controllers/WordController.php:847
+#: Http/Controllers/WordController.php:713
+#: Http/Controllers/WordController.php:850
 msgid "Saila"
 msgstr "Departamento"
 
@@ -888,13 +909,13 @@ msgstr "Departamento"
 #: ../storage/framework/textos/29aaa87ae96c51d71ff426578f86bb3d9ce95baa.php.php:86
 #: ../storage/framework/textos/3a15a7bf99bfefa0023a4653deb107ed8d8fa05e.php.php:115
 #: ../storage/framework/textos/673980d5255e1a5843b45cb3b59fec5dfbaf9af9.php.php:52
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:592
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:714
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:595
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:717
 #: ../storage/framework/textos/9e6a0f9ee52a50ab7ae304c3fee36e23017456ff.php.php:30
 #: ../storage/framework/textos/cb9d9d61232485b82a1729fe67a8eba08df6a60e.php.php:112
 #: ../storage/framework/textos/cb9d9d61232485b82a1729fe67a8eba08df6a60e.php.php:113
-#: Http/Controllers/WordController.php:592
-#: Http/Controllers/WordController.php:714
+#: Http/Controllers/WordController.php:595
+#: Http/Controllers/WordController.php:717
 msgid "Iraupena"
 msgstr "Duración"
 
@@ -919,18 +940,18 @@ msgid "Irakaslea bilatu"
 msgstr "Buscar profesor/profesora"
 
 #: ../storage/framework/textos/2143af0ca59c100ba39f70efc51f153cb8ae6937.php.php:60
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:628
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:631
 #: ../storage/framework/textos/9ddaead1f09f5c76ae0b888b2029e7848dbf5b6f.php.php:99
 #: ../storage/framework/textos/fd826f296fc53c678f1fcd21254fbb2d5c1009e4.php.php:69
-#: Http/Controllers/WordController.php:628
+#: Http/Controllers/WordController.php:631
 msgid "IIP / AZP"
 msgstr "PDI/PAS"
 
 #: ../storage/framework/textos/297a7d05887d886c569928fd526362b31af347fa.php.php:18
 #: ../storage/framework/textos/536f6e553292277ece158e60129bdeb8ded05e00.php.php:24
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:292
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:293
 #: ../storage/framework/textos/e376489c530f4511bffe890397f50ca5ce46d94c.php.php:9
-#: Http/Controllers/GrupoInvestigacionController.php:292
+#: Http/Controllers/GrupoInvestigacionController.php:293
 msgid "Hornikuntza Zientifikoa eskuratzea"
 msgstr "Adquisición de suministro científico"
 
@@ -957,8 +978,8 @@ msgstr "Equipamiento"
 #: ../storage/framework/textos/50fc8e2cad525b17bb1a1fdcad39c14a497607b3.php.php:38
 #: ../storage/framework/textos/536f6e553292277ece158e60129bdeb8ded05e00.php.php:62
 #: ../storage/framework/textos/536f6e553292277ece158e60129bdeb8ded05e00.php.php:63
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1059
-#: Http/Controllers/WordController.php:1059
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1062
+#: Http/Controllers/WordController.php:1062
 msgid "Instituzioa"
 msgstr "Institución"
 
@@ -966,30 +987,25 @@ msgstr "Institución"
 #: ../storage/framework/textos/50fc8e2cad525b17bb1a1fdcad39c14a497607b3.php.php:57
 #: ../storage/framework/textos/536f6e553292277ece158e60129bdeb8ded05e00.php.php:79
 #: ../storage/framework/textos/536f6e553292277ece158e60129bdeb8ded05e00.php.php:80
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1062
-#: Http/Controllers/WordController.php:1062
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1065
+#: Http/Controllers/WordController.php:1065
 msgid "Zenbateko"
 msgstr "Cantidad"
 
 #: ../storage/framework/textos/2cc32d164e6165ac29c68b08d32fdd0264b72737.php.php:9
 #: ../storage/framework/textos/71e203ef2dd67fdc69e2dd259da3e6b958d50fa9.php.php:24
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:316
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:516
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:317
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:518
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:66
 #: ../storage/framework/textos/9dc07e7ea5d192af37715c604b49d26dfb711fa1.php.php:19
-#: Http/Controllers/WordController.php:316
-#: Http/Controllers/WordController.php:516
+#: Http/Controllers/WordController.php:317
+#: Http/Controllers/WordController.php:518
 msgid "Bidelaguntza"
 msgstr "Acompañamiento"
 
 #: ../storage/framework/textos/2cc32d164e6165ac29c68b08d32fdd0264b72737.php.php:11
-#: ../storage/framework/textos/71e203ef2dd67fdc69e2dd259da3e6b958d50fa9.php.php:26
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:325
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:519
-#: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:67
-#: ../storage/framework/textos/9dc07e7ea5d192af37715c604b49d26dfb711fa1.php.php:21
-#: Http/Controllers/WordController.php:325
-#: Http/Controllers/WordController.php:519
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:326
+#: Http/Controllers/WordController.php:326
 msgid "Formakuntza Osagarriak"
 msgstr "Formación complementaria"
 
@@ -1004,250 +1020,241 @@ msgstr "Formación complementaria"
 msgid "Guztiak ikusi"
 msgstr "Ver todos"
 
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:49
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:52
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:89
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:92
-#: Http/Controllers/CongresosController.php:49
-#: Http/Controllers/CongresosController.php:52
-#: Http/Controllers/CongresosController.php:89
-#: Http/Controllers/CongresosController.php:92
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:50
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:53
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:90
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:93
+#: Http/Controllers/CongresosController.php:50
+#: Http/Controllers/CongresosController.php:53
+#: Http/Controllers/CongresosController.php:90
+#: Http/Controllers/CongresosController.php:93
 msgid "Kongresua  beharrezkoa da."
 msgstr "El nombre del congreso es obligatorio"
 
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:50
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:90
-#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:51
-#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:92
-#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:48
-#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:99
-#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:47
-#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:101
-#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:48
-#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:97
-#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:47
-#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:97
-#: Http/Controllers/CongresosController.php:50
-#: Http/Controllers/CongresosController.php:90
-#: Http/Controllers/DivulgacionController.php:48
-#: Http/Controllers/DivulgacionController.php:97
-#: Http/Controllers/EkintzakAurretikController.php:47
-#: Http/Controllers/EkintzakAurretikController.php:97
-#: Http/Controllers/EkintzakController.php:48
-#: Http/Controllers/EkintzakController.php:99
-#: Http/Controllers/EkintzakGizarteaController.php:47
-#: Http/Controllers/EkintzakGizarteaController.php:101
-#: Http/Controllers/TesisDoctoralesController.php:51
-#: Http/Controllers/TesisDoctoralesController.php:92
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:51
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:91
+#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:52
+#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:93
+#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:49
+#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:100
+#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:48
+#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:102
+#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:50
+#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:59
+#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:108
+#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:48
+#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:98
+#: Http/Controllers/CongresosController.php:51
+#: Http/Controllers/CongresosController.php:91
+#: Http/Controllers/DivulgacionController.php:50
+#: Http/Controllers/DivulgacionController.php:59
+#: Http/Controllers/DivulgacionController.php:108
+#: Http/Controllers/EkintzakAurretikController.php:48
+#: Http/Controllers/EkintzakAurretikController.php:98
+#: Http/Controllers/EkintzakController.php:49
+#: Http/Controllers/EkintzakController.php:100
+#: Http/Controllers/EkintzakGizarteaController.php:48
+#: Http/Controllers/EkintzakGizarteaController.php:102
+#: Http/Controllers/TesisDoctoralesController.php:52
+#: Http/Controllers/TesisDoctoralesController.php:93
 msgid "Izenburua  beharrezkoa da."
 msgstr "El título es obligatorio"
 
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:51
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:91
-#: Http/Controllers/CongresosController.php:51
-#: Http/Controllers/CongresosController.php:91
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:52
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:92
+#: Http/Controllers/CongresosController.php:52
+#: Http/Controllers/CongresosController.php:92
 msgid "Tokia  beharrezkoa da."
 msgstr "El lugar es obligatorio"
 
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:53
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:93
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:52
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:98
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:55
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:98
-#: Http/Controllers/CongresosController.php:53
-#: Http/Controllers/CongresosController.php:93
-#: Http/Controllers/GrupoInvestigacionController.php:52
-#: Http/Controllers/GrupoInvestigacionController.php:98
-#: Http/Controllers/ProyectosController.php:55
-#: Http/Controllers/ProyectosController.php:98
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:54
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:94
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:53
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:99
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:56
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:99
+#: Http/Controllers/CongresosController.php:54
+#: Http/Controllers/CongresosController.php:94
+#: Http/Controllers/GrupoInvestigacionController.php:53
+#: Http/Controllers/GrupoInvestigacionController.php:99
+#: Http/Controllers/ProyectosController.php:56
+#: Http/Controllers/ProyectosController.php:99
 msgid "Noiztik beharrezkoa da."
 msgstr "La fecha de inicio es obligatoria"
 
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:54
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:94
-#: Http/Controllers/CongresosController.php:54
-#: Http/Controllers/CongresosController.php:94
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:55
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:95
+#: Http/Controllers/CongresosController.php:55
+#: Http/Controllers/CongresosController.php:95
 msgid "Arte beharrezkoa da."
 msgstr "La fecha final es obligatoria"
 
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:64
-#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:64
-#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:74
-#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:70
-#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:57
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:72
-#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:69
-#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:75
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:70
-#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:62
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:65
+#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:65
+#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:75
+#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:71
+#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:58
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:73
+#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:70
+#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:76
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:71
+#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:63
 #: ../storage/framework/textos/e037b6cfeb20f80357701e2db4ee9bd5c92a8bf7.php.php:32
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:93
-#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:73
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:94
+#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:74
 #: Http/Controllers/AutorController.php:32
-#: Http/Controllers/CongresosController.php:64
-#: Http/Controllers/EkintzakAurretikController.php:73
-#: Http/Controllers/EkintzakController.php:75
-#: Http/Controllers/EquipamientoNuevoController.php:62
-#: Http/Controllers/FormacionesController.php:93
-#: Http/Controllers/GrupoInvestigacionController.php:72
-#: Http/Controllers/PostgradosController.php:74
-#: Http/Controllers/ProgramasDeIntercambioController.php:64
-#: Http/Controllers/ProyectosController.php:70
-#: Http/Controllers/PublicacionesController.php:69
-#: Http/Controllers/TesisDoctoralesController.php:70
-#: Http/Controllers/VisitasController.php:57
+#: Http/Controllers/CongresosController.php:65
+#: Http/Controllers/EkintzakAurretikController.php:74
+#: Http/Controllers/EkintzakController.php:76
+#: Http/Controllers/EquipamientoNuevoController.php:63
+#: Http/Controllers/FormacionesController.php:94
+#: Http/Controllers/GrupoInvestigacionController.php:73
+#: Http/Controllers/PostgradosController.php:75
+#: Http/Controllers/ProgramasDeIntercambioController.php:65
+#: Http/Controllers/ProyectosController.php:71
+#: Http/Controllers/PublicacionesController.php:70
+#: Http/Controllers/TesisDoctoralesController.php:71
+#: Http/Controllers/VisitasController.php:58
 msgid "Zuzen sortu da"
 msgstr "Se ha creado correctamente"
 
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:103
-#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:102
-#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:110
-#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:103
-#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:91
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:112
-#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:116
-#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:122
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:113
-#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:121
-#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:119
-#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:92
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:104
+#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:103
+#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:111
+#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:104
+#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:92
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:113
+#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:117
+#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:123
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:114
+#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:122
+#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:130
+#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:93
 #: ../storage/framework/textos/e037b6cfeb20f80357701e2db4ee9bd5c92a8bf7.php.php:91
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:136
-#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:120
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:137
+#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:121
 #: Http/Controllers/AutorController.php:91
-#: Http/Controllers/CongresosController.php:103
-#: Http/Controllers/DivulgacionController.php:119
-#: Http/Controllers/EkintzakAurretikController.php:120
-#: Http/Controllers/EkintzakController.php:122
-#: Http/Controllers/EkintzakGizarteaController.php:121
-#: Http/Controllers/EquipamientoNuevoController.php:92
-#: Http/Controllers/FormacionesController.php:136
-#: Http/Controllers/GrupoInvestigacionController.php:112
-#: Http/Controllers/PostgradosController.php:110
-#: Http/Controllers/ProgramasDeIntercambioController.php:102
-#: Http/Controllers/ProyectosController.php:113
-#: Http/Controllers/PublicacionesController.php:116
-#: Http/Controllers/TesisDoctoralesController.php:103
-#: Http/Controllers/VisitasController.php:91
+#: Http/Controllers/CongresosController.php:104
+#: Http/Controllers/DivulgacionController.php:130
+#: Http/Controllers/EkintzakAurretikController.php:121
+#: Http/Controllers/EkintzakController.php:123
+#: Http/Controllers/EkintzakGizarteaController.php:122
+#: Http/Controllers/EquipamientoNuevoController.php:93
+#: Http/Controllers/FormacionesController.php:137
+#: Http/Controllers/GrupoInvestigacionController.php:113
+#: Http/Controllers/PostgradosController.php:111
+#: Http/Controllers/ProgramasDeIntercambioController.php:103
+#: Http/Controllers/ProyectosController.php:114
+#: Http/Controllers/PublicacionesController.php:117
+#: Http/Controllers/TesisDoctoralesController.php:104
+#: Http/Controllers/VisitasController.php:92
 msgid "Zuzen aldatatu da"
 msgstr "Se ha modificado correctamente"
 
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:110
-#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:111
-#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:117
-#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:110
-#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:98
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:119
-#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:123
-#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:129
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:122
-#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:128
-#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:126
-#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:99
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:111
+#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:112
+#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:118
+#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:111
+#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:99
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:120
+#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:124
+#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:130
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:123
+#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:129
+#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:137
+#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:100
 #: ../storage/framework/textos/e037b6cfeb20f80357701e2db4ee9bd5c92a8bf7.php.php:98
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:143
-#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:127
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:144
+#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:128
 #: Http/Controllers/AutorController.php:98
-#: Http/Controllers/CongresosController.php:110
-#: Http/Controllers/DivulgacionController.php:126
-#: Http/Controllers/EkintzakAurretikController.php:127
-#: Http/Controllers/EkintzakController.php:129
-#: Http/Controllers/EkintzakGizarteaController.php:128
-#: Http/Controllers/EquipamientoNuevoController.php:99
-#: Http/Controllers/FormacionesController.php:143
-#: Http/Controllers/GrupoInvestigacionController.php:119
-#: Http/Controllers/PostgradosController.php:117
-#: Http/Controllers/ProgramasDeIntercambioController.php:111
-#: Http/Controllers/ProyectosController.php:122
-#: Http/Controllers/PublicacionesController.php:123
-#: Http/Controllers/TesisDoctoralesController.php:110
-#: Http/Controllers/VisitasController.php:98
+#: Http/Controllers/CongresosController.php:111
+#: Http/Controllers/DivulgacionController.php:137
+#: Http/Controllers/EkintzakAurretikController.php:128
+#: Http/Controllers/EkintzakController.php:130
+#: Http/Controllers/EkintzakGizarteaController.php:129
+#: Http/Controllers/EquipamientoNuevoController.php:100
+#: Http/Controllers/FormacionesController.php:144
+#: Http/Controllers/GrupoInvestigacionController.php:120
+#: Http/Controllers/PostgradosController.php:118
+#: Http/Controllers/ProgramasDeIntercambioController.php:112
+#: Http/Controllers/ProyectosController.php:123
+#: Http/Controllers/PublicacionesController.php:124
+#: Http/Controllers/TesisDoctoralesController.php:111
+#: Http/Controllers/VisitasController.php:99
 msgid "Zuzen ezabatu da"
 msgstr "Se ha borrado correctamente"
 
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:219
-#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:220
-#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:236
-#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:226
-#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:232
-#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:200
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:207
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:213
-#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:254
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:228
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:234
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:271
-#: Http/Controllers/CongresosController.php:219
-#: Http/Controllers/FormacionesController.php:271
-#: Http/Controllers/GrupoInvestigacionController.php:207
-#: Http/Controllers/GrupoInvestigacionController.php:213
-#: Http/Controllers/PostgradosController.php:236
-#: Http/Controllers/ProgramasDeIntercambioController.php:220
-#: Http/Controllers/ProyectosController.php:228
-#: Http/Controllers/ProyectosController.php:234
-#: Http/Controllers/PublicacionesController.php:254
-#: Http/Controllers/TesisDoctoralesController.php:226
-#: Http/Controllers/TesisDoctoralesController.php:232
-#: Http/Controllers/VisitasController.php:200
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:220
+#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:221
+#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:237
+#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:227
+#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:233
+#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:201
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:208
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:214
+#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:255
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:229
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:235
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:272
+#: Http/Controllers/CongresosController.php:220
+#: Http/Controllers/FormacionesController.php:272
+#: Http/Controllers/GrupoInvestigacionController.php:208
+#: Http/Controllers/GrupoInvestigacionController.php:214
+#: Http/Controllers/PostgradosController.php:237
+#: Http/Controllers/ProgramasDeIntercambioController.php:221
+#: Http/Controllers/ProyectosController.php:229
+#: Http/Controllers/ProyectosController.php:235
+#: Http/Controllers/PublicacionesController.php:255
+#: Http/Controllers/TesisDoctoralesController.php:227
+#: Http/Controllers/TesisDoctoralesController.php:233
+#: Http/Controllers/VisitasController.php:201
 msgid "Erlazioa egin da"
 msgstr "Se ha hecho la relación"
 
-#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:227
-#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:227
-#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:243
-#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:240
-#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:246
-#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:207
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:221
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:227
-#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:261
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:242
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:248
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:278
-#: Http/Controllers/CongresosController.php:227
-#: Http/Controllers/FormacionesController.php:278
-#: Http/Controllers/GrupoInvestigacionController.php:221
-#: Http/Controllers/GrupoInvestigacionController.php:227
-#: Http/Controllers/PostgradosController.php:243
-#: Http/Controllers/ProgramasDeIntercambioController.php:227
-#: Http/Controllers/ProyectosController.php:242
-#: Http/Controllers/ProyectosController.php:248
-#: Http/Controllers/PublicacionesController.php:261
-#: Http/Controllers/TesisDoctoralesController.php:240
-#: Http/Controllers/TesisDoctoralesController.php:246
-#: Http/Controllers/VisitasController.php:207
+#: ../storage/framework/textos/2f074df6bea1155945daef10ac1f737d42d03e3c.php.php:228
+#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:228
+#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:244
+#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:241
+#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:247
+#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:208
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:222
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:228
+#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:262
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:243
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:249
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:279
+#: Http/Controllers/CongresosController.php:228
+#: Http/Controllers/FormacionesController.php:279
+#: Http/Controllers/GrupoInvestigacionController.php:222
+#: Http/Controllers/GrupoInvestigacionController.php:228
+#: Http/Controllers/PostgradosController.php:244
+#: Http/Controllers/ProgramasDeIntercambioController.php:228
+#: Http/Controllers/ProyectosController.php:243
+#: Http/Controllers/ProyectosController.php:249
+#: Http/Controllers/PublicacionesController.php:262
+#: Http/Controllers/TesisDoctoralesController.php:241
+#: Http/Controllers/TesisDoctoralesController.php:247
+#: Http/Controllers/VisitasController.php:208
 msgid "Erlazioa borratu egin da"
 msgstr "La relación se ha borrado"
 
 #: ../storage/framework/textos/336ea874ff3c270897b50b9cf28b2dac9b5be34f.php.php:18
 #: ../storage/framework/textos/5cb274980282130df4b81cb301c62381a31bd946.php.php:22
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:278
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:307
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:309
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:177
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:358
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:791
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:279
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:308
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:310
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:178
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:359
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:794
 #: ../storage/framework/textos/ce69d5b978475656fcbb9059643284cd8c6de35b.php.php:8
-#: Http/Controllers/GrupoInvestigacionController.php:278
-#: Http/Controllers/GrupoInvestigacionController.php:307
-#: Http/Controllers/GrupoInvestigacionController.php:309
-#: Http/Controllers/WordController.php:177
-#: Http/Controllers/WordController.php:358
-#: Http/Controllers/WordController.php:791
+#: Http/Controllers/GrupoInvestigacionController.php:279
+#: Http/Controllers/GrupoInvestigacionController.php:308
+#: Http/Controllers/GrupoInvestigacionController.php:310
+#: Http/Controllers/WordController.php:178
+#: Http/Controllers/WordController.php:359
+#: Http/Controllers/WordController.php:794
 msgid "Ikerkuntza taldea"
 msgstr "Grupos de investigación"
-
-#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:50
-#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:87
-#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:47
-#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:79
-#: Http/Controllers/ProgramasDeIntercambioController.php:50
-#: Http/Controllers/ProgramasDeIntercambioController.php:87
-#: Http/Controllers/VisitasController.php:47
-#: Http/Controllers/VisitasController.php:79
-msgid "Aktibitatea  beharrezkoa da."
-msgstr "El nombre de la actividad es obligatoria"
 
 #: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:51
 #: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:88
@@ -1257,63 +1264,74 @@ msgstr "El nombre de la actividad es obligatoria"
 #: Http/Controllers/ProgramasDeIntercambioController.php:88
 #: Http/Controllers/VisitasController.php:48
 #: Http/Controllers/VisitasController.php:80
-msgid "Tokia   beharrezkoa da."
-msgstr "El lugar es obligatorio"
+msgid "Aktibitatea  beharrezkoa da."
+msgstr "El nombre de la actividad es obligatoria"
 
 #: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:52
 #: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:89
+#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:49
+#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:81
 #: Http/Controllers/ProgramasDeIntercambioController.php:52
 #: Http/Controllers/ProgramasDeIntercambioController.php:89
+#: Http/Controllers/VisitasController.php:49
+#: Http/Controllers/VisitasController.php:81
+msgid "Tokia   beharrezkoa da."
+msgstr "El lugar es obligatorio"
+
+#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:53
+#: ../storage/framework/textos/350e4a800799548726fc2be3fa99193aa23152ce.php.php:90
+#: Http/Controllers/ProgramasDeIntercambioController.php:53
+#: Http/Controllers/ProgramasDeIntercambioController.php:90
 msgid "Noiztik  beharrezkoa da."
 msgstr "La fecha de inicio es obligatoria"
 
-#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:54
-#: Http/Controllers/PostgradosController.php:54
+#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:55
+#: Http/Controllers/PostgradosController.php:55
 msgid "Programa beharrezkoa da."
 msgstr "El nombre del programa es obligatorio"
 
-#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:55
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:61
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:76
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:116
-#: Http/Controllers/FormacionesController.php:61
-#: Http/Controllers/FormacionesController.php:76
-#: Http/Controllers/FormacionesController.php:116
-#: Http/Controllers/PostgradosController.php:55
+#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:56
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:62
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:77
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:117
+#: Http/Controllers/FormacionesController.php:62
+#: Http/Controllers/FormacionesController.php:77
+#: Http/Controllers/FormacionesController.php:117
+#: Http/Controllers/PostgradosController.php:56
 msgid "Ikastaroa beharrezkoa da."
 msgstr "El nombre del cursillo es necesario"
 
-#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:56
-#: Http/Controllers/PostgradosController.php:56
+#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:57
+#: Http/Controllers/PostgradosController.php:57
 msgid "Saila beharrezkoa da."
 msgstr "El departamento es obligatorio"
 
-#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:57
-#: Http/Controllers/PostgradosController.php:57
+#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:58
+#: Http/Controllers/PostgradosController.php:58
 msgid "Iraupena beharrezkoa da."
 msgstr "La duración es obligatoria"
 
-#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:58
-#: Http/Controllers/PostgradosController.php:58
+#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:59
+#: Http/Controllers/PostgradosController.php:59
 msgid "Tokia beharrezkoa da."
 msgstr "El lugar es obligatorio"
 
-#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:59
-#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:52
-#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:93
-#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:50
-#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:93
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:63
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:77
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:117
-#: Http/Controllers/FormacionesController.php:63
-#: Http/Controllers/FormacionesController.php:77
-#: Http/Controllers/FormacionesController.php:117
-#: Http/Controllers/PostgradosController.php:59
-#: Http/Controllers/PublicacionesController.php:50
-#: Http/Controllers/PublicacionesController.php:93
-#: Http/Controllers/TesisDoctoralesController.php:52
-#: Http/Controllers/TesisDoctoralesController.php:93
+#: ../storage/framework/textos/35add3be8c6c55d117b83ed3f4e80c76d449b7fc.php.php:60
+#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:53
+#: ../storage/framework/textos/3b7e0b133d17ed6b38ef7a308717563aa481f2d6.php.php:94
+#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:51
+#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:94
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:64
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:78
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:118
+#: Http/Controllers/FormacionesController.php:64
+#: Http/Controllers/FormacionesController.php:78
+#: Http/Controllers/FormacionesController.php:118
+#: Http/Controllers/PostgradosController.php:60
+#: Http/Controllers/PublicacionesController.php:51
+#: Http/Controllers/PublicacionesController.php:94
+#: Http/Controllers/TesisDoctoralesController.php:53
+#: Http/Controllers/TesisDoctoralesController.php:94
 msgid "Data beharrezkoa da."
 msgstr "La fecha es necesaria"
 
@@ -1347,9 +1365,9 @@ msgstr "ISSN"
 
 #: ../storage/framework/textos/35cf6b4c475dee03a6ccc0b6664876f3c653bba4.php.php:77
 #: ../storage/framework/textos/6df73112eeed01f488786d6a3ce3dddaa8fa8bf8.php.php:115
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1007
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1010
 #: ../storage/framework/textos/d803ccd2991ae1226de945059abf5c15f99f96a8.php.php:38
-#: Http/Controllers/WordController.php:1007
+#: Http/Controllers/WordController.php:1010
 msgid "Egilea(k)"
 msgstr "Autor(es)/Autora(s)"
 
@@ -1359,12 +1377,12 @@ msgstr "Inicio"
 
 #: ../storage/framework/textos/3a15a7bf99bfefa0023a4653deb107ed8d8fa05e.php.php:20
 #: ../storage/framework/textos/555b9a88591872b3697cabe7e532ee0200ebd8f1.php.php:12
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:154
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:336
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:155
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:337
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:71
 #: ../storage/framework/textos/cb9d9d61232485b82a1729fe67a8eba08df6a60e.php.php:26
-#: Http/Controllers/WordController.php:154
-#: Http/Controllers/WordController.php:336
+#: Http/Controllers/WordController.php:155
+#: Http/Controllers/WordController.php:337
 msgid "IRIen formakuntza-jarduerak"
 msgstr "Actividades de formación del PDI"
 
@@ -1376,29 +1394,29 @@ msgstr "Actividades de formación del PAS"
 
 #: ../storage/framework/textos/3a15a7bf99bfefa0023a4653deb107ed8d8fa05e.php.php:27
 #: ../storage/framework/textos/555b9a88591872b3697cabe7e532ee0200ebd8f1.php.php:19
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:337
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:350
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:566
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:338
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:351
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:569
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:73
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:109
 #: ../storage/framework/textos/cb9d9d61232485b82a1729fe67a8eba08df6a60e.php.php:33
-#: Http/Controllers/WordController.php:337
-#: Http/Controllers/WordController.php:350
-#: Http/Controllers/WordController.php:566
+#: Http/Controllers/WordController.php:338
+#: Http/Controllers/WordController.php:351
+#: Http/Controllers/WordController.php:569
 msgid "Jasotakoa"
 msgstr "Recibida"
 
 #: ../storage/framework/textos/3a15a7bf99bfefa0023a4653deb107ed8d8fa05e.php.php:30
 #: ../storage/framework/textos/555b9a88591872b3697cabe7e532ee0200ebd8f1.php.php:22
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:338
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:351
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:570
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:339
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:352
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:573
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:74
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:110
 #: ../storage/framework/textos/cb9d9d61232485b82a1729fe67a8eba08df6a60e.php.php:36
-#: Http/Controllers/WordController.php:338
-#: Http/Controllers/WordController.php:351
-#: Http/Controllers/WordController.php:570
+#: Http/Controllers/WordController.php:339
+#: Http/Controllers/WordController.php:352
+#: Http/Controllers/WordController.php:573
 msgid "Emandakoa"
 msgstr "Impartida"
 
@@ -1431,10 +1449,10 @@ msgstr "Internacional"
 
 #: ../storage/framework/textos/3e80dfd514344ba4cc3d9cb2a4350552a173e432.php.php:69
 #: ../storage/framework/textos/5cb274980282130df4b81cb301c62381a31bd946.php.php:95
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:804
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:807
 #: ../storage/framework/textos/99a9076e8256f3bb0956b25a3a3e17ad28d505d5.php.php:56
 #: ../storage/framework/textos/ce69d5b978475656fcbb9059643284cd8c6de35b.php.php:34
-#: Http/Controllers/WordController.php:804
+#: Http/Controllers/WordController.php:807
 msgid "Arduraduna(k)"
 msgstr "Responsable(s)"
 
@@ -1547,8 +1565,8 @@ msgid "Kongresu zientifiko guztiak ikusi"
 msgstr "Ver todos los congresos científicos"
 
 #: ../storage/framework/textos/490722f23ad2ef6eac6e129a0c94f3e5a745fe1d.php.php:34
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:952
-#: Http/Controllers/WordController.php:952
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:955
+#: Http/Controllers/WordController.php:955
 msgid "Kongresu"
 msgstr "Congreso"
 
@@ -1565,37 +1583,37 @@ msgid "Oraingo orria:"
 msgstr "Página actual:"
 
 #: ../storage/framework/textos/4e9610f379f33044ef99d6cbfdf4452047c17689.php.php:9
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:280
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:281
 #: ../storage/framework/textos/9cb96722e3c07824f8ed1f8a5e65d27904fcac57.php.php:19
-#: Http/Controllers/GrupoInvestigacionController.php:280
+#: Http/Controllers/GrupoInvestigacionController.php:281
 msgid "Uneko Tesiak"
 msgstr "Tesis en proceso"
 
 #: ../storage/framework/textos/4e9610f379f33044ef99d6cbfdf4452047c17689.php.php:11
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:279
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:183
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:362
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:835
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:280
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:184
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:363
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:838
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:124
 #: ../storage/framework/textos/9cb96722e3c07824f8ed1f8a5e65d27904fcac57.php.php:21
 #: ../storage/framework/textos/e0da34979ea2ad5f00b74d6e8bb3a7f1dbfaced6.php.php:25
-#: Http/Controllers/GrupoInvestigacionController.php:279
-#: Http/Controllers/WordController.php:183
-#: Http/Controllers/WordController.php:362
-#: Http/Controllers/WordController.php:835
+#: Http/Controllers/GrupoInvestigacionController.php:280
+#: Http/Controllers/WordController.php:184
+#: Http/Controllers/WordController.php:363
+#: Http/Controllers/WordController.php:838
 msgid "Tesiak"
 msgstr "Tesis"
 
 #: ../storage/framework/textos/4e9610f379f33044ef99d6cbfdf4452047c17689.php.php:40
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:632
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:636
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:641
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:805
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:635
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:639
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:644
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:808
 #: ../storage/framework/textos/e0da34979ea2ad5f00b74d6e8bb3a7f1dbfaced6.php.php:158
-#: Http/Controllers/WordController.php:632
-#: Http/Controllers/WordController.php:636
-#: Http/Controllers/WordController.php:641
-#: Http/Controllers/WordController.php:805
+#: Http/Controllers/WordController.php:635
+#: Http/Controllers/WordController.php:639
+#: Http/Controllers/WordController.php:644
+#: Http/Controllers/WordController.php:808
 msgid "Ikerlaria(k)"
 msgstr "Investigador(as)/Investigador(es)"
 
@@ -1608,14 +1626,14 @@ msgstr "Cargar fichero"
 #: ../storage/framework/textos/55574c23f345a0bfd91fed792df512f7e304a5c1.php.php:11
 #: ../storage/framework/textos/633a4b3655a3e6c8de683efa48f1592a5d2b0922.php.php:25
 #: ../storage/framework/textos/633a4b3655a3e6c8de683efa48f1592a5d2b0922.php.php:27
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:393
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:394
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:154
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:158
 #: ../storage/framework/textos/a73638c7c6c5d2f1f0c8f841f23d80f75c2317f4.php.php:19
 #: ../storage/framework/textos/a73638c7c6c5d2f1f0c8f841f23d80f75c2317f4.php.php:21
-#: Http/Controllers/WordController.php:393
+#: Http/Controllers/WordController.php:394
 msgid "Gizarte-erantzukizuneko ekintzak"
-msgstr "Actividades de responsabilidad sociañ"
+msgstr "Actividades de responsabilidad social"
 
 #: ../storage/framework/textos/555b9a88591872b3697cabe7e532ee0200ebd8f1.php.php:49
 msgid "Ikastaro"
@@ -1623,17 +1641,17 @@ msgstr "Cursillo"
 
 #: ../storage/framework/textos/555b9a88591872b3697cabe7e532ee0200ebd8f1.php.php:53
 #: ../storage/framework/textos/673980d5255e1a5843b45cb3b59fec5dfbaf9af9.php.php:63
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:567
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:570
 #: ../storage/framework/textos/cb9d9d61232485b82a1729fe67a8eba08df6a60e.php.php:123
-#: Http/Controllers/WordController.php:567
+#: Http/Controllers/WordController.php:570
 msgid "Parte-hartzailea(k)"
 msgstr "Participantes"
 
 #: ../storage/framework/textos/555b9a88591872b3697cabe7e532ee0200ebd8f1.php.php:56
 #: ../storage/framework/textos/673980d5255e1a5843b45cb3b59fec5dfbaf9af9.php.php:65
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:571
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:574
 #: ../storage/framework/textos/cb9d9d61232485b82a1729fe67a8eba08df6a60e.php.php:125
-#: Http/Controllers/WordController.php:571
+#: Http/Controllers/WordController.php:574
 msgid "Hizlaria(k)"
 msgstr "Ponente(s)"
 
@@ -1645,10 +1663,10 @@ msgid "Instalazio bisitak"
 msgstr "Visitas a instalaciones"
 
 #: ../storage/framework/textos/5c749c254a2c35125200341b637a2ab13de0fc43.php.php:33
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:657
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:756
-#: Http/Controllers/WordController.php:657
-#: Http/Controllers/WordController.php:756
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:660
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:759
+#: Http/Controllers/WordController.php:660
+#: Http/Controllers/WordController.php:759
 msgid "Aktibitatea"
 msgstr "Actividad"
 
@@ -1681,8 +1699,12 @@ msgid "Bidali"
 msgstr "Enviar"
 
 #: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:8
-msgid "Ongi etorria Gipuzkoako Ingenieritza Eskolako memoria sortzeko aplikaziora."
-msgstr "Bienvenido a la aplicacion de la escuela de ingenieros de Gipuzkoa"
+msgid ""
+"Ongi etorria Gipuzkoako Ingeniaritza Eskolako oroitidazkia sortzeko "
+"aplikaziora."
+msgstr ""
+"Bienvenido a la aplicacion para la creación de la Memoria Academica  de la "
+"Escuela de Ingeniería de Gipuzkoa"
 
 #: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:17
 msgid "Aurretik zehaztutako pasahitza aldatu beharra dago."
@@ -1693,29 +1715,29 @@ msgid "Deberías cambiar la contraseña predefinida."
 msgstr "Deberías cambiar la contraseña predefinida."
 
 #: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:31
-msgid "Erabiltzailearen honespenak"
-msgstr "Información sobre el usuario / la usuaria"
+msgid "Erabiltzailearen onespenak"
+msgstr "Preferencias del usuario /  usuaria"
 
 #: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:32
 msgid "Pasahitza aldatzeko, hizkuntza ..."
 msgstr "Camibio de password , idioma..."
 
 #: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:40
-msgid "Ezagutza basikoa"
-msgstr "Conocimientos básicos"
+msgid "Oinarrizko ezagutza"
+msgstr "Conocimiento básico"
 
 #: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:41
 msgid "Erregistro bat sortu"
 msgstr "Crear nuevo/nueva registro"
 
-#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:49
-#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:81
-#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:53
-#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:85
-#: Http/Controllers/EquipamientoNuevoController.php:53
-#: Http/Controllers/EquipamientoNuevoController.php:85
-#: Http/Controllers/VisitasController.php:49
-#: Http/Controllers/VisitasController.php:81
+#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:50
+#: ../storage/framework/textos/5e463da476d70e9d1ce515860850411fcdd73a5b.php.php:82
+#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:54
+#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:86
+#: Http/Controllers/EquipamientoNuevoController.php:54
+#: Http/Controllers/EquipamientoNuevoController.php:86
+#: Http/Controllers/VisitasController.php:50
+#: Http/Controllers/VisitasController.php:82
 msgid "Data  beharrezkoa da."
 msgstr "La fecha es necesaria"
 
@@ -1723,127 +1745,127 @@ msgstr "La fecha es necesaria"
 #: ../storage/framework/textos/689c566d81e58580340c540781cf752adca56bcf.php.php:11
 #: ../storage/framework/textos/7664810ad35ca287efcc58d51b4d34b54322b4c2.php.php:24
 #: ../storage/framework/textos/7664810ad35ca287efcc58d51b4d34b54322b4c2.php.php:26
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:141
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:303
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:142
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:304
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:60
 #: ../storage/framework/textos/d5a6ff62d2f52f12331fe3a45e5f90a3802c80d5.php.php:19
 #: ../storage/framework/textos/d5a6ff62d2f52f12331fe3a45e5f90a3802c80d5.php.php:21
 #: ../storage/framework/textos/d9d6c2c270c32d2ee432567dce98bd96723da462.php.php:90
-#: Http/Controllers/WordController.php:141
-#: Http/Controllers/WordController.php:303
+#: Http/Controllers/WordController.php:142
+#: Http/Controllers/WordController.php:304
 msgid "Unibertsitate aurreko ikasleei bideratutako ekintzak"
-msgstr "Actividades orientas a alumnado preuniversitario"
-
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:50
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:96
-#: Http/Controllers/GrupoInvestigacionController.php:50
-#: Http/Controllers/GrupoInvestigacionController.php:96
-msgid "Taldea beharrezkoa da."
-msgstr "El nombre del grupo es obligatorio"
+msgstr "Actividades orientadas a alumnado preuniversitario"
 
 #: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:51
 #: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:97
 #: Http/Controllers/GrupoInvestigacionController.php:51
 #: Http/Controllers/GrupoInvestigacionController.php:97
+msgid "Taldea beharrezkoa da."
+msgstr "El nombre del grupo es obligatorio"
+
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:52
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:98
+#: Http/Controllers/GrupoInvestigacionController.php:52
+#: Http/Controllers/GrupoInvestigacionController.php:98
 msgid "Ikerkuntza lerrorak beharrezkoa da."
 msgstr "Las líneas de investigación son obligatorias"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:257
-#: Http/Controllers/GrupoInvestigacionController.php:257
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:258
+#: Http/Controllers/GrupoInvestigacionController.php:258
 msgid "Emaila zuzen bidali da"
 msgstr "El mensaje se ha enviado correctamente"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:266
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:271
-#: Http/Controllers/GrupoInvestigacionController.php:266
-#: Http/Controllers/WordController.php:271
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:267
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:272
+#: Http/Controllers/GrupoInvestigacionController.php:267
+#: Http/Controllers/WordController.php:272
 msgid "Gipuzkoako Ingeniaritza Eskola"
 msgstr "Escuela de Ingeniería de Gipuzkoa"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:281
-#: Http/Controllers/GrupoInvestigacionController.php:281
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:282
+#: Http/Controllers/GrupoInvestigacionController.php:282
 msgid "Burutu diren Tesiak"
 msgstr "Tesis finalizadas"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:282
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:188
-#: Http/Controllers/GrupoInvestigacionController.php:282
-#: Http/Controllers/WordController.php:188
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:283
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:189
+#: Http/Controllers/GrupoInvestigacionController.php:283
+#: Http/Controllers/WordController.php:189
 msgid "Ikerkuntza Proiektuak"
 msgstr "Proyectos de investigación"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:284
-#: Http/Controllers/GrupoInvestigacionController.php:284
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:285
+#: Http/Controllers/GrupoInvestigacionController.php:285
 msgid "Erakundeek diru-laguntza emandako Ikerkuntza Proiektuak"
 msgstr "Proyectos de investigación subvencionados por instituciones"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:285
-#: Http/Controllers/GrupoInvestigacionController.php:285
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:286
+#: Http/Controllers/GrupoInvestigacionController.php:286
 msgid "Enpresek diru-laguntza emandako Ikerkuntza Proiektuak"
 msgstr "Proyectos de investigación subvencionados por empresas"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:287
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:202
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:378
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:288
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:203
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:379
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:135
-#: Http/Controllers/GrupoInvestigacionController.php:287
-#: Http/Controllers/WordController.php:202
-#: Http/Controllers/WordController.php:378
+#: Http/Controllers/GrupoInvestigacionController.php:288
+#: Http/Controllers/WordController.php:203
+#: Http/Controllers/WordController.php:379
 msgid "Argitalpenak"
 msgstr "Publicaciones"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:290
-#: Http/Controllers/GrupoInvestigacionController.php:290
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:291
+#: Http/Controllers/GrupoInvestigacionController.php:291
 msgid "Elkartrukeko programak"
 msgstr "Programas de intercambio"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:291
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:640
-#: Http/Controllers/GrupoInvestigacionController.php:291
-#: Http/Controllers/WordController.php:640
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:292
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:643
+#: Http/Controllers/GrupoInvestigacionController.php:292
+#: Http/Controllers/WordController.php:643
 msgid "Etorritako ikerlariak"
 msgstr "Visitantes externos/as"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:358
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:802
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1053
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:359
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:805
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1056
 #: ../storage/framework/textos/ce69d5b978475656fcbb9059643284cd8c6de35b.php.php:33
-#: Http/Controllers/GrupoInvestigacionController.php:358
-#: Http/Controllers/WordController.php:802
-#: Http/Controllers/WordController.php:1053
+#: Http/Controllers/GrupoInvestigacionController.php:359
+#: Http/Controllers/WordController.php:805
+#: Http/Controllers/WordController.php:1056
 msgid "Taldea"
 msgstr "Grupo"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:361
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1056
-#: Http/Controllers/GrupoInvestigacionController.php:361
-#: Http/Controllers/WordController.php:1056
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:362
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1059
+#: Http/Controllers/GrupoInvestigacionController.php:362
+#: Http/Controllers/WordController.php:1059
 msgid "Arduraduna"
 msgstr "Responsable"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:364
-#: Http/Controllers/GrupoInvestigacionController.php:364
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:365
+#: Http/Controllers/GrupoInvestigacionController.php:365
 msgid "Kideak"
 msgstr "Miembros"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:367
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:806
-#: Http/Controllers/GrupoInvestigacionController.php:367
-#: Http/Controllers/WordController.php:806
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:368
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:809
+#: Http/Controllers/GrupoInvestigacionController.php:368
+#: Http/Controllers/WordController.php:809
 msgid "Ikerketa Lerroak"
 msgstr "Líneas de investigación"
 
-#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:383
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:259
-#: Http/Controllers/GrupoInvestigacionController.php:383
-#: Http/Controllers/WordController.php:259
+#: ../storage/framework/textos/6dc396c5aac5a3107d523fdf8b378a4f90a35498.php.php:384
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:260
+#: Http/Controllers/GrupoInvestigacionController.php:384
+#: Http/Controllers/WordController.php:260
 msgid "Word zuzen sortu da"
 msgstr "El documento word se ha creado correctamente"
 
-#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:49
-#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:92
-#: Http/Controllers/PublicacionesController.php:49
-#: Http/Controllers/PublicacionesController.php:92
+#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:50
+#: ../storage/framework/textos/6e7b38ee81dad4c460876a08e0bea9e571858139.php.php:93
+#: Http/Controllers/PublicacionesController.php:50
+#: Http/Controllers/PublicacionesController.php:93
 msgid "Izenburua beharrezkoa da."
 msgstr "El título es obligatorio."
 
@@ -1882,33 +1904,43 @@ msgstr "Confirmar contraseña"
 msgid "Errola"
 msgstr "Rol"
 
-#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:93
-#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:107
+#: ../storage/framework/textos/71e203ef2dd67fdc69e2dd259da3e6b958d50fa9.php.php:26
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:521
+#: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:67
+#: ../storage/framework/textos/9dc07e7ea5d192af37715c604b49d26dfb711fa1.php.php:21
+#: Http/Controllers/WordController.php:521
+msgid "Formakuntza osagarriak"
+msgstr "Formación complementaria"
+
+#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:97
+#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:110
 msgid "Ekitaldiaren webgunea"
 msgstr "Web"
 
-#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:108
-#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:122
+#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:113
+#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:125
 msgid "Komunikabidean agertu da"
 msgstr "Visto en medio de comunicación"
 
-#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:112
-#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:126
+#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:117
+#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:129
 msgid "Ez"
 msgstr "No"
 
-#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:112
-#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:126
+#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:117
+#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:129
 msgid "Bai"
 msgstr "Si"
 
-#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:122
-#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:136
+#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:128
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1163
+#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:140
+#: Http/Controllers/WordController.php:1163
 msgid "Komunikabidea"
 msgstr "Medio comunicación"
 
-#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:132
-#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:146
+#: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:138
+#: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:150
 msgid "Komunikabidearen esteka"
 msgstr "Link a medio de comunicación"
 
@@ -1926,9 +1958,9 @@ msgstr "Bienvenido a la aplicacion de la escuela de ingenieros de Gipuzkoa"
 
 #: ../storage/framework/textos/7dbfedfe0e39c6945e34390bd7bd4756f5d13dad.php.php:36
 #: ../storage/framework/textos/8ef5c19ed4c9513815c236ffd8d6eef5cc030738.php.php:41
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:899
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:902
 #: ../storage/framework/textos/ba087f33a7baae4929184761ecd690c7b15d343f.php.php:7
-#: Http/Controllers/WordController.php:899
+#: Http/Controllers/WordController.php:902
 msgid "Proiektua"
 msgstr "Proyecto"
 
@@ -1937,22 +1969,22 @@ msgstr "Proyecto"
 msgid "Partaideak"
 msgstr "Miembros"
 
-#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:49
-#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:100
-#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:48
-#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:102
-#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:49
-#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:98
-#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:48
-#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:98
-#: Http/Controllers/DivulgacionController.php:49
-#: Http/Controllers/DivulgacionController.php:98
-#: Http/Controllers/EkintzakAurretikController.php:48
-#: Http/Controllers/EkintzakAurretikController.php:98
-#: Http/Controllers/EkintzakController.php:49
-#: Http/Controllers/EkintzakController.php:100
-#: Http/Controllers/EkintzakGizarteaController.php:48
-#: Http/Controllers/EkintzakGizarteaController.php:102
+#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:50
+#: ../storage/framework/textos/876e198aef98840542bdc27ee6e376a07dd663dc.php.php:101
+#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:49
+#: ../storage/framework/textos/be2a1071a1dc1d8ff1ba791495d1999b7c15f155.php.php:103
+#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:51
+#: ../storage/framework/textos/bfabd91d88aa33d6ebae390f304f33f00a159b49.php.php:109
+#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:49
+#: ../storage/framework/textos/ed581ab8656a999eafe0836c71843002aef06572.php.php:99
+#: Http/Controllers/DivulgacionController.php:51
+#: Http/Controllers/DivulgacionController.php:109
+#: Http/Controllers/EkintzakAurretikController.php:49
+#: Http/Controllers/EkintzakAurretikController.php:99
+#: Http/Controllers/EkintzakController.php:50
+#: Http/Controllers/EkintzakController.php:101
+#: Http/Controllers/EkintzakGizarteaController.php:49
+#: Http/Controllers/EkintzakGizarteaController.php:103
 msgid "Deskripzioa beharrezkoa da."
 msgstr "La descripción es obligatorioa"
 
@@ -1961,303 +1993,297 @@ msgstr "La descripción es obligatorioa"
 msgid "Proiektu guztiak ikusi"
 msgstr "Ver todos los proyectos"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:117
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:292
-#: Http/Controllers/WordController.php:117
-#: Http/Controllers/WordController.php:292
-msgid "Sarrera"
-msgstr "Introdución"
-
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:120
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:118
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:293
-#: Http/Controllers/WordController.php:120
+#: Http/Controllers/WordController.php:118
 #: Http/Controllers/WordController.php:293
+msgid "Sarrera"
+msgstr "Introducción"
+
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:121
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:294
+#: Http/Controllers/WordController.php:121
+#: Http/Controllers/WordController.php:294
 msgid "Giza baliabideak"
 msgstr "Recursos Humanos"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:123
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:294
-#: Http/Controllers/WordController.php:123
-#: Http/Controllers/WordController.php:294
-msgid "Baliabide ekonomikoak"
-msgstr "Recursos econónicos"
-
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:126
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:124
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:295
-#: Http/Controllers/WordController.php:126
+#: Http/Controllers/WordController.php:124
 #: Http/Controllers/WordController.php:295
+msgid "Baliabide ekonomikoak"
+msgstr "Recursos económicos"
+
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:127
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:296
+#: Http/Controllers/WordController.php:127
+#: Http/Controllers/WordController.php:296
 msgid "Baliabide orokorrak"
 msgstr "Recursos generales"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:129
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:297
-#: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:54
-#: Http/Controllers/WordController.php:129
-#: Http/Controllers/WordController.php:297
-msgid "IRAKASKUNTZA-JARDUERAK"
-msgstr "ACTIVIDAD DOCENTE"
-
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:130
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:298
+#: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:54
 #: Http/Controllers/WordController.php:130
 #: Http/Controllers/WordController.php:298
-msgid "Irakaskuntza-eskaintza"
-msgstr "Oferta docente"
+msgid "IRAKASKUNTZA-JARDUERAK"
+msgstr "ACTIVIDAD DOCENTE"
 
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:131
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:299
 #: Http/Controllers/WordController.php:131
 #: Http/Controllers/WordController.php:299
+msgid "Irakaskuntza-eskaintza"
+msgstr "Oferta docente"
+
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:132
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:300
+#: Http/Controllers/WordController.php:132
+#: Http/Controllers/WordController.php:300
 msgid "Graduak"
 msgstr "Grados"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:134
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:300
-#: Http/Controllers/WordController.php:134
-#: Http/Controllers/WordController.php:300
-msgid "Gradu bikoitzak"
-msgstr "Doble grado"
-
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:136
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:135
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:301
-#: Http/Controllers/WordController.php:136
+#: Http/Controllers/WordController.php:135
 #: Http/Controllers/WordController.php:301
-msgid "Graduondokoak"
-msgstr "Postgrado"
+msgid "Gradu bikoitzak"
+msgstr "Dobles grados"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:147
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:315
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:137
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:302
+#: Http/Controllers/WordController.php:137
+#: Http/Controllers/WordController.php:302
+msgid "Graduondokoak"
+msgstr "Postgrados"
+
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:148
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:316
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:64
 #: ../storage/framework/textos/d9d6c2c270c32d2ee432567dce98bd96723da462.php.php:91
-#: Http/Controllers/WordController.php:147
-#: Http/Controllers/WordController.php:315
+#: Http/Controllers/WordController.php:148
+#: Http/Controllers/WordController.php:316
 msgid "Eskolako ikasleei bideratutako ekintzak"
 msgstr "Actividades orientadas a alumnado de la Escuela"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:161
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:162
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:77
-#: Http/Controllers/WordController.php:161
+#: Http/Controllers/WordController.php:162
 msgid "Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility)"
 msgstr "Programas de intercambio (Staff Movility)"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:168
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:349
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:169
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:350
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:106
-#: Http/Controllers/WordController.php:168
-#: Http/Controllers/WordController.php:349
+#: Http/Controllers/WordController.php:169
+#: Http/Controllers/WordController.php:350
 msgid "AZP-EN FORMAKUNTZA-JARDUERAK"
-msgstr "ACTIVIDADES FORMATIVAS DEL PAS"
+msgstr "ACTIVIDADES DE FORMACIÓN DEL PAS"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:174
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:356
-#: Http/Controllers/WordController.php:174
-#: Http/Controllers/WordController.php:356
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:175
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:357
+#: Http/Controllers/WordController.php:175
+#: Http/Controllers/WordController.php:357
 msgid "IKERKUNTZA-JARDUERA"
 msgstr "ACTIVIDAD INVESTIGADORA"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:196
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:944
-#: Http/Controllers/WordController.php:196
-#: Http/Controllers/WordController.php:944
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:197
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:947
+#: Http/Controllers/WordController.php:197
+#: Http/Controllers/WordController.php:947
 msgid "Kongresu zientifikoentan parte-hartzea"
 msgstr "Participación en congresos científicos"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:209
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:383
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:210
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:384
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:141
-#: Http/Controllers/WordController.php:209
-#: Http/Controllers/WordController.php:383
+#: Http/Controllers/WordController.php:210
+#: Http/Controllers/WordController.php:384
 msgid "Egonaldi zientifikoak"
 msgstr "Estancias científicas"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:216
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1034
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:217
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1037
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:147
-#: Http/Controllers/WordController.php:216
-#: Http/Controllers/WordController.php:1034
+#: Http/Controllers/WordController.php:217
+#: Http/Controllers/WordController.php:1037
 msgid "Hornikuntza zientifikoaren eskurapena"
 msgstr "Adquisición de suministro científico"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:222
-#: Http/Controllers/WordController.php:222
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:223
+#: Http/Controllers/WordController.php:223
 msgid "GIZARTE-ERANTZUKIZUNEKO EKINTZAK"
 msgstr "ACTIVIDADES DE RESPONSABILIDAD SOCIAL"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:228
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:407
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:229
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:408
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:164
 #: ../storage/framework/textos/d9d6c2c270c32d2ee432567dce98bd96723da462.php.php:92
-#: Http/Controllers/WordController.php:228
-#: Http/Controllers/WordController.php:407
+#: Http/Controllers/WordController.php:229
+#: Http/Controllers/WordController.php:408
 msgid "Eskolaren hedakuntza"
 msgstr "Divulgación de la escuela"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:342
-#: Http/Controllers/WordController.php:342
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:343
+#: Http/Controllers/WordController.php:343
 msgid "Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility) "
 msgstr "Programas de intercambio (Staff Movility) "
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:366
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:367
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:127
-#: Http/Controllers/WordController.php:366
+#: Http/Controllers/WordController.php:367
 msgid "Ikerkuntza-proiektuak"
 msgstr "Proyectos de investigación"
-
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:368
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:883
-#: Http/Controllers/WordController.php:368
-#: Http/Controllers/WordController.php:883
-msgid "Erakundeek diru-laguntza emandako Ikerkuntza-proiektuak"
-msgstr "Proyectos subvencionados por entidades"
 
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:369
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:886
 #: Http/Controllers/WordController.php:369
 #: Http/Controllers/WordController.php:886
+msgid "Erakundeek diru-laguntza emandako Ikerkuntza-proiektuak"
+msgstr "Proyectos subvencionados por entidades"
+
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:370
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:889
+#: Http/Controllers/WordController.php:370
+#: Http/Controllers/WordController.php:889
 msgid "Enpresek diru-laguntza emandako Ikerkuntza-proiektuak"
 msgstr "Proyectos  subvencionados por empresas"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:380
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:985
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:381
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:988
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:138
-#: Http/Controllers/WordController.php:380
-#: Http/Controllers/WordController.php:985
+#: Http/Controllers/WordController.php:381
+#: Http/Controllers/WordController.php:988
 msgid "Artikuluak"
 msgstr "Artículos"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:384
-#: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:143
-#: Http/Controllers/WordController.php:384
-msgid "Beste Unibertsitateetan"
-msgstr "En otras universidades"
-
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:388
-#: Http/Controllers/WordController.php:388
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:389
+#: Http/Controllers/WordController.php:389
 msgid "Hornikuntza Zientifikoa eskurapena"
 msgstr "Adquisición de suministro científico"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:417
-#: Http/Controllers/WordController.php:417
-msgid "Hedabideak"
-msgstr "Medios de comunicación"
-
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:557
-#: Http/Controllers/WordController.php:557
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:560
+#: Http/Controllers/WordController.php:560
 msgid "AZKko formazioa "
 msgstr "Actividades de formación del PAS"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:561
-#: Http/Controllers/WordController.php:561
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:564
+#: Http/Controllers/WordController.php:564
 msgid "IIPko formazioa "
 msgstr "Actividades de formación del PDI"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:589
-#: Http/Controllers/WordController.php:589
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:592
+#: Http/Controllers/WordController.php:592
 msgid "Antolatzailea(k)"
 msgstr "Organizadora(s)/Organizador(es)"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:627
-#: Http/Controllers/WordController.php:627
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:630
+#: Http/Controllers/WordController.php:630
 msgid "IIP / AZPren mugikortasuna"
 msgstr "Movilidad PDI/PAS "
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:631
-#: Http/Controllers/WordController.php:631
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:634
+#: Http/Controllers/WordController.php:634
 msgid "Egonaldiak / Beste Unibertsitateetan bisita"
 msgstr "Estancias / Visitas  en otras universidades"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:635
-#: Http/Controllers/WordController.php:635
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:638
+#: Http/Controllers/WordController.php:638
 msgid "Elkartrukeko programak / mugikortasuna"
 msgstr "Programas de intercambio / movilidad"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:660
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:903
-#: Http/Controllers/WordController.php:660
-#: Http/Controllers/WordController.php:903
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:663
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:906
+#: Http/Controllers/WordController.php:663
+#: Http/Controllers/WordController.php:906
 msgid "Data(k)"
 msgstr "Fecha(s)"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:699
-#: Http/Controllers/WordController.php:699
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:702
+#: Http/Controllers/WordController.php:702
 msgid "Graduondoko Programak"
 msgstr "Programa de postgrado"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:743
-#: Http/Controllers/WordController.php:743
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:746
+#: Http/Controllers/WordController.php:746
 msgid "Bisitak"
 msgstr "Visitas"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:803
-#: Http/Controllers/WordController.php:803
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:806
+#: Http/Controllers/WordController.php:806
 msgid "Datak"
 msgstr "Fecha"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:844
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1001
-#: Http/Controllers/WordController.php:844
-#: Http/Controllers/WordController.php:1001
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:847
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1004
+#: Http/Controllers/WordController.php:847
+#: Http/Controllers/WordController.php:1004
 msgid "Izenbururua"
 msgstr "Título"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:845
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:848
 #: ../storage/framework/textos/e0da34979ea2ad5f00b74d6e8bb3a7f1dbfaced6.php.php:132
-#: Http/Controllers/WordController.php:845
+#: Http/Controllers/WordController.php:848
 msgid "Zuzendaria(k)"
 msgstr "Director(es)/Directora(s)"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:846
-#: Http/Controllers/WordController.php:846
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:849
+#: Http/Controllers/WordController.php:849
 msgid "Doktorando(k)"
 msgstr "Doctorando/Doctoranda"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:935
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:938
 #: ../storage/framework/textos/f1bb90f84bf92cf66d3aea4794266717690a8191.php.php:21
 #: ../storage/framework/textos/f1bb90f84bf92cf66d3aea4794266717690a8191.php.php:81
-#: Http/Controllers/WordController.php:935 Traits/Listados.php:21
+#: Http/Controllers/WordController.php:938 Traits/Listados.php:21
 #: Traits/Listados.php:81
-#, fuzzy
-#| msgid "Aukeratu urtea"
 msgid "Aukeratu"
 msgstr "Seleccionar año"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:936
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:939
 #: ../storage/framework/textos/f1bb90f84bf92cf66d3aea4794266717690a8191.php.php:82
-#: Http/Controllers/WordController.php:936 Traits/Listados.php:82
+#: Http/Controllers/WordController.php:939 Traits/Listados.php:82
 msgid "Hitzaldi gonbidatua"
 msgstr "Invitado a conferencia"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:937
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:940
 #: ../storage/framework/textos/f1bb90f84bf92cf66d3aea4794266717690a8191.php.php:83
-#: Http/Controllers/WordController.php:937 Traits/Listados.php:83
+#: Http/Controllers/WordController.php:940 Traits/Listados.php:83
 msgid "Ahozko aurkezpena"
 msgstr "Comunicación oral"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:938
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:941
 #: ../storage/framework/textos/f1bb90f84bf92cf66d3aea4794266717690a8191.php.php:84
-#: Http/Controllers/WordController.php:938 Traits/Listados.php:84
+#: Http/Controllers/WordController.php:941 Traits/Listados.php:84
 msgid "Posterra"
 msgstr "Poster"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:953
-#: Http/Controllers/WordController.php:953
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:956
+#: Http/Controllers/WordController.php:956
 msgid "Ekarpena"
 msgstr "Contribución"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:955
-#: Http/Controllers/WordController.php:955
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:958
+#: Http/Controllers/WordController.php:958
 msgid "Konferentzi/Posterra"
 msgstr "Conferencia/Poster"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:986
-#: Http/Controllers/WordController.php:986
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:989
+#: Http/Controllers/WordController.php:989
 msgid "Aldizkariak"
 msgstr "Revistas"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1004
-#: Http/Controllers/WordController.php:1004
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1007
+#: Http/Controllers/WordController.php:1007
 msgid "Kapituloa"
 msgstr "Capítulo"
+
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1164
+#: Http/Controllers/WordController.php:1164
+#, fuzzy
+#| msgid "Komunikabidea"
+msgid "komunikabideWeb"
+msgstr "Medio comunicación"
 
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:12
 msgid "Euskal Herriko unibertsitatea"
@@ -2347,52 +2373,52 @@ msgstr "Con puntero:"
 msgid "Sin puntero :"
 msgstr "Sin puntero:"
 
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:53
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:96
-#: Http/Controllers/ProyectosController.php:53
-#: Http/Controllers/ProyectosController.php:96
-msgid "Proiektua  beharrezkoa da."
-msgstr "El nombre del proyecto es obligatorio"
-
 #: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:54
 #: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:97
 #: Http/Controllers/ProyectosController.php:54
 #: Http/Controllers/ProyectosController.php:97
+msgid "Proiektua  beharrezkoa da."
+msgstr "El nombre del proyecto es obligatorio"
+
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:55
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:98
+#: Http/Controllers/ProyectosController.php:55
+#: Http/Controllers/ProyectosController.php:98
 msgid "Finantziazioa beharrezkoa da."
 msgstr "La financiación es obligatoria"
 
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:67
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:83
-#: Http/Controllers/ProyectosController.php:67
-#: Http/Controllers/ProyectosController.php:83
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:68
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:84
+#: Http/Controllers/ProyectosController.php:68
+#: Http/Controllers/ProyectosController.php:84
 msgid "urte"
-msgstr "Año"
+msgstr "urte"
 
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:67
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:83
-#: Http/Controllers/ProyectosController.php:67
-#: Http/Controllers/ProyectosController.php:83
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:68
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:84
+#: Http/Controllers/ProyectosController.php:68
+#: Http/Controllers/ProyectosController.php:84
 msgid "hilabete"
 msgstr "Mes"
 
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:67
-#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:83
-#: Http/Controllers/ProyectosController.php:67
-#: Http/Controllers/ProyectosController.php:83
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:68
+#: ../storage/framework/textos/b7ea986dbb8a886a77f30ea30feb9b1e40b582b8.php.php:84
+#: Http/Controllers/ProyectosController.php:68
+#: Http/Controllers/ProyectosController.php:84
 msgid "egun"
 msgstr "Día"
-
-#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:51
-#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:83
-#: Http/Controllers/EquipamientoNuevoController.php:51
-#: Http/Controllers/EquipamientoNuevoController.php:83
-msgid "Hornikuntza  beharrezkoa da."
-msgstr "El suministro es obligatorio"
 
 #: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:52
 #: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:84
 #: Http/Controllers/EquipamientoNuevoController.php:52
 #: Http/Controllers/EquipamientoNuevoController.php:84
+msgid "Hornikuntza  beharrezkoa da."
+msgstr "El suministro es obligatorio"
+
+#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:53
+#: ../storage/framework/textos/c2f1c562fd546d2f33850a13bb5b60c7665a9236.php.php:85
+#: Http/Controllers/EquipamientoNuevoController.php:53
+#: Http/Controllers/EquipamientoNuevoController.php:85
 msgid "Instituzioa   beharrezkoa da."
 msgstr "La institución es obligatoria"
 
@@ -2500,8 +2526,8 @@ msgstr "Castellano"
 msgid "Euskara"
 msgstr "Euskera"
 
-#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:62
-#: Http/Controllers/FormacionesController.php:62
+#: ../storage/framework/textos/eccc89f1a4149dbbe4985f3620e986ef6605b8e4.php.php:63
+#: Http/Controllers/FormacionesController.php:63
 msgid "Antolatzailea(k) beharrezkoa da."
 msgstr "Las/Los organizadora(s)/organizador(es) son necesarias/necesarios"
 
@@ -2536,6 +2562,18 @@ msgstr "ERROR FP 404"
 #: ../storage/framework/textos/fd826f296fc53c678f1fcd21254fbb2d5c1009e4.php.php:57
 msgid "Aktibitea"
 msgstr "Actividad"
+
+#~ msgid "Kongresu Zientifikoetan parte-hartzea"
+#~ msgstr "Participación en congresos científicos"
+
+#~ msgid "Prentsa"
+#~ msgstr "Prensa"
+
+#~ msgid "Ezagutza basikoa"
+#~ msgstr "Conocimientos básicos"
+
+#~ msgid "Beste Unibertsitateetan"
+#~ msgstr "En otras universidades"
 
 #~ msgid "Hedakuntza"
 #~ msgstr "Divulgación"
@@ -2628,8 +2666,11 @@ msgstr "Actividad"
 #~ msgid "Egilea"
 #~ msgstr "Autor/Autora"
 
-#~ msgid "Lehenbiziko aldia da sartzen zarela, zure datuak ondo bete, eta pasahitza aldatu."
-#~ msgstr "Primera vez que se loguea, rellene bien los datos y cambie la contraseña"
+#~ msgid ""
+#~ "Lehenbiziko aldia da sartzen zarela, zure datuak ondo bete, eta pasahitza "
+#~ "aldatu."
+#~ msgstr ""
+#~ "Primera vez que se loguea, rellene bien los datos y cambie la contraseña"
 
 #~ msgid "Aukeratu hilabetea"
 #~ msgstr "Seleccionar mes"
@@ -2661,8 +2702,12 @@ msgstr "Actividad"
 #~ msgid "Ongi etorria"
 #~ msgstr "Bienvenido/Bienvenida"
 
-#~ msgid "Ongi etorria Gipuzkoako Ingenieritza Eskolako memoria sortzeko aplikaziora. Milesker zure lanarengatii"
-#~ msgstr "Bienvenido/Bienvenida a la aplicación para crear la memoria de la Escuela de Ingeniería de Gipuzkoa. Muchas gracias por tu colaboración"
+#~ msgid ""
+#~ "Ongi etorria Gipuzkoako Ingenieritza Eskolako memoria sortzeko "
+#~ "aplikaziora. Milesker zure lanarengatii"
+#~ msgstr ""
+#~ "Bienvenido/Bienvenida a la aplicación para crear la memoria de la Escuela "
+#~ "de Ingeniería de Gipuzkoa. Muchas gracias por tu colaboración"
 
 #~ msgid "Irakaslea"
 #~ msgstr "Profesor/Profesora"

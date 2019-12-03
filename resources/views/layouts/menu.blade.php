@@ -79,7 +79,7 @@
 				<li><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/PIfuera') }}"><i class="fa fa-refresh" aria-hidden="true"></i> {{ __('Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility)') }}</a>
 					<ul>
 						<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/PIfuera') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Beste unibertsitateetan ')}}</a></li>
-						<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/PIvisita') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Bisitariak')}}</a></li>
+						<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/PIvisita') }}"><i class="fa fa-reply" aria-hidden="true"></i> {{__('Bisitariak')}}</a></li>
 					</ul>
 				</li>
 				<!--
@@ -143,7 +143,7 @@
 					<li><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera') }}"><i class="fa fa-refresh" aria-hidden="true"></i> {{ __('Egonaldi zientifikoak') }}</a>
 						<ul>
 							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/CEfuera') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Beste unibertsitateetan')}}</a></li>
-							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/CEvisita') }}"><i class="fa fa-share" aria-hidden="true"></i> {{__('Bisitariak')}}</a></li>
+							<li class="level-3"><a href="{{ url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/CEvisita') }}"><i class="fa fa-reply" aria-hidden="true"></i> {{__('Bisitariak')}}</a></li>
 						</ul>
 					</li>
 					<li><a href="{{ url(App\Lib\Functions::parseLang().'/equipamientoNuevo')   }}"><i class="fa fa-user" aria-hidden="true"></i> {{ __('Hornikuntza zientifikoaren eskurapena') }}</a></li>
