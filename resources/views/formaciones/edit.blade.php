@@ -82,7 +82,7 @@
 		            <div class="form-group">
 		                <label><strong>{{ __('Tokia') }} :</strong></label>
 		                {!! Form::text('lugar', null, array('id' =>'lugar','placeholder' => __('Tokia') ,'class' => 'form-control ')) !!}
-			            <p><a class='btn btn-info lugar' data-valor="UPV/EHU, Gipuzkoako Ingeniaritza Eskola">UPV/EHU, Gipuzkoako Ingenieritza Eskola</a>
+			            <p><a class='btn btn-info lugar' data-valor="UPV/EHU, Gipuzkoako Ingeniaritza Eskola">UPV/EHU, Gipuzkoako Ingeniaritza Eskola</a>
 			            <a class='btn btn-info lugar' data-valor="GIE-Donostia">GIE-Donostia</a>
 			            <a class='btn btn-info lugar' data-valor="GIE-Eibar">GIE-Eibar</a>
 			            <a class='btn btn-info lugar' data-valor="SAE/HELAZ ( UPV/EHU )">SAE/HELAZ ( UPV/EHU )</a>
