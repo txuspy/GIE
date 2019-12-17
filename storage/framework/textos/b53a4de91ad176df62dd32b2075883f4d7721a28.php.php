@@ -30,7 +30,10 @@
                         <?php if(Auth::guest()): ?>
                             <li class="sign-in btn btn-info" role="presentation"><a href="<?php echo e(url('/login')); ?>"><?php echo e(__('Sesioa hasi')); ?> <i class="fa fa-lock" aria-hidden="true"></i></a></li>
                         <?php else: ?>
-
+                        <li>
+                            <a href="mailto:do-ep.akademi-idaz@ehu.es">
+                            <i class="fa fa-question-circle" aria-hidden="true"></i> do-ep.akademi-idaz@ehu.es
+                            </a>
                         <li>
                             <a><?php echo e(\Carbon\Carbon::now('Europe/Madrid')->toTimeString()); ?> </a>
                         </li>
@@ -38,6 +41,11 @@
                             <li>
                                 <a href="<?php echo e(url(App\Lib\Functions::parseLang().'/users/'.Auth::user()->id.'/edit')); ?>"   title="<?php echo e(__('Erabiltzailaren detaileak')); ?>" >
                                     <?php echo e(Auth::user()->name); ?> <i class="fa fa-cog" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/doc/Jarraibideak_Instrucciones.pdf" title="<?php echo e(__('Jarraibidea laburra ')); ?>">
+                                    <i class="fa fa-info-circle" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li>

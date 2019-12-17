@@ -29,7 +29,10 @@
                         @if (Auth::guest())
                             <li class="sign-in btn btn-info" role="presentation"><a href="{{ url('/login') }}">{{ __('Sesioa hasi')}} <i class="fa fa-lock" aria-hidden="true"></i></a></li>
                         @else
-
+                        <li>
+                            <a href="mailto:do-ep.akademi-idaz@ehu.es">
+                            <i class="fa fa-question-circle" aria-hidden="true"></i> do-ep.akademi-idaz@ehu.es
+                            </a>
                         <li>
                             <a>{{ \Carbon\Carbon::now('Europe/Madrid')->toTimeString() }} </a>
                         </li>
@@ -37,6 +40,11 @@
                             <li>
                                 <a href="{{ url(App\Lib\Functions::parseLang().'/users/'.Auth::user()->id.'/edit') }}"   title="{{ __('Erabiltzailaren detaileak')}}" >
                                     {{ Auth::user()->name }} <i class="fa fa-cog" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/doc/Jarraibideak_Instrucciones.pdf" title="{{ __('Jarraibidea laburra ') }}">
+                                    <i class="fa fa-info-circle" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li>

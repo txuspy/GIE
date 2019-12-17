@@ -77,7 +77,7 @@
 				<li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/PIfuera')); ?>"><i class="fa fa-refresh" aria-hidden="true"></i> <?php echo e(__('Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility)')); ?></a>
 					<ul>
 						<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/PIfuera')); ?>"><i class="fa fa-share" aria-hidden="true"></i> <?php echo e(__('Beste unibertsitateetan ')); ?></a></li>
-						<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/PIvisita')); ?>"><i class="fa fa-share" aria-hidden="true"></i> <?php echo e(__('Bisitariak')); ?></a></li>
+						<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/PIvisita')); ?>"><i class="fa fa-reply" aria-hidden="true"></i> <?php echo e(__('Bisitariak')); ?></a></li>
 					</ul>
 				</li>
 				<!--
@@ -141,7 +141,7 @@
 					<li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/fuera')); ?>"><i class="fa fa-refresh" aria-hidden="true"></i> <?php echo e(__('Egonaldi zientifikoak')); ?></a>
 						<ul>
 							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/CEfuera')); ?>"><i class="fa fa-share" aria-hidden="true"></i> <?php echo e(__('Beste unibertsitateetan')); ?></a></li>
-							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/CEvisita')); ?>"><i class="fa fa-share" aria-hidden="true"></i> <?php echo e(__('Bisitariak')); ?></a></li>
+							<li class="level-3"><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/programasDeIntercambio/show/CEvisita')); ?>"><i class="fa fa-reply" aria-hidden="true"></i> <?php echo e(__('Bisitariak')); ?></a></li>
 						</ul>
 					</li>
 					<li><a href="<?php echo e(url(App\Lib\Functions::parseLang().'/equipamientoNuevo')); ?>"><i class="fa fa-user" aria-hidden="true"></i> <?php echo e(__('Hornikuntza zientifikoaren eskurapena')); ?></a></li>

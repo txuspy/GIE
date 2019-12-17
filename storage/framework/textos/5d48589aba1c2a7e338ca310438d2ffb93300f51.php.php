@@ -27,7 +27,15 @@
                     </p>
                     
                     <div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                            <p><stong><?php echo e(__('Jarraibideak')); ?>:</stong> </p>
+                            <p><small><?php echo e(__('Power point gida')); ?></small></p>
+
+                            <a href="/doc/Jarraibideak_Instrucciones.pdf">
+                                <img src="/images/laguntza.png" height="170">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
                             <p><stong><?php echo e(__('Erabiltzailearen onespenak')); ?>:</stong> </p>
                             <p><small><?php echo e(__('Pasahitza aldatzeko, hizkuntza ...')); ?></small></p>
 
@@ -36,7 +44,7 @@
                                 <source src="/videos/pasahitza.mp4" type="video/mp4" />
                             </video>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <p><stong><?php echo e(__('Oinarrizko ezagutza')); ?>:</stong> </p>
                             <p><small><?php echo e(__('Erregistro bat sortu')); ?></small></p>
                              <video controls height="170" width="auto">
