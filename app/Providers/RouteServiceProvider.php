@@ -50,7 +50,7 @@ class RouteServiceProvider extends ServiceProvider
             require base_path('routes/web.php');
         });
     }
-    protected function mapLangRoutes(){
+   /* protected function mapLangRoutes(){
         $locale = \Request::segment(1);
         if(in_array($locale, config('app.supported-locales')))
         {
@@ -61,6 +61,17 @@ class RouteServiceProvider extends ServiceProvider
             //$locale='eu';
             // \App::setLocale($locale);
             //die($locale);
+        }
+        return $locale;
+    }*/
+    protected function mapLangRoutes(){
+        $locale = \Request::segment(1);
+        if(in_array($locale, config('app.supported-locales')))
+        {
+            \LaravelGettext::setLocale($locale);
+            \App::setLocale($locale);
+        }else{
+            $locale = null;
         }
         return $locale;
     }
