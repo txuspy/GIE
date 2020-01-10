@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GIE\n"
-"POT-Creation-Date: 2019-12-17 07:58+0000\n"
-"PO-Revision-Date: 2019-12-17 07:58+0000\n"
+"POT-Creation-Date: 2020-01-10 10:43+0100\n"
+"PO-Revision-Date: 2020-01-10 10:50+0100\n"
 "Last-Translator: Unai Susperregi <unai@irunweb.com>\n"
 "Language-Team: Unai Susperregi <unai@irunweb.com>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-KeywordsList: _;__;gettext;_n:1,2;ngettext:1,2;dgettext:2\n"
 "X-Poedit-Basepath: ../../../../../app\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-1: Traits\n"
 "X-Poedit-SearchPath-2: ../resources/views\n"
 "X-Poedit-SearchPath-3: Console\n"
-"X-Poedit-SearchPath-4: ../storage/framework/textos/\n"
+"X-Poedit-SearchPath-4: ../storage/framework/textos\n"
 
 #: ../storage/framework/textos/04672f82f85fb46fd231e0436ff47314c9f44b28.php.php:12
 #: ../storage/framework/textos/2107b49d17f87905486728d404325e37bba2c13a.php.php:13
@@ -595,8 +595,8 @@ msgstr "Autocomplete...."
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1011
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1068
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1103
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1153
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1162
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1169
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1187
 #: ../storage/framework/textos/98d032f1ca6d0de3279f7358ca4257355c4b40b0.php.php:65
 #: ../storage/framework/textos/98d032f1ca6d0de3279f7358ca4257355c4b40b0.php.php:66
 #: ../storage/framework/textos/9cb96722e3c07824f8ed1f8a5e65d27904fcac57.php.php:83
@@ -619,8 +619,8 @@ msgstr "Autocomplete...."
 #: Http/Controllers/WordController.php:1011
 #: Http/Controllers/WordController.php:1068
 #: Http/Controllers/WordController.php:1103
-#: Http/Controllers/WordController.php:1153
-#: Http/Controllers/WordController.php:1162
+#: Http/Controllers/WordController.php:1169
+#: Http/Controllers/WordController.php:1187
 msgid "Data"
 msgstr "Data"
 
@@ -628,13 +628,13 @@ msgstr "Data"
 #: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:24
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:418
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1137
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1159
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1153
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:169
 #: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:19
 #: ../storage/framework/textos/d9d6c2c270c32d2ee432567dce98bd96723da462.php.php:93
 #: Http/Controllers/WordController.php:418
 #: Http/Controllers/WordController.php:1137
-#: Http/Controllers/WordController.php:1159
+#: Http/Controllers/WordController.php:1153
 msgid "Hedabideak"
 msgstr "Hedabideak"
 
@@ -642,12 +642,14 @@ msgstr "Hedabideak"
 #: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:26
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:409
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1135
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1150
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1148
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1166
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:168
 #: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:21
 #: Http/Controllers/WordController.php:409
 #: Http/Controllers/WordController.php:1135
-#: Http/Controllers/WordController.php:1150
+#: Http/Controllers/WordController.php:1148
+#: Http/Controllers/WordController.php:1166
 msgid "Ekitaldiak"
 msgstr "Ekitaldiak"
 
@@ -1697,10 +1699,6 @@ msgid "Bidali"
 msgstr "Bidali"
 
 #: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:8
-#, fuzzy
-#| msgid ""
-#| "Ongi etorria Gipuzkoako Ingenieritza Eskolako memoria sortzeko "
-#| "aplikaziora."
 msgid ""
 "Ongi etorria Gipuzkoako Ingeniaritza Eskolako oroitidazkia sortzeko "
 "aplikaziora."
@@ -1717,18 +1715,26 @@ msgid "Deberías cambiar la contraseña predefinida."
 msgstr "Deberías cambiar la contraseña predefinida."
 
 #: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:31
+msgid "Jarraibideak"
+msgstr "Jarraibideak"
+
+#: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:32
+msgid "Power point gida"
+msgstr "Power point gida"
+
+#: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:39
 msgid "Erabiltzailearen onespenak"
 msgstr "Erabiltzailearen onespenak"
 
-#: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:32
+#: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:40
 msgid "Pasahitza aldatzeko, hizkuntza ..."
 msgstr "Pasahitza aldatzeko, hizkuntza ..."
 
-#: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:40
+#: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:48
 msgid "Oinarrizko ezagutza"
 msgstr "Oinarrizko ezagutza"
 
-#: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:41
+#: ../storage/framework/textos/5d48589aba1c2a7e338ca310438d2ffb93300f51.php.php:49
 msgid "Erregistro bat sortu"
 msgstr "Erregistro bat sortu"
 
@@ -1935,9 +1941,9 @@ msgid "Bai"
 msgstr "Bai"
 
 #: ../storage/framework/textos/7890cc0cbe0496ccf59590ab9f881d60971be264.php.php:128
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1163
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1188
 #: ../storage/framework/textos/a8110e71bf6c5b355d8346e3dc34a84bb34aaf49.php.php:140
-#: Http/Controllers/WordController.php:1163
+#: Http/Controllers/WordController.php:1188
 msgid "Komunikabidea"
 msgstr "Komunikabidea"
 
@@ -2073,7 +2079,7 @@ msgstr "Eskolako ikasleei bideratutako ekintzak"
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:77
 #: Http/Controllers/WordController.php:162
 msgid "Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility)"
-msgstr "Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility)"
+msgstr "Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Mobility)"
 
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:169
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:350
@@ -2130,7 +2136,7 @@ msgstr "Eskolaren hedakuntza"
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:343
 #: Http/Controllers/WordController.php:343
 msgid "Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility) "
-msgstr "Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Movility) "
+msgstr "Elkartrukeko programak: IRI/AZPen mugikortasuna (Staff Mobility) "
 
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:367
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:127
@@ -2219,8 +2225,10 @@ msgstr "Data"
 
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:847
 #: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1004
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1186
 #: Http/Controllers/WordController.php:847
 #: Http/Controllers/WordController.php:1004
+#: Http/Controllers/WordController.php:1186
 msgid "Izenbururua"
 msgstr "Izenbururua"
 
@@ -2281,10 +2289,10 @@ msgstr "Aldizkariak"
 msgid "Kapituloa"
 msgstr "Kapitulua"
 
-#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1164
-#: Http/Controllers/WordController.php:1164
-msgid "komunikabideWeb"
-msgstr "Komunikabidea"
+#: ../storage/framework/textos/951bd085e3df2a3791e4985c5387643f2ff57948.php.php:1189
+#: Http/Controllers/WordController.php:1189
+msgid "Esteka"
+msgstr "Esteka"
 
 #: ../storage/framework/textos/99ba5eff2b93060522db30b8a8b648e6281d06a6.php.php:12
 msgid "Euskal Herriko unibertsitatea"
@@ -2354,11 +2362,15 @@ msgstr "Ezabatu fitxategia:"
 msgid "Sesioa hasi"
 msgstr "Saioa hasi"
 
-#: ../storage/framework/textos/b53a4de91ad176df62dd32b2075883f4d7721a28.php.php:39
+#: ../storage/framework/textos/b53a4de91ad176df62dd32b2075883f4d7721a28.php.php:42
 msgid "Erabiltzailaren detaileak"
 msgstr "Erabiltzaileari buruzko informazioa"
 
 #: ../storage/framework/textos/b53a4de91ad176df62dd32b2075883f4d7721a28.php.php:47
+msgid "Jarraibidea laburra "
+msgstr "Jarraibidea laburra "
+
+#: ../storage/framework/textos/b53a4de91ad176df62dd32b2075883f4d7721a28.php.php:55
 msgid "Logout"
 msgstr "Irten"
 
@@ -2563,6 +2575,9 @@ msgstr "FP 404 AKATSA"
 #: ../storage/framework/textos/fd826f296fc53c678f1fcd21254fbb2d5c1009e4.php.php:57
 msgid "Aktibitea"
 msgstr "Aktibitatea"
+
+#~ msgid "komunikabideWeb"
+#~ msgstr "Komunikabidea"
 
 #~ msgid "Kongresu Zientifikoetan parte-hartzea"
 #~ msgstr "Kongresu zientifikoetako parte-hartzea"

@@ -1143,8 +1143,24 @@ if (in_array("5", $secciones)) {
 			$titulo    = "titulo_".$lang;
 			$desc      = "desc_".$lang;
 		
+		
+		/////////////////////////////
+		$tableName = __('Ekitaldiak');
+		$this->crearTitulo($section, $tituloH1, $this->styleH2);
+		
+		if( $tipo == 'prensa' ){
+			$titCont   = "9.2";
+			$section->addText(  $titCont."-".__('Hedabideak') , $this->styleH1  );
+			$phpWord->addTableStyle('', $this->tableStyle);
+			$table     = $section->addTable('');
+		}
+		
+		
+		/////////////////////
+		
 			foreach ($divulgaciones as $divulgacion){
 				if( $tipo == 'hedakuntza' ){
+					
 					$titCont   = "9.1";
 					if($cont=='1'){
 						$section->addText(  $titCont."-".__('Ekitaldiak') , $this->styleH1  );
@@ -1154,15 +1170,24 @@ if (in_array("5", $secciones)) {
 					\PhpOffice\PhpWord\Shared\Html::addHtml($section, \App\Traits\Listados::limpiarAtributosHtml(($divulgacion->$desc) ) );
 					$cont =$cont + 1;
 				}else{
+					/*
 					$titCont   = "9.2";
-						if($cont=='1'){
-					$section->addText(  $titCont."-".__('Hedabideak') , $this->styleH1  );
+					if($cont=='1'){
+						$section->addText(  $titCont."-".__('Hedabideak') , $this->styleH1  );
 					}
 					$section->addText(  $titCont.".".$cont."-".$divulgacion->$titulo , $this->styleH2  );
 					$section->addText(  __('Data').": ".$divulgacion->fecha , $this->styleP  );
-					$section->addText(  __('Komunikabidea').": ".$divulgacion->fecha , $this->styleP  );
-					$section->addText(  __('komunikabideWeb').": ".$divulgacion->fecha , $this->styleP  );
+					$section->addText(  __('Komunikabidea').": ".$divulgacion->Komunikabidea , $this->styleP  );
+					$section->addText(  __('komunikabideWeb').": ".$divulgacion->komunikabideWeb , $this->styleP  );
+					*/
 					$cont =$cont + 1;
+
+						//$table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Izenbururua'), $titCont.".".$cont."-".$divulgacion->$titulo);
+						$table = $this->pintaLineaTabla($table, $this->styleFirstTHRow, $this->styleFirstTDRow, __('Izenbururua'), $divulgacion->$titulo);
+						$table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Data'), $divulgacion->fecha);
+						$table = $this->pintaLineaTabla($table, $this->styleTH, $this->styleTD, __('Komunikabidea'), $divulgacion->komunikabidea);
+						$table = $this->pintaLineaTabla($table, $this->styleLastTHRow, $this->styleLastTDRow, __('Esteka'), $divulgacion->komunikabideWeb);
+		
 				}
 			}
 		}
