@@ -55,7 +55,8 @@ class WordController extends Controller
 	private $styleH2 ;
 	private $styleH3 ;
 	private $styleP  ;
-	private $fuente;
+	private $fuente ;
+	private $docName ;
 	private $unico = false;
 
 
@@ -243,21 +244,30 @@ class WordController extends Controller
 		}
 */
 
-		// Doc itxi
-		$docName = Carbon::now()."-GIE.docx";
-		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-		$objWriter->save($docName);
-		header('Pragma: no-cache');
-		header('Expires: 0');
-		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-		header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-		header('Content-Disposition: attachment; filename='.$docName.';');
-		header('Content-Transfer-Encoding: binary');
-		header('Content-Length: '.filesize( $docName ));
-		readfile($docName );
-		unlink($docName );
-		\LaravelGettext::setLocale(Session::get('locale'));
-		return back()->with('success', __('Word zuzen sortu da'));
+		try {
+			// Doc itxi
+			$docName   = Carbon::now()."-GIE.docx";
+			$docName = str_replace(' ', '-', $docName );
+			$docName = str_replace(':', '-', $docName );
+			// dd($docName);
+			$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+			$objWriter->save($docName);
+			header('Pragma: no-cache');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+			header('Content-Disposition: attachment; filename='.$docName.';');
+			header('Content-Transfer-Encoding: binary');
+			header('Content-Length: '.filesize( $docName ));
+			readfile($docName );
+			unlink($docName );
+			\LaravelGettext::setLocale(Session::get('locale'));
+			return back()->with('success', __('Word zuzen sortu da'));
+		
+		} catch (\BadMethodCallException $e) {
+		    echo date('H:i:s'), ' error ...' . $e, EOL;
+		}
+
 	}
 
 	public function indiceWord($phpWord, $request )
