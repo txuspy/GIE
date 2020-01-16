@@ -95,7 +95,6 @@ class WordController extends Controller
 		$this->fechaDesde = Carbon::parse($request['desde']);
 		$this->fechaHasta = Carbon::parse($request['hasta']);
 
-dd($request['desde']);
 
 
 		$this->setStyles();
@@ -1099,8 +1098,7 @@ if (in_array("5", $secciones)) {
 			->orderBy('fecha','DESC')
 			->get();
 		}else{
-			echo "no unico";
-			echo $this->fechaDesde ;
+		
 			$ekintzakGizartea = EkintzakGizartea::whereBetween('fecha', array($this->fechaDesde, $this->fechaHasta))
 			->orderBy('fecha','DESC')
 			->get();	
@@ -1111,7 +1109,7 @@ if (in_array("5", $secciones)) {
 			//dd(	$ekintzakGizartea );
 		}
 	
-		dd($ekintzakGizartea);
+		//dd($ekintzakGizartea);
 	 
 		//$sql   = Functions::getSql($q, $q->toSql());
 			
