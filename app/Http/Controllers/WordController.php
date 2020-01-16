@@ -90,8 +90,10 @@ class WordController extends Controller
 			$this->unico  = true;
 		}
 		\LaravelGettext::setLocale($request->lng);
-		$this->fechaDesde = $request['desde'];
-		$this->fechaHasta = $request['hasta'];
+		
+		
+		$this->fechaDesde = Carbon::parse($request['desde']);
+		$this->fechaHasta = Carbon::parse($request['hasta']);
 
 		$this->setStyles();
 		if( \Session::get('locale') =='es'){
@@ -777,11 +779,13 @@ if (in_array("5", $secciones)) {
 	public function wordGrupoInvestigacion( $section, $request, $phpWord)
 	{
 
+		/*
 		$fechaDesde = Carbon::parse($this->fechaDesde);
 		$fechaHasta = Carbon::parse($this->fechaHasta);
+		*/
 		if(  $this->unico  ){
-			$gruposInvestigacion = GrupoInvestigacion::where('desde', '>=',  $fechaDesde->format('Y'))
-			->where('hasta','<=',  $fechaHasta->format('Y'))
+			$gruposInvestigacion = GrupoInvestigacion::where('desde', '>=',  $this->fechaDesde->format('Y'))
+			->where('hasta','<=',  $this->fechaHasta->format('Y'))
 			->orWhereNull('hasta')
 			->where(function($query) {
 				$query->where('user_id', \Auth::user()->id);
@@ -790,9 +794,9 @@ if (in_array("5", $secciones)) {
 			})
 			->orderBy('id','DESC')->get();
 		}else{
-			// dd( "hasta".$fechaHasta->format('Y')." / desde".$fechaDesde->format('Y') );
-			$gruposInvestigacion = GrupoInvestigacion::where('desde', '>=',  $fechaDesde->format('Y'))
-			->where('hasta','<=',  $fechaHasta->format('Y'))
+			// dd( "hasta".$this->fechaHasta->format('Y')." / desde".$this->fechaDesde->format('Y') );
+			$gruposInvestigacion = GrupoInvestigacion::where('desde', '>=',  $this->fechaDesde->format('Y'))
+			->where('hasta','<=',  $this->fechaHasta->format('Y'))
 			->orWhereNull('hasta')
 			->orderBy('id','DESC')->get();
 		}
