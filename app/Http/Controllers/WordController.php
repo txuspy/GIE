@@ -90,10 +90,13 @@ class WordController extends Controller
 			$this->unico  = true;
 		}
 		\LaravelGettext::setLocale($request->lng);
-		
+	
 		
 		$this->fechaDesde = Carbon::parse($request['desde']);
 		$this->fechaHasta = Carbon::parse($request['hasta']);
+
+dd($request['desde']);
+
 
 		$this->setStyles();
 		if( \Session::get('locale') =='es'){
