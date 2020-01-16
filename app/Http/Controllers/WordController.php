@@ -304,7 +304,7 @@ class WordController extends Controller
 		$section->addListItem( mb_strtoupper ( __('Giza baliabideak') ), 0, null, 'multilevel');
 		$section->addListItem( mb_strtoupper ( __('Baliabide ekonomikoak') ), 0, null, 'multilevel');
 		$section->addListItem( mb_strtoupper ( __('Baliabide orokorrak') ), 0, null, 'multilevel');
-		if ( in_array("2", $secciones) OR in_array("3", $secciones) OR in_array("4", $secciones) OR in_array("5", $secciones) OR in_array("13", $secciones) OR in_array("14", $secciones)) {
+		if ( in_array("2", $secciones) OR in_array("3", $secciones) OR in_array("4", $secciones) OR in_array("5", $secciones) OR in_array("13", $secciones) OR in_array("14", $secciones) OR in_array("15", $secciones) OR in_array("16", $secciones)) {
 			$section->addListItem( __('IRAKASKUNTZA-JARDUERAK'), 0, null, 'multilevel');
 			$section->addListItem( __('Irakaskuntza-eskaintza'), 1, null, 'multilevel');
 				$section->addListItem( __('Graduak'), 2, null, 'multilevel');
@@ -1094,8 +1094,16 @@ if (in_array("5", $secciones)) {
 		}else{
 			$ekintzakGizartea = EkintzakGizartea::whereBetween('fecha', array($this->fechaDesde, $this->fechaHasta))
 			->orderBy('fecha','DESC')
-			->get();
+			->get();	
+			/*
+			$ekintzakGizartea = EkintzakGizartea::whereBetween('fecha', array($this->fechaDesde, $this->fechaHasta))
+			->orderBy('fecha','DESC')
+			->toSql();*/
+			//dd(	$ekintzakGizartea );
 		}
+	///	dd($ekintzakGizartea);
+		//$sql   = Functions::getSql($q, $q->toSql());
+			
 		return $ekintzakGizartea;
 	}
 	public function wordEkintzakGizartea( $section, $request, $phpWord)
