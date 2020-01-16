@@ -403,7 +403,6 @@ class WordController extends Controller
 			if (in_array("15", $secciones)) {
 				$section->addListItem( mb_strtoupper ( __('Gizarte-erantzukizuneko ekintzak') ), 0, null, 'multilevel');
 				$ekintzakGizartea= $this->wordEkintzakGizarteaObjeto();
-				dd($ekintzakGizartea);
 				if(!$ekintzakGizartea->isEmpty()){
 					$titulo    = "titulo_".$lang ;
 					$desc      = "desc_".$lang ;
@@ -1093,6 +1092,8 @@ if (in_array("5", $secciones)) {
 			->orderBy('fecha','DESC')
 			->get();
 		}else{
+			echo "no unico";
+			echo $this->fechaDesde ;
 			$ekintzakGizartea = EkintzakGizartea::whereBetween('fecha', array($this->fechaDesde, $this->fechaHasta))
 			->orderBy('fecha','DESC')
 			->get();	
@@ -1103,7 +1104,7 @@ if (in_array("5", $secciones)) {
 			//dd(	$ekintzakGizartea );
 		}
 	
-
+		dd($ekintzakGizartea);
 	 
 		//$sql   = Functions::getSql($q, $q->toSql());
 			
