@@ -92,7 +92,8 @@ $style = [
                                                 <?php if($level == 'error'): ?>
                                                     Whoops!
                                                 <?php else: ?>
-                                                    Hello!
+                                                    <?php echo e(__("Solicitar contraseña")); ?>
+
                                                 <?php endif; ?>
                                             <?php endif; ?>
                                         </h1>
@@ -145,7 +146,7 @@ $style = [
 
                                         <!-- Salutation -->
                                         <p style="<?php echo e($style['paragraph']); ?>">
-                                            Regards,<br><?php echo e(config('app.name')); ?>
+                                            <?php echo e(config('app.name')); ?>
 
                                         </p>
 
@@ -155,8 +156,9 @@ $style = [
                                                 <tr>
                                                     <td style="<?php echo e($fontFamily); ?>">
                                                         <p style="<?php echo e($style['paragraph-sub']); ?>">
-                                                            If you’re having trouble clicking the "<?php echo e($actionText); ?>" button,
-                                                            copy and paste the URL below into your web browser:
+                                                            <?php echo e(__('Si tiene problemas para hacer clic en el botón, copie y pegue la siguiente URL en su navegador web:')); ?>
+
+                                                           
                                                         </p>
 
                                                         <p style="<?php echo e($style['paragraph-sub']); ?>">
@@ -185,7 +187,7 @@ $style = [
                                             &copy; <?php echo e(date('Y')); ?>
 
                                             <a style="<?php echo e($style['anchor']); ?>" href="<?php echo e(url('/')); ?>" target="_blank"><?php echo e(config('app.name')); ?></a>.
-                                            All rights reserved.
+                                          
                                         </p>
                                     </td>
                                 </tr>

@@ -55,7 +55,8 @@ class WordController extends Controller
 	private $styleH2 ;
 	private $styleH3 ;
 	private $styleP  ;
-	private $fuente;
+	private $fuente ;
+	private $docName ;
 	private $unico = false;
 
 
@@ -89,8 +90,12 @@ class WordController extends Controller
 			$this->unico  = true;
 		}
 		\LaravelGettext::setLocale($request->lng);
-		$this->fechaDesde = $request['desde'];
-		$this->fechaHasta = $request['hasta'];
+	
+		
+		$this->fechaDesde = Carbon::parse($request['desde']);
+		$this->fechaHasta = Carbon::parse($request['hasta']);
+
+
 
 		$this->setStyles();
 		if( \Session::get('locale') =='es'){
@@ -243,21 +248,30 @@ class WordController extends Controller
 		}
 */
 
-		// Doc itxi
-		$docName = Carbon::now()."-GIE.docx";
-		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-		$objWriter->save($docName);
-		header('Pragma: no-cache');
-		header('Expires: 0');
-		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-		header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-		header('Content-Disposition: attachment; filename='.$docName.';');
-		header('Content-Transfer-Encoding: binary');
-		header('Content-Length: '.filesize( $docName ));
-		readfile($docName );
-		unlink($docName );
-		\LaravelGettext::setLocale(Session::get('locale'));
-		return back()->with('success', __('Word zuzen sortu da'));
+		try {
+			// Doc itxi
+			$docName   = Carbon::now()."-GIE.docx";
+			$docName = str_replace(' ', '-', $docName );
+			$docName = str_replace(':', '-', $docName );
+			// dd($docName);
+			$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+			$objWriter->save($docName);
+			header('Pragma: no-cache');
+			header('Expires: 0');
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+			header('Content-Disposition: attachment; filename='.$docName.';');
+			header('Content-Transfer-Encoding: binary');
+			header('Content-Length: '.filesize( $docName ));
+			readfile($docName );
+			unlink($docName );
+			\LaravelGettext::setLocale(Session::get('locale'));
+			return back()->with('success', __('Word zuzen sortu da'));
+		
+		} catch (\BadMethodCallException $e) {
+		    echo date('H:i:s'), ' error ...' . $e, EOL;
+		}
+
 	}
 
 	public function indiceWord($phpWord, $request )
@@ -294,7 +308,7 @@ class WordController extends Controller
 		$section->addListItem( mb_strtoupper ( __('Giza baliabideak') ), 0, null, 'multilevel');
 		$section->addListItem( mb_strtoupper ( __('Baliabide ekonomikoak') ), 0, null, 'multilevel');
 		$section->addListItem( mb_strtoupper ( __('Baliabide orokorrak') ), 0, null, 'multilevel');
-		if ( in_array("2", $secciones) OR in_array("3", $secciones) OR in_array("4", $secciones) OR in_array("5", $secciones) OR in_array("13", $secciones) OR in_array("14", $secciones)) {
+		if ( in_array("2", $secciones) OR in_array("3", $secciones) OR in_array("4", $secciones) OR in_array("5", $secciones) OR in_array("13", $secciones) OR in_array("14", $secciones) OR in_array("15", $secciones) OR in_array("16", $secciones)) {
 			$section->addListItem( __('IRAKASKUNTZA-JARDUERAK'), 0, null, 'multilevel');
 			$section->addListItem( __('Irakaskuntza-eskaintza'), 1, null, 'multilevel');
 				$section->addListItem( __('Graduak'), 2, null, 'multilevel');
@@ -767,11 +781,13 @@ if (in_array("5", $secciones)) {
 	public function wordGrupoInvestigacion( $section, $request, $phpWord)
 	{
 
+		/*
 		$fechaDesde = Carbon::parse($this->fechaDesde);
 		$fechaHasta = Carbon::parse($this->fechaHasta);
+		*/
 		if(  $this->unico  ){
-			$gruposInvestigacion = GrupoInvestigacion::where('desde', '>=',  $fechaDesde->format('Y'))
-			->where('hasta','<=',  $fechaHasta->format('Y'))
+			$gruposInvestigacion = GrupoInvestigacion::where('desde', '>=',  $this->fechaDesde->format('Y'))
+			->where('hasta','<=',  $this->fechaHasta->format('Y'))
 			->orWhereNull('hasta')
 			->where(function($query) {
 				$query->where('user_id', \Auth::user()->id);
@@ -780,9 +796,9 @@ if (in_array("5", $secciones)) {
 			})
 			->orderBy('id','DESC')->get();
 		}else{
-			// dd( "hasta".$fechaHasta->format('Y')." / desde".$fechaDesde->format('Y') );
-			$gruposInvestigacion = GrupoInvestigacion::where('desde', '>=',  $fechaDesde->format('Y'))
-			->where('hasta','<=',  $fechaHasta->format('Y'))
+			// dd( "hasta".$this->fechaHasta->format('Y')." / desde".$this->fechaDesde->format('Y') );
+			$gruposInvestigacion = GrupoInvestigacion::where('desde', '>=',  $this->fechaDesde->format('Y'))
+			->where('hasta','<=',  $this->fechaHasta->format('Y'))
 			->orWhereNull('hasta')
 			->orderBy('id','DESC')->get();
 		}
@@ -1082,10 +1098,21 @@ if (in_array("5", $secciones)) {
 			->orderBy('fecha','DESC')
 			->get();
 		}else{
+		
 			$ekintzakGizartea = EkintzakGizartea::whereBetween('fecha', array($this->fechaDesde, $this->fechaHasta))
 			->orderBy('fecha','DESC')
-			->get();
+			->get();	
+			/*
+			$ekintzakGizartea = EkintzakGizartea::whereBetween('fecha', array($this->fechaDesde, $this->fechaHasta))
+			->orderBy('fecha','DESC')
+			->toSql();*/
+			//dd(	$ekintzakGizartea );
 		}
+	
+		//dd($ekintzakGizartea);
+	 
+		//$sql   = Functions::getSql($q, $q->toSql());
+			
 		return $ekintzakGizartea;
 	}
 	public function wordEkintzakGizartea( $section, $request, $phpWord)

@@ -49,11 +49,13 @@
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Login
+                                   <?php echo e(__("Entrar")); ?>
+
                                 </button>
 
                                 <a class="btn btn-link" href="<?php echo e(url('/password/reset')); ?>">
-                                    Forgot Your Password?
+                                    <?php echo e(__("He olvidado mi contraseña")); ?>
+
                                 </a>
                             </div>
                         </div>

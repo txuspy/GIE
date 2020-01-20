@@ -23,7 +23,7 @@ class Welcome extends Mailable
     public function build()
     {
         return $this->view('emails.welcome')
-        ->subject('Welcome a Forest Pioneer SL');
+        ->subject('Welcome a Gie');
         // ->BCC('contabilidad@forestpioneer.com', 'Urki')
     }
 }
