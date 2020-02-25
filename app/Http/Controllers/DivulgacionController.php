@@ -43,12 +43,10 @@ class DivulgacionController extends Controller
         if( $request->tipo == "hedakuntza") {
             $this->validate($request, [
                 'tipo'        => 'required',
-                'titulo_eu'   => 'required',
-                'desc_eu'     => 'required'      
+                'titulo_eu'   => 'required'     
             ],
             [
-                'titulo_eu.required'      => __('Izenburua  beharrezkoa da.'),
-                'desc_eu.required'        => __('Deskripzioa beharrezkoa da.')
+                'titulo_eu.required'      => __('Izenburua  beharrezkoa da.')
             ]);
         }else{
              $this->validate($request, [
@@ -101,12 +99,10 @@ class DivulgacionController extends Controller
     {
         $this->validate($request, [
             'tipo'        => 'required',
-            'titulo_eu'   => 'required',
-            'desc_eu'     => 'required'      
+            'titulo_eu'   => 'required'    
         ],
         [
-            'titulo_eu.required'      => __('Izenburua  beharrezkoa da.'),
-            'desc_eu.required'        => __('Deskripzioa beharrezkoa da.')
+            'titulo_eu.required'      => __('Izenburua  beharrezkoa da.')
         ]);
 
     	if($request->titulo_es==''){
